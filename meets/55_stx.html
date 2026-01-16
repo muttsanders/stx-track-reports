@@ -15,10 +15,13 @@
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
-      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; line-height: 1.2; }
+      .nav .sep { margin: 0 10px; color:#999; }
+      .nav b { font-weight: 900; }
 
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 18px; font-weight: 800; }
 
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
 
@@ -77,6 +80,17 @@
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
+
+      /* Records warning */
+      .warning-big {
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        color: #b00020;
+        margin: 6px 0 12px 0;
+      }
+
+      .rank { font-weight: 800; color: #333; }
     </style>
     
 </head>
@@ -89,14 +103,14 @@
         <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="55_all.html">All Athletes</a></span></p>
       </div>
       <div class="nav">
-        <a class="home-link" href="../index.html">Home</a>
+        <a class="home-link" href="../index.html">Home</a><span class="sep">|</span><a class="records-link" href="../records.html">StX Records</a>
       </div>
     </div>
     
-<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th></tr></thead><tbody><tr><td>Jack Nesbit</td><td>St Xavier (KY)</td><td></td><td>12</td><td>1:58.0</td><td class="fastest">57.83</td><td class="slowest">60.12</td></tr><tr><td>Dominic Jackson</td><td>St Xavier (KY)</td><td></td><td>18</td><td>2:00.6</td><td class="fastest">60.08</td><td class="slowest">60.53</td></tr><tr><td>Thomas Weber</td><td>St Xavier (KY)</td><td>2:00.3</td><td>49</td><td>2:04.6</td><td class="fastest">60.56</td><td class="slowest">64.00</td></tr><tr><td>Anthony Passafiume</td><td>St Xavier (KY)</td><td>2:03.1</td><td>63</td><td>2:09.1</td><td class="fastest">59.74</td><td class="slowest">69.41</td></tr></tbody></table></div></div>
-<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td>Zach Reed</td><td>St Xavier (KY)</td><td>4:46.2</td><td>12</td><td class="pr">4:45.8</td><td class="fastest">67.09</td><td class="slowest">74.56</td><td>73.05</td><td>71.13</td></tr><tr><td>Matthew Frick</td><td>St Xavier (KY)</td><td>4:56.0</td><td>17</td><td class="pr">4:49.5</td><td>70.87</td><td>73.44</td><td class="slowest">74.72</td><td class="fastest">70.47</td></tr><tr><td>Nolan Crider</td><td>St Xavier (KY)</td><td>4:58.2</td><td>27</td><td class="pr">4:53.3</td><td class="fastest">71.93</td><td>73.97</td><td class="slowest">74.91</td><td>72.48</td></tr><tr><td>Tristan Hindorff</td><td>St Xavier (KY)</td><td>4:34.3</td><td>37</td><td class="pr">4:29.9</td><td class="fastest">64.97</td><td>67.42</td><td class="slowest">69.12</td><td>68.42</td></tr><tr><td>Brodie Terkhorn</td><td>St Xavier (KY)</td><td>4:38.0</td><td>40</td><td class="pr">4:31.4</td><td class="fastest">66.72</td><td>68.07</td><td class="slowest">69.46</td><td>67.11</td></tr></tbody></table></div></div>
-<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td>Brodie Terkhorn</td><td>St Xavier (KY)</td><td>9:46.9</td><td>49</td><td class="pr">9:37.7</td><td>70.97</td><td>72.86</td><td class="fastest">70.33</td><td>71.60</td><td class="slowest">146.01</td><td>73.72</td><td>72.18</td><td></td></tr><tr><td>Tristan Hindorff</td><td>St Xavier (KY)</td><td>9:49.3</td><td>50</td><td class="pr">9:38.8</td><td class="fastest">69.79</td><td>71.06</td><td>71.05</td><td>72.40</td><td>72.41</td><td>74.26</td><td class="slowest">76.00</td><td>71.81</td></tr><tr><td>Hobs Ashburner</td><td>St Xavier (KY)</td><td>10:02.9</td><td>118</td><td>10:46.6</td><td>74.05</td><td class="fastest">73.25</td><td>78.01</td><td>82.16</td><td>86.75</td><td class="slowest">87.28</td><td>86.26</td><td>78.87</td></tr></tbody></table></div></div>
-<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>8:12.4</td><td>13</td><td>8:41.2</td><td>61.76</td><td>66.62</td><td>62.63</td><td>69.06</td><td>62.27</td><td class="slowest">71.69</td><td class="fastest">61.05</td><td>66.12</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-16 08:08:20</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th></tr></thead><tbody><tr><td><a href="../athletes/jack_nesbit.html">Jack Nesbit</a></td><td>St Xavier (KY)</td><td></td><td>12</td><td>1:58.0</td><td class="fastest">57.83</td><td class="slowest">60.12</td></tr><tr><td><a href="../athletes/dominic_jackson.html">Dominic Jackson</a></td><td>St Xavier (KY)</td><td></td><td>18</td><td>2:00.6</td><td class="fastest">60.08</td><td class="slowest">60.53</td></tr><tr><td><a href="../athletes/thomas_weber.html">Thomas Weber</a></td><td>St Xavier (KY)</td><td>2:00.3</td><td>49</td><td>2:04.6</td><td class="fastest">60.56</td><td class="slowest">64.00</td></tr><tr><td><a href="../athletes/anthony_passafiume.html">Anthony Passafiume</a></td><td>St Xavier (KY)</td><td>2:03.1</td><td>63</td><td>2:09.1</td><td class="fastest">59.74</td><td class="slowest">69.41</td></tr></tbody></table></div></div>
+<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href="../athletes/zach_reed.html">Zach Reed</a></td><td>St Xavier (KY)</td><td>4:46.2</td><td>12</td><td class="pr">4:45.8</td><td class="fastest">67.09</td><td class="slowest">74.56</td><td>73.05</td><td>71.13</td></tr><tr><td><a href="../athletes/matthew_frick.html">Matthew Frick</a></td><td>St Xavier (KY)</td><td>4:56.0</td><td>17</td><td class="pr">4:49.5</td><td>70.87</td><td>73.44</td><td class="slowest">74.72</td><td class="fastest">70.47</td></tr><tr><td><a href="../athletes/nolan_crider.html">Nolan Crider</a></td><td>St Xavier (KY)</td><td>4:58.2</td><td>27</td><td class="pr">4:53.3</td><td class="fastest">71.93</td><td>73.97</td><td class="slowest">74.91</td><td>72.48</td></tr><tr><td><a href="../athletes/tristan_hindorff.html">Tristan Hindorff</a></td><td>St Xavier (KY)</td><td>4:34.3</td><td>37</td><td class="pr">4:29.9</td><td class="fastest">64.97</td><td>67.42</td><td class="slowest">69.12</td><td>68.42</td></tr><tr><td><a href="../athletes/brodie_terkhorn.html">Brodie Terkhorn</a></td><td>St Xavier (KY)</td><td>4:38.0</td><td>40</td><td class="pr">4:31.4</td><td class="fastest">66.72</td><td>68.07</td><td class="slowest">69.46</td><td>67.11</td></tr></tbody></table></div></div>
+<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td><a href="../athletes/brodie_terkhorn.html">Brodie Terkhorn</a></td><td>St Xavier (KY)</td><td>9:46.9</td><td>49</td><td class="pr">9:37.7</td><td>70.97</td><td>72.86</td><td class="fastest">70.33</td><td>71.60</td><td class="slowest">146.01</td><td>73.72</td><td>72.18</td><td></td></tr><tr><td><a href="../athletes/tristan_hindorff.html">Tristan Hindorff</a></td><td>St Xavier (KY)</td><td>9:49.3</td><td>50</td><td class="pr">9:38.8</td><td class="fastest">69.79</td><td>71.06</td><td>71.05</td><td>72.40</td><td>72.41</td><td>74.26</td><td class="slowest">76.00</td><td>71.81</td></tr><tr><td><a href="../athletes/hobs_ashburner.html">Hobs Ashburner</a></td><td>St Xavier (KY)</td><td>10:02.9</td><td>118</td><td>10:46.6</td><td>74.05</td><td class="fastest">73.25</td><td>78.01</td><td>82.16</td><td>86.75</td><td class="slowest">87.28</td><td>86.26</td><td>78.87</td></tr></tbody></table></div></div>
+<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td><a href="../athletes/st_xavier_ky.html">St Xavier (KY)</a></td><td>St Xavier (KY)</td><td>8:12.4</td><td>13</td><td>8:41.2</td><td>61.76</td><td>66.62</td><td>62.63</td><td>69.06</td><td>62.27</td><td class="slowest">71.69</td><td class="fastest">61.05</td><td>66.12</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-16 09:21:24</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
 </body>
 </html>

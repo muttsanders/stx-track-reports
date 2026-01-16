@@ -15,10 +15,13 @@
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
-      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; line-height: 1.2; }
+      .nav .sep { margin: 0 10px; color:#999; }
+      .nav b { font-weight: 900; }
 
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 18px; font-weight: 800; }
 
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
 
@@ -77,6 +80,17 @@
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
+
+      /* Records warning */
+      .warning-big {
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        color: #b00020;
+        margin: 6px 0 12px 0;
+      }
+
+      .rank { font-weight: 800; color: #333; }
     </style>
     
 </head>
@@ -89,12 +103,12 @@
         <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="40_all.html">All Athletes</a></span></p>
       </div>
       <div class="nav">
-        <a class="home-link" href="../index.html">Home</a>
+        <a class="home-link" href="../index.html">Home</a><span class="sep">|</span><a class="records-link" href="../records.html">StX Records</a>
       </div>
     </div>
     
-<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th></tr></thead><tbody><tr><td>Anthony Passafiume</td><td>St Xavier (KY)</td><td>1:56.8</td><td>1</td><td>1:58.5</td><td class="fastest">57.73</td><td class="slowest">60.72</td></tr><tr><td>Matthew Frick</td><td>St Xavier (KY)</td><td>2:08.8</td><td>1</td><td class="pr">2:05.7</td><td class="fastest">61.39</td><td class="slowest">64.31</td></tr><tr><td>Jack Clifford</td><td>St Xavier (KY)</td><td>2:14.9</td><td>2</td><td class="pr">2:08.5</td><td class="fastest">63.05</td><td class="slowest">65.47</td></tr><tr><td>James George</td><td>St Xavier (KY)</td><td>1:59.3</td><td>3</td><td class="pr">1:59.2</td><td class="fastest">58.72</td><td class="slowest">60.51</td></tr><tr><td>Baron Staab</td><td>St Xavier (KY)</td><td>2:13.3</td><td>4</td><td>2:15.1</td><td class="fastest">65.66</td><td class="slowest">69.46</td></tr><tr><td>Everett Derrick</td><td>St Xavier (KY)</td><td>2:09.7</td><td>5</td><td>2:15.8</td><td class="fastest">65.78</td><td class="slowest">70.00</td></tr><tr><td>Sam Schweickhardt</td><td>St Xavier (KY)</td><td>2:02.7</td><td>6</td><td class="pr">2:02.1</td><td class="fastest">59.36</td><td class="slowest">62.70</td></tr></tbody></table></div></div>
-<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td>Ian O'Bryan</td><td>St Xavier (KY)</td><td>4:50.9</td><td>4</td><td>4:52.5</td><td>71.24</td><td>73.81</td><td class="slowest">78.60</td><td class="fastest">68.82</td></tr><tr><td>Vincent Yochum</td><td>St Xavier (KY)</td><td>5:03.6</td><td>8</td><td class="pr">5:01.7</td><td class="fastest">71.42</td><td>74.68</td><td class="slowest">79.45</td><td>76.18</td></tr><tr><td>Nolan Crider</td><td>St Xavier (KY)</td><td>4:38.4</td><td>9</td><td>5:03.1</td><td class="fastest">70.48</td><td>73.00</td><td>76.28</td><td class="slowest">83.29</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-16 08:08:03</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th></tr></thead><tbody><tr><td><a href="../athletes/anthony_passafiume.html">Anthony Passafiume</a></td><td>St Xavier (KY)</td><td>1:56.8</td><td>1</td><td>1:58.5</td><td class="fastest">57.73</td><td class="slowest">60.72</td></tr><tr><td><a href="../athletes/matthew_frick.html">Matthew Frick</a></td><td>St Xavier (KY)</td><td>2:08.8</td><td>1</td><td class="pr">2:05.7</td><td class="fastest">61.39</td><td class="slowest">64.31</td></tr><tr><td><a href="../athletes/jack_clifford.html">Jack Clifford</a></td><td>St Xavier (KY)</td><td>2:14.9</td><td>2</td><td class="pr">2:08.5</td><td class="fastest">63.05</td><td class="slowest">65.47</td></tr><tr><td><a href="../athletes/james_george.html">James George</a></td><td>St Xavier (KY)</td><td>1:59.3</td><td>3</td><td class="pr">1:59.2</td><td class="fastest">58.72</td><td class="slowest">60.51</td></tr><tr><td><a href="../athletes/baron_staab.html">Baron Staab</a></td><td>St Xavier (KY)</td><td>2:13.3</td><td>4</td><td>2:15.1</td><td class="fastest">65.66</td><td class="slowest">69.46</td></tr><tr><td><a href="../athletes/everett_derrick.html">Everett Derrick</a></td><td>St Xavier (KY)</td><td>2:09.7</td><td>5</td><td>2:15.8</td><td class="fastest">65.78</td><td class="slowest">70.00</td></tr><tr><td><a href="../athletes/sam_schweickhardt.html">Sam Schweickhardt</a></td><td>St Xavier (KY)</td><td>2:02.7</td><td>6</td><td class="pr">2:02.1</td><td class="fastest">59.36</td><td class="slowest">62.70</td></tr></tbody></table></div></div>
+<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href="../athletes/ian_obryan.html">Ian O'Bryan</a></td><td>St Xavier (KY)</td><td>4:50.9</td><td>4</td><td>4:52.5</td><td>71.24</td><td>73.81</td><td class="slowest">78.60</td><td class="fastest">68.82</td></tr><tr><td><a href="../athletes/vincent_yochum.html">Vincent Yochum</a></td><td>St Xavier (KY)</td><td>5:03.6</td><td>8</td><td class="pr">5:01.7</td><td class="fastest">71.42</td><td>74.68</td><td class="slowest">79.45</td><td>76.18</td></tr><tr><td><a href="../athletes/nolan_crider.html">Nolan Crider</a></td><td>St Xavier (KY)</td><td>4:38.4</td><td>9</td><td>5:03.1</td><td class="fastest">70.48</td><td>73.00</td><td>76.28</td><td class="slowest">83.29</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-16 09:21:08</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
 </body>
 </html>

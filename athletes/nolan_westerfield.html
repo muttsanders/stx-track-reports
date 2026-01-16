@@ -15,10 +15,13 @@
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
-      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; line-height: 1.2; }
+      .nav .sep { margin: 0 10px; color:#999; }
+      .nav b { font-weight: 900; }
 
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 18px; font-weight: 800; }
 
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
 
@@ -77,6 +80,17 @@
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
+
+      /* Records warning */
+      .warning-big {
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        color: #b00020;
+        margin: 6px 0 12px 0;
+      }
+
+      .rank { font-weight: 800; color: #333; }
     </style>
     
 </head>
@@ -88,7 +102,7 @@
         <p class="subline muted">StX athlete profile • Showing results from 2023+</p>
       </div>
       <div class="nav">
-        <a class="home-link" href="../index.html">Home</a>
+        <a class="home-link" href="../index.html">Home</a><span class="sep">|</span><a class="records-link" href="../records.html">StX Records</a>
       </div>
     </div>
 
@@ -114,11 +128,10 @@
       <h2>All Results</h2>
       <div class="filterbar">
         <label>
-              <input type="checkbox" id="splitToggle" onchange="toggleSplits(this)" checked>
-        Show Splits
+          <input type="checkbox" id="splitToggle" onchange="toggleSplits(this)" checked>
+          Show Splits
         </label>
         <span class="muted">(default on)</span>
-
       </div>
 
       <div id="athlete-results-wrap">
@@ -127,7 +140,7 @@
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
 
-    <div class="footer">Generated at <code>2026-01-16 08:11:16</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-01-16 09:24:20</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
