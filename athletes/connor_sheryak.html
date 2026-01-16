@@ -125,13 +125,16 @@
 
     <div class="card">
       <h2>All Results</h2>
+
       <div class="filterbar">
         <label>
-          <input type="checkbox" id="splitToggle" onchange="toggleSplits(this)" checked>
+          <input type="checkbox" id="splitToggle" onchange="toggleSplits(this)" checked disabled>
           Show Splits
         </label>
         <span class="muted">(default on)</span>
       </div>
+
+      <p class='muted'>No split data available for this athlete (in the selected years).</p>
 
       <div id="athlete-results-wrap">
         <p class='muted'>No results found.</p>
@@ -139,7 +142,7 @@
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
 
-    <div class="footer">Generated at <code>2026-01-16 10:55:18</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-01-16 11:47:25</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {

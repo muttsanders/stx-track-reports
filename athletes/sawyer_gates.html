@@ -125,22 +125,25 @@
 
     <div class="card">
       <h2>All Results</h2>
+
       <div class="filterbar">
         <label>
-          <input type="checkbox" id="splitToggle" onchange="toggleSplits(this)" checked>
+          <input type="checkbox" id="splitToggle" onchange="toggleSplits(this)" checked >
           Show Splits
         </label>
         <span class="muted">(default on)</span>
       </div>
 
+      
+
       <div id="athlete-results-wrap">
-        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th><th class="splits-col">Lap 7</th><th class="splits-col">Lap 8</th></tr></thead><tbody><tr><td>2025</td><td>2025-02-12</td><td>JCPS HS Dev League Week 4</td><td>Indoor</td><td>800 Meters</td><td>46</td><td>2:53.7</td><td class="splits-col fastest">40.57</td><td class="splits-col">43.17</td><td class="splits-col slowest">47.59</td><td class="splits-col">42.32</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-01-29</td><td>JCPS JV Series #2</td><td>Indoor</td><td>800 Meters</td><td>64</td><td>2:54.1</td><td class="splits-col fastest">39.79</td><td class="splits-col">44.04</td><td class="splits-col slowest">45.65</td><td class="splits-col">44.59</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div>
-<h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th><th class="splits-col">Lap 7</th><th class="splits-col">Lap 8</th></tr></thead><tbody><tr><td>2025</td><td>2025-11-15</td><td>Lloyd White Memorial Distance Festival</td><td>Outdoor</td><td>3200 Meters</td><td>245</td><td>12:26.4</td><td class="splits-col fastest">81.01</td><td class="splits-col">89.89</td><td class="splits-col">92.32</td><td class="splits-col">94.09</td><td class="splits-col slowest">99.59</td><td class="splits-col">98.83</td><td class="splits-col">98.97</td><td class="splits-col">91.67</td></tr></tbody></table></div>
+        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th><th class="splits-col">Lap 7</th><th class="splits-col">Lap 8</th></tr></thead><tbody><tr><td>2025</td><td>2025-02-12</td><td><a href='../meets/11_stx.html'>JCPS HS Dev League Week 4</a></td><td>Indoor</td><td>800 Meters</td><td>46</td><td>2:53.7</td><td class="splits-col fastest">40.57</td><td class="splits-col">43.17</td><td class="splits-col slowest">47.59</td><td class="splits-col">42.32</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-01-29</td><td><a href='../meets/8_stx.html'>JCPS JV Series #2</a></td><td>Indoor</td><td>800 Meters</td><td>64</td><td>2:54.1</td><td class="splits-col fastest">39.79</td><td class="splits-col">44.04</td><td class="splits-col slowest">45.65</td><td class="splits-col">44.59</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div>
+<h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th><th class="splits-col">Lap 7</th><th class="splits-col">Lap 8</th></tr></thead><tbody><tr><td>2025</td><td>2025-11-15</td><td><a href='../meets/32_stx.html'>Lloyd White Memorial Distance Festival</a></td><td>Outdoor</td><td>3200 Meters</td><td>245</td><td>12:26.4</td><td class="splits-col fastest">81.01</td><td class="splits-col">89.89</td><td class="splits-col">92.32</td><td class="splits-col">94.09</td><td class="splits-col slowest">99.59</td><td class="splits-col">98.83</td><td class="splits-col">98.97</td><td class="splits-col">91.67</td></tr></tbody></table></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
 
-    <div class="footer">Generated at <code>2026-01-16 10:54:36</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-01-16 11:46:47</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
