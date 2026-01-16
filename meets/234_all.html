@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2012-03-10 | New Balance HS Indoor Nationals</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+
+      /* Bigger Home link */
+      .nav a.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+
+      /* 2-column home layout / records layout */
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+
+      /* Tables shrink to content + scroll if needed */
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+
+      /* Lap highlighting: min = green, max = red */
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+
+      /* PR highlight on Result cell in meet pages */
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+
+      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      /* Records warning */
+      .warning-big {
+        margin: 6px 0 10px 0;
+        font-size: 28px;
+        font-weight: 900;
+        color: #b00020;
+        letter-spacing: 0.5px;
+      }
+
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+
+      /* Index filter */
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+
+      /* Athlete results: hide split columns by default */
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+
+      /* Athlete PR tabs */
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn {
+        border:1px solid #ddd; background:#fff; border-radius: 999px;
+        padding:6px 10px; font-size: 13px; cursor:pointer;
+      }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+
+      /* Athlete results sections */
+      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+
+      /* Meet view toggle */
+      .viewtoggle b { font-weight: 800; }
+      .viewtoggle a { font-weight: 600; }
+
+      /* Two lists in athlete card */
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+
+      /* Rank column */
+      .rankcell { font-weight: 800; }
+    </style>
+    
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2012-03-10</div>
+        <div class="meetname">New Balance HS Indoor Nationals</div>
+        <p class="subline muted">Indoor • View: <span class="viewtoggle"><a href="234_stx.html">StX Only</a> <span class="muted">|</span> <b>All Athletes</b></span></p>
+      </div>
+      <div class="nav">
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a>
+      </div>
+    </div>
+    
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/ben_malone.html'>Ben Malone</a></td><td>Pascack Valley</td><td></td><td>1</td><td>1:49.9</td></tr><tr><td><a href='../athletes/zavon_watkins.html'>Zavon Watkins</a></td><td>Liverpool</td><td></td><td>2</td><td>1:50.1</td></tr><tr><td><a href='../athletes/ned_willig.html'>Ned Willig</a></td><td>Great Valley</td><td></td><td>3</td><td>1:51.6</td></tr><tr><td><a href='../athletes/allen_eke.html'>Allen Eke</a></td><td>Union Catholic Reg</td><td></td><td>4</td><td>1:52.6</td></tr><tr><td><a href='../athletes/kieran_brennan.html'>Kieran Brennan</a></td><td>Pearl River</td><td></td><td>5</td><td>1:53.0</td></tr><tr><td><a href='../athletes/strymar_livingston.html'>Strymar Livingston</a></td><td>Christopher Columbus (CIMS/Astor/GE/Pelham)</td><td></td><td>6</td><td>1:53.2</td></tr><tr><td><a href='../athletes/jonathan_vinnenberg.html'>Jonathan Vinnenberg</a></td><td>Bow</td><td></td><td>7</td><td>1:53.7</td></tr><tr><td><a href='../athletes/henry_wynne.html'>Henry Wynne</a></td><td>Staples</td><td></td><td>8</td><td>1:53.7</td></tr><tr><td><a href='../athletes/bryce_kelley.html'>Bryce Kelley</a></td><td>Chariho Regional</td><td></td><td>9</td><td>1:53.8</td></tr><tr><td><a href='../athletes/jared_mason.html'>Jared Mason</a></td><td>West Orange</td><td></td><td>10</td><td>1:53.8</td></tr><tr><td><a href='../athletes/christian_delago.html'>Christian DeLago</a></td><td>Shaker</td><td></td><td>11</td><td>1:54.3</td></tr><tr><td><a href='../athletes/otniel_teixeira.html'>Otniel Teixeira</a></td><td>Lake Brantley</td><td></td><td>12</td><td>1:54.3</td></tr><tr><td><a href='../athletes/triphon_moodie.html'>Triphon Moodie</a></td><td>St Joan of Arc (Mississauga)</td><td></td><td>13</td><td>1:55.2</td></tr><tr><td><a href='../athletes/brian_poirier.html'>Brian Poirier</a></td><td>Northwest Catholic</td><td></td><td>14</td><td>1:55.3</td></tr><tr><td><a href='../athletes/tom_bonaro.html'>Tom Bonaro</a></td><td>Pearl River</td><td></td><td>15</td><td>1:55.6</td></tr><tr><td><a href='../athletes/avery_martin.html'>Avery Martin</a></td><td>Fork Union Military Academy</td><td></td><td>16</td><td>1:55.8</td></tr><tr><td><a href='../athletes/ben_groleau.html'>Ben Groleau</a></td><td>Framingham</td><td></td><td>17</td><td>1:56.3</td></tr><tr><td><a href='../athletes/ryan_thomas.html'>Ryan Thomas</a></td><td>Albemarle</td><td></td><td>18</td><td>1:56.6</td></tr><tr><td><a href='../athletes/zachary_ganshirt.html'>Zachary Ganshirt</a></td><td>Walpole</td><td></td><td>19</td><td>2:00.3</td></tr><tr><td><a href='../athletes/daniel_kilcoyne.html'>Daniel Kilcoyne</a></td><td>Chariho Regional</td><td></td><td>20</td><td>2:00.4</td></tr></tbody></table></div></div>
+<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/brad_nye.html'>Brad Nye</a></td><td>Davis (UT)</td><td></td><td>1</td><td>4:08.7</td></tr><tr><td><a href='../athletes/edward_cheserek.html'>Edward Cheserek</a></td><td>St Benedicts Prep</td><td></td><td>2</td><td>4:09.1</td></tr><tr><td><a href='../athletes/jacob_burcham.html'>Jacob Burcham</a></td><td>Cabell Midland</td><td></td><td>3</td><td>4:10.8</td></tr><tr><td><a href='../athletes/brannon_kidder.html'>Brannon Kidder</a></td><td>Lancaster</td><td></td><td>4</td><td>4:12.8</td></tr><tr><td><a href='../athletes/joel_hubbard.html'>Joel Hubbard</a></td><td>Marshfield</td><td></td><td>5</td><td>4:13.7</td></tr><tr><td><a href='../athletes/sean_mcgorty.html'>Sean McGorty</a></td><td>Chantilly</td><td></td><td>6</td><td>4:13.8</td></tr><tr><td><a href='../athletes/mike_marsella.html'>Mike Marsella</a></td><td>Chariho Regional</td><td></td><td>7</td><td>4:13.9</td></tr><tr><td><a href='../athletes/brent_coulter.html'>Brent Coulter</a></td><td>Landstown</td><td></td><td>8</td><td>4:18.5</td></tr><tr><td><a href='../athletes/michael_mcnamee.html'>Michael McNamee</a></td><td>Oakton</td><td></td><td>9</td><td>4:20.9</td></tr><tr><td><a href='../athletes/quentin_stipp.html'>Quentin Stipp</a></td><td>Arlington</td><td></td><td>10</td><td>4:23.0</td></tr><tr><td><a href='../athletes/logan_miller.html'>Logan Miller</a></td><td>Chantilly</td><td></td><td>11</td><td>4:23.6</td></tr><tr><td><a href='../athletes/david_taranto.html'>David Taranto</a></td><td>Burlington</td><td></td><td>12</td><td>4:24.6</td></tr><tr><td><a href='../athletes/stephen_garrett.html'>Stephen Garrett</a></td><td>Tatnall</td><td></td><td>13</td><td>4:25.6</td></tr><tr><td><a href='../athletes/michael_wegner.html'>Michael Wegner</a></td><td>Loyola Blakefield</td><td></td><td>14</td><td>4:25.7</td></tr><tr><td><a href='../athletes/brendan_robertson.html'>Brendan Robertson</a></td><td>Westborough</td><td></td><td>15</td><td>4:28.0</td></tr><tr><td><a href='../athletes/benito_muniz.html'>Benito Muniz</a></td><td>Carmel</td><td></td><td>16</td><td>4:30.6</td></tr><tr><td><a href='../athletes/gunnar_nolan.html'>Gunnar Nolan</a></td><td>Chaminade</td><td></td><td>17</td><td>4:31.7</td></tr><tr><td><a href='../athletes/matthew_novak.html'>Matthew Novak</a></td><td>Deep Run</td><td></td><td>18</td><td>4:32.7</td></tr><tr><td><a href='../athletes/quinn_cooney.html'>Quinn Cooney</a></td><td>Chelmsford</td><td></td><td>19</td><td>4:33.0</td></tr><tr><td><a href='../athletes/collin_hahn.html'>Collin Hahn</a></td><td>Midlothian</td><td></td><td>20</td><td>4:33.1</td></tr><tr><td><a href='../athletes/luke_gavigan.html'>Luke Gavigan</a></td><td>Tappan Zee</td><td></td><td>21</td><td>4:33.7</td></tr><tr><td><a href='../athletes/nick_carleo.html'>Nick Carleo</a></td><td>Newburyport</td><td></td><td>22</td><td>4:36.7</td></tr><tr><td><a href='../athletes/zach_capello.html'>Zach Capello</a></td><td>Ascension Catholic</td><td></td><td>23</td><td>4:37.3</td></tr><tr><td><a href='../athletes/michael_potter.html'>Michael Potter</a></td><td>Bishop Hendricken</td><td></td><td>24</td><td>4:38.8</td></tr><tr><td><a href='../athletes/elijah_moskowitz.html'>Elijah Moskowitz</a></td><td>Souhegan</td><td></td><td>25</td><td>4:39.2</td></tr><tr><td><a href='../athletes/mike_grady.html'>Mike Grady</a></td><td>East Meadow</td><td></td><td>26</td><td>4:39.4</td></tr><tr><td><a href='../athletes/patrik_andersen.html'>Patrik Andersen</a></td><td>Gill St. Bernard's</td><td></td><td>27</td><td>4:39.6</td></tr><tr><td><a href='../athletes/nikolas_angyl.html'>Nikolas Angyl</a></td><td>John Jay (East Fishkill)</td><td></td><td>28</td><td>4:41.6</td></tr><tr><td><a href='../athletes/joseph_prunty.html'>Joseph Prunty</a></td><td>Fordham Prep</td><td></td><td>29</td><td>4:41.7</td></tr><tr><td><a href='../athletes/ben_mcdermott.html'>Ben McDermott</a></td><td>Pearl River</td><td></td><td>30</td><td>4:42.1</td></tr><tr><td><a href='../athletes/peter_lomong.html'>Peter Lomong</a></td><td>Fork Union Military Academy</td><td></td><td>31</td><td>4:43.7</td></tr><tr><td><a href='../athletes/carter_owens.html'>Carter Owens</a></td><td>Wakefield</td><td></td><td>32</td><td>4:44.6</td></tr><tr><td><a href='../athletes/alexander_alex_ostberg.html'>Alexander (Alex) Ostberg</a></td><td>Darien</td><td></td><td>33</td><td>4:44.8</td></tr><tr><td><a href='../athletes/michael_raver.html'>Michael Raver</a></td><td>Chaminade</td><td></td><td>34</td><td>4:45.2</td></tr><tr><td><a href='../athletes/tanner_senius.html'>Tanner Senius</a></td><td>Warwick Valley</td><td></td><td>35</td><td>4:47.5</td></tr><tr><td><a href='../athletes/dan_peterson.html'>Dan Peterson</a></td><td>Warwick Valley</td><td></td><td>36</td><td>4:47.6</td></tr><tr><td><a href='../athletes/mitchell_daddario.html'>Mitchell Daddario</a></td><td>Sweet Home</td><td></td><td>37</td><td>4:48.4</td></tr><tr><td><a href='../athletes/james_brady.html'>James Brady</a></td><td>Chaminade</td><td></td><td>38</td><td>4:53.3</td></tr><tr><td><a href='../athletes/matt_morano.html'>Matt Morano</a></td><td>Bergen Catholic</td><td></td><td>39</td><td>4:54.1</td></tr><tr><td><a href='../athletes/sawyer_maher.html'>Sawyer Maher</a></td><td>Carmel</td><td></td><td>40</td><td>5:07.6</td></tr></tbody></table></div></div>
+<div class='card'><h2>2 Miles</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/edward_cheserek.html'>Edward Cheserek</a></td><td>St Benedicts Prep</td><td></td><td>1</td><td>8:16.6</td></tr><tr><td><a href='../athletes/adam_visokay.html'>Adam Visokay</a></td><td>Albemarle</td><td></td><td>2</td><td>8:27.9</td></tr><tr><td><a href='../athletes/thomas_awad.html'>Thomas Awad</a></td><td>Chaminade</td><td></td><td>3</td><td>8:30.8</td></tr><tr><td><a href='../athletes/connor_rog.html'>Connor Rog</a></td><td>Fairfield Prep</td><td></td><td>4</td><td>8:31.0</td></tr><tr><td><a href='../athletes/eric_holt.html'>Eric Holt</a></td><td>Carmel</td><td></td><td>5</td><td>8:31.3</td></tr><tr><td><a href='../athletes/daniel_lennon.html'>Daniel Lennon</a></td><td>Peru Central</td><td></td><td>6</td><td>8:32.8</td></tr><tr><td><a href='../athletes/sam_roberson.html'>Sam Roberson</a></td><td>Broughton</td><td></td><td>7</td><td>8:33.2</td></tr><tr><td><a href='../athletes/dustin_wilson.html'>Dustin Wilson</a></td><td>Springside Chestnut Hill Academy</td><td></td><td>8</td><td>8:35.6</td></tr><tr><td><a href='../athletes/kevin_thomas.html'>Kevin Thomas</a></td><td>Marshfield</td><td></td><td>9</td><td>8:38.8</td></tr><tr><td><a href='../athletes/matt_schwartzer.html'>Matt Schwartzer</a></td><td>Princess Anne</td><td></td><td>10</td><td>8:38.9</td></tr><tr><td><a href='../athletes/stephen_mulherin.html'>Stephen Mulherin</a></td><td>North Carolina Science and Math (Durham)</td><td></td><td>11</td><td>8:39.8</td></tr><tr><td><a href='../athletes/marc_violone.html'>Marc Violone</a></td><td>Byram Hills</td><td></td><td>12</td><td>8:40.5</td></tr><tr><td><a href='../athletes/harlow_ladd.html'>Harlow Ladd</a></td><td>Messalonskee</td><td></td><td>13</td><td>8:41.2</td></tr><tr><td><a href='../athletes/mitchell_kun.html'>Mitchell Kun</a></td><td>Frank J. Macchiarola</td><td></td><td>14</td><td>8:41.2</td></tr><tr><td><a href='../athletes/nick_tuck.html'>Nick Tuck</a></td><td>Lake Braddock Secondary</td><td></td><td>15</td><td>8:43.0</td></tr><tr><td><a href='../athletes/harry_warnick.html'>Harry Warnick</a></td><td>Fairfield Warde</td><td></td><td>16</td><td>8:46.4</td></tr><tr><td><a href='../athletes/brandon_hazouri.html'>Brandon Hazouri</a></td><td>Spain Park</td><td></td><td>17</td><td>8:57.6</td></tr><tr><td><a href='../athletes/nick_link.html'>Nick Link</a></td><td>Blacksburg</td><td></td><td>18</td><td>9:08.1</td></tr><tr><td><a href='../athletes/zachary_kughn.html'>Zachary Kughn</a></td><td>Grand Blanc</td><td></td><td>19</td><td>9:21.6</td></tr></tbody></table></div></div>
+<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/boys_girls.html'>Boys &amp; Girls</a></td><td>7:41.10a</td><td></td><td>1</td><td>7:41.1</td></tr><tr><td><a href='../athletes/kellenberg_memorial.html'>Kellenberg Memorial</a></td><td>7:43.84a</td><td></td><td>2</td><td>7:43.8</td></tr><tr><td><a href='../athletes/pr_relay_team.html'>PR Relay Team</a></td><td>6</td><td></td><td>3</td><td>7:45.5</td></tr><tr><td><a href='../athletes/warwick_valley.html'>Warwick Valley</a></td><td>7:47.04a</td><td></td><td>4</td><td>7:47.0</td></tr><tr><td><a href='../athletes/pr_kevin_hunter_matthew_jorgensen_mike_konchan_colin_souter.html'>PR Kevin Hunter , Matthew Jorgensen , Mike Konchan , Colin Souter</a></td><td>10</td><td></td><td>5</td><td>7:52.2</td></tr><tr><td><a href='../athletes/pr_nathaniel_hall_chad_jacob_brandon_hunt_griffin_carmichael.html'>PR Nathaniel Hall , Chad Jacob , Brandon Hunt , Griffin Carmichael</a></td><td>12</td><td></td><td>6</td><td>7:53.0</td></tr><tr><td><a href='../athletes/pr_relay_team.html'>PR Relay Team</a></td><td>14</td><td></td><td>7</td><td>7:56.1</td></tr><tr><td><a href='../athletes/don_bosco_prep.html'>Don Bosco Prep</a></td><td>7:59.64a</td><td></td><td>8</td><td>7:59.6</td></tr><tr><td><a href='../athletes/cabell_midland.html'>Cabell Midland</a></td><td>8:01.24a</td><td></td><td>9</td><td>8:01.2</td></tr><tr><td><a href='../athletes/thomas_a_edison.html'>Thomas A Edison</a></td><td>8:03.50a</td><td></td><td>10</td><td>8:03.5</td></tr><tr><td><a href='../athletes/pr_eric_holt_terrance_jennings_sawyer_maher_benito_muniz.html'>PR Eric Holt , Terrance Jennings , Sawyer Maher , Benito Muniz</a></td><td>22</td><td></td><td>11</td><td>8:07.6</td></tr><tr><td><a href='../athletes/relay_team.html'>Relay Team</a></td><td>24</td><td></td><td>12</td><td>8:11.8</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-16 12:07:46</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+</body>
+</html>

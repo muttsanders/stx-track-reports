@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2021-03-13 | St. Xavier Invitational</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+
+      /* Bigger Home link */
+      .nav a.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+
+      /* 2-column home layout / records layout */
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+
+      /* Tables shrink to content + scroll if needed */
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+
+      /* Lap highlighting: min = green, max = red */
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+
+      /* PR highlight on Result cell in meet pages */
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+
+      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      /* Records warning */
+      .warning-big {
+        margin: 6px 0 10px 0;
+        font-size: 28px;
+        font-weight: 900;
+        color: #b00020;
+        letter-spacing: 0.5px;
+      }
+
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+
+      /* Index filter */
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+
+      /* Athlete results: hide split columns by default */
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+
+      /* Athlete PR tabs */
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn {
+        border:1px solid #ddd; background:#fff; border-radius: 999px;
+        padding:6px 10px; font-size: 13px; cursor:pointer;
+      }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+
+      /* Athlete results sections */
+      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+
+      /* Meet view toggle */
+      .viewtoggle b { font-weight: 800; }
+      .viewtoggle a { font-weight: 600; }
+
+      /* Two lists in athlete card */
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+
+      /* Rank column */
+      .rankcell { font-weight: 800; }
+    </style>
+    
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2021-03-13</div>
+        <div class="meetname">St. Xavier Invitational</div>
+        <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="95_all.html">All Athletes</a></span></p>
+      </div>
+      <div class="nav">
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a>
+      </div>
+    </div>
+    
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/sami_hattab.html'>Sami Hattab</a></td><td>St Xavier (KY)</td><td></td><td>1</td><td>2:02.0</td></tr><tr><td><a href='../athletes/blake_whiteley.html'>Blake Whiteley</a></td><td>St Xavier (KY)</td><td>1:59.2</td><td>2</td><td>2:02.3</td></tr><tr><td><a href='../athletes/nicholas_brooks.html'>Nicholas Brooks</a></td><td>St Xavier (KY)</td><td>2:03.7</td><td>5</td><td>2:04.9</td></tr><tr><td><a href='../athletes/colin_obryan.html'>Colin O'Bryan</a></td><td>St Xavier (KY)</td><td>2:16.7</td><td>10</td><td class="pr">2:07.6</td></tr><tr><td><a href='../athletes/nate_very.html'>Nate Very</a></td><td>St Xavier (KY)</td><td>2:10.6</td><td>11</td><td class="pr">2:08.0</td></tr><tr><td><a href='../athletes/liam_rice.html'>Liam Rice</a></td><td>St Xavier (KY)</td><td>2:12.6</td><td>12</td><td class="pr">2:08.5</td></tr></tbody></table></div></div>
+<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/joshua_striegel.html'>Joshua Striegel</a></td><td>St Xavier (KY)</td><td>5:26.8</td><td>2</td><td class="pr">4:41.5</td></tr><tr><td><a href='../athletes/christian_smith.html'>Christian Smith</a></td><td>St Xavier (KY)</td><td>4:51.2</td><td>4</td><td class="pr">4:49.1</td></tr><tr><td><a href='../athletes/brodie_terkhorn.html'>Brodie Terkhorn</a></td><td>St Xavier (KY)</td><td>5:06.8</td><td>5</td><td class="pr">4:56.3</td></tr><tr><td><a href='../athletes/javier_santos.html'>Javier Santos</a></td><td>St Xavier (KY)</td><td>5:16.8</td><td>9</td><td class="pr">5:03.3</td></tr><tr><td><a href='../athletes/nolan_westerfield.html'>Nolan Westerfield</a></td><td>St Xavier (KY)</td><td>5:12.4</td><td>10</td><td class="pr">5:03.6</td></tr><tr><td><a href='../athletes/connor_kessinger.html'>Connor Kessinger</a></td><td>St Xavier (KY)</td><td>5:30.4</td><td>12</td><td class="pr">5:10.2</td></tr></tbody></table></div></div>
+<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/nolan_hester.html'>Nolan Hester</a></td><td>St Xavier (KY)</td><td>10:03.7</td><td>1</td><td class="pr">9:29.1</td></tr><tr><td><a href='../athletes/ryan_burchett.html'>Ryan Burchett</a></td><td>St Xavier (KY)</td><td>10:34.6</td><td>2</td><td class="pr">10:02.9</td></tr><tr><td><a href='../athletes/matthew_wantland.html'>Matthew Wantland</a></td><td>St Xavier (KY)</td><td>10:36.2</td><td>3</td><td class="pr">10:10.1</td></tr><tr><td><a href='../athletes/talbott_dilger.html'>Talbott Dilger</a></td><td>St Xavier (KY)</td><td></td><td>8</td><td>10:58.8</td></tr><tr><td><a href='../athletes/callahan_schadt.html'>Callahan Schadt</a></td><td>St Xavier (KY)</td><td>11:48.4</td><td>9</td><td class="pr">11:13.4</td></tr><tr><td><a href='../athletes/gibb_jensen.html'>Gibb Jensen</a></td><td>St Xavier (KY)</td><td></td><td>11</td><td>11:16.8</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-16 12:07:03</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+</body>
+</html>

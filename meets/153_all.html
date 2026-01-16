@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2016-03-26 | Lenny Lyles Invitational</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+
+      /* Bigger Home link */
+      .nav a.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+
+      /* 2-column home layout / records layout */
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+
+      /* Tables shrink to content + scroll if needed */
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+
+      /* Lap highlighting: min = green, max = red */
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+
+      /* PR highlight on Result cell in meet pages */
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+
+      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      /* Records warning */
+      .warning-big {
+        margin: 6px 0 10px 0;
+        font-size: 28px;
+        font-weight: 900;
+        color: #b00020;
+        letter-spacing: 0.5px;
+      }
+
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+
+      /* Index filter */
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+
+      /* Athlete results: hide split columns by default */
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+
+      /* Athlete PR tabs */
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn {
+        border:1px solid #ddd; background:#fff; border-radius: 999px;
+        padding:6px 10px; font-size: 13px; cursor:pointer;
+      }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+
+      /* Athlete results sections */
+      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+
+      /* Meet view toggle */
+      .viewtoggle b { font-weight: 800; }
+      .viewtoggle a { font-weight: 600; }
+
+      /* Two lists in athlete card */
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+
+      /* Rank column */
+      .rankcell { font-weight: 800; }
+    </style>
+    
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2016-03-26</div>
+        <div class="meetname">Lenny Lyles Invitational</div>
+        <p class="subline muted">Outdoor • View: <span class="viewtoggle"><a href="153_stx.html">StX Only</a> <span class="muted">|</span> <b>All Athletes</b></span></p>
+      </div>
+      <div class="nav">
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a>
+      </div>
+    </div>
+    
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/christian_wright.html'>Christian Wright</a></td><td>Central Hardin</td><td></td><td>1</td><td>1:55.5</td></tr><tr><td><a href='../athletes/collin_wells.html'>Collin Wells</a></td><td>Eastern</td><td></td><td>2</td><td>1:59.7</td></tr><tr><td><a href='../athletes/cameron_galloway.html'>Cameron Galloway</a></td><td>North Hardin</td><td></td><td>3</td><td>2:05.3</td></tr><tr><td><a href='../athletes/daneil_fakunle.html'>Daneil Fakunle</a></td><td>Central</td><td></td><td>4</td><td>2:05.7</td></tr><tr><td><a href='../athletes/marcus_grady.html'>Marcus Grady</a></td><td>Atherton</td><td></td><td>5</td><td>2:05.7</td></tr><tr><td><a href='../athletes/yared_nuguse.html'>Yared Nuguse</a></td><td>DuPont Manual</td><td></td><td>6</td><td>2:07.0</td></tr><tr><td><a href='../athletes/gabe_carter.html'>Gabe Carter</a></td><td>Ballard</td><td></td><td>7</td><td>2:07.5</td></tr><tr><td><a href='../athletes/grant_birindelli.html'>Grant Birindelli</a></td><td>Beechwood</td><td></td><td>8</td><td>2:08.6</td></tr><tr><td><a href='../athletes/nick_poole.html'>Nick Poole</a></td><td>St Xavier (KY)</td><td></td><td>9</td><td>2:09.1</td></tr><tr><td><a href='../athletes/josh_dye.html'>Josh Dye</a></td><td>DuPont Manual</td><td></td><td>10</td><td>2:09.2</td></tr><tr><td><a href='../athletes/nick_hickey.html'>Nick Hickey</a></td><td>Holy Cross (Louisville)</td><td></td><td>11</td><td>2:09.2</td></tr><tr><td><a href='../athletes/emerson_wells.html'>Emerson Wells</a></td><td>Eastern</td><td></td><td>12</td><td>2:10.2</td></tr><tr><td><a href='../athletes/james_zoeller.html'>James Zoeller</a></td><td>Holy Cross (Louisville)</td><td></td><td>13</td><td>2:10.4</td></tr><tr><td><a href='../athletes/hunter_wethington.html'>Hunter Wethington</a></td><td>Spencer County</td><td></td><td>14</td><td>2:11.3</td></tr><tr><td><a href='../athletes/dylan_mitchell.html'>Dylan Mitchell</a></td><td>Butler</td><td></td><td>15</td><td>2:11.4</td></tr><tr><td><a href='../athletes/drew_pierce.html'>Drew Pierce</a></td><td>Eastern</td><td></td><td>16</td><td>2:12.0</td></tr><tr><td><a href='../athletes/zechariah_hockenbary.html'>Zechariah Hockenbary</a></td><td>North Hardin</td><td></td><td>17</td><td>2:12.3</td></tr><tr><td><a href='../athletes/luke_hoover.html'>Luke Hoover</a></td><td>Eastern</td><td></td><td>18</td><td>2:12.3</td></tr><tr><td><a href='../athletes/johnny_vaughan.html'>Johnny Vaughan</a></td><td>St Xavier (KY)</td><td>2:12.5</td><td>19</td><td>2:14.1</td></tr><tr><td><a href='../athletes/samuel_mucker.html'>Samuel Mucker</a></td><td>Central</td><td></td><td>20</td><td>2:15.2</td></tr><tr><td><a href='../athletes/logan_mattox.html'>Logan Mattox</a></td><td>Western Hills</td><td></td><td>21</td><td>2:16.4</td></tr><tr><td><a href='../athletes/matt_paverd.html'>Matt Paverd</a></td><td>Shelby County</td><td></td><td>22</td><td>2:17.6</td></tr><tr><td><a href='../athletes/donnie_fry.html'>Donnie Fry</a></td><td>Eastern</td><td></td><td>23</td><td>2:18.0</td></tr><tr><td><a href='../athletes/keaton_downey.html'>Keaton Downey</a></td><td>Beechwood</td><td></td><td>24</td><td>2:18.6</td></tr><tr><td><a href='../athletes/jaquar_morris.html'>Jaquar Morris</a></td><td>Atherton</td><td></td><td>25</td><td>2:18.8</td></tr><tr><td><a href='../athletes/nathan_simpson.html'>Nathan Simpson</a></td><td>Western Hills</td><td></td><td>26</td><td>2:19.7</td></tr><tr><td><a href='../athletes/jacob_mertens.html'>Jacob Mertens</a></td><td>Central Hardin</td><td></td><td>27</td><td>2:19.8</td></tr><tr><td><a href='../athletes/montez_moore.html'>Montez Moore</a></td><td>Fairdale</td><td></td><td>28</td><td>2:20.4</td></tr><tr><td><a href='../athletes/brandon_eugene.html'>Brandon Eugene</a></td><td>Pleasure Ridge Park</td><td></td><td>29</td><td>2:20.4</td></tr><tr><td><a href='../athletes/keegan_robriquez.html'>Keegan Robriquez</a></td><td>Male</td><td></td><td>30</td><td>2:20.8</td></tr><tr><td><a href='../athletes/ryan_scanlon.html'>Ryan Scanlon</a></td><td>Eastern</td><td></td><td>31</td><td>2:21.0</td></tr><tr><td><a href='../athletes/dujuan_vega.html'>Dujuan Vega</a></td><td>Central</td><td></td><td>32</td><td>2:21.1</td></tr><tr><td><a href='../athletes/gregory_brown.html'>Gregory Brown</a></td><td>Male</td><td></td><td>33</td><td>2:22.7</td></tr><tr><td><a href='../athletes/cordell_adams.html'>Cordell Adams</a></td><td>Waggener</td><td></td><td>34</td><td>2:23.9</td></tr><tr><td><a href='../athletes/trent_green.html'>Trent Green</a></td><td>Pleasure Ridge Park</td><td></td><td>35</td><td>2:24.3</td></tr><tr><td><a href='../athletes/isaiah_gentry.html'>Isaiah Gentry</a></td><td>Ballard</td><td></td><td>36</td><td>2:26.9</td></tr><tr><td><a href='../athletes/tomerriell_macklin.html'>Tomerriell Macklin</a></td><td>Central</td><td></td><td>37</td><td>2:28.3</td></tr><tr><td><a href='../athletes/gavin_mattingly.html'>Gavin Mattingly</a></td><td>Spencer County</td><td></td><td>38</td><td>2:28.6</td></tr><tr><td><a href='../athletes/sadin_palaura.html'>Sadin Palaura</a></td><td>Warren Central</td><td></td><td>39</td><td>2:28.8</td></tr><tr><td><a href='../athletes/luke_stanton.html'>Luke Stanton</a></td><td>Brown</td><td></td><td>40</td><td>2:29.4</td></tr><tr><td><a href='../athletes/alaric_peden.html'>Alaric Peden</a></td><td>Waggener</td><td></td><td>41</td><td>2:38.9</td></tr><tr><td><a href='../athletes/zachary_combs.html'>Zachary Combs</a></td><td>Male</td><td></td><td>42</td><td>2:43.7</td></tr><tr><td><a href='../athletes/rocky_lakudo.html'>Rocky Lakudo</a></td><td>Western</td><td></td><td>43</td><td>2:49.9</td></tr></tbody></table></div></div>
+<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/keeton_thornsberry.html'>Keeton Thornsberry</a></td><td>Holy Cross (Louisville)</td><td></td><td>1</td><td>4:35.7</td></tr><tr><td><a href='../athletes/cooper_marchal.html'>Cooper Marchal</a></td><td>St Xavier (KY)</td><td>5:05.6</td><td>2</td><td class="pr">4:36.1</td></tr><tr><td><a href='../athletes/marcus_grady.html'>Marcus Grady</a></td><td>Atherton</td><td></td><td>3</td><td>4:37.4</td></tr><tr><td><a href='../athletes/jeffer_richardson.html'>Jeffer Richardson</a></td><td>Eastern</td><td></td><td>4</td><td>4:38.5</td></tr><tr><td><a href='../athletes/cameron_galloway.html'>Cameron Galloway</a></td><td>North Hardin</td><td></td><td>5</td><td>4:38.8</td></tr><tr><td><a href='../athletes/cole_bollinger.html'>Cole Bollinger</a></td><td>St Xavier (KY)</td><td>4:31.9</td><td>6</td><td>4:38.9</td></tr><tr><td><a href='../athletes/jeremiah_harp.html'>Jeremiah Harp</a></td><td>Central Hardin</td><td></td><td>7</td><td>4:43.1</td></tr><tr><td><a href='../athletes/eric_portaro.html'>Eric Portaro</a></td><td>St Xavier (KY)</td><td>5:05.4</td><td>8</td><td class="pr">4:46.3</td></tr><tr><td><a href='../athletes/clay_meiers.html'>Clay Meiers</a></td><td>St Xavier (KY)</td><td>4:59.1</td><td>9</td><td class="pr">4:48.1</td></tr><tr><td><a href='../athletes/emerson_wells.html'>Emerson Wells</a></td><td>Eastern</td><td></td><td>10</td><td>4:48.2</td></tr><tr><td><a href='../athletes/garret_mccorkle.html'>Garret Mccorkle</a></td><td>Eastern</td><td></td><td>11</td><td>4:50.5</td></tr><tr><td><a href='../athletes/matt_paverd.html'>Matt Paverd</a></td><td>Shelby County</td><td></td><td>12</td><td>4:53.4</td></tr><tr><td><a href='../athletes/nick_grove.html'>Nick Grove</a></td><td>St Xavier (KY)</td><td></td><td>13</td><td>4:54.1</td></tr><tr><td><a href='../athletes/stevie_heckman.html'>Stevie Heckman</a></td><td>Holy Cross (Louisville)</td><td></td><td>14</td><td>4:54.3</td></tr><tr><td><a href='../athletes/hunter_wethington.html'>Hunter Wethington</a></td><td>Spencer County</td><td></td><td>15</td><td>4:54.7</td></tr><tr><td><a href='../athletes/sam_beach.html'>Sam Beach</a></td><td>Eastern</td><td></td><td>16</td><td>4:57.3</td></tr><tr><td><a href='../athletes/elijah_wall.html'>Elijah Wall</a></td><td>North Hardin</td><td></td><td>17</td><td>4:57.5</td></tr><tr><td><a href='../athletes/otis_milliken.html'>Otis Milliken</a></td><td>DuPont Manual</td><td></td><td>18</td><td>4:59.8</td></tr><tr><td><a href='../athletes/wilson_blakeman.html'>Wilson Blakeman</a></td><td>Warren Central</td><td></td><td>19</td><td>5:00.8</td></tr><tr><td><a href='../athletes/daniel_cooper.html'>Daniel Cooper</a></td><td>Butler</td><td></td><td>20</td><td>5:03.6</td></tr><tr><td><a href='../athletes/tyler_bates.html'>Tyler Bates</a></td><td>Shelby County</td><td></td><td>21</td><td>5:04.2</td></tr><tr><td><a href='../athletes/will_perone.html'>Will Perone</a></td><td>St Xavier (KY)</td><td></td><td>22</td><td>5:06.7</td></tr><tr><td><a href='../athletes/joel_wafford.html'>Joel Wafford</a></td><td>Spencer County</td><td></td><td>23</td><td>5:08.2</td></tr><tr><td><a href='../athletes/hank_birindelli.html'>Hank Birindelli</a></td><td>Beechwood</td><td></td><td>24</td><td>5:09.5</td></tr><tr><td><a href='../athletes/chance_smith.html'>Chance Smith</a></td><td>Beechwood</td><td></td><td>25</td><td>5:10.6</td></tr><tr><td><a href='../athletes/logan_reidley.html'>Logan Reidley</a></td><td>Pleasure Ridge Park</td><td></td><td>26</td><td>5:12.7</td></tr><tr><td><a href='../athletes/caleb_meador.html'>Caleb Meador</a></td><td>Warren Central</td><td></td><td>27</td><td>5:16.2</td></tr><tr><td><a href='../athletes/ryan_getler.html'>Ryan Getler</a></td><td>Central Hardin</td><td></td><td>28</td><td>5:16.2</td></tr><tr><td><a href='../athletes/brandon_eugene.html'>Brandon Eugene</a></td><td>Pleasure Ridge Park</td><td></td><td>29</td><td>5:16.2</td></tr><tr><td><a href='../athletes/daniel_biggs.html'>Daniel Biggs</a></td><td>DuPont Manual</td><td></td><td>30</td><td>5:17.5</td></tr><tr><td><a href='../athletes/rashad_sullivan.html'>Rashad Sullivan</a></td><td>Western</td><td></td><td>31</td><td>5:21.7</td></tr><tr><td><a href='../athletes/michael_wilson.html'>Michael Wilson</a></td><td>Western Hills</td><td></td><td>32</td><td>5:22.7</td></tr><tr><td><a href='../athletes/andrew_barth.html'>Andrew Barth</a></td><td>Male</td><td></td><td>33</td><td>5:22.9</td></tr><tr><td><a href='../athletes/johnathan_loyd.html'>Johnathan Loyd</a></td><td>Atherton</td><td></td><td>34</td><td>5:23.6</td></tr><tr><td><a href='../athletes/mamadou_diallo.html'>Mamadou Diallo</a></td><td>Waggener</td><td></td><td>35</td><td>5:29.9</td></tr><tr><td><a href='../athletes/luke_stanton.html'>Luke Stanton</a></td><td>Brown</td><td></td><td>36</td><td>5:30.7</td></tr><tr><td><a href='../athletes/ian_norris.html'>Ian Norris</a></td><td>Fairdale</td><td></td><td>37</td><td>5:35.6</td></tr><tr><td><a href='../athletes/zachary_combs.html'>Zachary Combs</a></td><td>Male</td><td></td><td>38</td><td>5:52.6</td></tr><tr><td><a href='../athletes/gavin_foushee.html'>Gavin Foushee</a></td><td>Eastern</td><td></td><td>39</td><td>5:59.1</td></tr><tr><td><a href='../athletes/jaden_whiting.html'>Jaden Whiting</a></td><td>Central</td><td></td><td>40</td><td>6:00.5</td></tr><tr><td><a href='../athletes/cameron_abbott.html'>Cameron Abbott</a></td><td>Whitefield Academy</td><td></td><td>41</td><td>6:09.2</td></tr><tr><td><a href='../athletes/eddie_vasquez.html'>Eddie Vasquez</a></td><td>Fairdale</td><td></td><td>42</td><td>6:15.2</td></tr><tr><td><a href='../athletes/fuad_mohamed.html'>Fuad Mohamed</a></td><td>Central</td><td></td><td>43</td><td>6:17.5</td></tr></tbody></table></div></div>
+<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/ryan_guenthner.html'>Ryan Guenthner</a></td><td>St Xavier (KY)</td><td></td><td>1</td><td>9:47.2</td></tr><tr><td><a href='../athletes/patrick_schaefer.html'>Patrick Schaefer</a></td><td>St Xavier (KY)</td><td>9:43.8</td><td>2</td><td>9:53.5</td></tr><tr><td><a href='../athletes/zach_larkin.html'>Zach Larkin</a></td><td>St Xavier (KY)</td><td></td><td>3</td><td>9:54.0</td></tr><tr><td><a href='../athletes/ben_currey.html'>Ben Currey</a></td><td>Ballard</td><td></td><td>4</td><td>10:11.1</td></tr><tr><td><a href='../athletes/dylan_allen.html'>Dylan Allen</a></td><td>Male</td><td></td><td>5</td><td>10:14.6</td></tr><tr><td><a href='../athletes/nick_dudzinski.html'>Nick Dudzinski</a></td><td>DuPont Manual</td><td></td><td>6</td><td>10:21.6</td></tr><tr><td><a href='../athletes/andrew_edwards.html'>Andrew Edwards</a></td><td>St Xavier (KY)</td><td></td><td>7</td><td>10:21.8</td></tr><tr><td><a href='../athletes/joey_schrepferman.html'>Joey Schrepferman</a></td><td>St Xavier (KY)</td><td></td><td>8</td><td>10:23.5</td></tr><tr><td><a href='../athletes/thomas_knepshield.html'>Thomas Knepshield</a></td><td>St Xavier (KY)</td><td></td><td>9</td><td>10:23.7</td></tr><tr><td><a href='../athletes/david_jacobs.html'>David Jacobs</a></td><td>Shelby County</td><td></td><td>10</td><td>10:25.2</td></tr><tr><td><a href='../athletes/avery_evans.html'>Avery Evans</a></td><td>Eastern</td><td></td><td>11</td><td>10:29.5</td></tr><tr><td><a href='../athletes/liam_dale.html'>Liam Dale</a></td><td>Central Hardin</td><td></td><td>12</td><td>10:47.4</td></tr><tr><td><a href='../athletes/jacob_steppe.html'>Jacob Steppe</a></td><td>Male</td><td></td><td>13</td><td>10:50.9</td></tr><tr><td><a href='../athletes/jesse_dollar.html'>Jesse Dollar</a></td><td>Butler</td><td></td><td>14</td><td>10:53.7</td></tr><tr><td><a href='../athletes/grady_shiflet.html'>Grady Shiflet</a></td><td>St Xavier (KY)</td><td></td><td>15</td><td>11:00.1</td></tr><tr><td><a href='../athletes/alex_emery.html'>Alex Emery</a></td><td>Eastern</td><td></td><td>16</td><td>11:03.0</td></tr><tr><td><a href='../athletes/reid_olash.html'>Reid Olash</a></td><td>DuPont Manual</td><td></td><td>17</td><td>11:13.9</td></tr><tr><td><a href='../athletes/tanner_mccauley.html'>Tanner McCauley</a></td><td>Holy Cross (Louisville)</td><td></td><td>18</td><td>11:17.1</td></tr><tr><td><a href='../athletes/chandler_morse.html'>Chandler Morse</a></td><td>Warren Central</td><td></td><td>19</td><td>11:19.3</td></tr><tr><td><a href='../athletes/daniel_cooper.html'>Daniel Cooper</a></td><td>Butler</td><td></td><td>20</td><td>11:20.3</td></tr><tr><td><a href='../athletes/alex_shively.html'>Alex Shively</a></td><td>North Hardin</td><td></td><td>21</td><td>11:21.3</td></tr><tr><td><a href='../athletes/sergio_fernandez.html'>Sergio Fernandez</a></td><td>Western Hills</td><td></td><td>22</td><td>11:28.1</td></tr><tr><td><a href='../athletes/spencer_shumway.html'>Spencer Shumway</a></td><td>Ballard</td><td></td><td>23</td><td>11:29.4</td></tr><tr><td><a href='../athletes/jacob_wibbles.html'>Jacob Wibbles</a></td><td>Shelby County</td><td></td><td>24</td><td>11:30.6</td></tr><tr><td><a href='../athletes/nick_glasford.html'>Nick Glasford</a></td><td>Male</td><td></td><td>25</td><td>11:32.2</td></tr><tr><td><a href='../athletes/connor_riedley.html'>Connor Riedley</a></td><td>Pleasure Ridge Park</td><td></td><td>26</td><td>11:37.7</td></tr><tr><td><a href='../athletes/luke_logan.html'>Luke Logan</a></td><td>Central Hardin</td><td></td><td>27</td><td>11:48.5</td></tr><tr><td><a href='../athletes/deltjuan_gardner.html'>Deltjuan Gardner</a></td><td>Pleasure Ridge Park</td><td></td><td>28</td><td>12:12.1</td></tr><tr><td><a href='../athletes/rashad_sullivan.html'>Rashad Sullivan</a></td><td>Western</td><td></td><td>29</td><td>12:12.4</td></tr><tr><td><a href='../athletes/hayden_gilles.html'>Hayden Gilles</a></td><td>Male</td><td></td><td>30</td><td>12:38.8</td></tr><tr><td><a href='../athletes/jaxon_blaine.html'>Jaxon Blaine</a></td><td>Western Hills</td><td></td><td>31</td><td>13:04.5</td></tr><tr><td><a href='../athletes/mamadou_diallo.html'>Mamadou Diallo</a></td><td>Waggener</td><td></td><td>32</td><td>13:20.5</td></tr><tr><td><a href='../athletes/damon_diaz.html'>Damon Diaz</a></td><td>Fairdale</td><td></td><td>33</td><td>13:42.8</td></tr></tbody></table></div></div>
+<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/pr_ben_ginkins_collin_wells_luke_hoover_donnie_fry.html'>PR Ben Ginkins , Collin Wells , Luke Hoover , Donnie Fry</a></td><td>2</td><td></td><td>1</td><td>8:26.8</td></tr><tr><td><a href='../athletes/holy_cross_louisville.html'>Holy Cross (Louisville)</a></td><td>8:41.30a</td><td></td><td>2</td><td>8:41.3</td></tr><tr><td><a href='../athletes/raiden_anderson_samuel_mucker_dujuan_vega_daneil_fakunle.html'>Raiden Anderson , Samuel Mucker , Dujuan Vega , Daneil Fakunle</a></td><td>6</td><td></td><td>3</td><td>8:47.8</td></tr><tr><td><a href='../athletes/st_xavier_ky.html'>St Xavier (KY)</a></td><td>8:54.20a</td><td></td><td>4</td><td>8:54.2</td></tr><tr><td><a href='../athletes/shelby_county.html'>Shelby County</a></td><td>9:05.10a</td><td></td><td>5</td><td>9:05.1</td></tr><tr><td><a href='../athletes/pleasure_ridge_park.html'>Pleasure Ridge Park</a></td><td>9:22.20a</td><td></td><td>6</td><td>9:22.2</td></tr><tr><td><a href='../athletes/central_hardin.html'>Central Hardin</a></td><td>9:33.00a</td><td></td><td>7</td><td>9:33.0</td></tr><tr><td><a href='../athletes/pr_jordan_curby_andrew_barth_nick_glasford_hayden_gilles.html'>PR Jordan Curby , Andrew Barth , Nick Glasford , Hayden Gilles</a></td><td>16</td><td></td><td>8</td><td>9:37.1</td></tr><tr><td><a href='../athletes/pr_christopher_merrill_cordell_adams_keyshawn_beckley_malik_watts.html'>PR Christopher Merrill , Cordell Adams , Keyshawn Beckley , Malik Watts</a></td><td></td><td></td><td>9</td><td>10:23.2</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-16 12:07:34</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+</body>
+</html>
