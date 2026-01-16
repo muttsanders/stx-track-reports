@@ -15,17 +15,15 @@
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
-      .nav { text-align: right; white-space: nowrap; font-size: 14px; line-height: 1.2; }
-      .nav .sep { margin: 0 10px; color:#999; }
-      .nav b { font-weight: 900; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
 
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
-      .nav a.records-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
 
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
 
-      /* 2-column home layout */
+      /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
@@ -46,6 +44,15 @@
 
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      /* Records warning */
+      .warning-big {
+        margin: 6px 0 10px 0;
+        font-size: 28px;
+        font-weight: 900;
+        color: #b00020;
+        letter-spacing: 0.5px;
+      }
 
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -81,16 +88,8 @@
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
 
-      /* Records warning */
-      .warning-big {
-        font-size: 32px;
-        font-weight: 900;
-        letter-spacing: 0.5px;
-        color: #b00020;
-        margin: 6px 0 12px 0;
-      }
-
-      .rank { font-weight: 800; color: #333; }
+      /* Rank column */
+      .rankcell { font-weight: 800; }
     </style>
     
 </head>
@@ -102,7 +101,7 @@
         <p class="subline muted">StX athlete profile • Showing results from 2023+</p>
       </div>
       <div class="nav">
-        <a class="home-link" href="../index.html">Home</a><span class="sep">|</span><a class="records-link" href="../records.html">StX Records</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a>
       </div>
     </div>
 
@@ -140,7 +139,7 @@
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
 
-    <div class="footer">Generated at <code>2026-01-16 09:24:52</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-01-16 10:56:54</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {

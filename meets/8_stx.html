@@ -15,17 +15,15 @@
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
-      .nav { text-align: right; white-space: nowrap; font-size: 14px; line-height: 1.2; }
-      .nav .sep { margin: 0 10px; color:#999; }
-      .nav b { font-weight: 900; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
 
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
-      .nav a.records-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
 
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
 
-      /* 2-column home layout */
+      /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
@@ -46,6 +44,15 @@
 
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      /* Records warning */
+      .warning-big {
+        margin: 6px 0 10px 0;
+        font-size: 28px;
+        font-weight: 900;
+        color: #b00020;
+        letter-spacing: 0.5px;
+      }
 
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -81,16 +88,8 @@
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
 
-      /* Records warning */
-      .warning-big {
-        font-size: 32px;
-        font-weight: 900;
-        letter-spacing: 0.5px;
-        color: #b00020;
-        margin: 6px 0 12px 0;
-      }
-
-      .rank { font-weight: 800; color: #333; }
+      /* Rank column */
+      .rankcell { font-weight: 800; }
     </style>
     
 </head>
@@ -103,12 +102,12 @@
         <p class="subline muted">Indoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="8_all.html">All Athletes</a></span></p>
       </div>
       <div class="nav">
-        <a class="home-link" href="../index.html">Home</a><span class="sep">|</span><a class="records-link" href="../records.html">StX Records</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a>
       </div>
     </div>
     
-<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href="../athletes/tony_parilli.html">Tony Parilli</a></td><td>St Xavier (KY)</td><td>2:02.8</td><td>4</td><td>2:11.6</td><td>33.10</td><td class="slowest">33.57</td><td>32.48</td><td class="fastest">32.41</td></tr><tr><td><a href="../athletes/jack_clifford.html">Jack Clifford</a></td><td>St Xavier (KY)</td><td>2:14.9</td><td>14</td><td>2:17.6</td><td>34.51</td><td>34.63</td><td class="slowest">34.92</td><td class="fastest">33.53</td></tr><tr><td><a href="../athletes/thomas_norton.html">Thomas Norton</a></td><td>St Xavier (KY)</td><td>2:20.9</td><td>17</td><td class="pr">2:18.2</td><td class="fastest">34.24</td><td>34.53</td><td>34.64</td><td class="slowest">34.78</td></tr><tr><td><a href="../athletes/owen_hillerich.html">Owen Hillerich</a></td><td>St Xavier (KY)</td><td>2:22.3</td><td>34</td><td>2:25.6</td><td class="fastest">33.60</td><td>36.51</td><td class="slowest">38.03</td><td>37.50</td></tr><tr><td><a href="../athletes/quenton_horton.html">Quenton Horton</a></td><td>St Xavier (KY)</td><td></td><td>40</td><td>2:28.1</td><td class="fastest">34.29</td><td>37.69</td><td class="slowest">38.76</td><td>37.36</td></tr><tr><td><a href="../athletes/xavier_mudd.html">Xavier Mudd</a></td><td>St Xavier (KY)</td><td>2:35.9</td><td>46</td><td class="pr">2:32.1</td><td class="fastest">35.67</td><td>38.12</td><td class="slowest">39.74</td><td>38.52</td></tr><tr><td><a href="../athletes/sam_church.html">Sam Church</a></td><td>St Xavier (KY)</td><td></td><td>48</td><td>2:32.3</td><td class="fastest">35.41</td><td>38.18</td><td class="slowest">40.84</td><td>37.91</td></tr><tr><td><a href="../athletes/garrett_pate.html">Garrett Pate</a></td><td>St Xavier (KY)</td><td>2:33.4</td><td>52</td><td>2:34.1</td><td class="fastest">36.86</td><td class="slowest">39.77</td><td>39.19</td><td>38.28</td></tr><tr><td><a href="../athletes/sawyer_gates.html">Sawyer Gates</a></td><td>St Xavier (KY)</td><td></td><td>64</td><td>2:54.1</td><td class="fastest">39.79</td><td>44.04</td><td class="slowest">45.65</td><td>44.59</td></tr><tr><td><a href="../athletes/garrett_kiper.html">Garrett Kiper</a></td><td>St Xavier (KY)</td><td>2:58.1</td><td>67</td><td class="pr">2:57.8</td><td class="fastest">39.53</td><td>42.08</td><td>47.08</td><td class="slowest">49.07</td></tr></tbody></table></div></div>
-<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td><a href="../athletes/ian_obryan.html">Ian O'Bryan</a></td><td>St Xavier (KY)</td><td></td><td>5</td><td>4:58.7</td><td>36.33</td><td>36.10</td><td>38.66</td><td class="slowest">39.96</td><td>38.61</td><td>39.68</td><td>36.57</td><td class="fastest">32.80</td></tr><tr><td><a href="../athletes/everett_derrick.html">Everett Derrick</a></td><td>St Xavier (KY)</td><td>4:57.7</td><td>7</td><td>4:59.4</td><td>35.34</td><td class="fastest">34.92</td><td>36.98</td><td>37.79</td><td>39.01</td><td class="slowest">39.55</td><td>39.09</td><td>36.75</td></tr><tr><td><a href="../athletes/jimmy_greer.html">Jimmy Greer</a></td><td>St Xavier (KY)</td><td></td><td>14</td><td>5:06.8</td><td class="fastest">36.69</td><td>36.92</td><td>38.42</td><td>39.30</td><td>39.15</td><td class="slowest">39.65</td><td>39.56</td><td>37.14</td></tr><tr><td><a href="../athletes/james_bush.html">James Bush</a></td><td>St Xavier (KY)</td><td>5:01.3</td><td>15</td><td>5:09.4</td><td>37.10</td><td>37.44</td><td>38.52</td><td>38.29</td><td>40.88</td><td class="slowest">41.53</td><td>39.77</td><td class="fastest">35.90</td></tr><tr><td><a href="../athletes/owen_mayes.html">Owen Mayes</a></td><td>St Xavier (KY)</td><td></td><td>16</td><td>5:12.1</td><td>36.82</td><td class="fastest">36.80</td><td>38.20</td><td>39.16</td><td>39.61</td><td>40.09</td><td class="slowest">41.33</td><td>40.06</td></tr><tr><td><a href="../athletes/matthew_meirose.html">Matthew Meirose</a></td><td>St Xavier (KY)</td><td>6:15.3</td><td>18</td><td class="pr">5:25.9</td><td>41.45</td><td>41.64</td><td>42.11</td><td class="slowest">42.98</td><td>42.26</td><td>41.54</td><td>39.31</td><td class="fastest">34.62</td></tr><tr><td><a href="../athletes/ryder_garcia.html">Ryder Garcia</a></td><td>St Xavier (KY)</td><td>5:27.7</td><td>24</td><td>5:29.7</td><td>41.13</td><td>41.68</td><td>42.03</td><td class="slowest">43.07</td><td>41.58</td><td>42.81</td><td>39.70</td><td class="fastest">37.74</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-16 09:21:17</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href='../athletes/tony_parilli.html'>Tony Parilli</a></td><td>St Xavier (KY)</td><td>2:02.8</td><td>4</td><td>2:11.6</td><td>33.10</td><td class="slowest">33.57</td><td>32.48</td><td class="fastest">32.41</td></tr><tr><td><a href='../athletes/jack_clifford.html'>Jack Clifford</a></td><td>St Xavier (KY)</td><td>2:14.9</td><td>14</td><td>2:17.6</td><td>34.51</td><td>34.63</td><td class="slowest">34.92</td><td class="fastest">33.53</td></tr><tr><td><a href='../athletes/thomas_norton.html'>Thomas Norton</a></td><td>St Xavier (KY)</td><td>2:20.9</td><td>17</td><td class="pr">2:18.2</td><td class="fastest">34.24</td><td>34.53</td><td>34.64</td><td class="slowest">34.78</td></tr><tr><td><a href='../athletes/owen_hillerich.html'>Owen Hillerich</a></td><td>St Xavier (KY)</td><td>2:22.3</td><td>34</td><td>2:25.6</td><td class="fastest">33.60</td><td>36.51</td><td class="slowest">38.03</td><td>37.50</td></tr><tr><td><a href='../athletes/quenton_horton.html'>Quenton Horton</a></td><td>St Xavier (KY)</td><td></td><td>40</td><td>2:28.1</td><td class="fastest">34.29</td><td>37.69</td><td class="slowest">38.76</td><td>37.36</td></tr><tr><td><a href='../athletes/xavier_mudd.html'>Xavier Mudd</a></td><td>St Xavier (KY)</td><td>2:35.9</td><td>46</td><td class="pr">2:32.1</td><td class="fastest">35.67</td><td>38.12</td><td class="slowest">39.74</td><td>38.52</td></tr><tr><td><a href='../athletes/sam_church.html'>Sam Church</a></td><td>St Xavier (KY)</td><td></td><td>48</td><td>2:32.3</td><td class="fastest">35.41</td><td>38.18</td><td class="slowest">40.84</td><td>37.91</td></tr><tr><td><a href='../athletes/garrett_pate.html'>Garrett Pate</a></td><td>St Xavier (KY)</td><td>2:33.4</td><td>52</td><td>2:34.1</td><td class="fastest">36.86</td><td class="slowest">39.77</td><td>39.19</td><td>38.28</td></tr><tr><td><a href='../athletes/sawyer_gates.html'>Sawyer Gates</a></td><td>St Xavier (KY)</td><td></td><td>64</td><td>2:54.1</td><td class="fastest">39.79</td><td>44.04</td><td class="slowest">45.65</td><td>44.59</td></tr><tr><td><a href='../athletes/garrett_kiper.html'>Garrett Kiper</a></td><td>St Xavier (KY)</td><td>2:58.1</td><td>67</td><td class="pr">2:57.8</td><td class="fastest">39.53</td><td>42.08</td><td>47.08</td><td class="slowest">49.07</td></tr></tbody></table></div></div>
+<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td><a href='../athletes/ian_obryan.html'>Ian O'Bryan</a></td><td>St Xavier (KY)</td><td></td><td>5</td><td>4:58.7</td><td>36.33</td><td>36.10</td><td>38.66</td><td class="slowest">39.96</td><td>38.61</td><td>39.68</td><td>36.57</td><td class="fastest">32.80</td></tr><tr><td><a href='../athletes/everett_derrick.html'>Everett Derrick</a></td><td>St Xavier (KY)</td><td>4:57.7</td><td>7</td><td>4:59.4</td><td>35.34</td><td class="fastest">34.92</td><td>36.98</td><td>37.79</td><td>39.01</td><td class="slowest">39.55</td><td>39.09</td><td>36.75</td></tr><tr><td><a href='../athletes/jimmy_greer.html'>Jimmy Greer</a></td><td>St Xavier (KY)</td><td></td><td>14</td><td>5:06.8</td><td class="fastest">36.69</td><td>36.92</td><td>38.42</td><td>39.30</td><td>39.15</td><td class="slowest">39.65</td><td>39.56</td><td>37.14</td></tr><tr><td><a href='../athletes/james_bush.html'>James Bush</a></td><td>St Xavier (KY)</td><td>5:01.3</td><td>15</td><td>5:09.4</td><td>37.10</td><td>37.44</td><td>38.52</td><td>38.29</td><td>40.88</td><td class="slowest">41.53</td><td>39.77</td><td class="fastest">35.90</td></tr><tr><td><a href='../athletes/owen_mayes.html'>Owen Mayes</a></td><td>St Xavier (KY)</td><td></td><td>16</td><td>5:12.1</td><td>36.82</td><td class="fastest">36.80</td><td>38.20</td><td>39.16</td><td>39.61</td><td>40.09</td><td class="slowest">41.33</td><td>40.06</td></tr><tr><td><a href='../athletes/matthew_meirose.html'>Matthew Meirose</a></td><td>St Xavier (KY)</td><td>6:15.3</td><td>18</td><td class="pr">5:25.9</td><td>41.45</td><td>41.64</td><td>42.11</td><td class="slowest">42.98</td><td>42.26</td><td>41.54</td><td>39.31</td><td class="fastest">34.62</td></tr><tr><td><a href='../athletes/ryder_garcia.html'>Ryder Garcia</a></td><td>St Xavier (KY)</td><td>5:27.7</td><td>24</td><td>5:29.7</td><td>41.13</td><td>41.68</td><td>42.03</td><td class="slowest">43.07</td><td>41.58</td><td>42.81</td><td>39.70</td><td class="fastest">37.74</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-16 10:53:30</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
 </body>
 </html>
