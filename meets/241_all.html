@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2025-06-06 | Mile Madness</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+
+      /* Bigger Home link */
+      .nav a.home-link { font-size: 18px; font-weight: 800; }
+
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+
+      /* 2-column home layout */
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+
+      /* Tables shrink to content + scroll if needed */
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+
+      /* Lap highlighting: min = green, max = red */
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+
+      /* PR highlight on Result cell in meet pages */
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+
+      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+
+      /* Index filter */
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+
+      /* Athlete results: hide split columns by default */
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+
+      /* Athlete PR tabs */
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn {
+        border:1px solid #ddd; background:#fff; border-radius: 999px;
+        padding:6px 10px; font-size: 13px; cursor:pointer;
+      }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+
+      /* Athlete results sections */
+      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+
+      /* Meet view toggle */
+      .viewtoggle b { font-weight: 800; }
+      .viewtoggle a { font-weight: 600; }
+
+      /* Two lists in athlete card */
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+    </style>
+    
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2025-06-06</div>
+        <div class="meetname">Mile Madness</div>
+        <p class="subline muted">Outdoor • View: <span class="viewtoggle"><a href="241_stx.html">StX Only</a> <span class="muted">|</span> <b>All Athletes</b></span></p>
+      </div>
+      <div class="nav">
+        <a class="home-link" href="../index.html">Home</a>
+      </div>
+    </div>
+    
+<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>Xavier Richardson</td><td>Lafayette</td><td></td><td>1</td><td>4:10.6</td></tr><tr><td>Van Weimer</td><td>Lafayette</td><td></td><td>2</td><td>4:17.3</td></tr><tr><td>Whitman Goodwin</td><td>Trinity (Louisville)</td><td></td><td>3</td><td>4:19.7</td></tr><tr><td>Asher Feddock</td><td>Ironcology</td><td></td><td>4</td><td>4:19.8</td></tr><tr><td>Sam Chandler</td><td>DuPont Manual</td><td></td><td>5</td><td>4:20.5</td></tr><tr><td>Ayden Taylor</td><td>Trinity (Louisville)</td><td></td><td>6</td><td>4:20.9</td></tr><tr><td>Jake Hanson</td><td>Lafayette</td><td></td><td>7</td><td>4:21.4</td></tr><tr><td>Jared Fairbanks</td><td>Unattached</td><td></td><td>8</td><td>4:22.0</td></tr><tr><td>Jackson Profitt</td><td>Lafayette</td><td></td><td>9</td><td>4:23.3</td></tr><tr><td>Asher Alvey</td><td>Unattached</td><td></td><td>10</td><td>4:23.6</td></tr><tr><td>Jake Hagan</td><td>Trinity (Louisville)</td><td></td><td>11</td><td>4:25.4</td></tr><tr><td>Sullivan Yaden</td><td>Trinity (Louisville)</td><td></td><td>12</td><td>4:25.7</td></tr><tr><td>Logan Campbell</td><td>Unattached</td><td></td><td>13</td><td>4:27.1</td></tr><tr><td>Andrew Grace</td><td>Lafayette</td><td></td><td>14</td><td>4:27.6</td></tr><tr><td>Houston Brooks</td><td>Unattached</td><td></td><td>15</td><td>4:29.4</td></tr><tr><td>Henry Craycraft</td><td>Milford</td><td></td><td>16</td><td>4:30.2</td></tr><tr><td>Wesley Buck</td><td>41-Unattached</td><td></td><td>17</td><td>4:30.7</td></tr><tr><td>Buzz Christensen</td><td>Lafayette</td><td></td><td>18</td><td>4:31.1</td></tr><tr><td>Brady Dinsmore</td><td>Trinity (Louisville)</td><td></td><td>19</td><td>4:32.2</td></tr><tr><td>Luke McLane</td><td>Covington Catholic</td><td></td><td>20</td><td>4:33.4</td></tr><tr><td>James George</td><td>St Xavier (KY)</td><td>5:18.7</td><td>21</td><td class="pr">4:33.5</td></tr><tr><td>Fletcher Rodbro</td><td>17-Unattached</td><td></td><td>22</td><td>4:33.5</td></tr><tr><td>Caleb Turner</td><td>Ironcology</td><td></td><td>23</td><td>4:34.9</td></tr><tr><td>Daxton Noe</td><td>Ironcology</td><td></td><td>24</td><td>4:35.3</td></tr><tr><td>Chance Collins</td><td>41-Unattached</td><td></td><td>25</td><td>4:35.7</td></tr><tr><td>Emmitt Brock</td><td>Unattached</td><td></td><td>26</td><td>4:36.3</td></tr><tr><td>Joel Barczak</td><td>Covington Catholic</td><td></td><td>27</td><td>4:36.4</td></tr><tr><td>Mark Kipelio</td><td>Madison Central</td><td></td><td>28</td><td>4:36.6</td></tr><tr><td>Tucker Dalton</td><td>Trinity (Louisville)</td><td></td><td>29</td><td>4:37.3</td></tr><tr><td>Tyler Cammack</td><td>Thomson Training</td><td></td><td>30</td><td>4:38.3</td></tr><tr><td>Mason Durham</td><td>Unattached</td><td></td><td>31</td><td>4:38.4</td></tr><tr><td>Chris Fryrear</td><td>Trinity (Louisville)</td><td></td><td>32</td><td>4:38.4</td></tr><tr><td>Jacob Heuckroth</td><td>Unattached</td><td></td><td>33</td><td>4:38.9</td></tr><tr><td>Jackson Barkley</td><td>Lafayette</td><td></td><td>34</td><td>4:39.5</td></tr><tr><td>Qasim Al Jazaierry</td><td>Pleasure Ridge Park</td><td></td><td>35</td><td>4:39.6</td></tr><tr><td>Zach Hamilton</td><td>West Jessamine</td><td></td><td>36</td><td>4:41.1</td></tr><tr><td>Reeves McCullough</td><td>Ironcology</td><td></td><td>37</td><td>4:42.7</td></tr><tr><td>Jonathan Feddock</td><td>Ironcology</td><td></td><td>38</td><td>4:44.7</td></tr><tr><td>Landon Hammer</td><td>Unattached</td><td></td><td>39</td><td>4:44.9</td></tr><tr><td>Isaac Wells</td><td>Lafayette</td><td></td><td>40</td><td>4:46.3</td></tr><tr><td>Asher Edmondson</td><td>Covington Catholic</td><td></td><td>41</td><td>4:46.6</td></tr><tr><td>Lars Myrup</td><td>Lafayette</td><td></td><td>42</td><td>4:46.6</td></tr><tr><td>Jack Tindall</td><td>Trinity (Louisville)</td><td></td><td>43</td><td>4:47.1</td></tr><tr><td>Cody Seymour</td><td>Trinity (Louisville)</td><td></td><td>44</td><td>4:47.1</td></tr><tr><td>Cole Shaver</td><td>Lafayette</td><td></td><td>45</td><td>4:48.2</td></tr><tr><td>Finn Leek</td><td>Lafayette</td><td></td><td>46</td><td>4:53.4</td></tr><tr><td>Luke Rogers</td><td>Unattached</td><td></td><td>47</td><td>4:54.1</td></tr><tr><td>Jacob Fryrear</td><td>Trinity (Louisville)</td><td></td><td>48</td><td>4:54.7</td></tr><tr><td>Landon Maxfield</td><td>CKY Homeschool</td><td></td><td>49</td><td>4:55.5</td></tr><tr><td>Steven Buck</td><td>Unattached</td><td></td><td>50</td><td>4:56.1</td></tr><tr><td>Jake Ovesen</td><td>Unattached</td><td></td><td>51</td><td>4:56.2</td></tr><tr><td>Shea Thrash</td><td>Lafayette</td><td></td><td>52</td><td>4:56.4</td></tr><tr><td>Nikita Foushe</td><td>Lafayette</td><td></td><td>53</td><td>4:56.8</td></tr><tr><td>Jackson Presley</td><td>Lafayette</td><td></td><td>54</td><td>4:57.1</td></tr><tr><td>Bennett Meece</td><td>Lafayette</td><td></td><td>55</td><td>4:57.2</td></tr><tr><td>Charles Farra</td><td>Trinity (Louisville)</td><td></td><td>56</td><td>4:58.7</td></tr><tr><td>Abi Teller</td><td>Covington Catholic</td><td></td><td>57</td><td>4:59.2</td></tr><tr><td>Case Kerr</td><td>Lafayette</td><td></td><td>58</td><td>5:00.4</td></tr><tr><td>Zachary Workman</td><td>Ironcology</td><td></td><td>59</td><td>5:00.6</td></tr><tr><td>Connor McNamara</td><td>Unattached</td><td></td><td>60</td><td>5:01.0</td></tr><tr><td>Jimmy Schepers</td><td>Trinity (Louisville)</td><td></td><td>61</td><td>5:01.1</td></tr><tr><td>Stewart Stevens</td><td>Unattached</td><td></td><td>62</td><td>5:02.8</td></tr><tr><td>Tony Parilli</td><td>St Xavier (KY)</td><td></td><td>63</td><td>5:03.8</td></tr><tr><td>Tim Franxman</td><td>41-Unattached</td><td></td><td>64</td><td>5:04.1</td></tr><tr><td>Cooper Hogan</td><td>St Xavier (KY)</td><td></td><td>65</td><td>5:13.6</td></tr><tr><td>Ben Wulfeck</td><td>Covington Catholic</td><td></td><td>66</td><td>5:14.1</td></tr><tr><td>Grayson Collins</td><td>Ironcology</td><td></td><td>67</td><td>5:14.3</td></tr><tr><td>Ezra Nix</td><td>Unattached</td><td></td><td>68</td><td>5:15.8</td></tr><tr><td>Myles Barczak</td><td>Covington Catholic</td><td></td><td>69</td><td>5:23.8</td></tr><tr><td>Joe Buckles</td><td>Unattached</td><td></td><td>70</td><td>5:24.3</td></tr><tr><td>Joey Gebb</td><td>Lafayette</td><td></td><td>71</td><td>5:28.5</td></tr><tr><td>Luke Riggs</td><td>Lafayette</td><td></td><td>72</td><td>5:30.3</td></tr><tr><td>Elijah Dunkle</td><td>Unattached</td><td></td><td>73</td><td>5:31.7</td></tr><tr><td>Leo Falk</td><td>St Xavier (KY)</td><td></td><td>74</td><td>5:32.2</td></tr><tr><td>Sawyer Franxman</td><td>Covington Catholic</td><td></td><td>75</td><td>5:34.2</td></tr><tr><td>Hudson Leek</td><td>Lafayette</td><td></td><td>76</td><td>5:40.5</td></tr><tr><td>Eli Larkin</td><td>Unattached</td><td></td><td>77</td><td>5:41.0</td></tr><tr><td>Anderson Feddock</td><td>Ironcology</td><td></td><td>78</td><td>5:42.8</td></tr><tr><td>Zachary Dorsey</td><td>Unattached</td><td></td><td>79</td><td>5:43.8</td></tr><tr><td>Walker Brown</td><td>Lafayette</td><td></td><td>80</td><td>5:44.3</td></tr><tr><td>Julian Muniz</td><td>Unattached</td><td></td><td>81</td><td>5:46.7</td></tr><tr><td>Owen Smith</td><td>Lafayette</td><td></td><td>82</td><td>5:47.5</td></tr><tr><td>John Moses</td><td>Ironcology</td><td></td><td>83</td><td>5:48.2</td></tr><tr><td>Connor Lineberry</td><td>Ironcology</td><td></td><td>84</td><td>5:48.4</td></tr><tr><td>Joshua Bratten</td><td>Lafayette</td><td></td><td>85</td><td>5:51.1</td></tr><tr><td>Adrian Bowers</td><td>Unattached</td><td></td><td>86</td><td>5:52.7</td></tr><tr><td>Evan Bishop</td><td>Ironcology</td><td></td><td>87</td><td>5:54.9</td></tr><tr><td>Matthias Myrup</td><td>Lafayette</td><td></td><td>88</td><td>6:01.8</td></tr><tr><td>Noah Foushee</td><td>Lafayette</td><td></td><td>89</td><td>6:04.1</td></tr><tr><td>Scout Arnold</td><td>Unattached</td><td></td><td>90</td><td>9:37.2</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-15 22:38:48</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+</body>
+</html>

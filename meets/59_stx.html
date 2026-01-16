@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2024-05-09 | JV Championship</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+
+      /* Bigger Home link */
+      .nav a.home-link { font-size: 18px; font-weight: 800; }
+
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+
+      /* 2-column home layout */
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+
+      /* Tables shrink to content + scroll if needed */
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+
+      /* Lap highlighting: min = green, max = red */
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+
+      /* PR highlight on Result cell in meet pages */
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+
+      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+
+      /* Index filter */
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+
+      /* Athlete results: hide split columns by default */
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+
+      /* Athlete PR tabs */
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn {
+        border:1px solid #ddd; background:#fff; border-radius: 999px;
+        padding:6px 10px; font-size: 13px; cursor:pointer;
+      }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+
+      /* Athlete results sections */
+      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+
+      /* Meet view toggle */
+      .viewtoggle b { font-weight: 800; }
+      .viewtoggle a { font-weight: 600; }
+
+      /* Two lists in athlete card */
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+    </style>
+    
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2024-05-09</div>
+        <div class="meetname">JV Championship</div>
+        <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="59_all.html">All Athletes</a></span></p>
+      </div>
+      <div class="nav">
+        <a class="home-link" href="../index.html">Home</a>
+      </div>
+    </div>
+    
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th></tr></thead><tbody><tr><td>James George</td><td>St Xavier (KY)</td><td>2:07.0</td><td>2</td><td>2:08.3</td><td class="fastest">62.99</td><td class="slowest">65.28</td></tr><tr><td>Henry Pudlo</td><td>St Xavier (KY)</td><td>2:07.5</td><td>4</td><td>2:09.9</td><td class="fastest">62.85</td><td class="slowest">67.02</td></tr><tr><td>Matthew Frick</td><td>St Xavier (KY)</td><td>2:13.8</td><td>5</td><td class="pr">2:12.2</td><td class="fastest">64.89</td><td class="slowest">67.31</td></tr><tr><td>Nolan Crider</td><td>St Xavier (KY)</td><td>2:14.8</td><td>9</td><td>2:17.0</td><td class="fastest">67.93</td><td class="slowest">69.04</td></tr><tr><td>Zack Smith</td><td>St Xavier (KY)</td><td></td><td>10</td><td>2:21.2</td><td class="fastest">67.58</td><td class="slowest">73.66</td></tr><tr><td>Jack Clifford</td><td>St Xavier (KY)</td><td>2:19.7</td><td>11</td><td>2:21.9</td><td class="fastest">67.23</td><td class="slowest">74.67</td></tr><tr><td>Tyler Hogan</td><td>St Xavier (KY)</td><td>2:20.7</td><td>13</td><td>2:25.4</td><td class="fastest">70.52</td><td class="slowest">74.93</td></tr></tbody></table></div></div>
+<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td>Marshall Wilson</td><td>St Xavier (KY)</td><td></td><td>2</td><td>4:49.1</td><td class="fastest">67.00</td><td class="slowest">76.53</td><td>75.49</td><td>70.12</td></tr><tr><td>Hayden Willman</td><td>St Xavier (KY)</td><td>5:16.1</td><td>5</td><td class="pr">4:57.8</td><td class="fastest">70.50</td><td>77.19</td><td class="slowest">79.56</td><td>70.53</td></tr><tr><td>Baron Staab</td><td>St Xavier (KY)</td><td></td><td>7</td><td>5:01.4</td><td>73.17</td><td class="slowest">78.57</td><td>77.53</td><td class="fastest">72.10</td></tr><tr><td>Vincent Yochum</td><td>St Xavier (KY)</td><td>5:11.5</td><td>10</td><td class="pr">5:03.6</td><td class="fastest">71.07</td><td>77.00</td><td class="slowest">78.83</td><td>76.73</td></tr><tr><td>Nick Zoglman</td><td>St Xavier (KY)</td><td>5:04.8</td><td>11</td><td>5:06.7</td><td class="fastest">72.06</td><td>79.10</td><td class="slowest">80.38</td><td>75.14</td></tr><tr><td>Levi Roach</td><td>St Xavier (KY)</td><td></td><td>14</td><td>5:15.9</td><td class="fastest">74.55</td><td>81.16</td><td class="slowest">82.59</td><td>77.61</td></tr><tr><td>Ryder Garcia</td><td>St Xavier (KY)</td><td>5:39.4</td><td>23</td><td>5:45.8</td><td>84.00</td><td>89.39</td><td class="slowest">90.58</td><td class="fastest">81.82</td></tr></tbody></table></div></div>
+<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>8:12.4</td><td>1</td><td>8:50.3</td><td>67.72</td><td class="slowest">69.03</td><td class="fastest">60.66</td><td>67.97</td><td>66.94</td><td>66.55</td><td>64.64</td><td>66.74</td></tr><tr><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>8:12.4</td><td>2</td><td>9:10.1</td><td>67.74</td><td>68.92</td><td>67.34</td><td>71.53</td><td>68.31</td><td class="slowest">73.53</td><td class="fastest">65.28</td><td>67.41</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-15 22:39:06</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+</body>
+</html>

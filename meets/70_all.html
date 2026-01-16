@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2023-04-26 | Male Master 2</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+
+      /* Bigger Home link */
+      .nav a.home-link { font-size: 18px; font-weight: 800; }
+
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+
+      /* 2-column home layout */
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+
+      /* Tables shrink to content + scroll if needed */
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+
+      /* Lap highlighting: min = green, max = red */
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+
+      /* PR highlight on Result cell in meet pages */
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+
+      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+
+      /* Index filter */
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+
+      /* Athlete results: hide split columns by default */
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+
+      /* Athlete PR tabs */
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn {
+        border:1px solid #ddd; background:#fff; border-radius: 999px;
+        padding:6px 10px; font-size: 13px; cursor:pointer;
+      }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+
+      /* Athlete results sections */
+      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+
+      /* Meet view toggle */
+      .viewtoggle b { font-weight: 800; }
+      .viewtoggle a { font-weight: 600; }
+
+      /* Two lists in athlete card */
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+    </style>
+    
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2023-04-26</div>
+        <div class="meetname">Male Master 2</div>
+        <p class="subline muted">Outdoor • View: <span class="viewtoggle"><a href="70_stx.html">StX Only</a> <span class="muted">|</span> <b>All Athletes</b></span></p>
+      </div>
+      <div class="nav">
+        <a class="home-link" href="../index.html">Home</a>
+      </div>
+    </div>
+    
+<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>Karlyle Sullivan</td><td>Male</td><td></td><td>1</td><td>2:10.7</td></tr><tr><td>Whitman Goodwin</td><td>Atherton</td><td></td><td>2</td><td>2:11.0</td></tr><tr><td>James George</td><td>St Xavier (KY)</td><td>2:21.6</td><td>3</td><td class="pr">2:11.5</td></tr><tr><td>Alex Payton</td><td>Ballard</td><td></td><td>4</td><td>2:11.9</td></tr><tr><td>Freddie Jones</td><td>North Oldham</td><td></td><td>5</td><td>2:12.1</td></tr><tr><td>Alex Paul</td><td>Atherton</td><td></td><td>6</td><td>2:18.5</td></tr><tr><td>Samuel Trapp</td><td>Ballard</td><td></td><td>7</td><td>2:19.6</td></tr><tr><td>Chernet (CJ) Henderson</td><td>Ballard</td><td></td><td>8</td><td>2:20.5</td></tr><tr><td>Victor Rutabura</td><td>Southern</td><td></td><td>9</td><td>2:20.5</td></tr><tr><td>Lincoln Richardson</td><td>Male</td><td></td><td>10</td><td>2:20.7</td></tr><tr><td>Gavin House</td><td>DuPont Manual</td><td></td><td>11</td><td>2:21.7</td></tr><tr><td>Zachary Adams</td><td>Male</td><td></td><td>12</td><td>2:22.5</td></tr><tr><td>Nolan Matthews</td><td>Atherton</td><td></td><td>13</td><td>2:24.3</td></tr><tr><td>Maddox Durrett</td><td>Male</td><td></td><td>14</td><td>2:25.9</td></tr><tr><td>Caleb Sells</td><td>Male</td><td></td><td>15</td><td>2:26.0</td></tr><tr><td>Lincoln Maynard</td><td>North Oldham</td><td></td><td>16</td><td>2:26.0</td></tr><tr><td>Samuel Ntwambe</td><td>Fern Creek</td><td></td><td>17</td><td>2:26.1</td></tr><tr><td>Avery Powell</td><td>Atherton</td><td></td><td>18</td><td>2:26.4</td></tr><tr><td>Owen Hillerich</td><td>St Xavier (KY)</td><td>2:22.3</td><td>19</td><td>2:26.6</td></tr><tr><td>Alex Haverstock</td><td>North Oldham</td><td></td><td>20</td><td>2:26.7</td></tr><tr><td>Kaelan Key</td><td>North Oldham</td><td></td><td>21</td><td>2:27.6</td></tr><tr><td>Jackson Cravens</td><td>Ballard</td><td></td><td>22</td><td>2:27.7</td></tr><tr><td>Carter Beam</td><td>Ballard</td><td></td><td>23</td><td>2:28.3</td></tr><tr><td>Michael Okeke</td><td>DuPont Manual</td><td></td><td>24</td><td>2:28.5</td></tr><tr><td>Maurice Katembo</td><td>Fern Creek</td><td></td><td>25</td><td>2:29.5</td></tr><tr><td>Preston Goodwin</td><td>Atherton</td><td></td><td>26</td><td>2:30.1</td></tr><tr><td>Nathan Doss</td><td>Male</td><td></td><td>27</td><td>2:30.5</td></tr><tr><td>Elias Najjar</td><td>Brown</td><td></td><td>28</td><td>2:32.4</td></tr><tr><td>Liam Fay</td><td>Southern</td><td></td><td>29</td><td>2:34.0</td></tr><tr><td>Jase Sowders</td><td>Fern Creek</td><td></td><td>30</td><td>2:34.4</td></tr><tr><td>Cameron Jackson</td><td>Southern</td><td></td><td>31</td><td>2:34.4</td></tr><tr><td>Reid Cook</td><td>St Xavier (KY)</td><td>2:41.1</td><td>32</td><td class="pr">2:35.0</td></tr><tr><td>Tre Marshall</td><td>DuPont Manual</td><td></td><td>33</td><td>2:36.4</td></tr><tr><td>Deshawn Pilgrim</td><td>Southern</td><td></td><td>34</td><td>2:36.9</td></tr><tr><td>Thomas Raymond</td><td>Ballard</td><td></td><td>35</td><td>2:37.2</td></tr><tr><td>Owen Yoffe</td><td>Ballard</td><td></td><td>36</td><td>2:38.1</td></tr><tr><td>Collin Bartlett</td><td>Jeffersontown</td><td></td><td>37</td><td>2:38.6</td></tr><tr><td>Alex Weaver</td><td>Brown</td><td></td><td>38</td><td>2:40.7</td></tr><tr><td>Stephan Smith</td><td>DuPont Manual</td><td></td><td>39</td><td>2:42.0</td></tr><tr><td>Ryder Garcia</td><td>St Xavier (KY)</td><td>2:44.0</td><td>40</td><td class="pr">2:42.2</td></tr><tr><td>Daniel Christerson</td><td>Male</td><td></td><td>41</td><td>2:43.1</td></tr><tr><td>Hunter Raymond</td><td>Ballard</td><td></td><td>42</td><td>2:44.8</td></tr><tr><td>Jude Mayfield</td><td>Atherton</td><td></td><td>43</td><td>2:48.1</td></tr><tr><td>Matthew Lish</td><td>Brown</td><td></td><td>44</td><td>2:58.3</td></tr><tr><td>Justin Lee</td><td>Southern</td><td></td><td>45</td><td>3:08.3</td></tr><tr><td>Xavier Mansfield</td><td>Male</td><td></td><td>46</td><td>3:09.8</td></tr></tbody></table></div></div>
+<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>Whitman Goodwin</td><td>Atherton</td><td></td><td>1</td><td>4:49.0</td></tr><tr><td>Josh Siegwald</td><td>Ballard</td><td></td><td>2</td><td>4:50.9</td></tr><tr><td>Isaac Clark</td><td>Ballard</td><td></td><td>3</td><td>4:56.1</td></tr><tr><td>Gabriel Cease</td><td>Ballard</td><td></td><td>4</td><td>4:56.4</td></tr><tr><td>Joseph Oeswein</td><td>Ballard</td><td></td><td>5</td><td>5:00.9</td></tr><tr><td>Spencer Marks</td><td>Atherton</td><td></td><td>6</td><td>5:02.8</td></tr><tr><td>Avery Powell</td><td>Atherton</td><td></td><td>7</td><td>5:08.0</td></tr><tr><td>Alex Haverstock</td><td>North Oldham</td><td></td><td>8</td><td>5:11.0</td></tr><tr><td>Nolan Kiper</td><td>Male</td><td></td><td>9</td><td>5:11.6</td></tr><tr><td>Evan Jones</td><td>Butler</td><td></td><td>10</td><td>5:15.3</td></tr><tr><td>Charlie Dugan</td><td>North Oldham</td><td></td><td>11</td><td>5:15.9</td></tr><tr><td>Lincoln Maynard</td><td>North Oldham</td><td></td><td>12</td><td>5:25.4</td></tr><tr><td>Benton Mammorella</td><td>DuPont Manual</td><td></td><td>13</td><td>5:28.1</td></tr><tr><td>Garrett Hensler</td><td>Male</td><td></td><td>14</td><td>5:30.0</td></tr><tr><td>Eli Clark</td><td>Ballard</td><td></td><td>15</td><td>5:30.8</td></tr><tr><td>Carter Beam</td><td>Ballard</td><td></td><td>16</td><td>5:33.4</td></tr><tr><td>Calvin Brooks</td><td>DuPont Manual</td><td></td><td>17</td><td>5:34.5</td></tr><tr><td>Elias Najjar</td><td>Brown</td><td></td><td>18</td><td>5:35.9</td></tr><tr><td>James Dollar</td><td>Butler</td><td></td><td>19</td><td>5:37.4</td></tr><tr><td>Michael Okeke</td><td>DuPont Manual</td><td></td><td>20</td><td>5:38.2</td></tr><tr><td>Trevor Morris</td><td>DuPont Manual</td><td></td><td>21</td><td>5:40.3</td></tr><tr><td>Cameron Jackson</td><td>Southern</td><td></td><td>22</td><td>5:40.4</td></tr><tr><td>Deshawn Pilgrim</td><td>Southern</td><td></td><td>23</td><td>5:40.7</td></tr><tr><td>Matthew Mattingly</td><td>Butler</td><td></td><td>24</td><td>5:40.9</td></tr><tr><td>Matt Anderson</td><td>Jeffersontown</td><td></td><td>25</td><td>5:42.8</td></tr><tr><td>Weston Bragg</td><td>Butler</td><td></td><td>26</td><td>5:44.7</td></tr><tr><td>Thomas Raymond</td><td>Ballard</td><td></td><td>27</td><td>5:55.5</td></tr><tr><td>Collin Bartlett</td><td>Jeffersontown</td><td></td><td>28</td><td>5:55.7</td></tr><tr><td>Thomas Lewis</td><td>North Oldham</td><td></td><td>29</td><td>5:59.2</td></tr><tr><td>Hunter Raymond</td><td>Ballard</td><td></td><td>30</td><td>6:15.2</td></tr><tr><td>Justin Lee</td><td>Southern</td><td></td><td>31</td><td>6:41.1</td></tr><tr><td>Matthew Lish</td><td>Brown</td><td></td><td>32</td><td>6:52.3</td></tr><tr><td>Sam Yauwanta</td><td>Brown</td><td></td><td>33</td><td>6:55.3</td></tr></tbody></table></div></div>
+<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>Relay Team</td><td>Butler</td><td></td><td>1</td><td>9:39.0</td></tr><tr><td>PR James Dollar , Evan Jones , Matthew Mattingly , Jayden Perkins</td><td>Ballard</td><td></td><td>2</td><td>9:39.8</td></tr><tr><td>Relay Team</td><td>Southern</td><td></td><td>3</td><td>10:42.7</td></tr><tr><td>PR Jonah Belance , Deshawn Pilgrim , Ja'Marion Jones , Victor Rutabura</td><td>Southern - B</td><td></td><td>4</td><td>10:48.0</td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-15 22:39:19</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+</body>
+</html>
