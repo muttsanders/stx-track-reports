@@ -9,42 +9,33 @@
       a { color: #0b5fff; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .muted { color: #666; }
-
       .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
       .titlewrap { min-width: 240px; }
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
-
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-
       /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-
       /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-
       /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-
       /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-
       /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
@@ -53,19 +44,15 @@
         color: #b00020;
         letter-spacing: 0.5px;
       }
-
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-
       /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-
       /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-
       /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
@@ -75,19 +62,15 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-
       /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-
       /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-
       /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-
       /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
@@ -109,6 +92,6 @@
 <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/parker_ashley.html'>Parker Ashley</a></td><td>St Xavier (KY)</td><td>2:18.5</td><td>3</td><td class="pr">2:10.9</td></tr><tr><td><a href='../athletes/zach_blincoe.html'>Zach Blincoe</a></td><td>St Xavier (KY)</td><td></td><td>7</td><td>2:25.4</td></tr><tr><td><a href='../athletes/gabe_harney.html'>Gabe Harney</a></td><td>St Xavier (KY)</td><td></td><td>8</td><td>2:27.7</td></tr><tr><td><a href='../athletes/nick_zoglman.html'>Nick Zoglman</a></td><td>St Xavier (KY)</td><td></td><td>12</td><td>2:29.9</td></tr><tr><td><a href='../athletes/preston_prewitt.html'>Preston Prewitt</a></td><td>St Xavier (KY)</td><td></td><td>15</td><td>2:35.0</td></tr></tbody></table></div></div>
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/isaac_baker.html'>Isaac Baker</a></td><td>St Xavier (KY)</td><td></td><td>1</td><td>5:00.3</td></tr><tr><td><a href='../athletes/talbott_dilger.html'>Talbott Dilger</a></td><td>St Xavier (KY)</td><td>5:03.5</td><td>2</td><td>5:06.9</td></tr><tr><td><a href='../athletes/gabe_harney.html'>Gabe Harney</a></td><td>St Xavier (KY)</td><td>5:30.2</td><td>4</td><td class="pr">5:21.8</td></tr><tr><td><a href='../athletes/ty_sautel.html'>Ty Sautel</a></td><td>St Xavier (KY)</td><td></td><td>5</td><td>5:30.3</td></tr><tr><td><a href='../athletes/preston_prewitt.html'>Preston Prewitt</a></td><td>St Xavier (KY)</td><td>6:10.0</td><td>6</td><td class="pr">5:30.9</td></tr><tr><td><a href='../athletes/jeremy_lopez.html'>Jeremy Lopez</a></td><td>St Xavier (KY)</td><td></td><td>10</td><td>5:36.1</td></tr><tr><td><a href='../athletes/nick_zoglman.html'>Nick Zoglman</a></td><td>St Xavier (KY)</td><td></td><td>12</td><td>5:39.4</td></tr><tr><td><a href='../athletes/spencer_disselkamp.html'>Spencer Disselkamp</a></td><td>St Xavier (KY)</td><td>6:01.4</td><td>14</td><td class="pr">5:40.3</td></tr><tr><td><a href='../athletes/cole_cornett.html'>Cole Cornett</a></td><td>St Xavier (KY)</td><td></td><td>17</td><td>5:47.4</td></tr><tr><td><a href='../athletes/joey_maier.html'>Joey Maier</a></td><td>St Xavier (KY)</td><td></td><td>18</td><td>5:47.6</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/luke_napier.html'>Luke Napier</a></td><td>St Xavier (KY)</td><td>11:55.9</td><td>2</td><td class="pr">10:55.0</td></tr><tr><td><a href='../athletes/dominic_garcia.html'>Dominic Garcia</a></td><td>St Xavier (KY)</td><td></td><td>4</td><td>11:23.9</td></tr><tr><td><a href='../athletes/tripp_campbell.html'>Tripp Campbell</a></td><td>St Xavier (KY)</td><td></td><td>5</td><td>11:38.6</td></tr><tr><td><a href='../athletes/noah_george.html'>Noah George</a></td><td>St Xavier (KY)</td><td>11:13.2</td><td>6</td><td>11:46.0</td></tr><tr><td><a href='../athletes/hayden_willman.html'>Hayden Willman</a></td><td>St Xavier (KY)</td><td></td><td>9</td><td>12:38.8</td></tr><tr><td><a href='../athletes/dubem_ozor.html'>Dubem Ozor</a></td><td>St Xavier (KY)</td><td></td><td>11</td><td>13:02.8</td></tr><tr><td><a href='../athletes/roman_duke.html'>Roman Duke</a></td><td>St Xavier (KY)</td><td></td><td>12</td><td>13:04.0</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-17 16:05:53</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-17 20:27:12</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

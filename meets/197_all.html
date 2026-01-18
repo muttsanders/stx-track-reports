@@ -9,42 +9,33 @@
       a { color: #0b5fff; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .muted { color: #666; }
-
       .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
       .titlewrap { min-width: 240px; }
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
-
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-
       /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-
       /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-
       /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-
       /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-
       /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
@@ -53,19 +44,15 @@
         color: #b00020;
         letter-spacing: 0.5px;
       }
-
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-
       /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-
       /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-
       /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
@@ -75,19 +62,15 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-
       /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-
       /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-
       /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-
       /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
@@ -110,6 +93,6 @@
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/andy_weatherford.html'>Andy Weatherford</a></td><td>Greencastle</td><td></td><td>1</td><td>4:21.1</td></tr><tr><td><a href='../athletes/mark_weden.html'>Mark Weden</a></td><td>Loveland</td><td></td><td>2</td><td>4:24.4</td></tr><tr><td><a href='../athletes/cole_hardacre.html'>Cole Hardacre</a></td><td>Pendleton Heights</td><td></td><td>3</td><td>4:26.7</td></tr><tr><td><a href='../athletes/andrew_menner.html'>Andrew Menner</a></td><td>Center Grove</td><td></td><td>4</td><td>4:27.3</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td>St Xavier (KY)</td><td></td><td>5</td><td>4:27.9</td></tr><tr><td><a href='../athletes/dean_rothenberger.html'>Dean Rothenberger</a></td><td>Mooresville</td><td></td><td>6</td><td>4:30.1</td></tr><tr><td><a href='../athletes/josh_smith.html'>Josh Smith</a></td><td>Indianapolis Cathedral</td><td></td><td>7</td><td>4:31.4</td></tr><tr><td><a href='../athletes/andrew_poore.html'>Andrew Poore</a></td><td>Indianapolis Bishop Chatard</td><td></td><td>8</td><td>4:34.9</td></tr><tr><td><a href='../athletes/brett_millard.html'>Brett Millard</a></td><td>Lawrence North</td><td></td><td>9</td><td>4:35.8</td></tr><tr><td><a href='../athletes/billy_ryan.html'>Billy Ryan</a></td><td>Valparaiso</td><td></td><td>10</td><td>4:36.4</td></tr><tr><td><a href='../athletes/benjamin_lawrence.html'>Benjamin Lawrence</a></td><td>Lawrence Central</td><td></td><td>11</td><td>4:36.6</td></tr><tr><td><a href='../athletes/chris_pfeiffer.html'>Chris Pfeiffer</a></td><td>Lawrence North</td><td></td><td>12</td><td>4:36.7</td></tr><tr><td><a href='../athletes/joe_stamper.html'>Joe Stamper</a></td><td>Culver Academies</td><td></td><td>13</td><td>4:37.8</td></tr><tr><td><a href='../athletes/tim_hennessy.html'>Tim Hennessy</a></td><td>Valparaiso</td><td></td><td>14</td><td>4:38.6</td></tr><tr><td><a href='../athletes/brandon_litz.html'>Brandon Litz</a></td><td>Plainfield</td><td></td><td>15</td><td>4:39.5</td></tr><tr><td><a href='../athletes/seth_ball.html'>Seth Ball</a></td><td>Indianapolis Bishop Chatard</td><td></td><td>16</td><td>4:41.1</td></tr><tr><td><a href='../athletes/jeff_jensen.html'>Jeff Jensen</a></td><td>Valparaiso</td><td></td><td>17</td><td>4:43.5</td></tr><tr><td><a href='../athletes/ben_humphrey.html'>Ben Humphrey</a></td><td>Reynoldsburg</td><td></td><td>18</td><td>4:45.2</td></tr><tr><td><a href='../athletes/paul_ferguson.html'>Paul Ferguson</a></td><td>Conner</td><td></td><td>19</td><td>4:45.4</td></tr><tr><td><a href='../athletes/micah_aldrich.html'>Micah Aldrich</a></td><td>Warren Central</td><td></td><td>20</td><td>4:45.9</td></tr><tr><td><a href='../athletes/blake_westerman.html'>Blake Westerman</a></td><td>Indianapolis Cathedral</td><td></td><td>21</td><td>4:46.0</td></tr><tr><td><a href='../athletes/scott_frayn.html'>Scott Frayn</a></td><td>Chicago (Lane)</td><td></td><td>22</td><td>4:46.1</td></tr><tr><td><a href='../athletes/cody_smith.html'>Cody Smith</a></td><td>Warren Central</td><td></td><td>23</td><td>4:47.3</td></tr><tr><td><a href='../athletes/joel_nofziger.html'>Joel Nofziger</a></td><td>Reynoldsburg</td><td></td><td>24</td><td>4:48.6</td></tr><tr><td><a href='../athletes/orion_wenrich.html'>Orion Wenrich</a></td><td>Warren Central</td><td></td><td>25</td><td>4:52.2</td></tr><tr><td><a href='../athletes/hugo_ramirez.html'>Hugo Ramirez</a></td><td>Chicago (Lane)</td><td></td><td>26</td><td>4:53.3</td></tr><tr><td><a href='../athletes/phil_hebda.html'>Phil Hebda</a></td><td>Crown Point</td><td></td><td>27</td><td>4:54.2</td></tr><tr><td><a href='../athletes/guy_vandermosten.html'>Guy Vandermosten</a></td><td>Conner</td><td></td><td>28</td><td>4:56.4</td></tr><tr><td><a href='../athletes/amond_stuckey.html'>Amond Stuckey</a></td><td>Gary West Side</td><td></td><td>29</td><td>5:05.5</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/scott_krapf.html'>Scott Krapf</a></td><td>Danville (Schlarman)</td><td></td><td>1</td><td>9:26.9</td></tr><tr><td><a href='../athletes/stephen_hein.html'>Stephen Hein</a></td><td>Crown Point</td><td></td><td>2</td><td>9:34.4</td></tr><tr><td><a href='../athletes/alvin_sangsuwangul.html'>Alvin Sangsuwangul</a></td><td>Lawrence North</td><td></td><td>3</td><td>9:38.4</td></tr><tr><td><a href='../athletes/scott_mcclain.html'>Scott McClain</a></td><td>St Xavier (KY)</td><td>9:45.2</td><td>4</td><td class="pr">9:39.5</td></tr><tr><td><a href='../athletes/brock_hagerman.html'>Brock Hagerman</a></td><td>Pendleton Heights</td><td></td><td>5</td><td>9:46.8</td></tr><tr><td><a href='../athletes/curtis_carr.html'>Curtis Carr</a></td><td>Brown County</td><td></td><td>6</td><td>9:47.2</td></tr><tr><td><a href='../athletes/john_farrell.html'>John Farrell</a></td><td>Valparaiso</td><td></td><td>7</td><td>9:52.3</td></tr><tr><td><a href='../athletes/aaron_kremer.html'>Aaron Kremer</a></td><td>Indianapolis Bishop Chatard</td><td></td><td>8</td><td>10:01.4</td></tr></tbody></table></div></div>
 <div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/warren_central.html'>Warren Central</a></td><td>7:52.03a</td><td></td><td>1</td><td>7:52.0</td></tr><tr><td><a href='../athletes/indianapolis_bishop_chatard.html'>Indianapolis Bishop Chatard</a></td><td>7:52.13a</td><td></td><td>2</td><td>7:52.1</td></tr><tr><td><a href='../athletes/pr_relay_team.html'>PR Relay Team</a></td><td>4</td><td></td><td>3</td><td>8:02.4</td></tr><tr><td><a href='../athletes/pr_sean_sutherland_2014_milos_mikic_1559_benjamin_scott_2025_alexander_kovach_2031.html'>PR Sean Sutherland 2:01.4 , Milos Mikic 1:55.9 , Benjamin Scott 2:02.5 , Alexander Kovach 2:03.1</a></td><td>6</td><td></td><td>4</td><td>8:03.4</td></tr><tr><td><a href='../athletes/indianapolis_cathedral.html'>Indianapolis Cathedral</a></td><td>8:17.50a</td><td></td><td>5</td><td>8:17.5</td></tr><tr><td><a href='../athletes/pr_casey_atchley_thomas_wachtel_evan_white_steven_porterfield.html'>PR Casey Atchley , Thomas Wachtel , Evan White , Steven Porterfield</a></td><td>9</td><td></td><td>6</td><td>8:20.2</td></tr><tr><td><a href='../athletes/lawrence_central.html'>Lawrence Central</a></td><td>8:23.41a</td><td></td><td>7</td><td>8:23.4</td></tr><tr><td><a href='../athletes/pr_adam_raver_brandon_litz_kyle_rusie_ben_ulrich.html'>PR Adam Raver , Brandon Litz , Kyle Rusie , Ben Ulrich</a></td><td>11</td><td></td><td>8</td><td>8:25.2</td></tr><tr><td><a href='../athletes/gary_west_side.html'>Gary West Side</a></td><td>8:28.83a</td><td></td><td>9</td><td>8:28.8</td></tr><tr><td><a href='../athletes/brown_county.html'>Brown County</a></td><td>8:30.75a</td><td></td><td>10</td><td>8:30.8</td></tr><tr><td><a href='../athletes/crown_point.html'>Crown Point</a></td><td>8:35.16a</td><td></td><td>11</td><td>8:35.2</td></tr><tr><td><a href='../athletes/lawrence_north.html'>Lawrence North</a></td><td>8:39.99a</td><td></td><td>12</td><td>8:40.0</td></tr><tr><td><a href='../athletes/east_central.html'>East Central</a></td><td>8:45.33a</td><td></td><td>13</td><td>8:45.3</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-17 16:08:13</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-17 20:28:33</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

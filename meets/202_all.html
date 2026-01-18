@@ -9,42 +9,33 @@
       a { color: #0b5fff; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .muted { color: #666; }
-
       .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
       .titlewrap { min-width: 240px; }
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
-
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-
       /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-
       /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-
       /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-
       /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-
       /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
@@ -53,19 +44,15 @@
         color: #b00020;
         letter-spacing: 0.5px;
       }
-
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-
       /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-
       /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-
       /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
@@ -75,19 +62,15 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-
       /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-
       /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-
       /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-
       /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
@@ -110,6 +93,6 @@
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/chris_danks.html'>Chris Danks</a></td><td>St. Henry District</td><td></td><td>1</td><td>4:26.8</td></tr><tr><td><a href='../athletes/jonathan_thomas.html'>Jonathan Thomas</a></td><td>Western Hills</td><td></td><td>1</td><td>4:23.1</td></tr><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>St Xavier (KY)</td><td>4:08.3</td><td>1</td><td>4:18.6</td></tr><tr><td><a href='../athletes/adam_standley.html'>Adam Standley</a></td><td>Pikeville</td><td></td><td>2</td><td>4:29.9</td></tr><tr><td><a href='../athletes/breylen_derrick.html'>Breylen Derrick</a></td><td>Highlands</td><td></td><td>2</td><td>4:26.1</td></tr><tr><td><a href='../athletes/jacob_buckman.html'>Jacob Buckman</a></td><td>Butler</td><td></td><td>2</td><td>4:25.0</td></tr><tr><td><a href='../athletes/alex_brey.html'>Alex Brey</a></td><td>Kentucky Country Day</td><td></td><td>3</td><td>4:31.6</td></tr><tr><td><a href='../athletes/daniel_morgan.html'>Daniel Morgan</a></td><td>Boyle County</td><td></td><td>3</td><td>4:26.8</td></tr><tr><td><a href='../athletes/andrew_mccann.html'>Andrew McCann</a></td><td>Paul Dunbar</td><td></td><td>3</td><td>4:26.9</td></tr><tr><td><a href='../athletes/robert_halsell.html'>Robert Halsell</a></td><td>Brown</td><td></td><td>4</td><td>4:34.4</td></tr><tr><td><a href='../athletes/jacob_fortney.html'>Jacob Fortney</a></td><td>Muhlenberg North</td><td></td><td>4</td><td>4:33.0</td></tr><tr><td><a href='../athletes/michael_eaton.html'>Michael Eaton</a></td><td>Greenwood</td><td></td><td>4</td><td>4:27.1</td></tr><tr><td><a href='../athletes/joey_heil.html'>Joey Heil</a></td><td>Bishop Brossart</td><td></td><td>5</td><td>4:40.9</td></tr><tr><td><a href='../athletes/ron_duncan.html'>Ron Duncan</a></td><td>Fleming County</td><td></td><td>5</td><td>4:36.1</td></tr><tr><td><a href='../athletes/adam_stoppelwerth.html'>Adam Stoppelwerth</a></td><td>Dixie Heights</td><td></td><td>5</td><td>4:29.8</td></tr><tr><td><a href='../athletes/matthew_rasnick.html'>Matthew Rasnick</a></td><td>Pikeville</td><td></td><td>6</td><td>4:46.3</td></tr><tr><td><a href='../athletes/nathaniel_blank.html'>Nathaniel Blank</a></td><td>Bell County</td><td></td><td>6</td><td>4:36.4</td></tr><tr><td><a href='../athletes/jose_solis.html'>Jose Solis</a></td><td>Conner</td><td></td><td>6</td><td>4:31.2</td></tr><tr><td><a href='../athletes/caleb_key.html'>Caleb Key</a></td><td>Williamsburg</td><td></td><td>7</td><td>4:47.1</td></tr><tr><td><a href='../athletes/emon_casey.html'>Emon Casey</a></td><td>Paducah Tilghman</td><td></td><td>7</td><td>4:36.6</td></tr><tr><td><a href='../athletes/sean_covington.html'>Sean Covington</a></td><td>Calloway County</td><td></td><td>7</td><td>4:31.6</td></tr><tr><td><a href='../athletes/greg_robinson.html'>Greg Robinson</a></td><td>St. Henry District</td><td></td><td>8</td><td>4:48.2</td></tr><tr><td><a href='../athletes/james_hammond.html'>James Hammond</a></td><td>Edmonson County</td><td></td><td>8</td><td>4:44.3</td></tr><tr><td><a href='../athletes/george_canter.html'>George Canter</a></td><td>Grayson County</td><td></td><td>8</td><td>4:32.7</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/chris_danks.html'>Chris Danks</a></td><td>St. Henry District</td><td></td><td>1</td><td>9:57.5</td></tr><tr><td><a href='../athletes/daniel_morgan.html'>Daniel Morgan</a></td><td>Boyle County</td><td></td><td>1</td><td>9:44.7</td></tr><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>St Xavier (KY)</td><td>8:48.4</td><td>1</td><td>9:12.2</td></tr><tr><td><a href='../athletes/adam_standley.html'>Adam Standley</a></td><td>Pikeville</td><td></td><td>2</td><td>10:03.8</td></tr><tr><td><a href='../athletes/breylen_derrick.html'>Breylen Derrick</a></td><td>Highlands</td><td></td><td>2</td><td>9:56.9</td></tr><tr><td><a href='../athletes/zach_wilder.html'>Zach Wilder</a></td><td>Woodford County</td><td></td><td>2</td><td>9:27.9</td></tr><tr><td><a href='../athletes/alex_brey.html'>Alex Brey</a></td><td>Kentucky Country Day</td><td></td><td>3</td><td>10:14.7</td></tr><tr><td><a href='../athletes/nathaniel_blank.html'>Nathaniel Blank</a></td><td>Bell County</td><td></td><td>3</td><td>9:59.5</td></tr><tr><td><a href='../athletes/thad_schroeder.html'>Thad Schroeder</a></td><td>Paul Dunbar</td><td></td><td>3</td><td>9:34.7</td></tr><tr><td><a href='../athletes/joseph_nason.html'>Joseph Nason</a></td><td>Holy Cross (Louisville)</td><td></td><td>4</td><td>10:15.5</td></tr><tr><td><a href='../athletes/jacob_fortney.html'>Jacob Fortney</a></td><td>Muhlenberg North</td><td></td><td>4</td><td>10:00.8</td></tr><tr><td><a href='../athletes/jacob_buckman.html'>Jacob Buckman</a></td><td>Butler</td><td></td><td>4</td><td>9:35.0</td></tr><tr><td><a href='../athletes/robert_halsell.html'>Robert Halsell</a></td><td>Brown</td><td></td><td>5</td><td>10:17.7</td></tr><tr><td><a href='../athletes/travis_keown.html'>Travis Keown</a></td><td>Warren East</td><td></td><td>5</td><td>10:09.4</td></tr><tr><td><a href='../athletes/michael_eaton.html'>Michael Eaton</a></td><td>Greenwood</td><td></td><td>5</td><td>9:37.8</td></tr><tr><td><a href='../athletes/joey_heil.html'>Joey Heil</a></td><td>Bishop Brossart</td><td></td><td>6</td><td>10:25.3</td></tr><tr><td><a href='../athletes/keith_knapp.html'>Keith Knapp</a></td><td>Lloyd Memorial</td><td></td><td>6</td><td>10:12.6</td></tr><tr><td><a href='../athletes/kal_clark.html'>Kal Clark</a></td><td>South Oldham</td><td></td><td>6</td><td>9:38.1</td></tr><tr><td><a href='../athletes/chris_hurtle.html'>Chris Hurtle</a></td><td>Fort Knox</td><td></td><td>7</td><td>10:25.6</td></tr><tr><td><a href='../athletes/tony_white.html'>Tony White</a></td><td>Corbin</td><td></td><td>7</td><td>10:15.1</td></tr><tr><td><a href='../athletes/matt_vandermeer.html'>Matt Vandermeer</a></td><td>Paul Dunbar</td><td></td><td>7</td><td>9:45.2</td></tr><tr><td><a href='../athletes/carl_scheer.html'>Carl Scheer</a></td><td>Providence</td><td></td><td>8</td><td>10:26.0</td></tr><tr><td><a href='../athletes/ron_duncan.html'>Ron Duncan</a></td><td>Fleming County</td><td></td><td>8</td><td>10:15.5</td></tr><tr><td><a href='../athletes/alex_hagan.html'>Alex Hagan</a></td><td>Oldham County</td><td></td><td>8</td><td>9:46.3</td></tr></tbody></table></div></div>
 <div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/st_henry_district.html'>St. Henry District</a></td><td>8:18.83a</td><td></td><td>1</td><td>8:18.8</td></tr><tr><td><a href='../athletes/boyle_county.html'>Boyle County</a></td><td>8:04.60a</td><td></td><td>1</td><td>8:04.6</td></tr><tr><td><a href='../athletes/st_xavier_ky.html'>St Xavier (KY)</a></td><td>8:04.32a</td><td></td><td>1</td><td>8:04.3</td></tr><tr><td><a href='../athletes/pr_ben_beeler_adam_standley_matt_sykes_matthew_rasnick.html'>PR Ben Beeler , Adam Standley , Matt Sykes , Matthew Rasnick</a></td><td>4</td><td></td><td>2</td><td>8:25.5</td></tr><tr><td><a href='../athletes/pr_aaron_fain_daniel_robinson_aaron_roberts_chris_smith.html'>PR Aaron Fain , Daniel Robinson , Aaron Roberts , Chris Smith</a></td><td>4</td><td></td><td>2</td><td>8:14.1</td></tr><tr><td><a href='../athletes/pr_michael_eaton_jason_osborne_allen_renfro_ian_sisson.html'>PR Michael Eaton , Jason Osborne , Allen Renfro , Ian Sisson</a></td><td>4</td><td></td><td>2</td><td>8:15.4</td></tr><tr><td><a href='../athletes/cumberland_county.html'>Cumberland County</a></td><td>8:36.67a</td><td></td><td>3</td><td>8:36.7</td></tr><tr><td><a href='../athletes/pr_ben_pendery_andrew_hutchinson_breylen_derrick_jeff_peter.html'>PR Ben Pendery , Andrew Hutchinson , Breylen Derrick , Jeff Peter</a></td><td>6</td><td></td><td>3</td><td>8:18.8</td></tr><tr><td><a href='../athletes/trinity_whitesville.html'>Trinity (Whitesville)</a></td><td>8:19.67a</td><td></td><td>3</td><td>8:19.7</td></tr><tr><td><a href='../athletes/newport_central_catholic.html'>Newport Central Catholic</a></td><td>8:52.24a</td><td></td><td>4</td><td>8:52.2</td></tr><tr><td><a href='../athletes/lexington_catholic.html'>Lexington Catholic</a></td><td>8:37.53a</td><td></td><td>4</td><td>8:37.5</td></tr><tr><td><a href='../athletes/henry_clay_senior.html'>Henry Clay Senior</a></td><td>8:21.33a</td><td></td><td>4</td><td>8:21.3</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-17 16:08:18</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-17 20:28:35</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

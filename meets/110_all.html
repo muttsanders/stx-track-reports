@@ -9,42 +9,33 @@
       a { color: #0b5fff; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .muted { color: #666; }
-
       .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
       .titlewrap { min-width: 240px; }
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
-
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-
       /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-
       /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-
       /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-
       /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-
       /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
@@ -53,19 +44,15 @@
         color: #b00020;
         letter-spacing: 0.5px;
       }
-
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-
       /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-
       /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-
       /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
@@ -75,19 +62,15 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-
       /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-
       /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-
       /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-
       /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
@@ -110,6 +93,6 @@
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/nolan_hester.html'>Nolan Hester</a></td><td>St Xavier (KY)</td><td>4:27.1</td><td>1</td><td class="pr">4:15.2</td></tr><tr><td><a href='../athletes/jackson_watts.html'>Jackson Watts</a></td><td>Madisonville North Hopkins</td><td></td><td>2</td><td>4:17.1</td></tr><tr><td><a href='../athletes/chase_atkins.html'>Chase Atkins</a></td><td>Hopkinsville</td><td></td><td>3</td><td>4:19.3</td></tr><tr><td><a href='../athletes/jimmy_mullarkey.html'>Jimmy Mullarkey</a></td><td>Fern Creek</td><td></td><td>4</td><td>4:20.8</td></tr><tr><td><a href='../athletes/will_cahill.html'>Will Cahill</a></td><td>Lafayette</td><td></td><td>5</td><td>4:24.0</td></tr><tr><td><a href='../athletes/canon_weaver.html'>Canon Weaver</a></td><td>Oldham County</td><td></td><td>6</td><td>4:24.1</td></tr><tr><td><a href='../athletes/dylan_ellis.html'>Dylan Ellis</a></td><td>Eastern</td><td></td><td>7</td><td>4:26.3</td></tr><tr><td><a href='../athletes/brady_masters.html'>Brady Masters</a></td><td>Madison Central</td><td></td><td>8</td><td>4:26.9</td></tr><tr><td><a href='../athletes/sami_hattab.html'>Sami Hattab</a></td><td>St Xavier (KY)</td><td>4:27.9</td><td>9</td><td>4:28.5</td></tr><tr><td><a href='../athletes/jayden_hess.html'>Jayden Hess</a></td><td>Bullitt Central</td><td></td><td>10</td><td>4:28.6</td></tr><tr><td><a href='../athletes/lukas_smithson.html'>Lukas Smithson</a></td><td>Fairdale</td><td></td><td>11</td><td>4:33.3</td></tr><tr><td><a href='../athletes/joseph_impellitteri.html'>Joseph Impellitteri</a></td><td>Conner</td><td></td><td>12</td><td>4:34.5</td></tr><tr><td><a href='../athletes/cates_duncan.html'>Cates Duncan</a></td><td>Greenwood</td><td></td><td>13</td><td>4:35.2</td></tr><tr><td><a href='../athletes/zach_woodall.html'>Zach Woodall</a></td><td>Trinity (Louisville)</td><td></td><td>14</td><td>4:35.6</td></tr><tr><td><a href='../athletes/will_durrance.html'>Will Durrance</a></td><td>West Jessamine</td><td></td><td>15</td><td>4:35.7</td></tr><tr><td><a href='../athletes/alejandro_tomas_garcia.html'>Alejandro Tomas Garcia</a></td><td>North Hardin</td><td></td><td>16</td><td>4:35.8</td></tr><tr><td><a href='../athletes/chance_jones.html'>Chance Jones</a></td><td>Hopkinsville</td><td></td><td>17</td><td>4:37.8</td></tr><tr><td><a href='../athletes/nick_hyde.html'>Nick Hyde</a></td><td>South Oldham</td><td></td><td>18</td><td>4:38.0</td></tr><tr><td><a href='../athletes/reeve_vandemark.html'>Reeve VanDemark</a></td><td>Tates Creek</td><td></td><td>19</td><td>4:38.5</td></tr><tr><td><a href='../athletes/dominic_taylor.html'>Dominic Taylor</a></td><td>Covington Catholic</td><td></td><td>20</td><td>4:39.4</td></tr><tr><td><a href='../athletes/will_stanko.html'>Will Stanko</a></td><td>South Laurel</td><td></td><td>21</td><td>4:41.6</td></tr><tr><td><a href='../athletes/myles_smithson.html'>Myles Smithson</a></td><td>Fairdale</td><td></td><td>22</td><td>4:45.9</td></tr><tr><td><a href='../athletes/cole_jackson.html'>Cole Jackson</a></td><td>Greenwood</td><td></td><td>23</td><td>4:56.2</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/theo_bachmann.html'>Theo Bachmann</a></td><td>South Oldham</td><td></td><td>1</td><td>9:14.9</td></tr><tr><td><a href='../athletes/jackson_watts.html'>Jackson Watts</a></td><td>Madisonville North Hopkins</td><td></td><td>2</td><td>9:17.9</td></tr><tr><td><a href='../athletes/will_cahill.html'>Will Cahill</a></td><td>Lafayette</td><td></td><td>3</td><td>9:24.4</td></tr><tr><td><a href='../athletes/nolan_hester.html'>Nolan Hester</a></td><td>St Xavier (KY)</td><td>9:03.8</td><td>4</td><td>9:25.6</td></tr><tr><td><a href='../athletes/tyler_walker.html'>Tyler Walker</a></td><td>Scott County</td><td></td><td>5</td><td>9:38.3</td></tr><tr><td><a href='../athletes/ryan_odea.html'>Ryan ODea</a></td><td>Trinity (Louisville)</td><td></td><td>6</td><td>9:46.4</td></tr><tr><td><a href='../athletes/ryan_burchett.html'>Ryan Burchett</a></td><td>St Xavier (KY)</td><td>9:37.6</td><td>7</td><td>9:50.0</td></tr><tr><td><a href='../athletes/jordan_mchugh.html'>Jordan McHugh</a></td><td>Anderson County</td><td></td><td>8</td><td>9:52.8</td></tr><tr><td><a href='../athletes/samuel_bennett.html'>Samuel Bennett</a></td><td>Central Hardin</td><td></td><td>9</td><td>9:57.5</td></tr><tr><td><a href='../athletes/alex_adams.html'>Alex Adams</a></td><td>Daviess County</td><td></td><td>10</td><td>10:00.6</td></tr><tr><td><a href='../athletes/thomas_ashby.html'>Thomas Ashby</a></td><td>Apollo</td><td></td><td>11</td><td>10:01.0</td></tr><tr><td><a href='../athletes/ian_hobbs.html'>Ian Hobbs</a></td><td>Oldham County</td><td></td><td>12</td><td>10:04.4</td></tr><tr><td><a href='../athletes/george_johnson.html'>George Johnson</a></td><td>Conner</td><td></td><td>13</td><td>10:05.7</td></tr><tr><td><a href='../athletes/brady_masters.html'>Brady Masters</a></td><td>Madison Central</td><td></td><td>14</td><td>10:14.3</td></tr><tr><td><a href='../athletes/chase_atkins.html'>Chase Atkins</a></td><td>Hopkinsville</td><td></td><td>15</td><td>10:14.6</td></tr><tr><td><a href='../athletes/ethan_wever.html'>Ethan Wever</a></td><td>Covington Catholic</td><td></td><td>16</td><td>10:15.2</td></tr><tr><td><a href='../athletes/colin_murphy.html'>Colin Murphy</a></td><td>Trinity (Louisville)</td><td></td><td>17</td><td>10:16.0</td></tr><tr><td><a href='../athletes/gabe_russell.html'>Gabe Russell</a></td><td>North Hardin</td><td></td><td>18</td><td>10:17.4</td></tr><tr><td><a href='../athletes/drew_moore.html'>Drew Moore</a></td><td>Conner</td><td></td><td>19</td><td>10:19.4</td></tr><tr><td><a href='../athletes/peyton_nash.html'>Peyton Nash</a></td><td>Grayson County</td><td></td><td>20</td><td>10:21.9</td></tr><tr><td><a href='../athletes/nathanael_turner.html'>Nathanael Turner</a></td><td>Southwestern</td><td></td><td>21</td><td>10:27.4</td></tr><tr><td><a href='../athletes/jacob_line.html'>Jacob Line</a></td><td>Ryle</td><td></td><td>22</td><td>10:30.3</td></tr><tr><td><a href='../athletes/will_stanko.html'>Will Stanko</a></td><td>South Laurel</td><td></td><td>23</td><td>10:42.1</td></tr></tbody></table></div></div>
 <div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/st_xavier_ky.html'>St Xavier (KY)</a></td><td>7:57.81a</td><td></td><td>1</td><td>7:57.8</td></tr><tr><td><a href='../athletes/bullitt_central.html'>Bullitt Central</a></td><td>8:06.84a</td><td></td><td>2</td><td>8:06.8</td></tr><tr><td><a href='../athletes/trinity_louisville.html'>Trinity (Louisville)</a></td><td>8:13.36a</td><td></td><td>3</td><td>8:13.4</td></tr><tr><td><a href='../athletes/north_hardin.html'>North Hardin</a></td><td>8:19.13a</td><td></td><td>4</td><td>8:19.1</td></tr><tr><td><a href='../athletes/wade_balcom_zach_bird_quint_smaldone_trevor_rowles.html'>Wade Balcom , Zach Bird , Quint Smaldone , Trevor Rowles</a></td><td>10</td><td></td><td>5</td><td>8:24.7</td></tr><tr><td><a href='../athletes/joshua_stepner_preston_winiger_caleb_stidham_austin_liversgowdy.html'>Joshua Stepner , Preston Winiger , Caleb Stidham , Austin Liversgowdy</a></td><td>12</td><td></td><td>6</td><td>8:28.6</td></tr><tr><td><a href='../athletes/south_laurel.html'>South Laurel</a></td><td>8:29.54a</td><td></td><td>7</td><td>8:29.5</td></tr><tr><td><a href='../athletes/south_warren.html'>South Warren</a></td><td>8:36.09a</td><td></td><td>8</td><td>8:36.1</td></tr><tr><td><a href='../athletes/woodford_county.html'>Woodford County</a></td><td>8:37.47a</td><td></td><td>9</td><td>8:37.5</td></tr><tr><td><a href='../athletes/anderson_county.html'>Anderson County</a></td><td>8:39.17a</td><td></td><td>10</td><td>8:39.2</td></tr><tr><td><a href='../athletes/campbell_county.html'>Campbell County</a></td><td>8:45.13a</td><td></td><td>11</td><td>8:45.1</td></tr><tr><td><a href='../athletes/mccracken_county.html'>McCracken County</a></td><td>8:51.70a</td><td></td><td>12</td><td>8:51.7</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-17 16:05:23</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-17 20:27:02</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

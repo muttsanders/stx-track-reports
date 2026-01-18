@@ -9,42 +9,33 @@
       a { color: #0b5fff; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .muted { color: #666; }
-
       .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
       .titlewrap { min-width: 240px; }
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
-
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-
       /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-
       /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-
       /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-
       /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-
       /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
@@ -53,19 +44,15 @@
         color: #b00020;
         letter-spacing: 0.5px;
       }
-
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-
       /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-
       /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-
       /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
@@ -75,19 +62,15 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-
       /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-
       /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-
       /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-
       /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
@@ -110,6 +93,6 @@
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/will_cahill.html'>Will Cahill</a></td><td>Lafayette</td><td></td><td>1</td><td>4:23.0</td></tr><tr><td><a href='../athletes/griffin_staude.html'>Griffin Staude</a></td><td>Western Hills</td><td></td><td>2</td><td>4:31.2</td></tr><tr><td><a href='../athletes/nicholas_brooks.html'>Nicholas Brooks</a></td><td>St Xavier (KY)</td><td>4:28.8</td><td>3</td><td>4:35.0</td></tr><tr><td><a href='../athletes/roman_schrader.html'>Roman Schrader</a></td><td>St Xavier (KY)</td><td>4:46.5</td><td>4</td><td class="pr">4:41.8</td></tr><tr><td><a href='../athletes/reeve_vandemark.html'>Reeve VanDemark</a></td><td>Tates Creek</td><td></td><td>5</td><td>4:42.1</td></tr><tr><td><a href='../athletes/ethan_wever.html'>Ethan Wever</a></td><td>Covington Catholic</td><td></td><td>6</td><td>4:48.2</td></tr><tr><td><a href='../athletes/carter_russell.html'>Carter Russell</a></td><td>Great Crossing</td><td></td><td>7</td><td>4:50.7</td></tr><tr><td><a href='../athletes/alex_price.html'>Alex Price</a></td><td>Lafayette</td><td></td><td>8</td><td>4:56.4</td></tr><tr><td><a href='../athletes/alex_young.html'>Alex Young</a></td><td>Paul Dunbar</td><td></td><td>9</td><td>4:58.1</td></tr><tr><td><a href='../athletes/drew_kent.html'>Drew Kent</a></td><td>Covington Catholic</td><td></td><td>10</td><td>4:58.2</td></tr><tr><td><a href='../athletes/downey_joshua.html'>Downey Joshua</a></td><td>Western Hills</td><td></td><td>11</td><td>4:58.7</td></tr><tr><td><a href='../athletes/aaron_falk.html'>Aaron Falk</a></td><td>Henry Clay Senior</td><td></td><td>12</td><td>4:58.8</td></tr><tr><td><a href='../athletes/jase_crume.html'>Jase Crume</a></td><td>Woodford County</td><td></td><td>13</td><td>4:59.6</td></tr><tr><td><a href='../athletes/jake_swicegood.html'>Jake Swicegood</a></td><td>Great Crossing</td><td></td><td>14</td><td>5:01.6</td></tr><tr><td><a href='../athletes/jacob_schweigardt.html'>Jacob Schweigardt</a></td><td>Tates Creek</td><td></td><td>15</td><td>5:02.4</td></tr><tr><td><a href='../athletes/andrew_bosch.html'>Andrew Bosch</a></td><td>Covington Catholic</td><td></td><td>16</td><td>5:03.5</td></tr><tr><td><a href='../athletes/john_roberts.html'>John Roberts</a></td><td>Frederick Douglass</td><td></td><td>17</td><td>5:04.6</td></tr><tr><td><a href='../athletes/calvin_adams.html'>Calvin Adams</a></td><td>Henry Clay Senior</td><td></td><td>18</td><td>5:06.3</td></tr><tr><td><a href='../athletes/ian_castillo.html'>Ian Castillo</a></td><td>Bryan Station</td><td></td><td>19</td><td>5:06.7</td></tr><tr><td><a href='../athletes/matthias_jones.html'>Matthias Jones</a></td><td>Western Hills</td><td></td><td>20</td><td>5:44.7</td></tr><tr><td><a href='../athletes/asher_roberts.html'>Asher Roberts</a></td><td>Frederick Douglass</td><td></td><td>21</td><td>5:48.1</td></tr><tr><td><a href='../athletes/jack_buckley.html'>Jack Buckley</a></td><td>Woodford County</td><td></td><td>22</td><td>5:48.2</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/nolan_hester.html'>Nolan Hester</a></td><td>St Xavier (KY)</td><td>9:29.1</td><td>1</td><td>9:33.3</td></tr><tr><td><a href='../athletes/tyler_walker.html'>Tyler Walker</a></td><td>Scott County</td><td></td><td>2</td><td>9:36.8</td></tr><tr><td><a href='../athletes/griffin_staude.html'>Griffin Staude</a></td><td>Western Hills</td><td></td><td>3</td><td>9:57.0</td></tr><tr><td><a href='../athletes/joshua_striegel.html'>Joshua Striegel</a></td><td>St Xavier (KY)</td><td>10:29.6</td><td>4</td><td class="pr">10:25.1</td></tr><tr><td><a href='../athletes/demetrius_cherry.html'>Demetrius Cherry</a></td><td>Lafayette</td><td></td><td>5</td><td>10:32.4</td></tr><tr><td><a href='../athletes/roman_sierpina.html'>Roman Sierpina</a></td><td>Louisville Collegiate</td><td></td><td>6</td><td>10:37.0</td></tr><tr><td><a href='../athletes/ethan_wever.html'>Ethan Wever</a></td><td>Covington Catholic</td><td></td><td>7</td><td>10:38.0</td></tr><tr><td><a href='../athletes/carter_russell.html'>Carter Russell</a></td><td>Great Crossing</td><td></td><td>8</td><td>10:44.2</td></tr><tr><td><a href='../athletes/eric_tripp_walker.html'>Eric Tripp Walker</a></td><td>Frederick Douglass</td><td></td><td>9</td><td>10:58.7</td></tr><tr><td><a href='../athletes/jon_eades.html'>Jon Eades</a></td><td>Western Hills</td><td></td><td>10</td><td>11:00.5</td></tr><tr><td><a href='../athletes/luke_meagher.html'>Luke Meagher</a></td><td>Covington Catholic</td><td></td><td>11</td><td>11:05.0</td></tr><tr><td><a href='../athletes/alex_young.html'>Alex Young</a></td><td>Paul Dunbar</td><td></td><td>12</td><td>11:16.6</td></tr><tr><td><a href='../athletes/jake_swicegood.html'>Jake Swicegood</a></td><td>Great Crossing</td><td></td><td>13</td><td>11:21.7</td></tr><tr><td><a href='../athletes/andrew_kell.html'>Andrew Kell</a></td><td>Tates Creek</td><td></td><td>14</td><td>11:26.8</td></tr><tr><td><a href='../athletes/asher_jack.html'>Asher Jack</a></td><td>Tates Creek</td><td></td><td>15</td><td>11:26.9</td></tr><tr><td><a href='../athletes/alex_price.html'>Alex Price</a></td><td>Lafayette</td><td></td><td>16</td><td>11:31.2</td></tr><tr><td><a href='../athletes/luke_sylvester.html'>Luke Sylvester</a></td><td>Henry Clay Senior</td><td></td><td>17</td><td>12:07.0</td></tr><tr><td><a href='../athletes/brenden_bass.html'>Brenden Bass</a></td><td>Western Hills</td><td></td><td>18</td><td>12:16.9</td></tr><tr><td><a href='../athletes/aaron_falk.html'>Aaron Falk</a></td><td>Henry Clay Senior</td><td></td><td>19</td><td>12:54.2</td></tr><tr><td><a href='../athletes/joshua_jetton.html'>Joshua Jetton</a></td><td>Woodford County</td><td></td><td>20</td><td>13:10.5</td></tr><tr><td><a href='../athletes/jarom_bradshaw.html'>Jarom Bradshaw</a></td><td>Woodford County</td><td></td><td>21</td><td>13:47.6</td></tr></tbody></table></div></div>
 <div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/st_xavier_ky.html'>St Xavier (KY)</a></td><td>8:22.58a</td><td></td><td>1</td><td>8:22.6</td></tr><tr><td><a href='../athletes/covington_catholic.html'>Covington Catholic</a></td><td>8:47.51a</td><td></td><td>2</td><td>8:47.5</td></tr><tr><td><a href='../athletes/great_crossing.html'>Great Crossing</a></td><td>9:10.42a</td><td></td><td>3</td><td>9:10.4</td></tr><tr><td><a href='../athletes/louisville_collegiate.html'>Louisville Collegiate</a></td><td>9:19.92a</td><td></td><td>4</td><td>9:19.9</td></tr><tr><td><a href='../athletes/western_hills.html'>Western Hills</a></td><td>10:43.22a</td><td></td><td>5</td><td>10:43.2</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-17 16:05:44</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-17 20:27:09</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

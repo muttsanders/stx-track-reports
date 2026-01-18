@@ -9,42 +9,33 @@
       a { color: #0b5fff; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .muted { color: #666; }
-
       .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
       .titlewrap { min-width: 240px; }
       .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-
       /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
-
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-
       /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-
       /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-
       /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-
       /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-
       /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-
       /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
@@ -53,19 +44,15 @@
         color: #b00020;
         letter-spacing: 0.5px;
       }
-
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-
       /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-
       /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-
       /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
@@ -75,19 +62,15 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-
       /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-
       /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-
       /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-
       /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
@@ -110,6 +93,6 @@
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/kyle_covert.html'>Kyle Covert</a></td><td>Eastern</td><td></td><td>1</td><td>4:26.9</td></tr><tr><td><a href='../athletes/mark_johnson.html'>Mark Johnson</a></td><td>St Xavier (KY)</td><td>4:35.7</td><td>2</td><td class="pr">4:31.9</td></tr><tr><td><a href='../athletes/jack_grundy.html'>Jack Grundy</a></td><td>DuPont Manual</td><td></td><td>3</td><td>4:33.4</td></tr><tr><td><a href='../athletes/cory_heslin.html'>Cory Heslin</a></td><td>Eastern</td><td></td><td>4</td><td>4:35.9</td></tr><tr><td><a href='../athletes/jimmy_paul.html'>Jimmy Paul</a></td><td>St Xavier (KY)</td><td>4:41.9</td><td>5</td><td class="pr">4:38.2</td></tr><tr><td><a href='../athletes/austin_zachary.html'>Austin Zachary</a></td><td>Eastern</td><td></td><td>6</td><td>4:38.9</td></tr><tr><td><a href='../athletes/lucas_boatwright.html'>Lucas Boatwright</a></td><td>Louisville Collegiate</td><td></td><td>7</td><td>4:39.1</td></tr><tr><td><a href='../athletes/joey_hartlage.html'>Joey Hartlage</a></td><td>Butler</td><td></td><td>8</td><td>4:40.4</td></tr><tr><td><a href='../athletes/holden_wells.html'>Holden Wells</a></td><td>Eastern</td><td></td><td>9</td><td>4:42.7</td></tr><tr><td><a href='../athletes/matthew_howard.html'>Matthew Howard</a></td><td>Male</td><td></td><td>10</td><td>4:43.8</td></tr><tr><td><a href='../athletes/quinn_barber.html'>Quinn Barber</a></td><td>Eastern</td><td></td><td>11</td><td>4:51.3</td></tr><tr><td><a href='../athletes/eric_fallon.html'>Eric Fallon</a></td><td>Eastern</td><td></td><td>12</td><td>4:51.7</td></tr><tr><td><a href='../athletes/darius_payne.html'>Darius Payne</a></td><td>DuPont Manual</td><td></td><td>13</td><td>4:52.3</td></tr><tr><td><a href='../athletes/scott_berger.html'>Scott Berger</a></td><td>Holy Cross (Louisville)</td><td></td><td>14</td><td>5:00.1</td></tr><tr><td><a href='../athletes/shane_glover.html'>Shane Glover</a></td><td>Seneca</td><td></td><td>15</td><td>5:04.5</td></tr><tr><td><a href='../athletes/alex_bizianes.html'>Alex Bizianes</a></td><td>Male</td><td></td><td>16</td><td>5:06.9</td></tr><tr><td><a href='../athletes/tyler_cunningham.html'>Tyler Cunningham</a></td><td>Western</td><td></td><td>17</td><td>5:12.6</td></tr><tr><td><a href='../athletes/daniel_sims.html'>Daniel Sims</a></td><td>Moore</td><td></td><td>18</td><td>5:12.6</td></tr><tr><td><a href='../athletes/kyle_young.html'>Kyle Young</a></td><td>Fern Creek</td><td></td><td>19</td><td>5:13.3</td></tr><tr><td><a href='../athletes/brandon_billiel.html'>Brandon Billiel</a></td><td>Butler</td><td></td><td>20</td><td>5:14.4</td></tr><tr><td><a href='../athletes/hodge_raymond.html'>Hodge Raymond</a></td><td>Fairdale</td><td></td><td>21</td><td>5:17.8</td></tr><tr><td><a href='../athletes/elias_nassar.html'>Elias Nassar</a></td><td>Louisville Collegiate</td><td></td><td>22</td><td>5:19.4</td></tr><tr><td><a href='../athletes/warren_kennedy.html'>Warren Kennedy</a></td><td>Moore</td><td></td><td>23</td><td>5:21.2</td></tr><tr><td><a href='../athletes/kaleb_lawton.html'>Kaleb Lawton</a></td><td>Male</td><td></td><td>24</td><td>5:21.9</td></tr><tr><td><a href='../athletes/michael_schrecker.html'>Michael Schrecker</a></td><td>Butler</td><td></td><td>25</td><td>5:28.9</td></tr><tr><td><a href='../athletes/evan_wright.html'>Evan Wright</a></td><td>Holy Cross (Louisville)</td><td></td><td>26</td><td>5:32.7</td></tr><tr><td><a href='../athletes/miles_greif.html'>Miles Greif</a></td><td>Ballard</td><td></td><td>27</td><td>5:33.9</td></tr><tr><td><a href='../athletes/wilfred_furtado.html'>Wilfred Furtado</a></td><td>Male</td><td></td><td>28</td><td>5:42.1</td></tr><tr><td><a href='../athletes/winston_furtado.html'>Winston Furtado</a></td><td>Male</td><td></td><td>29</td><td>6:05.9</td></tr><tr><td><a href='../athletes/mahdi_ali.html'>Mahdi Ali</a></td><td>Seneca</td><td></td><td>30</td><td>6:07.7</td></tr><tr><td><a href='../athletes/josh_pace.html'>Josh Pace</a></td><td>Male</td><td></td><td>31</td><td>6:58.8</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/jack_grundy.html'>Jack Grundy</a></td><td>DuPont Manual</td><td></td><td>1</td><td>9:58.4</td></tr><tr><td><a href='../athletes/will_short.html'>Will Short</a></td><td>DuPont Manual</td><td></td><td>2</td><td>10:19.0</td></tr><tr><td><a href='../athletes/stephen_kinny.html'>Stephen Kinny</a></td><td>St Xavier (KY)</td><td>10:25.0</td><td>3</td><td>10:33.4</td></tr><tr><td><a href='../athletes/austin_moran.html'>Austin Moran</a></td><td>Butler</td><td></td><td>4</td><td>10:36.2</td></tr><tr><td><a href='../athletes/jack_minogue.html'>Jack Minogue</a></td><td>St Xavier (KY)</td><td></td><td>5</td><td>10:46.5</td></tr><tr><td><a href='../athletes/ben_glover.html'>Ben Glover</a></td><td>St Xavier (KY)</td><td>10:44.3</td><td>6</td><td>10:48.1</td></tr><tr><td><a href='../athletes/greg_milburn.html'>Greg Milburn</a></td><td>Eastern</td><td></td><td>7</td><td>10:58.5</td></tr><tr><td><a href='../athletes/daniel_sims.html'>Daniel Sims</a></td><td>Moore</td><td></td><td>8</td><td>11:28.5</td></tr><tr><td><a href='../athletes/scott_berger.html'>Scott Berger</a></td><td>Holy Cross (Louisville)</td><td></td><td>9</td><td>11:28.9</td></tr><tr><td><a href='../athletes/alex_bizianes.html'>Alex Bizianes</a></td><td>Male</td><td></td><td>10</td><td>11:58.1</td></tr><tr><td><a href='../athletes/kaleb_lawton.html'>Kaleb Lawton</a></td><td>Male</td><td></td><td>11</td><td>12:03.9</td></tr><tr><td><a href='../athletes/vincen_serapiglia.html'>Vincen Serapiglia</a></td><td>Moore</td><td></td><td>12</td><td>13:21.1</td></tr></tbody></table></div></div>
 <div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/dupont_manual.html'>DuPont Manual</a></td><td>8:20.37a</td><td></td><td>1</td><td>8:20.4</td></tr><tr><td><a href='../athletes/st_xavier_ky.html'>St Xavier (KY)</a></td><td>8:41.52a</td><td></td><td>2</td><td>8:41.5</td></tr><tr><td><a href='../athletes/jean_philippe_reshawn_robinson_cess_shamberger_steven_danzy.html'>Jean Philippe , Reshawn Robinson , Cess Shamberger , Steven Danzy</a></td><td>6</td><td></td><td>3</td><td>9:04.9</td></tr><tr><td><a href='../athletes/pr_kristoffe_wilson_brevin_woodford_kenny_jones_jr_john_boyette.html'>PR Kristoffe Wilson , Brevin Woodford , Kenny Jones Jr. , John Boyette</a></td><td>8</td><td></td><td>4</td><td>9:07.0</td></tr><tr><td><a href='../athletes/pr_warren_kennedy_lionel_jones_keith_bray_logan_sears.html'>PR Warren Kennedy , Lionel Jones , Keith Bray , Logan Sears</a></td><td>Latest Videos</td><td></td><td>5</td><td>9:34.7</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-17 16:07:12</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track\data\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-17 20:28:13</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>
