@@ -15,28 +15,21 @@
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-      /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-      /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-      /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-      /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-      /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-      /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
         font-size: 28px;
@@ -46,14 +39,11 @@
       }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-      /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-      /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-      /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
         border:1px solid #ddd; background:#fff; border-radius: 999px;
@@ -62,16 +52,12 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-      /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-      /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-      /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
     
@@ -91,6 +77,6 @@
     
 <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_weber.html'>Thomas Weber</a></td><td>St Xavier (KY)</td><td>2:02.0</td><td>1</td><td class="pr">2:00.3</td></tr><tr><td><a href='../athletes/oubry_gibson.html'>Oubry Gibson</a></td><td>Butler</td><td></td><td>2</td><td>2:00.3</td></tr><tr><td><a href='../athletes/eli_maraman.html'>Eli Maraman</a></td><td>Butler</td><td></td><td>3</td><td>2:00.7</td></tr><tr><td><a href='../athletes/ashton_tunstull.html'>Ashton Tunstull</a></td><td>Central</td><td></td><td>4</td><td>2:02.3</td></tr><tr><td><a href='../athletes/trevor_rowles.html'>Trevor Rowles</a></td><td>Eastern</td><td></td><td>5</td><td>2:03.1</td></tr><tr><td><a href='../athletes/quinn_gulden.html'>Quinn Gulden</a></td><td>DuPont Manual</td><td></td><td>6</td><td>2:03.5</td></tr><tr><td><a href='../athletes/cameron_williams.html'>Cameron Williams</a></td><td>Fern Creek</td><td></td><td>7</td><td>2:03.7</td></tr><tr><td><a href='../athletes/eli_frazier.html'>Eli Frazier</a></td><td>Eastern</td><td></td><td>8</td><td>2:04.1</td></tr><tr><td><a href='../athletes/nate_powers.html'>Nate Powers</a></td><td>Eastern</td><td></td><td>9</td><td>2:04.3</td></tr><tr><td><a href='../athletes/brooks_jones.html'>Brooks Jones</a></td><td>Ballard</td><td></td><td>10</td><td>2:04.8</td></tr><tr><td><a href='../athletes/caden_cull.html'>Caden Cull</a></td><td>Male</td><td></td><td>11</td><td>2:05.5</td></tr><tr><td><a href='../athletes/brady_jenkins.html'>Brady Jenkins</a></td><td>DuPont Manual</td><td></td><td>12</td><td>2:05.9</td></tr><tr><td><a href='../athletes/jackson_ungar.html'>Jackson Ungar</a></td><td>Eastern</td><td></td><td>13</td><td>2:06.2</td></tr><tr><td><a href='../athletes/william_mullarkey.html'>William Mullarkey</a></td><td>Male</td><td></td><td>14</td><td>2:09.2</td></tr><tr><td><a href='../athletes/isaac_baker.html'>Isaac Baker</a></td><td>St Xavier (KY)</td><td>2:02.6</td><td>15</td><td>2:10.1</td></tr><tr><td><a href='../athletes/danico_trowell.html'>Danico Trowell</a></td><td>Butler</td><td></td><td>16</td><td>2:13.0</td></tr></tbody></table></div></div>
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_weber.html'>Thomas Weber</a></td><td>St Xavier (KY)</td><td>4:32.0</td><td>1</td><td>4:32.2</td></tr><tr><td><a href='../athletes/brooks_jones.html'>Brooks Jones</a></td><td>Ballard</td><td></td><td>2</td><td>4:33.2</td></tr><tr><td><a href='../athletes/sullivan_yaden.html'>Sullivan Yaden</a></td><td>Trinity (Louisville)</td><td></td><td>3</td><td>4:33.4</td></tr><tr><td><a href='../athletes/dylan_ellis.html'>Dylan Ellis</a></td><td>Eastern</td><td></td><td>4</td><td>4:35.3</td></tr><tr><td><a href='../athletes/brodie_terkhorn.html'>Brodie Terkhorn</a></td><td>St Xavier (KY)</td><td>4:34.9</td><td>5</td><td>4:38.7</td></tr><tr><td><a href='../athletes/jack_bradon.html'>Jack Bradon</a></td><td>Eastern</td><td></td><td>6</td><td>4:40.9</td></tr><tr><td><a href='../athletes/haydon_spears.html'>Haydon Spears</a></td><td>Trinity (Louisville)</td><td></td><td>7</td><td>4:41.2</td></tr><tr><td><a href='../athletes/caden_cull.html'>Caden Cull</a></td><td>Male</td><td></td><td>8</td><td>4:42.1</td></tr><tr><td><a href='../athletes/jake_hagan.html'>Jake Hagan</a></td><td>Trinity (Louisville)</td><td></td><td>9</td><td>4:46.6</td></tr><tr><td><a href='../athletes/tedros_tedi_henderson.html'>Tedros (Tedi) Henderson</a></td><td>Atherton</td><td></td><td>10</td><td>4:47.2</td></tr><tr><td><a href='../athletes/john_kelley.html'>John Kelley</a></td><td>Trinity (Louisville)</td><td></td><td>11</td><td>4:49.8</td></tr><tr><td><a href='../athletes/sam_chandler.html'>Sam Chandler</a></td><td>DuPont Manual</td><td></td><td>12</td><td>4:50.6</td></tr><tr><td><a href='../athletes/gabriel_cease.html'>Gabriel Cease</a></td><td>Ballard</td><td></td><td>13</td><td>5:15.0</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-22 09:34:41</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-22 12:01:09</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

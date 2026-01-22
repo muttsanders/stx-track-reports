@@ -15,28 +15,21 @@
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-      /* Bigger Home link */
       .nav a.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
-      /* 2-column home layout / records layout */
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
-      /* Tables shrink to content + scroll if needed */
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-      /* Lap highlighting: min = green, max = red */
       .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-      /* PR highlight on Result cell in meet pages */
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-      /* Athlete PR pivot: highlight best of Indoor/Outdoor for that event */
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-      /* Records warning */
       .warning-big {
         margin: 6px 0 10px 0;
         font-size: 28px;
@@ -46,14 +39,11 @@
       }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-      /* Index filter */
       .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
       .filterbar label { cursor:pointer; }
       .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-      /* Athlete results: hide split columns by default */
       .splits-col { display: none; }
       .show-splits .splits-col { display: table-cell; }
-      /* Athlete PR tabs */
       .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
       .tabbtn {
         border:1px solid #ddd; background:#fff; border-radius: 999px;
@@ -62,16 +52,12 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      /* Athlete results sections */
       .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
-      /* Meet view toggle */
       .viewtoggle b { font-weight: 800; }
       .viewtoggle a { font-weight: 600; }
-      /* Two lists in athlete card */
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
-      /* Rank column */
       .rankcell { font-weight: 800; }
     </style>
     
@@ -91,7 +77,7 @@
     
 <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th></tr></thead><tbody><tr><td><a href='../athletes/ian_obryan.html'>Ian O'Bryan</a></td><td>St Xavier (KY)</td><td>2:13.4</td><td>1</td><td class="pr">2:09.6</td><td class="slowest">65.52</td><td class="fastest">64.05</td></tr><tr><td><a href='../athletes/quenton_horton.html'>Quenton Horton</a></td><td>St Xavier (KY)</td><td>2:20.0</td><td>6</td><td class="pr">2:19.5</td><td class="fastest">68.96</td><td class="slowest">70.59</td></tr><tr><td><a href='../athletes/bobby_poston.html'>Bobby Poston</a></td><td>St Xavier (KY)</td><td>2:30.3</td><td>8</td><td class="pr">2:20.7</td><td class="fastest">69.08</td><td class="slowest">71.67</td></tr><tr><td><a href='../athletes/parker_lesshafft.html'>Parker Lesshafft</a></td><td>St Xavier (KY)</td><td>2:27.1</td><td>11</td><td class="pr">2:24.7</td><td class="fastest">70.57</td><td class="slowest">74.15</td></tr></tbody></table></div></div>
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href='../athletes/ian_obryan.html'>Ian O'Bryan</a></td><td>St Xavier (KY)</td><td>4:50.9</td><td>1</td><td class="pr">4:47.9</td><td class="slowest">74.68</td><td>73.97</td><td>72.35</td><td class="fastest">66.93</td></tr><tr><td><a href='../athletes/jimmy_greer.html'>Jimmy Greer</a></td><td>St Xavier (KY)</td><td>4:56.6</td><td>8</td><td>5:04.4</td><td class="fastest">74.41</td><td>75.06</td><td class="slowest">78.93</td><td>76.03</td></tr><tr><td><a href='../athletes/owen_mayes.html'>Owen Mayes</a></td><td>St Xavier (KY)</td><td>5:07.3</td><td>11</td><td>5:15.8</td><td>75.88</td><td class="fastest">75.26</td><td>78.94</td><td class="slowest">85.74</td></tr><tr><td><a href='../athletes/sam_church.html'>Sam Church</a></td><td>St Xavier (KY)</td><td>5:33.9</td><td>15</td><td class="pr">5:31.0</td><td class="fastest">76.88</td><td>81.02</td><td class="slowest">87.85</td><td>85.30</td></tr></tbody></table></div></div>
-<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>leg_number</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td><a href='../athletes/quenton_horton.html'>Quenton Horton</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>1.0</td><td>9:15.1</td><td>9:43.9</td><td></td></tr><tr><td><a href='../athletes/owen_mayes.html'>Owen Mayes</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>2.0</td><td></td><td>9:43.9</td><td></td></tr><tr><td><a href='../athletes/parker_lesshafft.html'>Parker Lesshafft</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>3.0</td><td>9:25.3</td><td>9:43.9</td><td></td></tr><tr><td><a href='../athletes/ian_obryan.html'>Ian O'Bryan</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>4.0</td><td>8:40.5</td><td>9:43.9</td><td></td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-22 09:34:04</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td><a href='../athletes/quenton_horton.html'>Quenton Horton</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>1</td><td>9:15.1</td><td>9:43.9</td><td></td></tr><tr><td><a href='../athletes/owen_mayes.html'>Owen Mayes</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>2</td><td></td><td>9:43.9</td><td></td></tr><tr><td><a href='../athletes/parker_lesshafft.html'>Parker Lesshafft</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>3</td><td>9:25.3</td><td>9:43.9</td><td></td></tr><tr><td><a href='../athletes/ian_obryan.html'>Ian O'Bryan</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td>4</td><td>8:40.5</td><td>9:43.9</td><td></td></tr></tbody></table></div></div>
+<div class="footer">Generated at <code>2026-01-22 12:00:33</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>
