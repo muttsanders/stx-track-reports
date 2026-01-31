@@ -15,8 +15,15 @@
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-      .nav a.home-link { font-size: 18px; font-weight: 800; }
-      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; } /* Style for the current, non-linked page */
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
@@ -71,12 +78,12 @@
         <p class="subline muted">Outdoor • View: <span class="viewtoggle"><a href="292_stx.html">StX Only</a> <span class="muted">|</span> <b>All Athletes</b></span></p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
     
 <div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/don_noe.html'>Don Noe</a></td><td>Trinity (Whitesville)</td><td></td><td>1</td><td>4:17.6</td></tr><tr><td><a href='../athletes/tom_adams.html'>Tom Adams</a></td><td>Iroquois</td><td></td><td>2</td><td>4:18.9</td></tr><tr><td><a href='../athletes/dave_buechler.html'>Dave Buechler</a></td><td>St Xavier (KY)</td><td></td><td>3</td><td>4:21.3</td></tr><tr><td><a href='../athletes/curt_milliman.html'>Curt Milliman</a></td><td>Ballard</td><td></td><td>4</td><td>4:28.7</td></tr></tbody></table></div></div>
 <div class='card'><h2>2 Miles</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/john_wright.html'>John Wright</a></td><td>Moore</td><td></td><td>1</td><td>9:13.8</td></tr><tr><td><a href='../athletes/terrell_pendleton.html'>Terrell Pendleton</a></td><td>Desales</td><td></td><td>2</td><td>9:19.9</td></tr><tr><td><a href='../athletes/steve_hare.html'>Steve Hare</a></td><td>Doss</td><td></td><td>3</td><td>9:44.5</td></tr><tr><td><a href='../athletes/mike_barrett.html'>Mike Barrett</a></td><td>Butler</td><td></td><td>4</td><td>10:04.5</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-29 22:42:44</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-31 13:52:06</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

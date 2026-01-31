@@ -15,8 +15,15 @@
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-      .nav a.home-link { font-size: 18px; font-weight: 800; }
-      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; } /* Style for the current, non-linked page */
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
@@ -71,7 +78,7 @@
         <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="198_all.html">All Athletes</a></span></p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
     
@@ -79,6 +86,6 @@
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_davis.html'>Thomas Davis</a></td><td>St Xavier (KY)</td><td>4:24.3</td><td>1</td><td class="pr">4:18.7</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td>St Xavier (KY)</td><td>4:25.0</td><td>2</td><td class="pr">4:21.5</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/scott_mcclain.html'>Scott McClain</a></td><td>St Xavier (KY)</td><td>9:19.0</td><td>3</td><td>9:34.9</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td>St Xavier (KY)</td><td>9:23.3</td><td>10</td><td>10:03.6</td></tr></tbody></table></div></div>
 <div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td><a href='../athletes/matt_blum.html'>Matt Blum</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>1</td><td>7:58.9</td><td>8:01.9</td><td></td></tr><tr><td><a href='../athletes/thomas_davis.html'>Thomas Davis</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>2</td><td>8:06.6</td><td class="pr">8:01.9</td><td></td></tr><tr><td><a href='../athletes/spencer_schardein.html'>Spencer Schardein</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>3</td><td>7:58.9</td><td>8:01.9</td><td></td></tr><tr><td><a href='../athletes/scott_mcclain.html'>Scott McClain</a></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>4</td><td>7:58.9</td><td>8:01.9</td><td></td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-29 22:41:44</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-31 13:51:10</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

@@ -15,8 +15,15 @@
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-      .nav a.home-link { font-size: 18px; font-weight: 800; }
-      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; } /* Style for the current, non-linked page */
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
@@ -71,11 +78,11 @@
         <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="337_all.html">All Athletes</a></span></p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
     
 <div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>St Xavier (KY)</td><td>4:12.6</td><td>1</td><td class="pr">4:09.1</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-29 22:42:05</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-31 13:51:29</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

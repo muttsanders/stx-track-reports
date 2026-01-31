@@ -15,8 +15,15 @@
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-      .nav a.home-link { font-size: 18px; font-weight: 800; }
-      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; } /* Style for the current, non-linked page */
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
@@ -71,7 +78,7 @@
         <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="46_all.html">All Athletes</a></span></p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
     
@@ -79,6 +86,6 @@
 <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td>St Xavier (KY)</td><td>4:13.5</td><td>1</td><td>4:18.1</td><td class="fastest">61.86</td><td>64.76</td><td>65.49</td><td class="slowest">65.95</td></tr><tr><td><a href='../athletes/sam_schweickhardt.html'>Sam Schweickhardt</a></td><td>St Xavier (KY)</td><td>4:30.4</td><td>3</td><td>4:32.9</td><td class="fastest">64.17</td><td>69.49</td><td>69.13</td><td class="slowest">70.11</td></tr></tbody></table></div></div>
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th><th>Lap 5</th><th>Lap 6</th><th>Lap 7</th><th>Lap 8</th></tr></thead><tbody><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td>St Xavier (KY)</td><td>9:16.8</td><td>1</td><td>9:36.1</td><td>72.10</td><td class="slowest">74.22</td><td>70.86</td><td>70.42</td><td class="fastest">69.76</td><td>72.47</td><td>73.91</td><td>72.45</td></tr><tr><td><a href='../athletes/matthew_frick.html'>Matthew Frick</a></td><td>St Xavier (KY)</td><td>9:41.4</td><td>4</td><td>10:07.9</td><td>72.29</td><td>74.64</td><td class="fastest">72.23</td><td>74.77</td><td>77.78</td><td class="slowest">81.02</td><td>80.26</td><td>74.93</td></tr></tbody></table></div></div>
 <div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href='../athletes/anthony_passafiume.html'>Anthony Passafiume</a></td><td>St Xavier (KY)</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>1</td><td>7:58.1</td><td>8:10.4</td><td>2:00.42</td><td class="fastest">59.37</td><td class="slowest">61.05</td><td></td><td></td></tr><tr><td><a href='../athletes/james_george.html'>James George</a></td><td>St Xavier (KY)</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>2</td><td>7:58.1</td><td>8:10.4</td><td>2:00.90</td><td></td><td></td><td class="fastest">57.77</td><td class="slowest">63.13</td></tr><tr><td><a href='../athletes/marshall_wilson.html'>Marshall Wilson</a></td><td>St Xavier (KY)</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>3</td><td>7:58.1</td><td>8:10.4</td><td>2:06.37</td><td class="fastest">61.21</td><td class="slowest">65.16</td><td></td><td></td></tr><tr><td><a href='../athletes/tony_parilli.html'>Tony Parilli</a></td><td>St Xavier (KY)</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>4</td><td>8:10.5</td><td class="pr">8:10.4</td><td>2:02.80</td><td></td><td></td><td class="fastest">58.12</td><td class="slowest">64.68</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-29 22:36:07</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-31 13:45:29</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

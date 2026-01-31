@@ -15,8 +15,15 @@
       .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
       .subline { margin: 0; }
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
-      .nav a.home-link { font-size: 18px; font-weight: 800; }
-      .nav a.records-link { font-size: 16px; font-weight: 700; margin-left: 10px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; } /* Style for the current, non-linked page */
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
@@ -71,11 +78,11 @@
         <p class="subline muted">Outdoor • View: <span class="viewtoggle"><b>StX Only</b> <span class="muted">|</span> <a href="297_all.html">All Athletes</a></span></p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
     
 <div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/tristan_hindorff.html'>Tristan Hindorff</a></td><td>St Xavier (KY)</td><td>9:49.5</td><td>3</td><td>9:52.4</td></tr><tr><td><a href='../athletes/luke_napier.html'>Luke Napier</a></td><td>St Xavier (KY)</td><td>9:45.3</td><td>5</td><td>10:01.5</td></tr><tr><td><a href='../athletes/thomas_weber.html'>Thomas Weber</a></td><td>St Xavier (KY)</td><td>10:16.4</td><td>11</td><td class="pr">10:14.0</td></tr><tr><td><a href='../athletes/roman_schrader.html'>Roman Schrader</a></td><td>St Xavier (KY)</td><td>10:29.9</td><td>16</td><td class="pr">10:27.0</td></tr><tr><td><a href='../athletes/cole_cornett.html'>Cole Cornett</a></td><td>St Xavier (KY)</td><td>10:40.8</td><td>20</td><td class="pr">10:37.1</td></tr><tr><td><a href='../athletes/brodie_terkhorn.html'>Brodie Terkhorn</a></td><td>St Xavier (KY)</td><td>10:18.2</td><td>23</td><td>10:42.0</td></tr><tr><td><a href='../athletes/noah_george.html'>Noah George</a></td><td>St Xavier (KY)</td><td>10:54.0</td><td>24</td><td class="pr">10:43.9</td></tr><tr><td><a href='../athletes/colin_obryan.html'>Colin O'Bryan</a></td><td>St Xavier (KY)</td><td>11:27.8</td><td>30</td><td class="pr">11:05.3</td></tr><tr><td><a href='../athletes/dominic_garcia.html'>Dominic Garcia</a></td><td>St Xavier (KY)</td><td>11:03.8</td><td>32</td><td>11:06.0</td></tr><tr><td><a href='../athletes/javier_santos.html'>Javier Santos</a></td><td>St Xavier (KY)</td><td>11:36.5</td><td>35</td><td class="pr">11:15.4</td></tr><tr><td><a href='../athletes/whit_ruml.html'>Whit Ruml</a></td><td>St Xavier (KY)</td><td>11:02.2</td><td>37</td><td>11:17.6</td></tr><tr><td><a href='../athletes/talbott_dilger.html'>Talbott Dilger</a></td><td>St Xavier (KY)</td><td>10:24.1</td><td>38</td><td>11:23.1</td></tr><tr><td><a href='../athletes/nick_zoglman.html'>Nick Zoglman</a></td><td>St Xavier (KY)</td><td>11:43.5</td><td>39</td><td class="pr">11:24.5</td></tr><tr><td><a href='../athletes/santiag_hernandez_smith.html'>Santiag Hernandez Smith</a></td><td>St Xavier (KY)</td><td></td><td>50</td><td>11:43.2</td></tr><tr><td><a href='../athletes/hayden_willman.html'>Hayden Willman</a></td><td>St Xavier (KY)</td><td>12:38.8</td><td>54</td><td class="pr">11:55.6</td></tr><tr><td><a href='../athletes/william_frye.html'>William Frye</a></td><td>St Xavier (KY)</td><td>12:29.6</td><td>60</td><td class="pr">12:16.1</td></tr><tr><td><a href='../athletes/owen_hillerich.html'>Owen Hillerich</a></td><td>St Xavier (KY)</td><td>13:32.3</td><td>63</td><td class="pr">12:33.0</td></tr><tr><td><a href='../athletes/jeremy_lopez.html'>Jeremy Lopez</a></td><td>St Xavier (KY)</td><td>12:32.0</td><td>66</td><td>12:36.3</td></tr></tbody></table></div></div>
-<div class="footer">Generated at <code>2026-01-29 22:37:28</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+<div class="footer">Generated at <code>2026-01-31 13:47:43</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>
