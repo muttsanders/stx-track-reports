@@ -89,10 +89,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>1600 Meters</td><td class="bestpr">4:45.8</td><td></td></tr><tr><td>3200 Meters</td><td></td><td class="bestpr">10:10.8</td></tr></tbody></table></div>
+        <p class='muted'>No PR data found.</p>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2013</td><td>1600 Meters</td><td class="bestpr">4:45.8</td><td></td></tr><tr><td>2013</td><td>3200 Meters</td><td></td><td class="bestpr">10:10.8</td></tr><tr><td>2012</td><td>1600 Meters</td><td class="bestpr">5:04.8</td><td></td></tr><tr><td>2012</td><td>3200 Meters</td><td></td><td class="bestpr">10:25.0</td></tr></tbody></table></div>
+        <p class='muted'>No yearly PR data found.</p>
       </div>
     </div>
     <div class="card">
@@ -110,12 +110,11 @@
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
       <div id="athlete-results-wrap">
-        <h3 class='section-title'>1600 Meters / 1 Mile</h3><div><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2013</td><td>2013-02-09</td><td><a href='../meets/231_stx.html'>Indiana Track Club Open</a></td><td>Indoor</td><td>1600 Meters</td><td>30</td><td>4:45.8</td></tr><tr><td>2012</td><td>2012-02-11</td><td><a href='../meets/232_stx.html'>Indiana Track Club HS Open</a></td><td>Indoor</td><td>1600 Meters</td><td>72</td><td>5:04.8</td></tr></tbody></table></div></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div>
-<h3 class='section-title'>3200 Meters / 2 Miles</h3><div><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2013</td><td>2013-04-13</td><td><a href='../meets/173_stx.html'>Louisville Male Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>10:10.8</td></tr><tr><td>2012</td><td>2012-05-03</td><td><a href='../meets/180_stx.html'>Male Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>3</td><td>10:33.4</td></tr><tr><td>2012</td><td>2012-03-31</td><td><a href='../meets/177_stx.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>10</td><td>10:25.0</td></tr></tbody></table></div></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div>
+        <p class='muted'>No results found.</p>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-04 23:07:35</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-05 20:39:46</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -151,37 +150,7 @@
     
     
     <script>
-      const allChartData = {
-  "chart-1600_meters_1_mile": [
-    {
-      "x": "2012-02-11",
-      "y": 304.75,
-      "meet": "<a href='../meets/232_stx.html'>Indiana Track Club HS Open</a>"
-    },
-    {
-      "x": "2013-02-09",
-      "y": 285.75,
-      "meet": "<a href='../meets/231_stx.html'>Indiana Track Club Open</a>"
-    }
-  ],
-  "chart-3200_meters_2_miles": [
-    {
-      "x": "2012-03-31",
-      "y": 625.0,
-      "meet": "<a href='../meets/177_stx.html'>Lenny Lyles Invitational</a>"
-    },
-    {
-      "x": "2012-05-03",
-      "y": 633.39,
-      "meet": "<a href='../meets/180_stx.html'>Male Invitational</a>"
-    },
-    {
-      "x": "2013-04-13",
-      "y": 610.82,
-      "meet": "<a href='../meets/173_stx.html'>Louisville Male Invitational</a>"
-    }
-  ]
-};
+      const allChartData = {};
 
       function formatChartTime(seconds) {
         if (seconds === null || seconds === undefined) return '';
