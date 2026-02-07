@@ -88,10 +88,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>3200 Meters</td><td></td><td class="bestpr">10:55.2</td></tr></tbody></table></div>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>3200 Meters</td><td></td><td class="bestpr">10:55.2</td></tr><tr><td>3000 Meters</td><td class="bestpr">10:44.4</td><td></td></tr></tbody></table></div>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>1998</td><td>3200 Meters</td><td></td><td class="bestpr">10:55.2</td></tr></tbody></table></div>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>1999</td><td>3000 Meters</td><td class="bestpr">10:44.4</td><td></td></tr><tr><td>1998</td><td>3200 Meters</td><td></td><td class="bestpr">10:55.2</td></tr></tbody></table></div>
       </div>
     </div>
     <div class="card">
@@ -109,11 +109,11 @@
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
       <div id="athlete-results-wrap">
-        <h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>1998</td><td>1998-05-30</td><td><a href='../meets/273_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>12</td><td>10:55.2</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div>
+        <h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>1998</td><td>1998-05-30</td><td><a href='../meets/273_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>12</td><td>10:55.2</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>3000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>1999</td><td>1999-02-26</td><td><a href='../meets/377_all.html'>Mason Dixon Games 1999</a></td><td>Indoor</td><td>3000 Meters</td><td>11</td><td>10:44.4</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3000_meters"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-07 08:17:20</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-07 10:54:49</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -155,6 +155,13 @@
       "x": "1998-05-30",
       "y": 655.17,
       "meet": "<a href='../meets/273_all.html'>Kentucky State Track Meet</a>"
+    }
+  ],
+  "chart-3000_meters": [
+    {
+      "x": "1999-02-26",
+      "y": 644.39,
+      "meet": "<a href='../meets/377_all.html'>Mason Dixon Games 1999</a>"
     }
   ]
 };
