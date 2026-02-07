@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>St Xavier (KY)</td><td>1:54.7</td><td>1</td><td class="pr">1:52.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/christopher_kollar.html'>Christopher Kollar</a></td><td>Strongsville</td><td></td><td>2</td><td>1:57.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/patrick_starkey.html'>Patrick Starkey</a></td><td>Wadsworth</td><td></td><td>3</td><td>1:57.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/nicholas_smith.html'>Nicholas Smith</a></td><td>Wayne</td><td></td><td>4</td><td>1:58.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/ian_sisson.html'>Ian Sisson</a></td><td>Greenwood</td><td></td><td>5</td><td>1:59.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/chris_hall.html'>Chris Hall</a></td><td>Meade County</td><td></td><td>6</td><td>2:01.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/gary_hughes.html'>Gary Hughes</a></td><td>Rogers</td><td></td><td>7</td><td>2:03.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/demetrius_davis.html'>Demetrius Davis</a></td><td>Williamson</td><td></td><td>8</td><td>2:04.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/terry_nicholas.html'>Terry Nicholas</a></td><td>Centerville</td><td></td><td>9</td><td>2:04.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/matt_endy.html'>Matt Endy</a></td><td>Kentucky Country Day</td><td></td><td>10</td><td>2:04.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/john_devito.html'>John Devito</a></td><td>Centerville</td><td></td><td>11</td><td>2:05.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/bobby_stumbo.html'>Bobby Stumbo</a></td><td>Marion-Franklin</td><td></td><td>12</td><td>2:06.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/demarcus_jackson.html'>Demarcus Jackson</a></td><td>Williamson</td><td></td><td>13</td><td>2:06.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/roy_fraction.html'>Roy Fraction</a></td><td>Gateway High School</td><td></td><td>14</td><td>2:10.9</td></tr></tbody></table></div></div>\n<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/ondrej_puskar.html'>Ondrej Puskar</a></td><td>South Oldham</td><td></td><td>1</td><td>4:25.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/jonathan_thomas.html'>Jonathan Thomas</a></td><td>Western Hills</td><td></td><td>2</td><td>4:26.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/zachary_hiltner.html'>Zachary Hiltner</a></td><td>Wadsworth</td><td></td><td>3</td><td>4:33.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/zach_tuttle.html'>Zach Tuttle</a></td><td>Butler</td><td></td><td>4</td><td>4:36.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/kellen_alexander.html'>Kellen Alexander</a></td><td>Strongsville</td><td></td><td>5</td><td>4:42.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/alex_brey.html'>Alex Brey</a></td><td>Kentucky Country Day</td><td></td><td>6</td><td>4:50.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/jacob_bradosky.html'>Jacob Bradosky</a></td><td>Centerville</td><td></td><td>7</td><td>4:51.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/collin_clark.html'>Collin Clark</a></td><td>Centerville</td><td></td><td>8</td><td>4:52.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/kyle_faerber.html'>Kyle Faerber</a></td><td>Strongsville</td><td></td><td>9</td><td>5:02.0</td></tr></tbody></table></div></div>\n<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/jacob_buckman.html'>Jacob Buckman</a></td><td>Butler</td><td></td><td>1</td><td>9:32.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/zachary_wilder.html'>Zachary Wilder</a></td><td>Woodford County</td><td></td><td>2</td><td>9:39.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/michael_eaton.html'>Michael Eaton</a></td><td>Greenwood</td><td></td><td>3</td><td>9:43.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/kal_clark.html'>Kal Clark</a></td><td>South Oldham</td><td></td><td>4</td><td>9:47.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/tim_presto.html'>Tim Presto</a></td><td>Wadsworth</td><td></td><td>5</td><td>9:49.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/eric_contreras.html'>Eric Contreras</a></td><td>Centerville</td><td></td><td>6</td><td>9:49.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/caleb_lafond.html'>Caleb Lafond</a></td><td>Seneca</td><td></td><td>7</td><td>10:08.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/eric_cooper.html'>Eric Cooper</a></td><td>Cabell Midland</td><td></td><td>8</td><td>10:09.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/dave_niemira.html'>Dave Niemira</a></td><td>Strongsville</td><td></td><td>9</td><td>10:23.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/mike_connolly.html'>Mike Connolly</a></td><td>Strongsville</td><td></td><td>10</td><td>10:32.7</td></tr></tbody></table></div></div>\n<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Strongsville</td><td>Strongsville</td><td>1</td><td></td><td></td><td>8:01.5</td><td></td></tr><tr class="non-stx-row"><td></td><td>Wayne</td><td>Wayne</td><td>2</td><td></td><td></td><td>8:13.7</td><td></td></tr><tr class="non-stx-row"><td></td><td>Centerville</td><td>Centerville</td><td>3</td><td></td><td></td><td>8:20.1</td><td></td></tr><tr class="non-stx-row"><td></td><td>Kentucky Country Day</td><td>Kentucky Country Day</td><td>4</td><td></td><td></td><td>8:36.9</td><td></td></tr><tr class="non-stx-row"><td></td><td>Williamson</td><td>Williamson</td><td>5</td><td></td><td></td><td>8:47.7</td><td></td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:33:43</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>1:54.7</td><td class="pr">1:52.9</td></tr><tr class="non-stx-row"><td>Christopher Kollar</td><td>Strongsville</td><td>2</td><td></td><td>1:57.2</td></tr><tr class="non-stx-row"><td>Patrick Starkey</td><td>Wadsworth</td><td>3</td><td></td><td>1:57.4</td></tr><tr class="non-stx-row"><td>Nicholas Smith</td><td>Wayne</td><td>4</td><td></td><td>1:58.9</td></tr><tr class="non-stx-row"><td>Ian Sisson</td><td>Greenwood</td><td>5</td><td></td><td>1:59.2</td></tr><tr class="non-stx-row"><td>Chris Hall</td><td>Meade County</td><td>6</td><td></td><td>2:01.6</td></tr><tr class="non-stx-row"><td>Gary Hughes</td><td>Rogers</td><td>7</td><td></td><td>2:03.6</td></tr><tr class="non-stx-row"><td>Demetrius Davis</td><td>Williamson</td><td>8</td><td></td><td>2:04.0</td></tr><tr class="non-stx-row"><td>Terry Nicholas</td><td>Centerville</td><td>9</td><td></td><td>2:04.5</td></tr><tr class="non-stx-row"><td>Matt Endy</td><td>Kentucky Country Day</td><td>10</td><td></td><td>2:04.6</td></tr><tr class="non-stx-row"><td>John Devito</td><td>Centerville</td><td>11</td><td></td><td>2:05.6</td></tr><tr class="non-stx-row"><td>Bobby Stumbo</td><td>Marion-Franklin</td><td>12</td><td></td><td>2:06.2</td></tr><tr class="non-stx-row"><td>Demarcus Jackson</td><td>Williamson</td><td>13</td><td></td><td>2:06.3</td></tr><tr class="non-stx-row"><td>Roy Fraction</td><td>Gateway High School</td><td>14</td><td></td><td>2:10.9</td></tr></tbody></table></div></div><div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Ondrej Puskar</td><td>South Oldham</td><td>1</td><td></td><td>4:25.3</td></tr><tr class="non-stx-row"><td>Jonathan Thomas</td><td>Western Hills</td><td>2</td><td></td><td>4:26.1</td></tr><tr class="non-stx-row"><td>Zachary Hiltner</td><td>Wadsworth</td><td>3</td><td></td><td>4:33.3</td></tr><tr class="non-stx-row"><td>Zach Tuttle</td><td>Butler</td><td>4</td><td></td><td>4:36.0</td></tr><tr class="non-stx-row"><td>Kellen Alexander</td><td>Strongsville</td><td>5</td><td></td><td>4:42.4</td></tr><tr class="non-stx-row"><td>Alex Brey</td><td>Kentucky Country Day</td><td>6</td><td></td><td>4:50.8</td></tr><tr class="non-stx-row"><td>Jacob Bradosky</td><td>Centerville</td><td>7</td><td></td><td>4:51.0</td></tr><tr class="non-stx-row"><td>Collin Clark</td><td>Centerville</td><td>8</td><td></td><td>4:52.3</td></tr><tr class="non-stx-row"><td>Kyle Faerber</td><td>Strongsville</td><td>9</td><td></td><td>5:02.0</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Jacob Buckman</td><td>Butler</td><td>1</td><td></td><td>9:32.5</td></tr><tr class="non-stx-row"><td>Zachary Wilder</td><td>Woodford County</td><td>2</td><td></td><td>9:39.1</td></tr><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>3</td><td></td><td>9:43.9</td></tr><tr class="non-stx-row"><td>Kal Clark</td><td>South Oldham</td><td>4</td><td></td><td>9:47.3</td></tr><tr class="non-stx-row"><td>Tim Presto</td><td>Wadsworth</td><td>5</td><td></td><td>9:49.1</td></tr><tr class="non-stx-row"><td>Eric Contreras</td><td>Centerville</td><td>6</td><td></td><td>9:49.1</td></tr><tr class="non-stx-row"><td>Caleb Lafond</td><td>Seneca</td><td>7</td><td></td><td>10:08.0</td></tr><tr class="non-stx-row"><td>Eric Cooper</td><td>Cabell Midland</td><td>8</td><td></td><td>10:09.4</td></tr><tr class="non-stx-row"><td>Dave Niemira</td><td>Strongsville</td><td>9</td><td></td><td>10:23.6</td></tr><tr class="non-stx-row"><td>Mike Connolly</td><td>Strongsville</td><td>10</td><td></td><td>10:32.7</td></tr></tbody></table></div></div><div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Strongsville</td><td>Strongsville</td><td>1</td><td></td><td></td><td>8:01.5</td><td></td></tr><tr class="non-stx-row"><td></td><td>Wayne</td><td>Wayne</td><td>2</td><td></td><td></td><td>8:13.7</td><td></td></tr><tr class="non-stx-row"><td></td><td>Centerville</td><td>Centerville</td><td>3</td><td></td><td></td><td>8:20.1</td><td></td></tr><tr class="non-stx-row"><td></td><td>Kentucky Country Day</td><td>Kentucky Country Day</td><td>4</td><td></td><td></td><td>8:36.9</td><td></td></tr><tr class="non-stx-row"><td></td><td>Williamson</td><td>Williamson</td><td>5</td><td></td><td></td><td>8:47.7</td><td></td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:08:44</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

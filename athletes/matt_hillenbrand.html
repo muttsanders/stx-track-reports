@@ -55,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -76,8 +73,8 @@
     <div class="topbar">
       <div class="titlewrap">
         <div class="meetname">Matt Hillenbrand</div>
-        
-        <p class="subline muted">StX athlete profile • Showing results from 2025+</p>
+        <div class="athlete-profile-links"><a href="https://ky.milesplit.com/athletes/71610-matt-hillenbrand" target="_blank">Milesplit Profile</a></div>
+        <p class="subline muted">StX athlete profile • Showing results from 1900+</p>
       </div>
       <div class="nav">
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
@@ -91,10 +88,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <p class='muted'>No PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>800 Meters</td><td>1:58.0</td><td class="bestpr">1:54.3</td></tr><tr><td>1600 Meters</td><td class="bestpr">4:24.6</td><td>4:27.3</td></tr><tr><td>1 Mile</td><td class="bestpr">4:34.8</td><td>4:38.7</td></tr><tr><td>3200 Meters</td><td></td><td class="bestpr">10:15.8</td></tr><tr><td>2 Miles</td><td class="bestpr">9:54.6</td><td></td></tr><tr><td>4x800 Relay</td><td></td><td class="bestpr">7:56.9</td></tr></tbody></table></div>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <p class='muted'>No yearly PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2010</td><td>800 Meters</td><td>2:00.9</td><td class="bestpr">1:57.7</td></tr><tr><td>2010</td><td>1600 Meters</td><td class="bestpr">4:24.6</td><td>4:30.0</td></tr><tr><td>2010</td><td>1 Mile</td><td class="bestpr">4:34.8</td><td>4:38.7</td></tr><tr><td>2010</td><td>2 Miles</td><td class="bestpr">9:54.6</td><td></td></tr><tr><td>2010</td><td>4x800 Relay</td><td></td><td class="bestpr">8:10.8</td></tr><tr><td>2009</td><td>800 Meters</td><td>1:58.0</td><td class="bestpr">1:54.3</td></tr><tr><td>2009</td><td>1600 Meters</td><td></td><td class="bestpr">4:27.3</td></tr><tr><td>2009</td><td>3200 Meters</td><td></td><td class="bestpr">10:15.8</td></tr><tr><td>2009</td><td>4x800 Relay</td><td></td><td class="bestpr">7:56.9</td></tr><tr><td>2008</td><td>800 Meters</td><td></td><td class="bestpr">2:00.1</td></tr><tr><td>2008</td><td>4x800 Relay</td><td></td><td class="bestpr">8:06.4</td></tr><tr><td>2007</td><td>800 Meters</td><td></td><td class="bestpr">2:15.7</td></tr><tr><td>1996</td><td>4x800 Relay</td><td></td><td class="bestpr">8:37.4</td></tr></tbody></table></div>
       </div>
     </div>
     <div class="card">
@@ -111,12 +108,12 @@
         <span class="muted">(default on)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
-      <div id="athlete-results-wrap" class="hide-graphs">
-        <p class='muted'>No results found.</p>
+      <div id="athlete-results-wrap">
+        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2010</td><td>2010-06-05</td><td><a href='../meets/186_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td><td>Outdoor</td><td>800 Meters</td><td>14</td><td>2:03.6</td></tr><tr><td>2010</td><td>2010-05-29</td><td><a href='../meets/185_all.html'>KHSAA Class 3A Region 3 Championships</a></td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>1:57.7</td></tr><tr><td>2010</td><td>2010-03-14</td><td><a href='../meets/238_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>800 Meters</td><td>65</td><td>2:00.9</td></tr><tr><td>2009</td><td>2009-06-20</td><td><a href='../meets/357_all.html'>Nike Outdoor Nationals</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1:54.3</td></tr><tr><td>2009</td><td>2009-05-23</td><td><a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td><td>Outdoor</td><td>800 Meters</td><td>6</td><td>1:59.2</td></tr><tr><td>2009</td><td>2009-05-16</td><td><a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1:58.0</td></tr><tr><td>2009</td><td>2009-04-18</td><td><a href='../meets/323_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>800 Meters</td><td>2</td><td>1:58.3</td></tr><tr><td>2009</td><td>2009-03-14</td><td><a href='../meets/239_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>800 Meters</td><td>71</td><td>2:05.4</td></tr><tr><td>2009</td><td>2009-02-21</td><td><a href='../meets/365_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>800 Meters</td><td>7</td><td>1:58.0</td></tr><tr><td>2008</td><td>2008-05-24</td><td><a href='../meets/192_all.html'>KHSAA Class 3A Region 2 Championships</a></td><td>Outdoor</td><td>800 Meters</td><td>13</td><td>2:09.8</td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/191_all.html'>Cardinal/Bulldog Classic</a></td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>2:00.1</td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/324_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>800 Meters</td><td>4</td><td>2:00.1</td></tr><tr><td>2007</td><td>2007-04-21</td><td><a href='../meets/325_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>800 Meters</td><td>20</td><td>2:15.7</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2010</td><td>2010-05-07</td><td><a href='../meets/350_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1 Mile</td><td>15</td><td>4:38.7</td></tr><tr><td>2010</td><td>2010-04-24</td><td><a href='../meets/184_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters</td><td>12</td><td>4:30.0</td></tr><tr><td>2010</td><td>2010-04-05</td><td><a href='../meets/367_all.html'>50th Annual Mason-Dixon Games</a></td><td>Indoor</td><td>1600 Meters</td><td>9</td><td>4:24.6</td></tr><tr><td>2010</td><td>2010-01-23</td><td><a href='../meets/237_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1 Mile</td><td>3</td><td>4:34.8</td></tr><tr><td>2009</td><td>2009-05-23</td><td><a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td><td>Outdoor</td><td>1600 Meters</td><td>20</td><td>4:43.3</td></tr><tr><td>2009</td><td>2009-05-16</td><td><a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>4:29.8</td></tr><tr><td>2009</td><td>2009-04-18</td><td><a href='../meets/323_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>1600 Meters</td><td>4</td><td>4:27.3</td></tr><tr><td>2009</td><td>2009-04-11</td><td><a href='../meets/341_all.html'>Louisville Male Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>4:29.9</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2010</td><td>2010-01-23</td><td><a href='../meets/237_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>2 Miles</td><td>3</td><td>9:54.6</td></tr><tr><td>2009</td><td>2009-05-23</td><td><a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td><td>Outdoor</td><td>3200 Meters</td><td>23</td><td>11:35.9</td></tr><tr><td>2009</td><td>2009-05-16</td><td><a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a></td><td>Outdoor</td><td>3200 Meters</td><td>5</td><td>10:15.8</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2010</td><td>2010-06-05</td><td><a href='../meets/186_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St Xavier (KY)</td><td>1</td><td>3</td><td>8:10.8</td><td></td></tr><tr><td>2009</td><td>2009-05-23</td><td><a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St Xavier (KY)</td><td>4</td><td>1</td><td>7:56.9</td><td></td></tr><tr><td>2009</td><td>2009-05-16</td><td><a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St Xavier (KY)</td><td>4</td><td>2</td><td>8:16.2</td><td></td></tr><tr><td>2009</td><td>2009-04-18</td><td><a href='../meets/323_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St. Xavier (KY) 'A'</td><td>1</td><td>7</td><td>8:37.4</td><td></td></tr><tr><td>2008</td><td>2008-05-24</td><td><a href='../meets/192_all.html'>KHSAA Class 3A Region 2 Championships</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St Xavier (KY)</td><td>3</td><td>1</td><td>8:06.4</td><td></td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/191_all.html'>Cardinal/Bulldog Classic</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St Xavier (KY)</td><td>4</td><td>1</td><td>8:16.5</td><td></td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/324_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St. Xavier (KY) 'A'</td><td>4</td><td>1</td><td>8:16.5</td><td></td></tr><tr><td>1996</td><td>1996-06-01</td><td><a href='../meets/322_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St. Xavier (KY) 'A'</td><td>1</td><td>7</td><td>8:37.4</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-06 23:53:47</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-07 00:14:03</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -152,7 +149,176 @@
     
     
     <script>
-      const allChartData = {};
+      const allChartData = {
+  "chart-800_meters": [
+    {
+      "x": "2007-04-21",
+      "y": 135.69,
+      "meet": "<a href='../meets/325_all.html'>Male Bulldog Classic</a>"
+    },
+    {
+      "x": "2008-04-19",
+      "y": 120.11,
+      "meet": "<a href='../meets/191_all.html'>Cardinal/Bulldog Classic</a>"
+    },
+    {
+      "x": "2008-04-19",
+      "y": 120.11,
+      "meet": "<a href='../meets/324_all.html'>Male Bulldog Classic</a>"
+    },
+    {
+      "x": "2008-05-24",
+      "y": 129.81,
+      "meet": "<a href='../meets/192_all.html'>KHSAA Class 3A Region 2 Championships</a>"
+    },
+    {
+      "x": "2009-02-21",
+      "y": 118.0,
+      "meet": "<a href='../meets/365_all.html'>UK High School Invitational</a>"
+    },
+    {
+      "x": "2009-03-14",
+      "y": 125.43,
+      "meet": "<a href='../meets/239_all.html'>Nike Indoor Nationals</a>"
+    },
+    {
+      "x": "2009-04-18",
+      "y": 118.27,
+      "meet": "<a href='../meets/323_all.html'>Male Bulldog Classic</a>"
+    },
+    {
+      "x": "2009-05-16",
+      "y": 117.97,
+      "meet": "<a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a>"
+    },
+    {
+      "x": "2009-05-23",
+      "y": 119.17,
+      "meet": "<a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a>"
+    },
+    {
+      "x": "2009-06-20",
+      "y": 114.31,
+      "meet": "<a href='../meets/357_all.html'>Nike Outdoor Nationals</a>"
+    },
+    {
+      "x": "2010-03-14",
+      "y": 120.88,
+      "meet": "<a href='../meets/238_all.html'>Nike Indoor Nationals</a>"
+    },
+    {
+      "x": "2010-05-29",
+      "y": 117.7,
+      "meet": "<a href='../meets/185_all.html'>KHSAA Class 3A Region 3 Championships</a>"
+    },
+    {
+      "x": "2010-06-05",
+      "y": 123.59,
+      "meet": "<a href='../meets/186_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a>"
+    }
+  ],
+  "chart-1600_meters_1_mile": [
+    {
+      "x": "2009-04-11",
+      "y": 269.92,
+      "meet": "<a href='../meets/341_all.html'>Louisville Male Invitational</a>"
+    },
+    {
+      "x": "2009-04-18",
+      "y": 267.3,
+      "meet": "<a href='../meets/323_all.html'>Male Bulldog Classic</a>"
+    },
+    {
+      "x": "2009-05-16",
+      "y": 269.82,
+      "meet": "<a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a>"
+    },
+    {
+      "x": "2009-05-23",
+      "y": 283.28,
+      "meet": "<a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a>"
+    },
+    {
+      "x": "2010-01-23",
+      "y": 274.81,
+      "meet": "<a href='../meets/237_all.html'>Wildcat Classic</a>"
+    },
+    {
+      "x": "2010-04-05",
+      "y": 264.62,
+      "meet": "<a href='../meets/367_all.html'>50th Annual Mason-Dixon Games</a>"
+    },
+    {
+      "x": "2010-04-24",
+      "y": 270.04,
+      "meet": "<a href='../meets/184_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2010-05-07",
+      "y": 278.67,
+      "meet": "<a href='../meets/350_all.html'>Kentucky Dream Mile</a>"
+    }
+  ],
+  "chart-3200_meters_2_miles": [
+    {
+      "x": "2009-05-16",
+      "y": 615.81,
+      "meet": "<a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a>"
+    },
+    {
+      "x": "2009-05-23",
+      "y": 695.93,
+      "meet": "<a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a>"
+    },
+    {
+      "x": "2010-01-23",
+      "y": 594.61,
+      "meet": "<a href='../meets/237_all.html'>Wildcat Classic</a>"
+    }
+  ],
+  "chart-4x800_relay": [
+    {
+      "x": "1996-06-01",
+      "y": 517.35,
+      "meet": "<a href='../meets/322_all.html'>Kentucky State Track Meet</a>"
+    },
+    {
+      "x": "2008-04-19",
+      "y": 496.46,
+      "meet": "<a href='../meets/191_all.html'>Cardinal/Bulldog Classic</a>"
+    },
+    {
+      "x": "2008-04-19",
+      "y": 496.46,
+      "meet": "<a href='../meets/324_all.html'>Male Bulldog Classic</a>"
+    },
+    {
+      "x": "2008-05-24",
+      "y": 486.36,
+      "meet": "<a href='../meets/192_all.html'>KHSAA Class 3A Region 2 Championships</a>"
+    },
+    {
+      "x": "2009-04-18",
+      "y": 517.35,
+      "meet": "<a href='../meets/323_all.html'>Male Bulldog Classic</a>"
+    },
+    {
+      "x": "2009-05-16",
+      "y": 496.18,
+      "meet": "<a href='../meets/189_all.html'>KHSAA Class 3A Region 3 Championships</a>"
+    },
+    {
+      "x": "2009-05-23",
+      "y": 476.93,
+      "meet": "<a href='../meets/190_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a>"
+    },
+    {
+      "x": "2010-06-05",
+      "y": 490.79,
+      "meet": "<a href='../meets/186_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a>"
+    }
+  ]
+};
       function formatChartTime(seconds) {
         if (seconds === null || seconds === undefined) return '';
         const mins = Math.floor(seconds / 60);

@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/phillip_warsaw.html'>Phillip Warsaw</a></td><td>John Hardin</td><td></td><td>1</td><td>2:00.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/jimmy_syne.html'>Jimmy Syne</a></td><td>Strongsville</td><td></td><td>2</td><td>2:03.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/chris_oskins.html'>Chris Oskins</a></td><td>Waggener</td><td></td><td>3</td><td>2:03.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/andy_synk.html'>Andy Synk</a></td><td>Strongsville</td><td></td><td>4</td><td>2:05.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/shane_powell.html'>Shane Powell</a></td><td>Daviess County</td><td></td><td>5</td><td>2:05.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/deshawn_mccoy.html'>Deshawn Mccoy</a></td><td>Reynoldsburg</td><td></td><td>6</td><td>2:06.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/tyler_lemmon.html'>Tyler Lemmon</a></td><td>Reynoldsburg</td><td></td><td>7</td><td>2:06.3</td></tr><tr><td><a href='../athletes/matt_blum.html'>Matt Blum</a></td><td>St Xavier (KY)</td><td>2:02.4</td><td>8</td><td>2:06.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/brandon_bauer.html'>Brandon Bauer</a></td><td>Male</td><td></td><td>9</td><td>2:07.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/michael_eaton.html'>Michael Eaton</a></td><td>Greenwood</td><td></td><td>10</td><td>2:10.5</td></tr></tbody></table></div></div>\n<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/michael_eaton.html'>Michael Eaton</a></td><td>Greenwood</td><td></td><td>1</td><td>4:22.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/ryan_byrne.html'>Ryan Byrne</a></td><td>North Harrison High School</td><td></td><td>2</td><td>4:22.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/jeremy_trein.html'>Jeremy Trein</a></td><td>Reynoldsburg</td><td></td><td>3</td><td>4:25.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/john_hinkle.html'>John Hinkle</a></td><td>Shelby County</td><td></td><td>4</td><td>4:28.2</td></tr><tr><td><a href='../athletes/thomas_davis.html'>Thomas Davis</a></td><td>St Xavier (KY)</td><td>4:34.9</td><td>5</td><td class="pr">4:28.9</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td>St Xavier (KY)</td><td></td><td>6</td><td>4:31.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/matthew_shoulta.html'>Matthew Shoulta</a></td><td>St. Mary</td><td></td><td>7</td><td>4:34.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/jon_dunaway.html'>Jon Dunaway</a></td><td>Daviess County</td><td></td><td>8</td><td>4:35.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/patrick_daly.html'>Patrick Daly</a></td><td>Trinity (Louisville)</td><td></td><td>9</td><td>4:36.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/kyle_facuba.html'>Kyle Facuba</a></td><td>Strongsville</td><td></td><td>10</td><td>4:38.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/andy_caputo.html'>Andy Caputo</a></td><td>Strongsville</td><td></td><td>11</td><td>4:46.6</td></tr></tbody></table></div></div>\n<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/joe_parker.html'>Joe Parker</a></td><td>Reynoldsburg</td><td></td><td>1</td><td>9:26.1</td></tr><tr><td><a href='../athletes/scott_mcclain.html'>Scott McClain</a></td><td>St Xavier (KY)</td><td>9:45.2</td><td>2</td><td class="pr">9:31.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/caleb_swartz.html'>Caleb Swartz</a></td><td>John Hardin</td><td></td><td>3</td><td>9:33.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/ryan_byrne.html'>Ryan Byrne</a></td><td>North Harrison High School</td><td></td><td>4</td><td>9:37.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/michael_eaton.html'>Michael Eaton</a></td><td>Greenwood</td><td></td><td>5</td><td>9:47.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/matthew_shoulta.html'>Matthew Shoulta</a></td><td>St. Mary</td><td></td><td>6</td><td>10:06.2</td></tr><tr><td><a href='../athletes/john_daly.html'>John Daly</a></td><td>St Xavier (KY)</td><td>9:53.2</td><td>7</td><td>10:14.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/brian_dugan.html'>Brian Dugan</a></td><td>North Oldham</td><td></td><td>8</td><td>10:15.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/rick_goctchrus.html'>Rick Goctchrus</a></td><td>Strongsville</td><td></td><td>9</td><td>10:16.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/patrick_rachow.html'>Patrick Rachow</a></td><td>Strongsville</td><td></td><td>10</td><td>10:26.8</td></tr></tbody></table></div></div>\n<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Trinity (Louisville)</td><td>Trinity (Louisville)</td><td>1</td><td></td><td></td><td>8:20.1</td><td></td></tr><tr class="non-stx-row"><td></td><td>John Hardin</td><td>John Hardin</td><td>2</td><td></td><td></td><td>8:21.8</td><td></td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:33:14</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Phillip Warsaw</td><td>John Hardin</td><td>1</td><td></td><td>2:00.6</td></tr><tr class="non-stx-row"><td>Jimmy Syne</td><td>Strongsville</td><td>2</td><td></td><td>2:03.1</td></tr><tr class="non-stx-row"><td>Chris Oskins</td><td>Waggener</td><td>3</td><td></td><td>2:03.8</td></tr><tr class="non-stx-row"><td>Andy Synk</td><td>Strongsville</td><td>4</td><td></td><td>2:05.0</td></tr><tr class="non-stx-row"><td>Shane Powell</td><td>Daviess County</td><td>5</td><td></td><td>2:05.6</td></tr><tr class="non-stx-row"><td>Deshawn Mccoy</td><td>Reynoldsburg</td><td>6</td><td></td><td>2:06.2</td></tr><tr class="non-stx-row"><td>Tyler Lemmon</td><td>Reynoldsburg</td><td>7</td><td></td><td>2:06.3</td></tr><tr><td><a href='../athletes/matt_blum.html'>Matt Blum</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>8</td><td>2:02.4</td><td>2:06.4</td></tr><tr class="non-stx-row"><td>Brandon Bauer</td><td>Male</td><td>9</td><td></td><td>2:07.6</td></tr><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>10</td><td></td><td>2:10.5</td></tr></tbody></table></div></div><div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>1</td><td></td><td>4:22.2</td></tr><tr class="non-stx-row"><td>Ryan Byrne</td><td>North Harrison High School</td><td>2</td><td></td><td>4:22.5</td></tr><tr class="non-stx-row"><td>Jeremy Trein</td><td>Reynoldsburg</td><td>3</td><td></td><td>4:25.9</td></tr><tr class="non-stx-row"><td>John Hinkle</td><td>Shelby County</td><td>4</td><td></td><td>4:28.2</td></tr><tr><td><a href='../athletes/thomas_davis.html'>Thomas Davis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>5</td><td>4:34.9</td><td class="pr">4:28.9</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>6</td><td></td><td>4:31.9</td></tr><tr class="non-stx-row"><td>Matthew Shoulta</td><td>St. Mary</td><td>7</td><td></td><td>4:34.2</td></tr><tr class="non-stx-row"><td>Jon Dunaway</td><td>Daviess County</td><td>8</td><td></td><td>4:35.7</td></tr><tr class="non-stx-row"><td>Patrick Daly</td><td>Trinity (Louisville)</td><td>9</td><td></td><td>4:36.5</td></tr><tr class="non-stx-row"><td>Kyle Facuba</td><td>Strongsville</td><td>10</td><td></td><td>4:38.1</td></tr><tr class="non-stx-row"><td>Andy Caputo</td><td>Strongsville</td><td>11</td><td></td><td>4:46.6</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Joe Parker</td><td>Reynoldsburg</td><td>1</td><td></td><td>9:26.1</td></tr><tr><td><a href='../athletes/scott_mcclain.html'>Scott McClain</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>2</td><td>9:45.2</td><td class="pr">9:31.9</td></tr><tr class="non-stx-row"><td>Caleb Swartz</td><td>John Hardin</td><td>3</td><td></td><td>9:33.2</td></tr><tr class="non-stx-row"><td>Ryan Byrne</td><td>North Harrison High School</td><td>4</td><td></td><td>9:37.6</td></tr><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>5</td><td></td><td>9:47.5</td></tr><tr class="non-stx-row"><td>Matthew Shoulta</td><td>St. Mary</td><td>6</td><td></td><td>10:06.2</td></tr><tr><td><a href='../athletes/john_daly.html'>John Daly</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>7</td><td>9:53.2</td><td>10:14.1</td></tr><tr class="non-stx-row"><td>Brian Dugan</td><td>North Oldham</td><td>8</td><td></td><td>10:15.9</td></tr><tr class="non-stx-row"><td>Rick Goctchrus</td><td>Strongsville</td><td>9</td><td></td><td>10:16.9</td></tr><tr class="non-stx-row"><td>Patrick Rachow</td><td>Strongsville</td><td>10</td><td></td><td>10:26.8</td></tr></tbody></table></div></div><div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Trinity (Louisville)</td><td>Trinity (Louisville)</td><td>1</td><td></td><td></td><td>8:20.1</td><td></td></tr><tr class="non-stx-row"><td></td><td>John Hardin</td><td>John Hardin</td><td>2</td><td></td><td></td><td>8:21.8</td><td></td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:08:36</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

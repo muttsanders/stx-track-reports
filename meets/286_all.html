@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/darrin_hines.html'>Darrin Hines</a></td><td>Pulaski County</td><td></td><td>1</td><td>1:57.8</td></tr><tr><td><a href='../athletes/michael_reader.html'>Michael Reader</a></td><td>St Xavier (KY)</td><td></td><td>2</td><td>1:58.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/mike_brame.html'>Mike Brame</a></td><td>Marshall County</td><td></td><td>3</td><td>1:58.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/tom_pollard.html'>Tom Pollard</a></td><td>DuPont Manual</td><td></td><td>4</td><td>1:58.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/chuck_shockey.html'>Chuck Shockey</a></td><td>Desales</td><td></td><td>5</td><td>1:59.8</td></tr></tbody></table></div></div>\n<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/clay_collier.html'>Clay Collier</a></td><td>Tates Creek</td><td></td><td>1</td><td>4:19.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/barry_white.html'>Barry White</a></td><td>Southern</td><td></td><td>2</td><td>4:23.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/scott_katchuk.html'>Scott Katchuk</a></td><td>Daviess County</td><td></td><td>3</td><td>4:26.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/trent_lovett.html'>Trent Lovett</a></td><td>Marshall County</td><td></td><td>4</td><td>4:27.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/darrin_hines.html'>Darrin Hines</a></td><td>Pulaski County</td><td></td><td>5</td><td>4:29.9</td></tr></tbody></table></div></div>\n<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/clay_collier.html'>Clay Collier</a></td><td>Tates Creek</td><td></td><td>1</td><td>9:31.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/barry_white.html'>Barry White</a></td><td>Southern</td><td></td><td>2</td><td>9:35.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/chuck_harmon.html'>Chuck Harmon</a></td><td>Campbell County</td><td></td><td>3</td><td>9:44.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/jeff_birt.html'>Jeff Birt</a></td><td>Atherton</td><td></td><td>4</td><td>9:52.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/dennis_brown.html'>Dennis Brown</a></td><td>Daviess County</td><td></td><td>5</td><td>9:56.4</td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:35:32</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Darrin Hines</td><td>Pulaski County</td><td>1</td><td></td><td>1:57.8</td></tr><tr><td><a href='../athletes/michael_reader.html'>Michael Reader</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>2</td><td></td><td>1:58.3</td></tr><tr class="non-stx-row"><td>Mike Brame</td><td>Marshall County</td><td>3</td><td></td><td>1:58.4</td></tr><tr class="non-stx-row"><td>Tom Pollard</td><td>DuPont Manual</td><td>4</td><td></td><td>1:58.7</td></tr><tr class="non-stx-row"><td>Chuck Shockey</td><td>Desales</td><td>5</td><td></td><td>1:59.8</td></tr></tbody></table></div></div><div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Clay Collier</td><td>Tates Creek</td><td>1</td><td></td><td>4:19.5</td></tr><tr class="non-stx-row"><td>Barry White</td><td>Southern</td><td>2</td><td></td><td>4:23.5</td></tr><tr class="non-stx-row"><td>Scott Katchuk</td><td>Daviess County</td><td>3</td><td></td><td>4:26.0</td></tr><tr class="non-stx-row"><td>Trent Lovett</td><td>Marshall County</td><td>4</td><td></td><td>4:27.0</td></tr><tr class="non-stx-row"><td>Darrin Hines</td><td>Pulaski County</td><td>5</td><td></td><td>4:29.9</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Clay Collier</td><td>Tates Creek</td><td>1</td><td></td><td>9:31.0</td></tr><tr class="non-stx-row"><td>Barry White</td><td>Southern</td><td>2</td><td></td><td>9:35.0</td></tr><tr class="non-stx-row"><td>Chuck Harmon</td><td>Campbell County</td><td>3</td><td></td><td>9:44.6</td></tr><tr class="non-stx-row"><td>Jeff Birt</td><td>Atherton</td><td>4</td><td></td><td>9:52.1</td></tr><tr class="non-stx-row"><td>Dennis Brown</td><td>Daviess County</td><td>5</td><td></td><td>9:56.4</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:09:28</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

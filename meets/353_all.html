@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/william_mulloy.html'>William Mulloy</a></td><td>St Xavier (KY)</td><td>4:13.4</td><td>1</td><td class="pr">4:12.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/eric_baugh.html'>Eric Baugh</a></td><td>Villa Madonna</td><td></td><td>2</td><td>4:14.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/kendall_muhammad.html'>Kendall Muhammad</a></td><td>Paul Laurence Dunbar</td><td></td><td>3</td><td>4:19.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/trenton_fryman.html'>Trenton Fryman</a></td><td>North Oldham</td><td></td><td>4</td><td>4:20.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/keith_prive.html'>Keith Prive</a></td><td>Greenwood</td><td></td><td>5</td><td>4:22.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/john_michael_griffith.html'>John Michael Griffith</a></td><td>Highlands</td><td></td><td>6</td><td>4:23.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/brennan_fields.html'>Brennan Fields</a></td><td>Madison Central</td><td></td><td>7</td><td>4:24.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/kyle_johnson.html'>Kyle Johnson</a></td><td>Bowling Green</td><td></td><td>8</td><td>4:25.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/ethan_shuley.html'>Ethan Shuley</a></td><td>Highlands</td><td></td><td>9</td><td>4:27.4</td></tr><tr><td><a href='../athletes/ben_metzger.html'>Ben Metzger</a></td><td>St Xavier (KY)</td><td>4:35.3</td><td>10</td><td class="pr">4:27.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/mason_crump.html'>Mason Crump</a></td><td>Madison Central</td><td></td><td>11</td><td>4:27.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/adam_sandidge.html'>Adam Sandidge</a></td><td>Larue County</td><td></td><td>12</td><td>4:28.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/john_spencer.html'>John Spencer</a></td><td>Lafayette</td><td></td><td>13</td><td>4:28.9</td></tr><tr><td><a href='../athletes/christopher_striegel.html'>Christopher Striegel</a></td><td>St Xavier (KY)</td><td>4:36.2</td><td>14</td><td class="pr">4:29.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/malik_mahmud.html'>Malik Mahmud</a></td><td>Paul Laurence Dunbar</td><td></td><td>15</td><td>4:29.4</td></tr><tr><td><a href='../athletes/max_mudd.html'>Max Mudd</a></td><td>St Xavier (KY)</td><td>4:21.9</td><td>16</td><td>4:35.1</td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:29:54</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/william_mulloy.html'>William Mulloy</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>4:13.4</td><td class="pr">4:12.4</td></tr><tr class="non-stx-row"><td>Eric Baugh</td><td>Villa Madonna</td><td>2</td><td></td><td>4:14.8</td></tr><tr class="non-stx-row"><td>Kendall Muhammad</td><td>Paul Laurence Dunbar</td><td>3</td><td></td><td>4:19.3</td></tr><tr class="non-stx-row"><td>Trenton Fryman</td><td>North Oldham</td><td>4</td><td></td><td>4:20.7</td></tr><tr class="non-stx-row"><td>Keith Prive</td><td>Greenwood</td><td>5</td><td></td><td>4:22.7</td></tr><tr class="non-stx-row"><td>John Michael Griffith</td><td>Highlands</td><td>6</td><td></td><td>4:23.6</td></tr><tr class="non-stx-row"><td>Brennan Fields</td><td>Madison Central</td><td>7</td><td></td><td>4:24.8</td></tr><tr class="non-stx-row"><td>Kyle Johnson</td><td>Bowling Green</td><td>8</td><td></td><td>4:25.8</td></tr><tr class="non-stx-row"><td>Ethan Shuley</td><td>Highlands</td><td>9</td><td></td><td>4:27.4</td></tr><tr><td><a href='../athletes/ben_metzger.html'>Ben Metzger</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>10</td><td>4:35.3</td><td class="pr">4:27.6</td></tr><tr class="non-stx-row"><td>Mason Crump</td><td>Madison Central</td><td>11</td><td></td><td>4:27.8</td></tr><tr class="non-stx-row"><td>Adam Sandidge</td><td>Larue County</td><td>12</td><td></td><td>4:28.8</td></tr><tr class="non-stx-row"><td>John Spencer</td><td>Lafayette</td><td>13</td><td></td><td>4:28.9</td></tr><tr><td><a href='../athletes/christopher_striegel.html'>Christopher Striegel</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>14</td><td>4:36.2</td><td class="pr">4:29.0</td></tr><tr class="non-stx-row"><td>Malik Mahmud</td><td>Paul Laurence Dunbar</td><td>15</td><td></td><td>4:29.4</td></tr><tr><td><a href='../athletes/max_mudd.html'>Max Mudd</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>16</td><td>4:21.9</td><td>4:35.1</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:07:11</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

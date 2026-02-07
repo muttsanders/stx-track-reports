@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/johnnie_baum.html'>Johnnie Baum</a></td><td>Holy Cross (Louisville)</td><td></td><td>1</td><td>1:57.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/eric_vanlaningham.html'>Eric Vanlaningham</a></td><td>Boone County</td><td></td><td>2</td><td>2:00.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/brian_schaap.html'>Brian Schaap</a></td><td>Trinity (Louisville)</td><td></td><td>3</td><td>2:01.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/brian_hurst.html'>Brian Hurst</a></td><td>DuPont Manual</td><td></td><td>4</td><td>2:02.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/jeremy_kruger.html'>Jeremy Kruger</a></td><td>Daviess County</td><td></td><td>5</td><td>2:02.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/jason_joy.html'>Jason Joy</a></td><td>Paul Dunbar</td><td></td><td>6</td><td>2:05.2</td></tr></tbody></table></div></div>\n<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/jeremy_kazlauskas.html'>Jeremy Kazlauskas</a></td><td>Daviess County</td><td></td><td>1</td><td>4:21.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/johnnie_baum.html'>Johnnie Baum</a></td><td>Holy Cross (Louisville)</td><td></td><td>2</td><td>4:23.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/eric_vanlaningham.html'>Eric Vanlaningham</a></td><td>Boone County</td><td></td><td>3</td><td>4:28.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/brian_schaap.html'>Brian Schaap</a></td><td>Trinity (Louisville)</td><td></td><td>4</td><td>4:29.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/jason_joy.html'>Jason Joy</a></td><td>Paul Dunbar</td><td></td><td>5</td><td>4:35.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/jimmy_hatter.html'>Jimmy Hatter</a></td><td>Shelby County</td><td></td><td>6</td><td>4:49.8</td></tr></tbody></table></div></div>\n<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/eric_vanlaningham.html'>Eric Vanlaningham</a></td><td>Boone County</td><td></td><td>1</td><td>9:41.1</td></tr><tr><td><a href='../athletes/john_perkins.html'>John Perkins</a></td><td>St Xavier (KY)</td><td>9:33.5</td><td>2</td><td>9:47.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/jason_joy.html'>Jason Joy</a></td><td>Paul Dunbar</td><td></td><td>3</td><td>9:55.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/mike_barako.html'>Mike Barako</a></td><td>Trinity (Louisville)</td><td></td><td>4</td><td>9:58.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/steve_bair.html'>Steve Bair</a></td><td>Daviess County</td><td></td><td>5</td><td>10:02.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/chet_white.html'>Chet White</a></td><td>Holy Cross (Louisville)</td><td></td><td>6</td><td>10:26.7</td></tr></tbody></table></div></div>\n<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Trinity (Louisville)</td><td>Trinity (Louisville)</td><td>1</td><td></td><td></td><td>8:13.3</td><td></td></tr><tr><td></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td></td><td></td><td>8:13.9</td><td></td></tr><tr class="non-stx-row"><td></td><td>Daviess County</td><td>Daviess County</td><td>3</td><td></td><td></td><td>8:16.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Henderson County</td><td>Henderson County</td><td>4</td><td></td><td></td><td>8:29.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Boone County</td><td>Boone County</td><td>5</td><td></td><td></td><td>8:37.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Campbell County</td><td>Campbell County</td><td>6</td><td></td><td></td><td>8:40.9</td><td></td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:35:07</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Johnnie Baum</td><td>Holy Cross (Louisville)</td><td>1</td><td></td><td>1:57.6</td></tr><tr class="non-stx-row"><td>Eric Vanlaningham</td><td>Boone County</td><td>2</td><td></td><td>2:00.2</td></tr><tr class="non-stx-row"><td>Brian Schaap</td><td>Trinity (Louisville)</td><td>3</td><td></td><td>2:01.6</td></tr><tr class="non-stx-row"><td>Brian Hurst</td><td>DuPont Manual</td><td>4</td><td></td><td>2:02.2</td></tr><tr class="non-stx-row"><td>Jeremy Kruger</td><td>Daviess County</td><td>5</td><td></td><td>2:02.2</td></tr><tr class="non-stx-row"><td>Jason Joy</td><td>Paul Dunbar</td><td>6</td><td></td><td>2:05.2</td></tr></tbody></table></div></div><div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Jeremy Kazlauskas</td><td>Daviess County</td><td>1</td><td></td><td>4:21.4</td></tr><tr class="non-stx-row"><td>Johnnie Baum</td><td>Holy Cross (Louisville)</td><td>2</td><td></td><td>4:23.1</td></tr><tr class="non-stx-row"><td>Eric Vanlaningham</td><td>Boone County</td><td>3</td><td></td><td>4:28.7</td></tr><tr class="non-stx-row"><td>Brian Schaap</td><td>Trinity (Louisville)</td><td>4</td><td></td><td>4:29.7</td></tr><tr class="non-stx-row"><td>Jason Joy</td><td>Paul Dunbar</td><td>5</td><td></td><td>4:35.9</td></tr><tr class="non-stx-row"><td>Jimmy Hatter</td><td>Shelby County</td><td>6</td><td></td><td>4:49.8</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Eric Vanlaningham</td><td>Boone County</td><td>1</td><td></td><td>9:41.1</td></tr><tr><td><a href='../athletes/john_perkins.html'>John Perkins</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>2</td><td>9:33.5</td><td>9:47.8</td></tr><tr class="non-stx-row"><td>Jason Joy</td><td>Paul Dunbar</td><td>3</td><td></td><td>9:55.7</td></tr><tr class="non-stx-row"><td>Mike Barako</td><td>Trinity (Louisville)</td><td>4</td><td></td><td>9:58.6</td></tr><tr class="non-stx-row"><td>Steve Bair</td><td>Daviess County</td><td>5</td><td></td><td>10:02.6</td></tr><tr class="non-stx-row"><td>Chet White</td><td>Holy Cross (Louisville)</td><td>6</td><td></td><td>10:26.7</td></tr></tbody></table></div></div><div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Trinity (Louisville)</td><td>Trinity (Louisville)</td><td>1</td><td></td><td></td><td>8:13.3</td><td></td></tr><tr><td></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY)</td><td>2</td><td></td><td></td><td>8:13.9</td><td></td></tr><tr class="non-stx-row"><td></td><td>Daviess County</td><td>Daviess County</td><td>3</td><td></td><td></td><td>8:16.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Henderson County</td><td>Henderson County</td><td>4</td><td></td><td></td><td>8:29.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Boone County</td><td>Boone County</td><td>5</td><td></td><td></td><td>8:37.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Campbell County</td><td>Campbell County</td><td>6</td><td></td><td></td><td>8:40.9</td><td></td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:09:12</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/kenny_minogue.html'>Kenny Minogue</a></td><td>Trinity</td><td></td><td>1</td><td>1:56.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/forrest_stratford.html'>Forrest Stratford</a></td><td>West Jessmine</td><td></td><td>2</td><td>1:58.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/corey_spriggs.html'>Corey Spriggs</a></td><td>Cincinnati LaSa.</td><td></td><td>3</td><td>2:02.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/jon_erickson.html'>Jon Erickson</a></td><td>Dupont Manual</td><td></td><td>4</td><td>2:03.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/evan_mcmonigle.html'>Evan McMonigle</a></td><td>Middletown</td><td></td><td>5</td><td>2:04.2</td></tr></tbody></table></div></div>\n<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/nathan_liversedge.html'>Nathan Liversedge</a></td><td>West Jessmine</td><td></td><td>1</td><td>4:20.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/alvin_sangsuwangul.html'>Alvin Sangsuwangul</a></td><td>Lawarence North</td><td></td><td>2</td><td>4:23.4</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td>St Xavier (KY)</td><td>4:27.9</td><td>3</td><td class="pr">4:25.0</td></tr><tr class="non-stx-row"><td><a href='../athletes/kyle_lang.html'>Kyle Lang</a></td><td>Cincinnati LaSa.</td><td></td><td>4</td><td>4:32.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/brett_millard.html'>Brett Millard</a></td><td>Lawarence North</td><td></td><td>5</td><td>4:34.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/evan_mcmonigle.html'>Evan McMonigle</a></td><td>Middletown</td><td></td><td>6</td><td>4:43.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/jason_parks.html'>Jason Parks</a></td><td>Dupont Manual</td><td></td><td>7</td><td>4:46.7</td></tr></tbody></table></div></div>\n<div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td><a href='../athletes/matt_smith.html'>Matt Smith</a></td><td>Oldham County</td><td></td><td>1</td><td>9:22.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/kyle_lang.html'>Kyle Lang</a></td><td>Cincinnati LaSa.</td><td></td><td>2</td><td>9:28.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/jake_nusekbel.html'>Jake Nusekbel</a></td><td>Cincinnati LaSa.</td><td></td><td>3</td><td>9:30.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/chris_hasse.html'>Chris Hasse</a></td><td>Cincinnati St.X</td><td></td><td>4</td><td>9:41.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/daniel_murner.html'>Daniel Murner</a></td><td>South Oldham</td><td></td><td>5</td><td>9:52.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/jason_parks.html'>Jason Parks</a></td><td>Dupont Manual</td><td></td><td>6</td><td>10:05.3</td></tr></tbody></table></div></div>\n<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Lawarence North 'A'</td><td>Lawarence North 'A'</td><td>1</td><td></td><td></td><td>8:20.8</td><td></td></tr><tr class="non-stx-row"><td></td><td>Cincinnati St.X 'A'</td><td>Cincinnati St.X 'A'</td><td>2</td><td></td><td></td><td>8:26.7</td><td></td></tr><tr class="non-stx-row"><td></td><td>Eastern 'A'</td><td>Eastern 'A'</td><td>3</td><td></td><td></td><td>8:37.2</td><td></td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:32:51</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Kenny Minogue</td><td>Trinity</td><td>1</td><td></td><td>1:56.9</td></tr><tr class="non-stx-row"><td>Forrest Stratford</td><td>West Jessmine</td><td>2</td><td></td><td>1:58.7</td></tr><tr class="non-stx-row"><td>Corey Spriggs</td><td>Cincinnati LaSa.</td><td>3</td><td></td><td>2:02.2</td></tr><tr class="non-stx-row"><td>Jon Erickson</td><td>Dupont Manual</td><td>4</td><td></td><td>2:03.4</td></tr><tr class="non-stx-row"><td>Evan McMonigle</td><td>Middletown</td><td>5</td><td></td><td>2:04.2</td></tr></tbody></table></div></div><div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Nathan Liversedge</td><td>West Jessmine</td><td>1</td><td></td><td>4:20.5</td></tr><tr class="non-stx-row"><td>Alvin Sangsuwangul</td><td>Lawarence North</td><td>2</td><td></td><td>4:23.4</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>3</td><td>4:27.9</td><td class="pr">4:25.0</td></tr><tr class="non-stx-row"><td>Kyle Lang</td><td>Cincinnati LaSa.</td><td>4</td><td></td><td>4:32.8</td></tr><tr class="non-stx-row"><td>Brett Millard</td><td>Lawarence North</td><td>5</td><td></td><td>4:34.2</td></tr><tr class="non-stx-row"><td>Evan McMonigle</td><td>Middletown</td><td>6</td><td></td><td>4:43.2</td></tr><tr class="non-stx-row"><td>Jason Parks</td><td>Dupont Manual</td><td>7</td><td></td><td>4:46.7</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Matt Smith</td><td>Oldham County</td><td>1</td><td></td><td>9:22.5</td></tr><tr class="non-stx-row"><td>Kyle Lang</td><td>Cincinnati LaSa.</td><td>2</td><td></td><td>9:28.7</td></tr><tr class="non-stx-row"><td>Jake Nusekbel</td><td>Cincinnati LaSa.</td><td>3</td><td></td><td>9:30.2</td></tr><tr class="non-stx-row"><td>Chris Hasse</td><td>Cincinnati St.X</td><td>4</td><td></td><td>9:41.1</td></tr><tr class="non-stx-row"><td>Daniel Murner</td><td>South Oldham</td><td>5</td><td></td><td>9:52.9</td></tr><tr class="non-stx-row"><td>Jason Parks</td><td>Dupont Manual</td><td>6</td><td></td><td>10:05.3</td></tr></tbody></table></div></div><div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>Lawarence North 'A'</td><td>Lawarence North 'A'</td><td>1</td><td></td><td></td><td>8:20.8</td><td></td></tr><tr class="non-stx-row"><td></td><td>Cincinnati St.X 'A'</td><td>Cincinnati St.X 'A'</td><td>2</td><td></td><td></td><td>8:26.7</td><td></td></tr><tr class="non-stx-row"><td></td><td>Eastern 'A'</td><td>Eastern 'A'</td><td>3</td><td></td><td></td><td>8:37.2</td><td></td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:08:30</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

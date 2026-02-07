@@ -55,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -76,8 +73,8 @@
     <div class="topbar">
       <div class="titlewrap">
         <div class="meetname">Lincoln Williams</div>
-        
-        <p class="subline muted">StX athlete profile • Showing results from 2025+</p>
+        <div class="athlete-profile-links"><a href="https://www.athletic.net/athlete/10777928/track-and-field" target="_blank">Athletic.net Profile</a></div>
+        <p class="subline muted">StX athlete profile • Showing results from 1900+</p>
       </div>
       <div class="nav">
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
@@ -91,10 +88,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <p class='muted'>No PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>800 Meters</td><td></td><td class="bestpr">2:09.4</td></tr><tr><td>1600 Meters</td><td>4:48.5</td><td class="bestpr">4:36.9</td></tr><tr><td>1 Mile</td><td>4:51.6</td><td class="bestpr">4:37.9</td></tr><tr><td>3200 Meters</td><td></td><td class="bestpr">9:39.2</td></tr><tr><td>2 Miles</td><td class="bestpr">9:50.3</td><td>9:59.2</td></tr><tr><td>5000 Meters</td><td></td><td class="bestpr">15:54.2</td></tr></tbody></table></div>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <p class='muted'>No yearly PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2020</td><td>2 Miles</td><td class="bestpr">9:50.3</td><td></td></tr><tr><td>2019</td><td>1600 Meters</td><td></td><td class="bestpr">4:36.9</td></tr><tr><td>2019</td><td>1 Mile</td><td></td><td class="bestpr">4:37.9</td></tr><tr><td>2019</td><td>3200 Meters</td><td></td><td class="bestpr">9:39.2</td></tr><tr><td>2019</td><td>2 Miles</td><td class="bestpr">9:53.6</td><td>9:59.2</td></tr><tr><td>2019</td><td>5000 Meters</td><td></td><td class="bestpr">15:54.2</td></tr><tr><td>2018</td><td>800 Meters</td><td></td><td class="bestpr">2:09.4</td></tr><tr><td>2018</td><td>1600 Meters</td><td>4:48.5</td><td class="bestpr">4:39.6</td></tr><tr><td>2018</td><td>1 Mile</td><td></td><td class="bestpr">4:39.2</td></tr><tr><td>2018</td><td>3200 Meters</td><td></td><td class="bestpr">9:56.1</td></tr><tr><td>2017</td><td>1600 Meters</td><td class="bestpr">4:49.3</td><td>5:17.7</td></tr><tr><td>2017</td><td>1 Mile</td><td>4:51.6</td><td class="bestpr">4:47.9</td></tr><tr><td>2017</td><td>3200 Meters</td><td></td><td class="bestpr">10:29.5</td></tr><tr><td>2017</td><td>5000 Meters</td><td></td><td class="bestpr">16:51.0</td></tr></tbody></table></div>
       </div>
     </div>
     <div class="card">
@@ -111,12 +108,12 @@
         <span class="muted">(default on)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
-      <div id="athlete-results-wrap" class="hide-graphs">
-        <p class='muted'>No results found.</p>
+      <div id="athlete-results-wrap">
+        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-05-02</td><td><a href='../meets/305_all.html'>Male All-Comers</a></td><td>Outdoor</td><td>800 Meters</td><td>7</td><td>2:09.4</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2019</td><td>2019-04-09</td><td><a href='../meets/117_all.html'>St. Xavier All Comers</a></td><td>Outdoor</td><td>1 Mile</td><td>2</td><td>4:37.9</td></tr><tr><td>2019</td><td>2019-03-23</td><td><a href='../meets/114_all.html'>Fern Creek Sprint Relays</a></td><td>Outdoor</td><td>1600 Meters</td><td>2</td><td>4:36.9</td></tr><tr><td>2018</td><td>2018-04-28</td><td><a href='../meets/136_all.html'>Brother Borgia Invitational</a></td><td>Outdoor</td><td>1 Mile</td><td>15</td><td>4:39.2</td></tr><tr><td>2018</td><td>2018-04-21</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1 Mile</td><td>43</td><td>4:42.3</td></tr><tr><td>2018</td><td>2018-04-14</td><td><a href='../meets/132_all.html'>Johnny Coon Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>7</td><td>4:42.6</td></tr><tr><td>2018</td><td>2018-04-07</td><td><a href='../meets/130_all.html'>Mobile Challenge of Champions</a></td><td>Outdoor</td><td>1600 Meters</td><td>12</td><td>4:39.6</td></tr><tr><td>2018</td><td>2018-03-27</td><td><a href='../meets/128_all.html'>St. Xavier Master Schedule Meet</a></td><td>Outdoor</td><td>1 Mile</td><td>6</td><td>4:46.9</td></tr><tr><td>2018</td><td>2018-02-10</td><td><a href='../meets/314_all.html'>Indiana Track Club Open</a></td><td>Indoor</td><td>1600 Meters</td><td>25</td><td>4:48.5</td></tr><tr><td>2017</td><td>2017-05-02</td><td><a href='../meets/308_all.html'>St. Xavier Master Schedule Meet #2</a></td><td>Outdoor</td><td>1 Mile</td><td>4</td><td>4:56.9</td></tr><tr><td>2017</td><td>2017-04-22</td><td><a href='../meets/145_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1 Mile</td><td>19</td><td>4:49.3</td></tr><tr><td>2017</td><td>2017-04-11</td><td><a href='../meets/307_all.html'>St. Xavier Master Schedule Meet #1</a></td><td>Outdoor</td><td>1 Mile</td><td>4</td><td>4:47.9</td></tr><tr><td>2017</td><td>2017-03-25</td><td><a href='../meets/141_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>25</td><td>5:17.7</td></tr><tr><td>2017</td><td>2017-02-11</td><td><a href='../meets/223_all.html'>Indiana Track Club HS Open</a></td><td>Indoor</td><td>1600 Meters</td><td>35</td><td>4:49.3</td></tr><tr><td>2017</td><td>2017-01-28</td><td><a href='../meets/222_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1 Mile</td><td>26</td><td>4:51.6</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2020</td><td>2020-02-15</td><td><a href='../meets/214_all.html'>UK HS Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>23</td><td>10:01.9</td></tr><tr><td>2020</td><td>2020-02-01</td><td><a href='../meets/212_all.html'>Music City HS Indoor Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>17</td><td>9:50.3</td></tr><tr><td>2019</td><td>2019-05-18</td><td><a href='../meets/123_all.html'>KHSAA 3A Region 3</a></td><td>Outdoor</td><td>3200 Meters</td><td>3</td><td>10:21.8</td></tr><tr><td>2019</td><td>2019-04-27</td><td><a href='../meets/121_all.html'>Brother Borgia/Frank Cooper Invite</a></td><td>Outdoor</td><td>3200 Meters</td><td>4</td><td>9:39.2</td></tr><tr><td>2019</td><td>2019-04-13</td><td><a href='../meets/118_all.html'>Johnny Conn Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>2</td><td>9:57.4</td></tr><tr><td>2019</td><td>2019-04-06</td><td><a href='../meets/116_all.html'>Mobile Challenge of Champions</a></td><td>Outdoor</td><td>2 Miles</td><td>14</td><td>9:59.2</td></tr><tr><td>2019</td><td>2019-04-06</td><td><a href='../meets/116_all.html'>Mobile Challenge of Champions</a></td><td>Outdoor</td><td>3200 Meters</td><td>2</td><td>9:53.1</td></tr><tr><td>2019</td><td>2019-03-30</td><td><a href='../meets/302_all.html'>GRC Heavy Metal Throwdown Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>2</td><td>10:06.3</td></tr><tr><td>2019</td><td>2019-02-16</td><td><a href='../meets/217_all.html'>University of Kentucky HS Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>25</td><td>10:23.8</td></tr><tr><td>2019</td><td>2019-02-02</td><td><a href='../meets/216_all.html'>Music City HS Indoor Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>13</td><td>9:53.6</td></tr><tr><td>2019</td><td>2019-01-26</td><td><a href='../meets/215_all.html'>Univ of Kentucky Wildcat HS Classic</a></td><td>Indoor</td><td>2 Miles</td><td>4</td><td>10:02.9</td></tr><tr><td>2018</td><td>2018-04-21</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters</td><td>75</td><td>9:56.1</td></tr><tr><td>2018</td><td>2018-03-31</td><td><a href='../meets/129_all.html'>GRC Heavy Metal Throwdown</a></td><td>Outdoor</td><td>3200 Meters</td><td>2</td><td>10:10.8</td></tr><tr><td>2018</td><td>2018-03-17</td><td><a href='../meets/126_all.html'>Villa For Life</a></td><td>Outdoor</td><td>3200 Meters</td><td>7</td><td>10:15.4</td></tr><tr><td>2017</td><td>2017-04-29</td><td><a href='../meets/146_all.html'>Brother Borgia/Coach Cooper Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>9</td><td>10:30.4</td></tr><tr><td>2017</td><td>2017-04-15</td><td><a href='../meets/144_all.html'>Johnny Conn Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>9</td><td>10:32.2</td></tr><tr><td>2017</td><td>2017-03-25</td><td><a href='../meets/141_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>5</td><td>10:29.5</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2019</td><td>2019-03-15</td><td><a href='../meets/317_all.html'>KYtrackXC.com 5K Showdown</a></td><td>Outdoor</td><td>5000 Meters</td><td>9</td><td>15:54.2</td></tr><tr><td>2017</td><td>2017-03-17</td><td><a href='../meets/318_all.html'>KYtrackXC.com 5K Showdown</a></td><td>Outdoor</td><td>5000 Meters</td><td>41</td><td>16:51.0</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-06 23:53:30</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-07 00:13:55</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -152,7 +149,186 @@
     
     
     <script>
-      const allChartData = {};
+      const allChartData = {
+  "chart-800_meters": [
+    {
+      "x": "2018-05-02",
+      "y": 129.38,
+      "meet": "<a href='../meets/305_all.html'>Male All-Comers</a>"
+    }
+  ],
+  "chart-1600_meters_1_mile": [
+    {
+      "x": "2017-01-28",
+      "y": 291.57,
+      "meet": "<a href='../meets/222_all.html'>Wildcat Classic</a>"
+    },
+    {
+      "x": "2017-02-11",
+      "y": 289.29,
+      "meet": "<a href='../meets/223_all.html'>Indiana Track Club HS Open</a>"
+    },
+    {
+      "x": "2017-03-25",
+      "y": 317.7,
+      "meet": "<a href='../meets/141_all.html'>Lenny Lyles Invitational</a>"
+    },
+    {
+      "x": "2017-04-11",
+      "y": 287.92,
+      "meet": "<a href='../meets/307_all.html'>St. Xavier Master Schedule Meet #1</a>"
+    },
+    {
+      "x": "2017-04-22",
+      "y": 289.26,
+      "meet": "<a href='../meets/145_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2017-05-02",
+      "y": 296.93,
+      "meet": "<a href='../meets/308_all.html'>St. Xavier Master Schedule Meet #2</a>"
+    },
+    {
+      "x": "2018-02-10",
+      "y": 288.54,
+      "meet": "<a href='../meets/314_all.html'>Indiana Track Club Open</a>"
+    },
+    {
+      "x": "2018-03-27",
+      "y": 286.95,
+      "meet": "<a href='../meets/128_all.html'>St. Xavier Master Schedule Meet</a>"
+    },
+    {
+      "x": "2018-04-07",
+      "y": 279.59,
+      "meet": "<a href='../meets/130_all.html'>Mobile Challenge of Champions</a>"
+    },
+    {
+      "x": "2018-04-14",
+      "y": 282.59,
+      "meet": "<a href='../meets/132_all.html'>Johnny Coon Invitational</a>"
+    },
+    {
+      "x": "2018-04-21",
+      "y": 282.28,
+      "meet": "<a href='../meets/134_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2018-04-28",
+      "y": 279.24,
+      "meet": "<a href='../meets/136_all.html'>Brother Borgia Invitational</a>"
+    },
+    {
+      "x": "2019-03-23",
+      "y": 276.85,
+      "meet": "<a href='../meets/114_all.html'>Fern Creek Sprint Relays</a>"
+    },
+    {
+      "x": "2019-04-09",
+      "y": 277.9,
+      "meet": "<a href='../meets/117_all.html'>St. Xavier All Comers</a>"
+    }
+  ],
+  "chart-3200_meters_2_miles": [
+    {
+      "x": "2017-03-25",
+      "y": 629.47,
+      "meet": "<a href='../meets/141_all.html'>Lenny Lyles Invitational</a>"
+    },
+    {
+      "x": "2017-04-15",
+      "y": 632.25,
+      "meet": "<a href='../meets/144_all.html'>Johnny Conn Invitational</a>"
+    },
+    {
+      "x": "2017-04-29",
+      "y": 630.41,
+      "meet": "<a href='../meets/146_all.html'>Brother Borgia/Coach Cooper Invitational</a>"
+    },
+    {
+      "x": "2018-03-17",
+      "y": 615.44,
+      "meet": "<a href='../meets/126_all.html'>Villa For Life</a>"
+    },
+    {
+      "x": "2018-03-31",
+      "y": 610.79,
+      "meet": "<a href='../meets/129_all.html'>GRC Heavy Metal Throwdown</a>"
+    },
+    {
+      "x": "2018-04-21",
+      "y": 596.12,
+      "meet": "<a href='../meets/134_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2019-01-26",
+      "y": 602.94,
+      "meet": "<a href='../meets/215_all.html'>Univ of Kentucky Wildcat HS Classic</a>"
+    },
+    {
+      "x": "2019-02-02",
+      "y": 593.64,
+      "meet": "<a href='../meets/216_all.html'>Music City HS Indoor Invitational</a>"
+    },
+    {
+      "x": "2019-02-16",
+      "y": 623.77,
+      "meet": "<a href='../meets/217_all.html'>University of Kentucky HS Invitational</a>"
+    },
+    {
+      "x": "2019-03-30",
+      "y": 606.32,
+      "meet": "<a href='../meets/302_all.html'>GRC Heavy Metal Throwdown Invitational</a>"
+    },
+    {
+      "x": "2019-04-06",
+      "y": 593.11,
+      "meet": "<a href='../meets/116_all.html'>Mobile Challenge of Champions</a>"
+    },
+    {
+      "x": "2019-04-06",
+      "y": 599.22,
+      "meet": "<a href='../meets/116_all.html'>Mobile Challenge of Champions</a>"
+    },
+    {
+      "x": "2019-04-13",
+      "y": 597.43,
+      "meet": "<a href='../meets/118_all.html'>Johnny Conn Invitational</a>"
+    },
+    {
+      "x": "2019-04-27",
+      "y": 579.21,
+      "meet": "<a href='../meets/121_all.html'>Brother Borgia/Frank Cooper Invite</a>"
+    },
+    {
+      "x": "2019-05-18",
+      "y": 621.79,
+      "meet": "<a href='../meets/123_all.html'>KHSAA 3A Region 3</a>"
+    },
+    {
+      "x": "2020-02-01",
+      "y": 590.28,
+      "meet": "<a href='../meets/212_all.html'>Music City HS Indoor Invitational</a>"
+    },
+    {
+      "x": "2020-02-15",
+      "y": 601.94,
+      "meet": "<a href='../meets/214_all.html'>UK HS Invitational</a>"
+    }
+  ],
+  "chart-5000_meters": [
+    {
+      "x": "2017-03-17",
+      "y": 1011.02,
+      "meet": "<a href='../meets/318_all.html'>KYtrackXC.com 5K Showdown</a>"
+    },
+    {
+      "x": "2019-03-15",
+      "y": 954.24,
+      "meet": "<a href='../meets/317_all.html'>KYtrackXC.com 5K Showdown</a>"
+    }
+  ]
+};
       function formatChartTime(seconds) {
         if (seconds === null || seconds === undefined) return '';
         const mins = Math.floor(seconds / 60);

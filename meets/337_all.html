@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>St Xavier (KY)</td><td>4:12.6</td><td>1</td><td class="pr">4:09.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/adam_perkins.html'>Adam Perkins</a></td><td>LIBERTY</td><td></td><td>2</td><td>4:09.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/sam_bair.html'>Sam Bair</a></td><td>SHALEVE-PA</td><td></td><td>3</td><td>4:11.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/matt_debole.html'>Matt DeBole</a></td><td>MT TABOR</td><td></td><td>4</td><td>4:11.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/chris_solinsky.html'>Chris Solinsky</a></td><td>STEVENS PT-W</td><td></td><td>5</td><td>4:12.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/christopher_kollar.html'>Christopher Kollar</a></td><td>STRONGSVILLE</td><td></td><td>6</td><td>4:13.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/marc_pelerin.html'>Marc Pelerin</a></td><td>CHEROKEE-NJ</td><td></td><td>7</td><td>4:13.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/phillip_gaeta.html'>Phillip Gaeta</a></td><td>OAKTON</td><td></td><td>8</td><td>4:14.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/steven_shepherd.html'>Steven Shepherd</a></td><td>WEBER</td><td></td><td>9</td><td>4:14.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/brendan_fennell.html'>Brendan Fennell</a></td><td>PEARL RIVER-</td><td></td><td>10</td><td>4:15.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/joaquin_chapa.html'>Joaquin Chapa</a></td><td>GRANT</td><td></td><td>11</td><td>4:16.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/jeremy_zagorski.html'>Jeremy Zagorski</a></td><td>PARSIPPANY</td><td></td><td>12</td><td>4:16.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/rolf_steier.html'>Rolf Steier</a></td><td>BERKELEY PRE</td><td></td><td>13</td><td>4:16.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/victor_gras.html'>Victor Gras</a></td><td>BELMONT-MA</td><td></td><td>14</td><td>4:17.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/steve_magness.html'>Steve Magness</a></td><td>FMR TC-TX</td><td></td><td>15</td><td>4:17.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/david_olson.html'>David Olson</a></td><td>LEWIS PA</td><td></td><td>16</td><td>4:17.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/carl_moe.html'>Carl Moe</a></td><td>AUBURN-WA</td><td></td><td>17</td><td>4:18.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/robbie_meyer.html'>Robbie Meyer</a></td><td>ST. MARY'S-P</td><td></td><td>18</td><td>4:21.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/eric_fleming.html'>Eric Fleming</a></td><td>BISHOP SHANN</td><td></td><td>19</td><td>4:21.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/dan_fassinger.html'>Dan Fassinger</a></td><td>BROOKWOOD</td><td></td><td>20</td><td>4:21.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/nicholas_goodman.html'>Nicholas Goodman</a></td><td>WATERTOWN-MA</td><td></td><td>21</td><td>4:23.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/brandon_king.html'>Brandon King</a></td><td>WN BRANCH-VA</td><td></td><td>22</td><td>4:24.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/sam_nuckols.html'>Sam Nuckols</a></td><td>HUNTSVILLE-A</td><td></td><td>23</td><td>4:25.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/kevin_jeffers.html'>Kevin Jeffers</a></td><td>MCKAY</td><td></td><td>24</td><td>4:28.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/brandon_daniel.html'>Brandon Daniel</a></td><td>LEES SUMM-MO</td><td></td><td>25</td><td>4:29.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/cameron_bell.html'>Cameron Bell</a></td><td>LEESVILLE</td><td></td><td>26</td><td>4:31.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/adam_breisch.html'>Adam Breisch</a></td><td>QUAKERTOWN</td><td></td><td>27</td><td>4:32.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/julio_uleyra.html'>Julio Uleyra</a></td><td>MCKAY</td><td></td><td>28</td><td>4:39.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/michael_kerrigan.html'>Michael Kerrigan</a></td><td>BLAIR</td><td></td><td>29</td><td>4:49.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/patrick_quinn.html'>Patrick Quinn</a></td><td>ST. FRANCIS</td><td></td><td>30</td><td>4:49.7</td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:33:51</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>4:12.6</td><td class="pr">4:09.1</td></tr><tr class="non-stx-row"><td>Adam Perkins</td><td>LIBERTY</td><td>2</td><td></td><td>4:09.6</td></tr><tr class="non-stx-row"><td>Sam Bair</td><td>SHALEVE-PA</td><td>3</td><td></td><td>4:11.6</td></tr><tr class="non-stx-row"><td>Matt DeBole</td><td>MT TABOR</td><td>4</td><td></td><td>4:11.8</td></tr><tr class="non-stx-row"><td>Chris Solinsky</td><td>STEVENS PT-W</td><td>5</td><td></td><td>4:12.1</td></tr><tr class="non-stx-row"><td>Christopher Kollar</td><td>STRONGSVILLE</td><td>6</td><td></td><td>4:13.3</td></tr><tr class="non-stx-row"><td>Marc Pelerin</td><td>CHEROKEE-NJ</td><td>7</td><td></td><td>4:13.3</td></tr><tr class="non-stx-row"><td>Phillip Gaeta</td><td>OAKTON</td><td>8</td><td></td><td>4:14.3</td></tr><tr class="non-stx-row"><td>Steven Shepherd</td><td>WEBER</td><td>9</td><td></td><td>4:14.6</td></tr><tr class="non-stx-row"><td>Brendan Fennell</td><td>PEARL RIVER-</td><td>10</td><td></td><td>4:15.7</td></tr><tr class="non-stx-row"><td>Joaquin Chapa</td><td>GRANT</td><td>11</td><td></td><td>4:16.4</td></tr><tr class="non-stx-row"><td>Jeremy Zagorski</td><td>PARSIPPANY</td><td>12</td><td></td><td>4:16.4</td></tr><tr class="non-stx-row"><td>Rolf Steier</td><td>BERKELEY PRE</td><td>13</td><td></td><td>4:16.9</td></tr><tr class="non-stx-row"><td>Victor Gras</td><td>BELMONT-MA</td><td>14</td><td></td><td>4:17.5</td></tr><tr class="non-stx-row"><td>Steve Magness</td><td>FMR TC-TX</td><td>15</td><td></td><td>4:17.6</td></tr><tr class="non-stx-row"><td>David Olson</td><td>LEWIS PA</td><td>16</td><td></td><td>4:17.7</td></tr><tr class="non-stx-row"><td>Carl Moe</td><td>AUBURN-WA</td><td>17</td><td></td><td>4:18.5</td></tr><tr class="non-stx-row"><td>Robbie Meyer</td><td>ST. MARY'S-P</td><td>18</td><td></td><td>4:21.3</td></tr><tr class="non-stx-row"><td>Eric Fleming</td><td>BISHOP SHANN</td><td>19</td><td></td><td>4:21.5</td></tr><tr class="non-stx-row"><td>Dan Fassinger</td><td>BROOKWOOD</td><td>20</td><td></td><td>4:21.8</td></tr><tr class="non-stx-row"><td>Nicholas Goodman</td><td>WATERTOWN-MA</td><td>21</td><td></td><td>4:23.6</td></tr><tr class="non-stx-row"><td>Brandon King</td><td>WN BRANCH-VA</td><td>22</td><td></td><td>4:24.7</td></tr><tr class="non-stx-row"><td>Sam Nuckols</td><td>HUNTSVILLE-A</td><td>23</td><td></td><td>4:25.1</td></tr><tr class="non-stx-row"><td>Kevin Jeffers</td><td>MCKAY</td><td>24</td><td></td><td>4:28.9</td></tr><tr class="non-stx-row"><td>Brandon Daniel</td><td>LEES SUMM-MO</td><td>25</td><td></td><td>4:29.4</td></tr><tr class="non-stx-row"><td>Cameron Bell</td><td>LEESVILLE</td><td>26</td><td></td><td>4:31.2</td></tr><tr class="non-stx-row"><td>Adam Breisch</td><td>QUAKERTOWN</td><td>27</td><td></td><td>4:32.5</td></tr><tr class="non-stx-row"><td>Julio Uleyra</td><td>MCKAY</td><td>28</td><td></td><td>4:39.6</td></tr><tr class="non-stx-row"><td>Michael Kerrigan</td><td>BLAIR</td><td>29</td><td></td><td>4:49.1</td></tr><tr class="non-stx-row"><td>Patrick Quinn</td><td>ST. FRANCIS</td><td>30</td><td></td><td>4:49.7</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:08:46</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

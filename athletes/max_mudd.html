@@ -55,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -76,8 +73,8 @@
     <div class="topbar">
       <div class="titlewrap">
         <div class="meetname">Max Mudd</div>
-        
-        <p class="subline muted">StX athlete profile • Showing results from 2025+</p>
+        <div class="athlete-profile-links"><a href="https://ny.milesplit.com/athletes/274201-max-mudd" target="_blank">Milesplit Profile</a></div>
+        <p class="subline muted">StX athlete profile • Showing results from 1900+</p>
       </div>
       <div class="nav">
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
@@ -91,10 +88,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <p class='muted'>No PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>800 Meters</td><td></td><td class="bestpr">2:02.5</td></tr><tr><td>1600 Meters</td><td>4:31.5</td><td class="bestpr">4:25.7</td></tr><tr><td>1 Mile</td><td>4:26.7</td><td class="bestpr">4:21.9</td></tr></tbody></table></div>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <p class='muted'>No yearly PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2014</td><td>1600 Meters</td><td>4:31.5</td><td class="bestpr">4:25.7</td></tr><tr><td>2014</td><td>1 Mile</td><td>4:30.7</td><td class="bestpr">4:26.6</td></tr><tr><td>2013</td><td>800 Meters</td><td></td><td class="bestpr">2:02.5</td></tr><tr><td>2013</td><td>1600 Meters</td><td></td><td class="bestpr">4:28.2</td></tr><tr><td>2013</td><td>1 Mile</td><td>4:26.7</td><td class="bestpr">4:21.9</td></tr><tr><td>2012</td><td>1600 Meters</td><td>4:42.9</td><td class="bestpr">4:26.0</td></tr><tr><td>2011</td><td>1600 Meters</td><td></td><td class="bestpr">4:48.8</td></tr></tbody></table></div>
       </div>
     </div>
     <div class="card">
@@ -111,12 +108,12 @@
         <span class="muted">(default on)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
-      <div id="athlete-results-wrap" class="hide-graphs">
-        <p class='muted'>No results found.</p>
+      <div id="athlete-results-wrap">
+        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2013</td><td>2013-04-27</td><td><a href='../meets/175_all.html'>Eastern Relays - Day #2</a></td><td>Outdoor</td><td>800 Meters</td><td>22</td><td>2:02.5</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2014</td><td>2014-05-24</td><td><a href='../meets/172_all.html'>KHSAA Class 3A State Championship</a></td><td>Outdoor</td><td>1600 Meters</td><td>5</td><td>4:25.7</td></tr><tr><td>2014</td><td>2014-05-15</td><td><a href='../meets/171_all.html'>KHSAA 3A Region 3 Championship</a></td><td>Outdoor</td><td>1600 Meters</td><td>2</td><td>4:36.3</td></tr><tr><td>2014</td><td>2014-05-02</td><td><a href='../meets/353_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1 Mile</td><td>16</td><td>4:35.1</td></tr><tr><td>2014</td><td>2014-04-26</td><td><a href='../meets/170_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1 Mile</td><td>7</td><td>4:26.6</td></tr><tr><td>2014</td><td>2014-04-05</td><td><a href='../meets/169_all.html'>Mobile Challenge of Champions</a></td><td>Outdoor</td><td>1 Mile</td><td>6</td><td>4:28.5</td></tr><tr><td>2014</td><td>2014-02-22</td><td><a href='../meets/373_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>1 Mile</td><td>2</td><td>4:30.7</td></tr><tr><td>2014</td><td>2014-02-08</td><td><a href='../meets/230_all.html'>IU Open</a></td><td>Indoor</td><td>1600 Meters</td><td>2</td><td>4:31.5</td></tr><tr><td>2013</td><td>2013-05-18</td><td><a href='../meets/176_all.html'>Kentucky State AAA track meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>9</td><td>4:28.2</td></tr><tr><td>2013</td><td>2013-05-10</td><td><a href='../meets/268_all.html'>Class 3A Region - Region 3-AAA</a></td><td>Outdoor</td><td>1600 Meters</td><td>3</td><td>4:29.9</td></tr><tr><td>2013</td><td>2013-05-03</td><td><a href='../meets/349_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1 Mile</td><td>8</td><td>4:21.9</td></tr><tr><td>2013</td><td>2013-04-27</td><td><a href='../meets/175_all.html'>Eastern Relays - Day #2</a></td><td>Outdoor</td><td>1 Mile</td><td>12</td><td>4:23.9</td></tr><tr><td>2013</td><td>2013-04-13</td><td><a href='../meets/173_all.html'>Louisville Male Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>2</td><td>4:34.0</td></tr><tr><td>2013</td><td>2013-02-16</td><td><a href='../meets/366_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>1 Mile</td><td>19</td><td>4:26.7</td></tr><tr><td>2012</td><td>2012-04-27</td><td><a href='../meets/179_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters</td><td>20</td><td>4:26.0</td></tr><tr><td>2012</td><td>2012-02-11</td><td><a href='../meets/232_all.html'>Indiana Track Club HS Open</a></td><td>Indoor</td><td>1600 Meters</td><td>20</td><td>4:42.9</td></tr><tr><td>2011</td><td>2011-04-29</td><td><a href='../meets/182_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters</td><td>35</td><td>4:48.8</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-06 23:54:09</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-07 00:14:12</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -152,7 +149,97 @@
     
     
     <script>
-      const allChartData = {};
+      const allChartData = {
+  "chart-800_meters": [
+    {
+      "x": "2013-04-27",
+      "y": 122.5,
+      "meet": "<a href='../meets/175_all.html'>Eastern Relays - Day #2</a>"
+    }
+  ],
+  "chart-1600_meters_1_mile": [
+    {
+      "x": "2011-04-29",
+      "y": 288.84,
+      "meet": "<a href='../meets/182_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2012-02-11",
+      "y": 282.87,
+      "meet": "<a href='../meets/232_all.html'>Indiana Track Club HS Open</a>"
+    },
+    {
+      "x": "2012-04-27",
+      "y": 265.97,
+      "meet": "<a href='../meets/179_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2013-02-16",
+      "y": 266.73,
+      "meet": "<a href='../meets/366_all.html'>UK High School Invitational</a>"
+    },
+    {
+      "x": "2013-04-13",
+      "y": 273.96,
+      "meet": "<a href='../meets/173_all.html'>Louisville Male Invitational</a>"
+    },
+    {
+      "x": "2013-04-27",
+      "y": 263.94,
+      "meet": "<a href='../meets/175_all.html'>Eastern Relays - Day #2</a>"
+    },
+    {
+      "x": "2013-05-03",
+      "y": 261.95,
+      "meet": "<a href='../meets/349_all.html'>Kentucky Dream Mile</a>"
+    },
+    {
+      "x": "2013-05-10",
+      "y": 269.94,
+      "meet": "<a href='../meets/268_all.html'>Class 3A Region - Region 3-AAA</a>"
+    },
+    {
+      "x": "2013-05-18",
+      "y": 268.21,
+      "meet": "<a href='../meets/176_all.html'>Kentucky State AAA track meet</a>"
+    },
+    {
+      "x": "2014-02-08",
+      "y": 271.48,
+      "meet": "<a href='../meets/230_all.html'>IU Open</a>"
+    },
+    {
+      "x": "2014-02-22",
+      "y": 270.74,
+      "meet": "<a href='../meets/373_all.html'>UK High School Invitational</a>"
+    },
+    {
+      "x": "2014-04-05",
+      "y": 268.47,
+      "meet": "<a href='../meets/169_all.html'>Mobile Challenge of Champions</a>"
+    },
+    {
+      "x": "2014-04-26",
+      "y": 266.57,
+      "meet": "<a href='../meets/170_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2014-05-02",
+      "y": 275.11,
+      "meet": "<a href='../meets/353_all.html'>Kentucky Dream Mile</a>"
+    },
+    {
+      "x": "2014-05-15",
+      "y": 276.26,
+      "meet": "<a href='../meets/171_all.html'>KHSAA 3A Region 3 Championship</a>"
+    },
+    {
+      "x": "2014-05-24",
+      "y": 265.72,
+      "meet": "<a href='../meets/172_all.html'>KHSAA Class 3A State Championship</a>"
+    }
+  ]
+};
       function formatChartTime(seconds) {
         if (seconds === null || seconds === undefined) return '';
         const mins = Math.floor(seconds / 60);

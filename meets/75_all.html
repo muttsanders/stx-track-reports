@@ -41,6 +41,7 @@
       .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
       .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
       .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
       .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
@@ -54,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -83,28 +81,28 @@
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
       </div>
     </div>
-    \n
-        <div class="filterbar" style="margin-bottom: 10px;">
-          <label>
-            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-            StX Athletes Only
-          </label>
-        </div>
-        <script>
-          function toggleStxOnly(checkbox) {
-            if (checkbox.checked) {
-              document.body.classList.add('stx-only');
-            } else {
-              document.body.classList.remove('stx-only');
-            }
-          }
-          document.addEventListener('DOMContentLoaded', () => {
-            const checkbox = document.getElementById('stxOnlyToggle');
-            if(checkbox) {
-              toggleStxOnly(checkbox);
-            }
-          });
-        </script>
-        \n<div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_weber.html'>Thomas Weber</a></td><td>St Xavier (KY)</td><td>2:02.0</td><td>1</td><td class="pr">2:00.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/oubry_gibson.html'>Oubry Gibson</a></td><td>Butler</td><td></td><td>2</td><td>2:00.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/eli_maraman.html'>Eli Maraman</a></td><td>Butler</td><td></td><td>3</td><td>2:00.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/ashton_tunstull.html'>Ashton Tunstull</a></td><td>Central</td><td></td><td>4</td><td>2:02.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/trevor_rowles.html'>Trevor Rowles</a></td><td>Eastern</td><td></td><td>5</td><td>2:03.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/quinn_gulden.html'>Quinn Gulden</a></td><td>DuPont Manual</td><td></td><td>6</td><td>2:03.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/cameron_williams.html'>Cameron Williams</a></td><td>Fern Creek</td><td></td><td>7</td><td>2:03.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/eli_frazier.html'>Eli Frazier</a></td><td>Eastern</td><td></td><td>8</td><td>2:04.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/nate_powers.html'>Nate Powers</a></td><td>Eastern</td><td></td><td>9</td><td>2:04.3</td></tr><tr class="non-stx-row"><td><a href='../athletes/brooks_jones.html'>Brooks Jones</a></td><td>Ballard</td><td></td><td>10</td><td>2:04.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/caden_cull.html'>Caden Cull</a></td><td>Male</td><td></td><td>11</td><td>2:05.5</td></tr><tr class="non-stx-row"><td><a href='../athletes/brady_jenkins.html'>Brady Jenkins</a></td><td>DuPont Manual</td><td></td><td>12</td><td>2:05.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/jackson_ungar.html'>Jackson Ungar</a></td><td>Eastern</td><td></td><td>13</td><td>2:06.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/william_mullarkey.html'>William Mullarkey</a></td><td>Male</td><td></td><td>14</td><td>2:09.2</td></tr><tr><td><a href='../athletes/isaac_baker.html'>Isaac Baker</a></td><td>St Xavier (KY)</td><td>2:02.6</td><td>15</td><td>2:10.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/danico_trowell.html'>Danico Trowell</a></td><td>Butler</td><td></td><td>16</td><td>2:13.0</td></tr></tbody></table></div></div>\n<div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Previous PR</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_weber.html'>Thomas Weber</a></td><td>St Xavier (KY)</td><td>4:32.0</td><td>1</td><td>4:32.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/brooks_jones.html'>Brooks Jones</a></td><td>Ballard</td><td></td><td>2</td><td>4:33.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/sullivan_yaden.html'>Sullivan Yaden</a></td><td>Trinity (Louisville)</td><td></td><td>3</td><td>4:33.4</td></tr><tr class="non-stx-row"><td><a href='../athletes/dylan_ellis.html'>Dylan Ellis</a></td><td>Eastern</td><td></td><td>4</td><td>4:35.3</td></tr><tr><td><a href='../athletes/brodie_terkhorn.html'>Brodie Terkhorn</a></td><td>St Xavier (KY)</td><td>4:34.9</td><td>5</td><td>4:38.7</td></tr><tr class="non-stx-row"><td><a href='../athletes/jack_bradon.html'>Jack Bradon</a></td><td>Eastern</td><td></td><td>6</td><td>4:40.9</td></tr><tr class="non-stx-row"><td><a href='../athletes/haydon_spears.html'>Haydon Spears</a></td><td>Trinity (Louisville)</td><td></td><td>7</td><td>4:41.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/caden_cull.html'>Caden Cull</a></td><td>Male</td><td></td><td>8</td><td>4:42.1</td></tr><tr class="non-stx-row"><td><a href='../athletes/jake_hagan.html'>Jake Hagan</a></td><td>Trinity (Louisville)</td><td></td><td>9</td><td>4:46.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/tedros_tedi_henderson.html'>Tedros (Tedi) Henderson</a></td><td>Atherton</td><td></td><td>10</td><td>4:47.2</td></tr><tr class="non-stx-row"><td><a href='../athletes/john_kelley.html'>John Kelley</a></td><td>Trinity (Louisville)</td><td></td><td>11</td><td>4:49.8</td></tr><tr class="non-stx-row"><td><a href='../athletes/sam_chandler.html'>Sam Chandler</a></td><td>DuPont Manual</td><td></td><td>12</td><td>4:50.6</td></tr><tr class="non-stx-row"><td><a href='../athletes/gabriel_cease.html'>Gabriel Cease</a></td><td>Ballard</td><td></td><td>13</td><td>5:15.0</td></tr></tbody></table></div></div>\n<div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>DuPont Manual</td><td>DuPont Manual</td><td>1</td><td></td><td></td><td>8:19.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Butler</td><td>Butler</td><td>2</td><td></td><td></td><td>8:25.6</td><td></td></tr><tr><td></td><td>St Xavier (KY)</td><td>St Xavier (KY)</td><td>3</td><td></td><td></td><td>8:37.5</td><td></td></tr><tr class="non-stx-row"><td></td><td>Ballard</td><td>Ballard</td><td>4</td><td></td><td></td><td>8:42.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Male</td><td>Male</td><td>5</td><td></td><td></td><td>8:52.7</td><td></td></tr><tr class="non-stx-row"><td></td><td>Southern</td><td>Southern</td><td>6</td><td></td><td></td><td>9:00.0</td><td></td></tr><tr class="non-stx-row"><td></td><td>Central</td><td>Central</td><td>7</td><td></td><td></td><td>9:14.6</td><td></td></tr><tr class="non-stx-row"><td></td><td>Christian Educational Consortium</td><td>Christian Educational Consortium</td><td>8</td><td></td><td></td><td>9:26.8</td><td></td></tr><tr class="non-stx-row"><td></td><td>Walden</td><td>Walden</td><td>9</td><td></td><td></td><td>9:34.6</td><td></td></tr><tr class="non-stx-row"><td></td><td>Pleasure Ridge Park</td><td>Pleasure Ridge Park</td><td>10</td><td></td><td></td><td>9:52.8</td><td></td></tr></tbody></table></div></div>\n<div class="footer">Generated at <code>2026-02-06 23:26:53</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if(checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_weber.html'>Thomas Weber</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>2:02.0</td><td class="pr">2:00.3</td></tr><tr class="non-stx-row"><td>Oubry Gibson</td><td>Butler</td><td>2</td><td></td><td>2:00.3</td></tr><tr class="non-stx-row"><td>Eli Maraman</td><td>Butler</td><td>3</td><td></td><td>2:00.7</td></tr><tr class="non-stx-row"><td>Ashton Tunstull</td><td>Central</td><td>4</td><td></td><td>2:02.3</td></tr><tr class="non-stx-row"><td>Trevor Rowles</td><td>Eastern</td><td>5</td><td></td><td>2:03.1</td></tr><tr class="non-stx-row"><td>Quinn Gulden</td><td>DuPont Manual</td><td>6</td><td></td><td>2:03.5</td></tr><tr class="non-stx-row"><td>Cameron Williams</td><td>Fern Creek</td><td>7</td><td></td><td>2:03.7</td></tr><tr class="non-stx-row"><td>Eli Frazier</td><td>Eastern</td><td>8</td><td></td><td>2:04.1</td></tr><tr class="non-stx-row"><td>Nate Powers</td><td>Eastern</td><td>9</td><td></td><td>2:04.3</td></tr><tr class="non-stx-row"><td>Brooks Jones</td><td>Ballard</td><td>10</td><td></td><td>2:04.8</td></tr><tr class="non-stx-row"><td>Caden Cull</td><td>Male</td><td>11</td><td></td><td>2:05.5</td></tr><tr class="non-stx-row"><td>Brady Jenkins</td><td>DuPont Manual</td><td>12</td><td></td><td>2:05.9</td></tr><tr class="non-stx-row"><td>Jackson Ungar</td><td>Eastern</td><td>13</td><td></td><td>2:06.2</td></tr><tr class="non-stx-row"><td>William Mullarkey</td><td>Male</td><td>14</td><td></td><td>2:09.2</td></tr><tr><td><a href='../athletes/isaac_baker.html'>Isaac Baker</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>15</td><td>2:02.6</td><td>2:10.1</td></tr><tr class="non-stx-row"><td>Danico Trowell</td><td>Butler</td><td>16</td><td></td><td>2:13.0</td></tr></tbody></table></div></div><div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Place</th><th>Previous PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_weber.html'>Thomas Weber</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>4:32.0</td><td>4:32.2</td></tr><tr class="non-stx-row"><td>Brooks Jones</td><td>Ballard</td><td>2</td><td></td><td>4:33.2</td></tr><tr class="non-stx-row"><td>Sullivan Yaden</td><td>Trinity (Louisville)</td><td>3</td><td></td><td>4:33.4</td></tr><tr class="non-stx-row"><td>Dylan Ellis</td><td>Eastern</td><td>4</td><td></td><td>4:35.3</td></tr><tr><td><a href='../athletes/brodie_terkhorn.html'>Brodie Terkhorn</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>5</td><td>4:34.9</td><td>4:38.7</td></tr><tr class="non-stx-row"><td>Jack Bradon</td><td>Eastern</td><td>6</td><td></td><td>4:40.9</td></tr><tr class="non-stx-row"><td>Haydon Spears</td><td>Trinity (Louisville)</td><td>7</td><td></td><td>4:41.2</td></tr><tr class="non-stx-row"><td>Caden Cull</td><td>Male</td><td>8</td><td></td><td>4:42.1</td></tr><tr class="non-stx-row"><td>Jake Hagan</td><td>Trinity (Louisville)</td><td>9</td><td></td><td>4:46.6</td></tr><tr class="non-stx-row"><td>Tedros (Tedi) Henderson</td><td>Atherton</td><td>10</td><td></td><td>4:47.2</td></tr><tr class="non-stx-row"><td>John Kelley</td><td>Trinity (Louisville)</td><td>11</td><td></td><td>4:49.8</td></tr><tr class="non-stx-row"><td>Sam Chandler</td><td>DuPont Manual</td><td>12</td><td></td><td>4:50.6</td></tr><tr class="non-stx-row"><td>Gabriel Cease</td><td>Ballard</td><td>13</td><td></td><td>5:15.0</td></tr></tbody></table></div></div><div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Place</th><th>Leg</th><th>Previous PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr class="non-stx-row"><td></td><td>DuPont Manual</td><td>DuPont Manual</td><td>1</td><td></td><td></td><td>8:19.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Butler</td><td>Butler</td><td>2</td><td></td><td></td><td>8:25.6</td><td></td></tr><tr><td></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY)</td><td>3</td><td></td><td></td><td>8:37.5</td><td></td></tr><tr class="non-stx-row"><td></td><td>Ballard</td><td>Ballard</td><td>4</td><td></td><td></td><td>8:42.4</td><td></td></tr><tr class="non-stx-row"><td></td><td>Male</td><td>Male</td><td>5</td><td></td><td></td><td>8:52.7</td><td></td></tr><tr class="non-stx-row"><td></td><td>Southern</td><td>Southern</td><td>6</td><td></td><td></td><td>9:00.0</td><td></td></tr><tr class="non-stx-row"><td></td><td>Central</td><td>Central</td><td>7</td><td></td><td></td><td>9:14.6</td><td></td></tr><tr class="non-stx-row"><td></td><td>Christian Educational Consortium</td><td>Christian Educational Consortium</td><td>8</td><td></td><td></td><td>9:26.8</td><td></td></tr><tr class="non-stx-row"><td></td><td>Walden</td><td>Walden</td><td>9</td><td></td><td></td><td>9:34.6</td><td></td></tr><tr class="non-stx-row"><td></td><td>Pleasure Ridge Park</td><td>Pleasure Ridge Park</td><td>10</td><td></td><td></td><td>9:52.8</td><td></td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-02-07 00:02:51</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>

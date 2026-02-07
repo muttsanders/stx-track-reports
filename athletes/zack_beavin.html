@@ -55,16 +55,13 @@
       .tabbtn.active { background:#f2f2f2; font-weight: 700; }
       .tabpane { display:none; }
       .tabpane.active { display:block; }
-      .section-title { margin: 10px 0 0 0; font-size: 18px; font-weight: 800; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
       .rankcell { font-weight: 800; }
-      .results-and-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: flex-start; }
-      .chart-container { position: relative; height: 320px; width: 50%; margin-top: 20px; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px auto 0 auto; }
       .hide-graphs .chart-container { display: none; }
-      .hide-graphs .results-and-chart-grid { grid-template-columns: 1fr; }
-      @media (max-width: 1200px) { .results-and-chart-grid { grid-template-columns: 1fr; } .chart-container { width: 100%; } }
       body.stx-only .non-stx-row { display: none; }
     </style>
     
@@ -76,8 +73,8 @@
     <div class="topbar">
       <div class="titlewrap">
         <div class="meetname">Zack Beavin</div>
-        
-        <p class="subline muted">StX athlete profile • Showing results from 2025+</p>
+        <div class="athlete-profile-links"><a href="https://ky.milesplit.com/athletes/93963-zack-beavin" target="_blank">Milesplit Profile</a></div>
+        <p class="subline muted">StX athlete profile • Showing results from 1900+</p>
       </div>
       <div class="nav">
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a>
@@ -91,10 +88,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <p class='muted'>No PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>1 Mile</td><td></td><td class="bestpr">4:19.1</td></tr><tr><td>3200 Meters</td><td></td><td class="bestpr">9:13.1</td></tr><tr><td>2 Miles</td><td class="bestpr">9:50.1</td><td></td></tr><tr><td>4x800 Relay</td><td></td><td class="bestpr">7:52.2</td></tr></tbody></table></div>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <p class='muted'>No yearly PR data found.</p>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2012</td><td>1 Mile</td><td></td><td class="bestpr">4:19.1</td></tr><tr><td>2012</td><td>3200 Meters</td><td></td><td class="bestpr">9:13.1</td></tr><tr><td>2012</td><td>4x800 Relay</td><td></td><td class="bestpr">7:52.2</td></tr><tr><td>2011</td><td>2 Miles</td><td class="bestpr">9:50.1</td><td></td></tr></tbody></table></div>
       </div>
     </div>
     <div class="card">
@@ -111,12 +108,12 @@
         <span class="muted">(default on)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
-      <div id="athlete-results-wrap" class="hide-graphs">
-        <p class='muted'>No results found.</p>
+      <div id="athlete-results-wrap">
+        <h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2012</td><td>2012-05-04</td><td><a href='../meets/352_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1 Mile</td><td>4</td><td>4:19.1</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2012</td><td>2012-05-19</td><td><a href='../meets/262_all.html'>KHSAA State Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>6</td><td>9:42.4</td></tr><tr><td>2012</td><td>2012-05-12</td><td><a href='../meets/267_all.html'>Class 3A Region - Region 3-AAA</a></td><td>Outdoor</td><td>3200 Meters</td><td>3</td><td>9:46.3</td></tr><tr><td>2012</td><td>2012-04-27</td><td><a href='../meets/179_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters</td><td>8</td><td>9:13.1</td></tr><tr><td>2011</td><td>2011-02-19</td><td><a href='../meets/236_all.html'>Univ of Kentucky HS Meet</a></td><td>Indoor</td><td>2 Miles</td><td>11</td><td>9:50.1</td></tr><tr><td>2011</td><td>2011-02-19</td><td><a href='../meets/370_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>11</td><td>9:50.1</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2012</td><td>2012-05-19</td><td><a href='../meets/262_all.html'>KHSAA State Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St Xavier (KY)</td><td>1</td><td>1</td><td>7:52.2</td><td></td></tr><tr><td>2012</td><td>2012-04-27</td><td><a href='../meets/179_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>4x800 Relay</td><td>St Xavier (KY)</td><td>1</td><td>3</td><td>8:01.6</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-06 23:57:32</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-07 00:17:59</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -152,7 +149,54 @@
     
     
     <script>
-      const allChartData = {};
+      const allChartData = {
+  "chart-1600_meters_1_mile": [
+    {
+      "x": "2012-05-04",
+      "y": 259.07,
+      "meet": "<a href='../meets/352_all.html'>Kentucky Dream Mile</a>"
+    }
+  ],
+  "chart-3200_meters_2_miles": [
+    {
+      "x": "2011-02-19",
+      "y": 590.11,
+      "meet": "<a href='../meets/236_all.html'>Univ of Kentucky HS Meet</a>"
+    },
+    {
+      "x": "2011-02-19",
+      "y": 590.11,
+      "meet": "<a href='../meets/370_all.html'>UK High School Invitational</a>"
+    },
+    {
+      "x": "2012-04-27",
+      "y": 553.15,
+      "meet": "<a href='../meets/179_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2012-05-12",
+      "y": 586.31,
+      "meet": "<a href='../meets/267_all.html'>Class 3A Region - Region 3-AAA</a>"
+    },
+    {
+      "x": "2012-05-19",
+      "y": 582.38,
+      "meet": "<a href='../meets/262_all.html'>KHSAA State Meet</a>"
+    }
+  ],
+  "chart-4x800_relay": [
+    {
+      "x": "2012-04-27",
+      "y": 481.6,
+      "meet": "<a href='../meets/179_all.html'>Eastern Relays</a>"
+    },
+    {
+      "x": "2012-05-19",
+      "y": 472.18,
+      "meet": "<a href='../meets/262_all.html'>KHSAA State Meet</a>"
+    }
+  ]
+};
       function formatChartTime(seconds) {
         if (seconds === null || seconds === undefined) return '';
         const mins = Math.floor(seconds / 60);
