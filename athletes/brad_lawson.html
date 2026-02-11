@@ -88,10 +88,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>3200 Meters</td><td></td><td class="bestpr">10:39.4</td></tr></tbody></table></div>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>1600 Meters</td><td></td><td class="bestpr">5:16.0</td></tr><tr><td>3200 Meters</td><td></td><td class="bestpr">10:16.0</td></tr></tbody></table></div>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2002</td><td>3200 Meters</td><td></td><td class="bestpr">10:39.4</td></tr></tbody></table></div>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2002</td><td>3200 Meters</td><td></td><td class="bestpr">10:16.0</td></tr><tr><td>2001</td><td>1600 Meters</td><td></td><td class="bestpr">5:16.0</td></tr><tr><td>2001</td><td>3200 Meters</td><td></td><td class="bestpr">10:59.0</td></tr></tbody></table></div>
       </div>
     </div>
     <div class="card">
@@ -109,11 +109,11 @@
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
       <div id="athlete-results-wrap">
-        <h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2002</td><td>2002-05-18</td><td><a href='../meets/333_all.html'>Wolverine Relays</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>8</td><td>10:39.4</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div>
+        <h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2001</td><td>2001-04-28</td><td><a href='../meets/521_all.html'>Heart of the Bluegrass</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>4</td><td>5:16.0</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2002</td><td>2002-05-18</td><td><a href='../meets/333_all.html'>Wolverine Relays</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>8</td><td>10:39.4</td></tr><tr><td>2002</td><td>2002-04-13</td><td><a href='../meets/638_all.html'>Wildcat Relays</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>2</td><td>10:27.0</td></tr><tr><td>2002</td><td>2002-04-06</td><td><a href='../meets/589_all.html'>Shelby County Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>10:16.0</td></tr><tr><td>2001</td><td>2001-05-12</td><td><a href='../meets/575_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>4</td><td>10:59.0</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-10 19:03:34</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-10 21:31:16</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -150,7 +150,29 @@
     
     <script>
       const allChartData = {
+  "chart-1600_meters_1_mile": [
+    {
+      "x": "2001-04-28",
+      "y": 316.0,
+      "meet": "<a href='../meets/521_all.html'>Heart of the Bluegrass</a>"
+    }
+  ],
   "chart-3200_meters_2_miles": [
+    {
+      "x": "2001-05-12",
+      "y": 659.0,
+      "meet": "<a href='../meets/575_all.html'>North Hardin Invitational</a>"
+    },
+    {
+      "x": "2002-04-06",
+      "y": 616.0,
+      "meet": "<a href='../meets/589_all.html'>Shelby County Invitational</a>"
+    },
+    {
+      "x": "2002-04-13",
+      "y": 627.0,
+      "meet": "<a href='../meets/638_all.html'>Wildcat Relays</a>"
+    },
     {
       "x": "2002-05-18",
       "y": 639.35,
