@@ -88,10 +88,10 @@
         <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
       </div>
       <div class="tabpane" id="pane-pr">
-        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>1600 Meters</td><td></td><td class="bestpr">6:05.2</td></tr><tr><td>5000 Meters</td><td></td><td class="bestpr">19:24.2</td></tr></tbody></table></div>
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>800 Meters</td><td></td><td class="bestpr">2:38.6</td></tr><tr><td>1600 Meters</td><td></td><td class="bestpr">6:05.2</td></tr><tr><td>5000 Meters</td><td></td><td class="bestpr">19:24.2</td></tr></tbody></table></div>
       </div>
       <div class="tabpane" id="pane-pryear">
-        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2022</td><td>1600 Meters</td><td></td><td class="bestpr">6:05.2</td></tr><tr><td>2021</td><td>5000 Meters</td><td></td><td class="bestpr">19:24.2</td></tr></tbody></table></div>
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2022</td><td>800 Meters</td><td></td><td class="bestpr">2:38.6</td></tr><tr><td>2022</td><td>1600 Meters</td><td></td><td class="bestpr">6:05.2</td></tr><tr><td>2021</td><td>5000 Meters</td><td></td><td class="bestpr">19:24.2</td></tr></tbody></table></div>
       </div>
     </div>
     <div class="card">
@@ -109,11 +109,11 @@
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
       <div id="athlete-results-wrap">
-        <h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2022</td><td>2022-04-12</td><td><a href='../meets/83_all.html'>St. Xavier Tuesday Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>40</td><td>6:05.2</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2021</td><td>2021-11-13</td><td><a href='../meets/546_all.html'>Lloyd White Memorial Distance Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>1</td><td>4</td><td>19:24.2</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div>
+        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2022</td><td>2022-05-18</td><td><a href='../meets/660_all.html'>Louisville Meet of Champions presented by UPSJobsKY.com 2022</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>87</td><td>2:38.6</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2022</td><td>2022-04-12</td><td><a href='../meets/83_all.html'>St. Xavier Tuesday Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>40</td><td>6:05.2</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2021</td><td>2021-11-13</td><td><a href='../meets/546_all.html'>Lloyd White Memorial Distance Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>1</td><td>4</td><td>19:24.2</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-11 11:07:54</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-11 19:45:33</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -150,6 +150,13 @@
     
     <script>
       const allChartData = {
+  "chart-800_meters": [
+    {
+      "x": "2022-05-18",
+      "y": 158.64,
+      "meet": "<a href='../meets/660_all.html'>Louisville Meet of Champions presented by UPSJobsKY.com 2022</a>"
+    }
+  ],
   "chart-1600_meters_1_mile": [
     {
       "x": "2022-04-12",
