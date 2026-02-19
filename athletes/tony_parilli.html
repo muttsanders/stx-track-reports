@@ -63,10 +63,10 @@
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
       .hide-graphs .chart-container { display: none; }
 
-      /* Meet page: hide non-StX rows when toggled */
+      /* Meet page filter: hide non-StX rows when toggled */
       body.stx-only .non-stx-row { display: none; }
 
-      /* Athlete page: non-StX history is de-emphasized (for allow-listed athletes) */
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
       .non-stx-row { opacity: 0.80; }
     </style>
     
@@ -80,7 +80,7 @@
         <div class="meetname">Tony Parilli</div>
         <div class="athlete-profile-links"><a href="https://www.athletic.net/athlete/26326080/track-and-field" target="_blank">Athletic.net Profile</a><a href="https://ky.milesplit.com/athletes/15572193-tony-parilli" target="_blank">Milesplit Profile</a></div>
         <p class="subline muted">StX athlete profile • Showing results from 1900+</p>
-        <p class='muted'>Note: This athlete includes non-StX meet history (shown unlinked).</p>
+        <p class='muted'>Note: This athlete includes pre-StX meet history (shown unlinked).</p>
       </div>
       <div class="nav">
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
@@ -119,7 +119,7 @@
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-17 15:55:50</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-19 10:13:26</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
