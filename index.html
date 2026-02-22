@@ -66,7 +66,6 @@
       /* Meet page filter: hide non-StX rows when toggled */
       body.stx-only .non-stx-row { display: none; }
 
-      /* On athlete pages, we still show non-StX history for allow-listed athletes */
       .non-stx-row { opacity: 0.80; }
     </style>
     
@@ -78,14 +77,13 @@
     <div class="topbar">
       <div class="titlewrap">
         <div class="meetname">Track Reports</div>
-        <p class="subline muted">Publishing <b>recent only</b> (last 5 days) • StX team: <b>St Xavier (KY)</b></p>
+        <p class="subline muted">Publishing <b>recent meets only</b> (last 5 days) • StX team: <b>St Xavier (KY)</b></p>
 
         <div class="filterbar">
           <span class="pill">Sport</span>
           <label><input type="radio" name="sportfilter" value="All"> All</label>
           <label><input type="radio" name="sportfilter" value="xc"> XC</label>
           <label><input type="radio" name="sportfilter" value="track" checked> Track</label>
-
         </div>
 
         <div class="filterbar">
@@ -109,7 +107,7 @@
       </div>
       
     </div>
-    <div class="footer">Generated at <code>2026-02-22 18:36:46</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-22 18:47:23</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function applyFilters() {
