@@ -66,6 +66,7 @@
       /* Meet page filter: hide non-StX rows when toggled */
       body.stx-only .non-stx-row { display: none; }
 
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
       .non-stx-row { opacity: 0.80; }
     </style>
     
@@ -78,30 +79,27 @@
       <div class="titlewrap">
         <div class="meetname">Anthony Passafiume</div>
         <div class="athlete-profile-links"><a href="https://www.athletic.net/athlete/27103716/track-and-field" target="_blank">Athletic.net Profile</a><a href="https://ky.milesplit.com/athletes/12226094-anthony-passafiume" target="_blank">Milesplit Profile</a></div>
-        <p class="subline muted">StX athlete profile • Full history (updated because athlete raced recently)</p>
+        <p class="subline muted">StX athlete profile • Showing results from 1900+</p>
+        
       </div>
       <div class="nav">
         <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
       </div>
     </div>
-
-    
-        <div class="card">
-          <h2>Personal Records</h2>
-          <p class="muted">Best (lowest) of Indoor/Outdoor is highlighted.</p>
-          <div class="tabs">
-            <button class="tabbtn" id="btn-pr" onclick="activateTab('pr')">PR (Indoor/Outdoor)</button>
-            <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
-          </div>
-          <div class="tabpane" id="pane-pr">
-            <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>800 Meters</td><td>1:59.1</td><td class="bestpr">1:56.8</td></tr><tr><td>1600 Meters</td><td></td><td class="bestpr">4:55.9</td></tr><tr><td>1 Mile</td><td></td><td class="bestpr">5:09.0</td></tr><tr><td>3200 Meters</td><td></td><td class="bestpr">10:05.5</td></tr><tr><td>4x800 Relay</td><td>8:04.8</td><td class="bestpr">7:54.8</td></tr><tr><td>4x400 Relay</td><td class="bestpr">3:41.9</td><td></td></tr><tr><td>1500 Meters</td><td class="bestpr">4:41.7</td><td></td></tr><tr><td>2.5 Mile Run</td><td></td><td class="bestpr">14:35.8</td></tr><tr><td>3 Miles</td><td></td><td class="bestpr">16:33.9</td></tr><tr><td>5000 Meters</td><td></td><td class="bestpr">16:27.2</td></tr></tbody></table></div>
-          </div>
-          <div class="tabpane" id="pane-pryear">
-            <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2026</td><td>800 Meters</td><td class="bestpr">1:59.1</td><td></td></tr><tr><td>2026</td><td>4x400 Relay</td><td class="bestpr">3:53.9</td><td></td></tr><tr><td>2025</td><td>800 Meters</td><td>1:59.1</td><td class="bestpr">1:56.8</td></tr><tr><td>2025</td><td>1600 Meters</td><td></td><td class="bestpr">4:55.9</td></tr><tr><td>2025</td><td>3200 Meters</td><td></td><td class="bestpr">10:05.5</td></tr><tr><td>2025</td><td>4x800 Relay</td><td>8:04.8</td><td class="bestpr">7:54.8</td></tr><tr><td>2025</td><td>4x400 Relay</td><td class="bestpr">3:41.9</td><td></td></tr><tr><td>2025</td><td>3 Miles</td><td></td><td class="bestpr">16:33.9</td></tr><tr><td>2025</td><td>5000 Meters</td><td></td><td class="bestpr">16:27.2</td></tr><tr><td>2024</td><td>800 Meters</td><td>2:03.1</td><td class="bestpr">1:58.8</td></tr><tr><td>2024</td><td>3200 Meters</td><td></td><td class="bestpr">10:30.9</td></tr><tr><td>2024</td><td>4x800 Relay</td><td>8:20.6</td><td class="bestpr">8:11.2</td></tr><tr><td>2024</td><td>1500 Meters</td><td class="bestpr">4:41.7</td><td></td></tr><tr><td>2024</td><td>5000 Meters</td><td></td><td class="bestpr">16:53.6</td></tr><tr><td>2023</td><td>800 Meters</td><td class="bestpr">2:09.4</td><td>2:09.6</td></tr><tr><td>2023</td><td>1 Mile</td><td></td><td class="bestpr">5:09.0</td></tr><tr><td>2023</td><td>3200 Meters</td><td></td><td class="bestpr">10:25.7</td></tr><tr><td>2023</td><td>4x800 Relay</td><td>8:51.9</td><td class="bestpr">8:12.4</td></tr><tr><td>2023</td><td>5000 Meters</td><td></td><td class="bestpr">17:17.6</td></tr><tr><td>2022</td><td>2.5 Mile Run</td><td></td><td class="bestpr">14:35.8</td></tr><tr><td>2022</td><td>5000 Meters</td><td></td><td class="bestpr">18:32.7</td></tr></tbody></table></div>
-          </div>
-        </div>
-        
-
+    <div class="card">
+      <h2>Personal Records</h2>
+      <p class="muted">Best (lowest) of Indoor/Outdoor is highlighted.</p>
+      <div class="tabs">
+        <button class="tabbtn" id="btn-pr" onclick="activateTab('pr')">PR (Indoor/Outdoor)</button>
+        <button class="tabbtn" id="btn-pryear" onclick="activateTab('pryear')">PR by Year</button>
+      </div>
+      <div class="tabpane" id="pane-pr">
+        <div class="table-wrap"><table><thead><tr><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>800 Meters</td><td>1:59.1</td><td class="bestpr">1:56.8</td></tr><tr><td>1600 Meters</td><td></td><td class="bestpr">4:55.9</td></tr><tr><td>1 Mile</td><td></td><td class="bestpr">5:09.0</td></tr><tr><td>3200 Meters</td><td></td><td class="bestpr">10:05.5</td></tr><tr><td>4x800 Relay</td><td>8:04.8</td><td class="bestpr">7:54.8</td></tr><tr><td>4x400 Relay</td><td class="bestpr">3:41.9</td><td></td></tr><tr><td>1500 Meters</td><td class="bestpr">4:41.7</td><td></td></tr><tr><td>2.5 Mile Run</td><td></td><td class="bestpr">14:35.8</td></tr><tr><td>3 Miles</td><td></td><td class="bestpr">16:33.9</td></tr><tr><td>5000 Meters</td><td></td><td class="bestpr">16:27.2</td></tr></tbody></table></div>
+      </div>
+      <div class="tabpane" id="pane-pryear">
+        <div class="table-wrap"><table><thead><tr><th>Year</th><th>Event</th><th>Indoor</th><th>Outdoor</th></tr></thead><tbody><tr><td>2026</td><td>800 Meters</td><td class="bestpr">1:59.1</td><td></td></tr><tr><td>2026</td><td>4x400 Relay</td><td class="bestpr">3:53.9</td><td></td></tr><tr><td>2025</td><td>800 Meters</td><td>1:59.1</td><td class="bestpr">1:56.8</td></tr><tr><td>2025</td><td>1600 Meters</td><td></td><td class="bestpr">4:55.9</td></tr><tr><td>2025</td><td>3200 Meters</td><td></td><td class="bestpr">10:05.5</td></tr><tr><td>2025</td><td>4x800 Relay</td><td>8:04.8</td><td class="bestpr">7:54.8</td></tr><tr><td>2025</td><td>4x400 Relay</td><td class="bestpr">3:41.9</td><td></td></tr><tr><td>2025</td><td>3 Miles</td><td></td><td class="bestpr">16:33.9</td></tr><tr><td>2025</td><td>5000 Meters</td><td></td><td class="bestpr">16:27.2</td></tr><tr><td>2024</td><td>800 Meters</td><td>2:03.1</td><td class="bestpr">1:58.8</td></tr><tr><td>2024</td><td>3200 Meters</td><td></td><td class="bestpr">10:30.9</td></tr><tr><td>2024</td><td>4x800 Relay</td><td>8:20.6</td><td class="bestpr">8:11.2</td></tr><tr><td>2024</td><td>1500 Meters</td><td class="bestpr">4:41.7</td><td></td></tr><tr><td>2024</td><td>5000 Meters</td><td></td><td class="bestpr">16:53.6</td></tr><tr><td>2023</td><td>800 Meters</td><td class="bestpr">2:09.4</td><td>2:09.6</td></tr><tr><td>2023</td><td>1 Mile</td><td></td><td class="bestpr">5:09.0</td></tr><tr><td>2023</td><td>3200 Meters</td><td></td><td class="bestpr">10:25.7</td></tr><tr><td>2023</td><td>4x800 Relay</td><td>8:51.9</td><td class="bestpr">8:12.4</td></tr><tr><td>2023</td><td>5000 Meters</td><td></td><td class="bestpr">17:17.6</td></tr><tr><td>2022</td><td>2.5 Mile Run</td><td></td><td class="bestpr">14:35.8</td></tr><tr><td>2022</td><td>5000 Meters</td><td></td><td class="bestpr">18:32.7</td></tr></tbody></table></div>
+      </div>
+    </div>
     <div class="card">
       <h2>All Results</h2>
       <div class="filterbar">
@@ -117,11 +115,11 @@
       </div>
       
       <div id="athlete-results-wrap">
-        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th></tr></thead><tbody><tr><td>2026</td><td>2026-02-22</td><td><a href='../meets/1076_all.html'>HS CLassic Field Results on Milesplit</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>11</td><td>1:59.1</td><td class="splits-col">28.51</td><td class="splits-col fastest">28.33</td><td class="splits-col">29.39</td><td class="splits-col slowest">32.86</td></tr><tr><td>2025</td><td>2025-05-29</td><td>KHSAA Class 3A Track &amp; Field State Championship</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>10</td><td>1:58.3</td><td class="splits-col fastest">57.53</td><td class="splits-col slowest">60.74</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-21</td><td>Class 3A Region 3</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>3</td><td>1:56.8</td><td class="splits-col fastest">56.72</td><td class="splits-col slowest">60.09</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-10</td><td>Metro Meet of Champions</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>5</td><td>1:57.7</td><td class="splits-col fastest">58.26</td><td class="splits-col slowest">59.40</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-01</td><td>Ballard Derby Invitational</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1</td><td>1:58.5</td><td class="splits-col fastest">57.73</td><td class="splits-col slowest">60.72</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-26</td><td>Brother Borgia-Coach Cooper TF Inv</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>1:56.8</td><td class="splits-col fastest">57.68</td><td class="splits-col slowest">59.07</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-19</td><td>Eastern Relays</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>16</td><td>1:59.5</td><td class="splits-col fastest">58.20</td><td class="splits-col slowest">61.26</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-12</td><td>Johnny Conn TF Invitational</td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>2</td><td>1:58.7</td><td class="splits-col fastest">57.56</td><td class="splits-col slowest">61.09</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-21</td><td>adidas Track Nationals</td><td>Indoor</td><td>800 Meters</td><td>2</td><td>4</td><td>1:59.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-18</td><td>St Xavier JV Mini Meet 1 2025</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:01.9</td><td class="splits-col fastest">57.65</td><td class="splits-col slowest">64.28</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-04</td><td>KHSAA Indoor Track &amp; Field State Championships</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>14</td><td>2:02.3</td><td class="splits-col fastest">27.61</td><td class="splits-col">29.37</td><td class="splits-col">31.79</td><td class="splits-col slowest">33.52</td></tr><tr><td>2025</td><td>2025-02-23</td><td>Louisville Indoor</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>14</td><td>2:01.8</td><td class="splits-col fastest">29.21</td><td class="splits-col">30.09</td><td class="splits-col">30.83</td><td class="splits-col slowest">31.67</td></tr><tr><td>2025</td><td>2025-02-07</td><td>Eastern Indoors Invite</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>20</td><td>1:59.6</td><td class="splits-col fastest">28.81</td><td class="splits-col">29.65</td><td class="splits-col">30.28</td><td class="splits-col slowest">30.82</td></tr><tr><td>2025</td><td>2025-02-01</td><td>Centre College All Age # 1</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>3</td><td>2:07.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-01-03</td><td>KYA HS Indoor Classic</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>21</td><td>2:01.1</td><td class="splits-col fastest">29.02</td><td class="splits-col">45.25</td><td class="splits-col slowest">46.86</td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-06-01</td><td>KHSAA Class 3A Track &amp; Field State Championship</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>17</td><td>2:01.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-20</td><td>Class 3A Region 3</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>5</td><td>1:59.7</td><td class="splits-col fastest">58.58</td><td class="splits-col slowest">61.15</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-15</td><td>Metro Meet of Champions</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>1:58.8</td><td class="splits-col fastest">57.54</td><td class="splits-col slowest">61.23</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-11</td><td>Saint Xavier Master Meet #1</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:15.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-11</td><td>Bryan Station - Woodall Invitational (Full)</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>6</td><td>2:04.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-02</td><td>Ballard HS TF Derby Invite</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>9</td><td>2:06.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-04-27</td><td>Coach Cooper - Brother Borgia TF Inv</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>14</td><td>2:06.2</td><td class="splits-col fastest">61.83</td><td class="splits-col slowest">64.35</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-04-20</td><td>Eastern Relays</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>63</td><td>2:09.1</td><td class="splits-col fastest">59.74</td><td class="splits-col slowest">69.41</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-15</td><td>adidas Track Nationals</td><td>Indoor</td><td>800 Meters</td><td>2</td><td>33</td><td>2:03.5</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-02</td><td>KHSAA Class 3A Indoor State Track &amp; Field Championships</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>23</td><td>2:07.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-02-09</td><td>Eastern Indoors 2024</td><td>Indoor</td><td>800 Meters</td><td>2</td><td>34</td><td>2:03.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-02-03</td><td>Louisville Indoor Games</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>15</td><td>2:03.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-01-20</td><td>Ohio State HS Qualifier # 2</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>8</td><td>2:08.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-01-14</td><td>MLK Weekend Invite</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>1</td><td>2:10.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-13</td><td>Louisville Area JV Championships</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:09.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-10</td><td>Louisville Freshman Championship</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:09.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-04-28</td><td>Brother Borgia/Coach Cooper Invitational</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>21</td><td>2:10.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-04-11</td><td>St. X Master #2</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>20</td><td>2:29.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-30</td><td>Saint Xavier Time Trials</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:11.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-21</td><td>Saint Xavier Master Meet #1 2023</td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:15.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-02-10</td><td>Eastern Indoors Invitational</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>49</td><td>2:09.4</td><td class="splits-col fastest">29.53</td><td class="splits-col">31.12</td><td class="splits-col">33.69</td><td class="splits-col slowest">35.05</td></tr><tr><td>2023</td><td>2023-01-22</td><td>Coaches Classic - Age Group Presented by KTCCCA</td><td>Indoor</td><td>800 Meters</td><td>1</td><td>11</td><td>2:14.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-03-18</td><td>St Xavier JV Mini Meet 1 2025</td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>8</td><td>4:55.9</td><td class="splits-col">77.59</td><td class="splits-col slowest">77.95</td><td class="splits-col">74.43</td><td class="splits-col fastest">65.89</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-30</td><td>Saint Xavier Time Trials</td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>16</td><td>5:29.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-24</td><td>RunTown Distance Festival</td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>22</td><td>5:09.0</td><td class="splits-col fastest">71.86</td><td class="splits-col">75.71</td><td class="splits-col">80.50</td><td class="splits-col slowest">80.91</td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-05-03</td><td>Run for the Roses 3200</td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>16</td><td>10:05.5</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-04</td><td>Run for the Roses 3200</td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>23</td><td>10:30.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-23</td><td>OC Kick-Off Classic</td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>16</td><td>10:46.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-11-11</td><td>Lloyd White Memorial Distance Festival</td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>6</td><td>10:25.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-06</td><td>Run for the Roses 3200M</td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>26</td><td>11:05.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-24</td><td>RunTown Distance Festival</td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>29</td><td>11:56.3</td><td class="splits-col slowest">183.29</td><td class="splits-col">91.86</td><td class="splits-col">92.32</td><td class="splits-col">88.81</td><td class="splits-col">90.71</td><td class="splits-col fastest">77.61</td></tr><tr><td>2023</td><td>2023-02-24</td><td>Saint Xavier Time Trial</td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>11</td><td>10:59.5</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>1500 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2024</td><td>2024-02-17</td><td>KTCCCA President's Day Weekend Invite 2024</td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>28</td><td>4:41.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1500_meters"></canvas></div><h3 class='section-title'>2.5 Mile Run</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2022</td><td>2022-09-24</td><td>Palatine Meet of Champions Invitational</td><td>Outdoor</td><td>2.5 Mile Run</td><td>xc</td><td>42</td><td>14:35.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-25_mile_run"></canvas></div><h3 class='section-title'>3 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-09-27</td><td>Palatine Invitational - Meet of Champions</td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>127</td><td>16:33.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3_miles"></canvas></div><h3 class='section-title'>4x400 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th></tr></thead><tbody><tr><td>2026</td><td>2026-01-17</td><td>Ohio State HS Qualifier # 1</td><td>Indoor</td><td>4x400 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>4</td><td>3:53.9</td><td></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-01-18</td><td>Ohio State HS Qualifier # 2</td><td>Indoor</td><td>4x400 Relay</td><td>1</td><td>St Xavier (KY)</td><td>2</td><td>1</td><td>3:41.9</td><td></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x400_relay"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th></tr></thead><tbody><tr><td>2025</td><td>2025-06-22</td><td>New Balance Nationals Outdoor</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>Louisville Xtreme</td><td>1</td><td>23</td><td>7:54.8</td><td>1:58.30</td><td class="splits-col slowest">118.30</td><td class="splits-col fastest">0.00</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-29</td><td>KHSAA Class 3A Track &amp; Field State Championship</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>4</td><td>8:02.1</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-21</td><td>Class 3A Region 3</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>1</td><td>8:10.4</td><td>2:00.42</td><td class="splits-col fastest">59.37</td><td class="splits-col slowest">61.05</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-10</td><td>Metro Meet of Champions</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>3</td><td>2</td><td>8:10.5</td><td>1:59.78</td><td class="splits-col fastest">55.51</td><td class="splits-col slowest">64.27</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-19</td><td>Eastern Relays</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>3</td><td>7:58.1</td><td>2:00.12</td><td class="splits-col fastest">57.42</td><td class="splits-col slowest">62.70</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-12</td><td>Johnny Conn TF Invitational</td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY) - B</td><td>1</td><td>4</td><td>8:35.4</td><td>2:01.87</td><td class="splits-col slowest">61.55</td><td class="splits-col fastest">60.31</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-21</td><td>adidas Track Nationals</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>Louisville Xtreme</td><td>1</td><td>2</td><td>8:09.0</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-04</td><td>KHSAA Indoor Track &amp; Field State Championships</td><td>Indoor</td><td>4x800 Relay</td><td></td><td>St Xavier (KY)</td><td>4</td><td>5</td><td>8:07.5</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-02-23</td><td>Louisville Indoor</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>4</td><td>2</td><td>8:18.5</td><td>2:00.01</td><td class="splits-col fastest">27.34</td><td class="splits-col">28.82</td><td class="splits-col">30.22</td><td class="splits-col slowest">33.63</td></tr><tr><td>2025</td><td>2025-02-15</td><td>KTCCCA Presidents Day Invitational</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>2</td><td>8:19.6</td><td>2:01.72</td><td class="splits-col fastest">28.56</td><td class="splits-col">30.34</td><td class="splits-col">30.75</td><td class="splits-col slowest">32.07</td></tr><tr><td>2025</td><td>2025-02-07</td><td>Eastern Indoors Invite</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>2</td><td>8:04.8</td><td>2:00.59</td><td class="splits-col fastest">28.76</td><td class="splits-col">30.83</td><td class="splits-col slowest">31.14</td><td class="splits-col">29.86</td></tr><tr><td>2025</td><td>2025-01-26</td><td>The Games</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>2</td><td>8:57.1</td><td>2:15.39</td><td class="splits-col fastest">30.07</td><td class="splits-col">32.63</td><td class="splits-col">35.49</td><td class="splits-col slowest">37.20</td></tr><tr><td>2025</td><td>2025-01-18</td><td>Ohio State HS Qualifier # 2</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>Louisville Xtreme</td><td>1</td><td>2</td><td>8:09.0</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-06-01</td><td>KHSAA Class 3A Track &amp; Field State Championship</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>1</td><td>7</td><td>8:11.2</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-02</td><td>Ballard HS TF Derby Invite</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>3</td><td>8:29.5</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-04-27</td><td>Coach Cooper - Brother Borgia TF Inv</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>7</td><td>8:25.4</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-15</td><td>adidas Track Nationals</td><td>Indoor</td><td>4x800 Relay</td><td>2</td><td>St Xavier (KY)</td><td>1</td><td>6</td><td>8:29.8</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-02</td><td>KHSAA Class 3A Indoor State Track &amp; Field Championships</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>1</td><td>12</td><td>8:40.8</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-02-09</td><td>Eastern Indoors 2024</td><td>Indoor</td><td>4x800 Relay</td><td>2</td><td>St Xavier (KY)</td><td>1</td><td>4</td><td>8:20.6</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-01-20</td><td>Ohio State HS Qualifier # 2</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>1</td><td>4</td><td>9:03.2</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-06-03</td><td>KHSAA Class 3A State Championship</td><td>Outdoor</td><td>4x800 Relay</td><td>2</td><td>St Xavier (KY)</td><td>3</td><td>8</td><td>8:12.4</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-24</td><td>KHSSA Class 3A Region 3</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>2</td><td>8:13.0</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-04-21</td><td>Eastern Relays</td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>2</td><td>4</td><td>8:29.2</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-04</td><td>KTCCCA State Indoor TF Classes AA and AAA 2023</td><td>Indoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>9</td><td>8:54.6</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-02-10</td><td>Eastern Indoors Invitational</td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>9</td><td>8:51.9</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-11-01</td><td>2025 KHSAA State Cross Country Championships</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>85</td><td>17:37.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-10-25</td><td>KHSAA Region 3 Class 3A</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>9</td><td>16:36.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-10-03</td><td>Louisville XC Classic</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>28</td><td>16:55.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-09-19</td><td>Trinity / Valkyrie Invitational</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>91</td><td>16:27.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-08-30</td><td>STXXC Tiger Run</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>34</td><td>16:39.3</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-11-02</td><td>KHSAA State Cross Country Championships</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>85</td><td>17:31.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-10-26</td><td>KHSAA Region 3 Class 3A</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>15</td><td>16:57.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-10-12</td><td>Haunted Woods Classic</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>25</td><td>16:57.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-10-04</td><td>Louisville XC Classic</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>59</td><td>17:35.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-09-20</td><td>Trinity / Valkyrie Invitational</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>153</td><td>16:53.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-09-13</td><td>The Southern Showcase - Powered by Huntsville High School</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>156</td><td>17:36.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-09-06</td><td>Rumble Through the Jungle</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>41</td><td>17:31.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-08-24</td><td>St Xavier Tiger Run</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>68</td><td>17:02.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-12-02</td><td>RunningLane Cross Country Championships</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>260</td><td>18:35.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-10-19</td><td>Metro JV Regional</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>21</td><td>17:46.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-09-29</td><td>Louisville XC Classic</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>32</td><td>18:48.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-09-15</td><td>The Southern Showcase powered by Huntsville High</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>83</td><td>17:32.3</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-09-08</td><td>Rumble Through the Jungle</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>49</td><td>18:02.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-08-26</td><td>STXXC Tiger Run</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>87</td><td>18:35.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-08-19</td><td>Central Kentucky Run for the Gold</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>89</td><td>17:17.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-10-20</td><td>Metro JV Regional</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>23</td><td>18:32.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-10-14</td><td>KTCCCA Meet of Champions</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>53</td><td>19:12.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-10-08</td><td>Haunted Woods Classic</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>9</td><td>18:46.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-09-30</td><td>Louisville XC Classic</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>39</td><td>19:07.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-09-16</td><td>Trinity / Valkyrie Invitational</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>14</td><td>19:05.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-09-09</td><td>Rumble Through the Jungle</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>109</td><td>19:27.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-08-27</td><td>Tiger Run</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>15</td><td>19:02.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-08-20</td><td>Central Kentucky Run for the Gold</td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>12</td><td>19:09.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div>
+        <h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th></tr></thead><tbody><tr><td>2026</td><td>2026-02-22</td><td><a href='../meets/1076_all.html'>HS CLassic Field Results on Milesplit</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>11</td><td>1:59.1</td><td class="splits-col">28.51</td><td class="splits-col fastest">28.33</td><td class="splits-col">29.39</td><td class="splits-col slowest">32.86</td></tr><tr><td>2025</td><td>2025-05-29</td><td><a href='../meets/47_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>10</td><td>1:58.3</td><td class="splits-col fastest">57.53</td><td class="splits-col slowest">60.74</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-21</td><td><a href='../meets/46_all.html'>Class 3A Region 3</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>3</td><td>1:56.8</td><td class="splits-col fastest">56.72</td><td class="splits-col slowest">60.09</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-10</td><td><a href='../meets/44_all.html'>Metro Meet of Champions</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>5</td><td>1:57.7</td><td class="splits-col fastest">58.26</td><td class="splits-col slowest">59.40</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-01</td><td><a href='../meets/40_all.html'>Ballard Derby Invitational</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1</td><td>1:58.5</td><td class="splits-col fastest">57.73</td><td class="splits-col slowest">60.72</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-26</td><td><a href='../meets/38_all.html'>Brother Borgia-Coach Cooper TF Inv</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>1:56.8</td><td class="splits-col fastest">57.68</td><td class="splits-col slowest">59.07</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-19</td><td><a href='../meets/52_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>16</td><td>1:59.5</td><td class="splits-col fastest">58.20</td><td class="splits-col slowest">61.26</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-12</td><td><a href='../meets/36_all.html'>Johnny Conn TF Invitational</a></td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>2</td><td>1:58.7</td><td class="splits-col fastest">57.56</td><td class="splits-col slowest">61.09</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-21</td><td><a href='../meets/18_all.html'>adidas Track Nationals</a></td><td>Indoor</td><td>800 Meters</td><td>2</td><td>4</td><td>1:59.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-18</td><td><a href='../meets/33_all.html'>St Xavier JV Mini Meet 1 2025</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:01.9</td><td class="splits-col fastest">57.65</td><td class="splits-col slowest">64.28</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-04</td><td><a href='../meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>14</td><td>2:02.3</td><td class="splits-col fastest">27.61</td><td class="splits-col">29.37</td><td class="splits-col">31.79</td><td class="splits-col slowest">33.52</td></tr><tr><td>2025</td><td>2025-02-23</td><td><a href='../meets/14_all.html'>Louisville Indoor</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>14</td><td>2:01.8</td><td class="splits-col fastest">29.21</td><td class="splits-col">30.09</td><td class="splits-col">30.83</td><td class="splits-col slowest">31.67</td></tr><tr><td>2025</td><td>2025-02-07</td><td><a href='../meets/10_all.html'>Eastern Indoors Invite</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>20</td><td>1:59.6</td><td class="splits-col fastest">28.81</td><td class="splits-col">29.65</td><td class="splits-col">30.28</td><td class="splits-col slowest">30.82</td></tr><tr><td>2025</td><td>2025-02-01</td><td><a href='../meets/311_all.html'>Centre College All Age # 1</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>3</td><td>2:07.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-01-03</td><td><a href='../meets/257_all.html'>KYA HS Indoor Classic</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>21</td><td>2:01.1</td><td class="splits-col fastest">29.02</td><td class="splits-col">45.25</td><td class="splits-col slowest">46.86</td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-06-01</td><td><a href='../meets/62_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>17</td><td>2:01.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-20</td><td><a href='../meets/61_all.html'>Class 3A Region 3</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>5</td><td>1:59.7</td><td class="splits-col fastest">58.58</td><td class="splits-col slowest">61.15</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-15</td><td><a href='../meets/60_all.html'>Metro Meet of Champions</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>1:58.8</td><td class="splits-col fastest">57.54</td><td class="splits-col slowest">61.23</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-11</td><td><a href='../meets/296_all.html'>Saint Xavier Master Meet #1</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:15.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-11</td><td><a href='../meets/295_all.html'>Bryan Station - Woodall Invitational (Full)</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>6</td><td>2:04.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-02</td><td><a href='../meets/57_all.html'>Ballard HS TF Derby Invite</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>9</td><td>2:06.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-04-27</td><td><a href='../meets/56_all.html'>Coach Cooper - Brother Borgia TF Inv</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>14</td><td>2:06.2</td><td class="splits-col fastest">61.83</td><td class="splits-col slowest">64.35</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-04-20</td><td><a href='../meets/55_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>63</td><td>2:09.1</td><td class="splits-col fastest">59.74</td><td class="splits-col slowest">69.41</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-15</td><td><a href='../meets/28_all.html'>adidas Track Nationals</a></td><td>Indoor</td><td>800 Meters</td><td>2</td><td>33</td><td>2:03.5</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-02</td><td><a href='../meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>23</td><td>2:07.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-02-09</td><td><a href='../meets/655_all.html'>Eastern Indoors 2024</a></td><td>Indoor</td><td>800 Meters</td><td>2</td><td>34</td><td>2:03.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-02-03</td><td><a href='../meets/24_all.html'>Louisville Indoor Games</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>15</td><td>2:03.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-01-20</td><td><a href='../meets/23_all.html'>Ohio State HS Qualifier # 2</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>8</td><td>2:08.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-01-14</td><td><a href='../meets/550_all.html'>MLK Weekend Invite</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>1</td><td>2:10.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-13</td><td><a href='../meets/74_all.html'>Louisville Area JV Championships</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:09.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-10</td><td><a href='../meets/73_all.html'>Louisville Freshman Championship</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:09.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-04-28</td><td><a href='../meets/71_all.html'>Brother Borgia/Coach Cooper Invitational</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>21</td><td>2:10.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-04-11</td><td><a href='../meets/67_all.html'>St. X Master #2</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>20</td><td>2:29.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-30</td><td><a href='../meets/66_all.html'>Saint Xavier Time Trials</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:11.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-21</td><td><a href='../meets/651_all.html'>Saint Xavier Master Meet #1 2023</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>2</td><td>2:15.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-02-10</td><td><a href='../meets/30_all.html'>Eastern Indoors Invitational</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>49</td><td>2:09.4</td><td class="splits-col fastest">29.53</td><td class="splits-col">31.12</td><td class="splits-col">33.69</td><td class="splits-col slowest">35.05</td></tr><tr><td>2023</td><td>2023-01-22</td><td><a href='../meets/312_all.html'>Coaches Classic - Age Group Presented by KTCCCA</a></td><td>Indoor</td><td>800 Meters</td><td>1</td><td>11</td><td>2:14.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-03-18</td><td><a href='../meets/33_all.html'>St Xavier JV Mini Meet 1 2025</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>8</td><td>4:55.9</td><td class="splits-col">77.59</td><td class="splits-col slowest">77.95</td><td class="splits-col">74.43</td><td class="splits-col fastest">65.89</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-30</td><td><a href='../meets/66_all.html'>Saint Xavier Time Trials</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>16</td><td>5:29.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-24</td><td><a href='../meets/64_all.html'>RunTown Distance Festival</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>22</td><td>5:09.0</td><td class="splits-col fastest">71.86</td><td class="splits-col">75.71</td><td class="splits-col">80.50</td><td class="splits-col slowest">80.91</td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-05-03</td><td><a href='../meets/42_all.html'>Run for the Roses 3200</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>16</td><td>10:05.5</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-04</td><td><a href='../meets/58_all.html'>Run for the Roses 3200</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>23</td><td>10:30.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-23</td><td><a href='../meets/51_all.html'>OC Kick-Off Classic</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>16</td><td>10:46.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-11-11</td><td><a href='../meets/548_all.html'>Lloyd White Memorial Distance Festival</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>6</td><td>10:25.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-06</td><td><a href='../meets/72_all.html'>Run for the Roses 3200M</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>26</td><td>11:05.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-24</td><td><a href='../meets/64_all.html'>RunTown Distance Festival</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>29</td><td>11:56.3</td><td class="splits-col slowest">183.29</td><td class="splits-col">91.86</td><td class="splits-col">92.32</td><td class="splits-col">88.81</td><td class="splits-col">90.71</td><td class="splits-col fastest">77.61</td></tr><tr><td>2023</td><td>2023-02-24</td><td><a href='../meets/63_all.html'>Saint Xavier Time Trial</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>11</td><td>10:59.5</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>1500 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2024</td><td>2024-02-17</td><td><a href='../meets/390_all.html'>KTCCCA President's Day Weekend Invite 2024</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>28</td><td>4:41.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1500_meters"></canvas></div><h3 class='section-title'>2.5 Mile Run</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2022</td><td>2022-09-24</td><td><a href='../meets/936_all.html'>Palatine Meet of Champions Invitational</a></td><td>Outdoor</td><td>2.5 Mile Run</td><td>xc</td><td>42</td><td>14:35.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-25_mile_run"></canvas></div><h3 class='section-title'>3 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-09-27</td><td><a href='../meets/931_all.html'>Palatine Invitational - Meet of Champions</a></td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>127</td><td>16:33.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3_miles"></canvas></div><h3 class='section-title'>4x400 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th></tr></thead><tbody><tr><td>2026</td><td>2026-01-17</td><td><a href='../meets/254_all.html'>Ohio State HS Qualifier # 1</a></td><td>Indoor</td><td>4x400 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>4</td><td>3:53.9</td><td></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-01-18</td><td><a href='../meets/20_all.html'>Ohio State HS Qualifier # 2</a></td><td>Indoor</td><td>4x400 Relay</td><td>1</td><td>St Xavier (KY)</td><td>2</td><td>1</td><td>3:41.9</td><td></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x400_relay"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th></tr></thead><tbody><tr><td>2025</td><td>2025-06-22</td><td><a href='../meets/48_all.html'>New Balance Nationals Outdoor</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>Louisville Xtreme</td><td>1</td><td>23</td><td>7:54.8</td><td>1:58.30</td><td class="splits-col slowest">118.30</td><td class="splits-col fastest">0.00</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-29</td><td><a href='../meets/47_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>4</td><td>8:02.1</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-21</td><td><a href='../meets/46_all.html'>Class 3A Region 3</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>1</td><td>8:10.4</td><td>2:00.42</td><td class="splits-col fastest">59.37</td><td class="splits-col slowest">61.05</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-05-10</td><td><a href='../meets/44_all.html'>Metro Meet of Champions</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>3</td><td>2</td><td>8:10.5</td><td>1:59.78</td><td class="splits-col fastest">55.51</td><td class="splits-col slowest">64.27</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-19</td><td><a href='../meets/52_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>3</td><td>7:58.1</td><td>2:00.12</td><td class="splits-col fastest">57.42</td><td class="splits-col slowest">62.70</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-04-12</td><td><a href='../meets/36_all.html'>Johnny Conn TF Invitational</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY) - B</td><td>1</td><td>4</td><td>8:35.4</td><td>2:01.87</td><td class="splits-col slowest">61.55</td><td class="splits-col fastest">60.31</td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-21</td><td><a href='../meets/18_all.html'>adidas Track Nationals</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>Louisville Xtreme</td><td>1</td><td>2</td><td>8:09.0</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-03-04</td><td><a href='../meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td><td>Indoor</td><td>4x800 Relay</td><td></td><td>St Xavier (KY)</td><td>4</td><td>5</td><td>8:07.5</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-02-23</td><td><a href='../meets/14_all.html'>Louisville Indoor</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>4</td><td>2</td><td>8:18.5</td><td>2:00.01</td><td class="splits-col fastest">27.34</td><td class="splits-col">28.82</td><td class="splits-col">30.22</td><td class="splits-col slowest">33.63</td></tr><tr><td>2025</td><td>2025-02-15</td><td><a href='../meets/13_all.html'>KTCCCA Presidents Day Invitational</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier &quot;A&quot;</td><td>1</td><td>2</td><td>8:19.6</td><td>2:01.72</td><td class="splits-col fastest">28.56</td><td class="splits-col">30.34</td><td class="splits-col">30.75</td><td class="splits-col slowest">32.07</td></tr><tr><td>2025</td><td>2025-02-07</td><td><a href='../meets/10_all.html'>Eastern Indoors Invite</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>2</td><td>8:04.8</td><td>2:00.59</td><td class="splits-col fastest">28.76</td><td class="splits-col">30.83</td><td class="splits-col slowest">31.14</td><td class="splits-col">29.86</td></tr><tr><td>2025</td><td>2025-01-26</td><td><a href='../meets/21_all.html'>The Games</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>2</td><td>8:57.1</td><td>2:15.39</td><td class="splits-col fastest">30.07</td><td class="splits-col">32.63</td><td class="splits-col">35.49</td><td class="splits-col slowest">37.20</td></tr><tr><td>2025</td><td>2025-01-18</td><td><a href='../meets/20_all.html'>Ohio State HS Qualifier # 2</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>Louisville Xtreme</td><td>1</td><td>2</td><td>8:09.0</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-06-01</td><td><a href='../meets/62_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>1</td><td>7</td><td>8:11.2</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-05-02</td><td><a href='../meets/57_all.html'>Ballard HS TF Derby Invite</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>3</td><td>8:29.5</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-04-27</td><td><a href='../meets/56_all.html'>Coach Cooper - Brother Borgia TF Inv</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY) - A</td><td>1</td><td>7</td><td>8:25.4</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-15</td><td><a href='../meets/28_all.html'>adidas Track Nationals</a></td><td>Indoor</td><td>4x800 Relay</td><td>2</td><td>St Xavier (KY)</td><td>1</td><td>6</td><td>8:29.8</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-03-02</td><td><a href='../meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>1</td><td>12</td><td>8:40.8</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-02-09</td><td><a href='../meets/655_all.html'>Eastern Indoors 2024</a></td><td>Indoor</td><td>4x800 Relay</td><td>2</td><td>St Xavier (KY)</td><td>1</td><td>4</td><td>8:20.6</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-01-20</td><td><a href='../meets/23_all.html'>Ohio State HS Qualifier # 2</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>1</td><td>4</td><td>9:03.2</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-06-03</td><td><a href='../meets/77_all.html'>KHSAA Class 3A State Championship</a></td><td>Outdoor</td><td>4x800 Relay</td><td>2</td><td>St Xavier (KY)</td><td>3</td><td>8</td><td>8:12.4</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-05-24</td><td><a href='../meets/76_all.html'>KHSSA Class 3A Region 3</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>2</td><td>8:13.0</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-04-21</td><td><a href='../meets/69_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>2</td><td>4</td><td>8:29.2</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-03-04</td><td><a href='../meets/31_all.html'>KTCCCA State Indoor TF Classes AA and AAA 2023</a></td><td>Indoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>9</td><td>8:54.6</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-02-10</td><td><a href='../meets/30_all.html'>Eastern Indoors Invitational</a></td><td>Indoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>9</td><td>8:51.9</td><td></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th><th class="splits-col">Lap 1</th><th class="splits-col">Lap 2</th><th class="splits-col">Lap 3</th><th class="splits-col">Lap 4</th><th class="splits-col">Lap 5</th><th class="splits-col">Lap 6</th></tr></thead><tbody><tr><td>2025</td><td>2025-11-01</td><td><a href='../meets/676_all.html'>2025 KHSAA State Cross Country Championships</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>85</td><td>17:37.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-10-25</td><td><a href='../meets/780_all.html'>KHSAA Region 3 Class 3A</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>9</td><td>16:36.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-10-03</td><td><a href='../meets/877_all.html'>Louisville XC Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>28</td><td>16:55.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-09-19</td><td><a href='../meets/1043_all.html'>Trinity / Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>91</td><td>16:27.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2025</td><td>2025-08-30</td><td><a href='../meets/977_all.html'>STXXC Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>34</td><td>16:39.3</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-11-02</td><td><a href='../meets/789_all.html'>KHSAA State Cross Country Championships</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>85</td><td>17:31.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-10-26</td><td><a href='../meets/779_all.html'>KHSAA Region 3 Class 3A</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>15</td><td>16:57.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-10-12</td><td><a href='../meets/770_all.html'>Haunted Woods Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>25</td><td>16:57.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-10-04</td><td><a href='../meets/876_all.html'>Louisville XC Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>59</td><td>17:35.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-09-20</td><td><a href='../meets/1042_all.html'>Trinity / Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>153</td><td>16:53.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-09-13</td><td><a href='../meets/1011_all.html'>The Southern Showcase - Powered by Huntsville High School</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>156</td><td>17:36.0</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-09-06</td><td><a href='../meets/961_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>41</td><td>17:31.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2024</td><td>2024-08-24</td><td><a href='../meets/981_all.html'>St Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>68</td><td>17:02.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-12-02</td><td><a href='../meets/975_all.html'>RunningLane Cross Country Championships</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>260</td><td>18:35.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-10-19</td><td><a href='../meets/880_all.html'>Metro JV Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>21</td><td>17:46.8</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-09-29</td><td><a href='../meets/875_all.html'>Louisville XC Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>32</td><td>18:48.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-09-15</td><td><a href='../meets/1012_all.html'>The Southern Showcase powered by Huntsville High</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>83</td><td>17:32.3</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-09-08</td><td><a href='../meets/960_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>49</td><td>18:02.1</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-08-26</td><td><a href='../meets/976_all.html'>STXXC Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>87</td><td>18:35.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2023</td><td>2023-08-19</td><td><a href='../meets/695_all.html'>Central Kentucky Run for the Gold</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>89</td><td>17:17.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-10-20</td><td><a href='../meets/879_all.html'>Metro JV Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>23</td><td>18:32.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-10-14</td><td><a href='../meets/803_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>53</td><td>19:12.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-10-08</td><td><a href='../meets/768_all.html'>Haunted Woods Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>9</td><td>18:46.6</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-09-30</td><td><a href='../meets/874_all.html'>Louisville XC Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>39</td><td>19:07.4</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-09-16</td><td><a href='../meets/1041_all.html'>Trinity / Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>14</td><td>19:05.9</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-09-09</td><td><a href='../meets/959_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>109</td><td>19:27.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-08-27</td><td><a href='../meets/1033_all.html'>Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>15</td><td>19:02.2</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr><tr><td>2022</td><td>2022-08-20</td><td><a href='../meets/694_all.html'>Central Kentucky Run for the Gold</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>12</td><td>19:09.7</td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td><td class="splits-col"></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div>
       </div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-02-22 18:47:26</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-02-22 19:06:05</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -147,7 +145,7 @@
         else wrap.classList.add('hide-graphs');
       }
       document.addEventListener('DOMContentLoaded', () => {
-        if (document.getElementById('btn-pr')) activateTab('pr');
+        activateTab('pr');
         const splitCb = document.getElementById('splitToggle');
         if (splitCb) toggleSplits(splitCb);
         const graphCb = document.getElementById('graphToggle');
@@ -162,182 +160,182 @@
     {
       "x": "2023-01-22",
       "y": 134.58,
-      "meet": "Coaches Classic - Age Group Presented by KTCCCA"
+      "meet": "<a href='../meets/312_all.html'>Coaches Classic - Age Group Presented by KTCCCA</a>"
     },
     {
       "x": "2023-02-10",
       "y": 129.396,
-      "meet": "Eastern Indoors Invitational"
+      "meet": "<a href='../meets/30_all.html'>Eastern Indoors Invitational</a>"
     },
     {
       "x": "2023-03-21",
       "y": 135.07,
-      "meet": "Saint Xavier Master Meet #1 2023"
+      "meet": "<a href='../meets/651_all.html'>Saint Xavier Master Meet #1 2023</a>"
     },
     {
       "x": "2023-03-30",
       "y": 131.01,
-      "meet": "Saint Xavier Time Trials"
+      "meet": "<a href='../meets/66_all.html'>Saint Xavier Time Trials</a>"
     },
     {
       "x": "2023-04-11",
       "y": 148.96,
-      "meet": "St. X Master #2"
+      "meet": "<a href='../meets/67_all.html'>St. X Master #2</a>"
     },
     {
       "x": "2023-04-28",
       "y": 130.17,
-      "meet": "Brother Borgia/Coach Cooper Invitational"
+      "meet": "<a href='../meets/71_all.html'>Brother Borgia/Coach Cooper Invitational</a>"
     },
     {
       "x": "2023-05-10",
       "y": 129.87,
-      "meet": "Louisville Freshman Championship"
+      "meet": "<a href='../meets/73_all.html'>Louisville Freshman Championship</a>"
     },
     {
       "x": "2023-05-13",
       "y": 129.6,
-      "meet": "Louisville Area JV Championships"
+      "meet": "<a href='../meets/74_all.html'>Louisville Area JV Championships</a>"
     },
     {
       "x": "2024-01-14",
       "y": 130.0,
-      "meet": "MLK Weekend Invite"
+      "meet": "<a href='../meets/550_all.html'>MLK Weekend Invite</a>"
     },
     {
       "x": "2024-01-20",
       "y": 127.99,
-      "meet": "Ohio State HS Qualifier # 2"
+      "meet": "<a href='../meets/23_all.html'>Ohio State HS Qualifier # 2</a>"
     },
     {
       "x": "2024-02-03",
       "y": 123.12,
-      "meet": "Louisville Indoor Games"
+      "meet": "<a href='../meets/24_all.html'>Louisville Indoor Games</a>"
     },
     {
       "x": "2024-02-09",
       "y": 123.36,
-      "meet": "Eastern Indoors 2024"
+      "meet": "<a href='../meets/655_all.html'>Eastern Indoors 2024</a>"
     },
     {
       "x": "2024-03-02",
       "y": 127.43,
-      "meet": "KHSAA Class 3A Indoor State Track &amp; Field Championships"
+      "meet": "<a href='../meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a>"
     },
     {
       "x": "2024-03-15",
       "y": 123.5,
-      "meet": "adidas Track Nationals"
+      "meet": "<a href='../meets/28_all.html'>adidas Track Nationals</a>"
     },
     {
       "x": "2024-04-20",
       "y": 129.143,
-      "meet": "Eastern Relays"
+      "meet": "<a href='../meets/55_all.html'>Eastern Relays</a>"
     },
     {
       "x": "2024-04-27",
       "y": 126.178,
-      "meet": "Coach Cooper - Brother Borgia TF Inv"
+      "meet": "<a href='../meets/56_all.html'>Coach Cooper - Brother Borgia TF Inv</a>"
     },
     {
       "x": "2024-05-02",
       "y": 126.62,
-      "meet": "Ballard HS TF Derby Invite"
+      "meet": "<a href='../meets/57_all.html'>Ballard HS TF Derby Invite</a>"
     },
     {
       "x": "2024-05-11",
       "y": 124.22,
-      "meet": "Bryan Station - Woodall Invitational (Full)"
+      "meet": "<a href='../meets/295_all.html'>Bryan Station - Woodall Invitational (Full)</a>"
     },
     {
       "x": "2024-05-11",
       "y": 135.07,
-      "meet": "Saint Xavier Master Meet #1"
+      "meet": "<a href='../meets/296_all.html'>Saint Xavier Master Meet #1</a>"
     },
     {
       "x": "2024-05-15",
       "y": 118.768,
-      "meet": "Metro Meet of Champions"
+      "meet": "<a href='../meets/60_all.html'>Metro Meet of Champions</a>"
     },
     {
       "x": "2024-05-20",
       "y": 119.732,
-      "meet": "Class 3A Region 3"
+      "meet": "<a href='../meets/61_all.html'>Class 3A Region 3</a>"
     },
     {
       "x": "2024-06-01",
       "y": 121.89,
-      "meet": "KHSAA Class 3A Track &amp; Field State Championship"
+      "meet": "<a href='../meets/62_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a>"
     },
     {
       "x": "2025-01-03",
       "y": 121.13,
-      "meet": "KYA HS Indoor Classic"
+      "meet": "<a href='../meets/257_all.html'>KYA HS Indoor Classic</a>"
     },
     {
       "x": "2025-02-01",
       "y": 127.02,
-      "meet": "Centre College All Age # 1"
+      "meet": "<a href='../meets/311_all.html'>Centre College All Age # 1</a>"
     },
     {
       "x": "2025-02-07",
       "y": 119.564,
-      "meet": "Eastern Indoors Invite"
+      "meet": "<a href='../meets/10_all.html'>Eastern Indoors Invite</a>"
     },
     {
       "x": "2025-02-23",
       "y": 121.78,
-      "meet": "Louisville Indoor"
+      "meet": "<a href='../meets/14_all.html'>Louisville Indoor</a>"
     },
     {
       "x": "2025-03-04",
       "y": 122.27,
-      "meet": "KHSAA Indoor Track &amp; Field State Championships"
+      "meet": "<a href='../meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a>"
     },
     {
       "x": "2025-03-18",
       "y": 121.932,
-      "meet": "St Xavier JV Mini Meet 1 2025"
+      "meet": "<a href='../meets/33_all.html'>St Xavier JV Mini Meet 1 2025</a>"
     },
     {
       "x": "2025-03-21",
       "y": 119.06,
-      "meet": "adidas Track Nationals"
+      "meet": "<a href='../meets/18_all.html'>adidas Track Nationals</a>"
     },
     {
       "x": "2025-04-12",
       "y": 118.657,
-      "meet": "Johnny Conn TF Invitational"
+      "meet": "<a href='../meets/36_all.html'>Johnny Conn TF Invitational</a>"
     },
     {
       "x": "2025-04-19",
       "y": 119.452,
-      "meet": "Eastern Relays"
+      "meet": "<a href='../meets/52_all.html'>Eastern Relays</a>"
     },
     {
       "x": "2025-04-26",
       "y": 116.756,
-      "meet": "Brother Borgia-Coach Cooper TF Inv"
+      "meet": "<a href='../meets/38_all.html'>Brother Borgia-Coach Cooper TF Inv</a>"
     },
     {
       "x": "2025-05-01",
       "y": 118.457,
-      "meet": "Ballard Derby Invitational"
+      "meet": "<a href='../meets/40_all.html'>Ballard Derby Invitational</a>"
     },
     {
       "x": "2025-05-10",
       "y": 117.659,
-      "meet": "Metro Meet of Champions"
+      "meet": "<a href='../meets/44_all.html'>Metro Meet of Champions</a>"
     },
     {
       "x": "2025-05-21",
       "y": 116.8,
-      "meet": "Class 3A Region 3"
+      "meet": "<a href='../meets/46_all.html'>Class 3A Region 3</a>"
     },
     {
       "x": "2025-05-29",
       "y": 118.26,
-      "meet": "KHSAA Class 3A Track &amp; Field State Championship"
+      "meet": "<a href='../meets/47_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a>"
     },
     {
       "x": "2026-02-22",
@@ -349,356 +347,356 @@
     {
       "x": "2023-03-24",
       "y": 308.981,
-      "meet": "RunTown Distance Festival"
+      "meet": "<a href='../meets/64_all.html'>RunTown Distance Festival</a>"
     },
     {
       "x": "2023-03-30",
       "y": 329.41,
-      "meet": "Saint Xavier Time Trials"
+      "meet": "<a href='../meets/66_all.html'>Saint Xavier Time Trials</a>"
     },
     {
       "x": "2025-03-18",
       "y": 295.858,
-      "meet": "St Xavier JV Mini Meet 1 2025"
+      "meet": "<a href='../meets/33_all.html'>St Xavier JV Mini Meet 1 2025</a>"
     }
   ],
   "chart-3200_meters_2_miles": [
     {
       "x": "2023-02-24",
       "y": 659.46,
-      "meet": "Saint Xavier Time Trial"
+      "meet": "<a href='../meets/63_all.html'>Saint Xavier Time Trial</a>"
     },
     {
       "x": "2023-03-24",
       "y": 716.327,
-      "meet": "RunTown Distance Festival"
+      "meet": "<a href='../meets/64_all.html'>RunTown Distance Festival</a>"
     },
     {
       "x": "2023-05-06",
       "y": 665.1,
-      "meet": "Run for the Roses 3200M"
+      "meet": "<a href='../meets/72_all.html'>Run for the Roses 3200M</a>"
     },
     {
       "x": "2023-11-11",
       "y": 625.7,
-      "meet": "Lloyd White Memorial Distance Festival"
+      "meet": "<a href='../meets/548_all.html'>Lloyd White Memorial Distance Festival</a>"
     },
     {
       "x": "2024-03-23",
       "y": 646.07,
-      "meet": "OC Kick-Off Classic"
+      "meet": "<a href='../meets/51_all.html'>OC Kick-Off Classic</a>"
     },
     {
       "x": "2024-05-04",
       "y": 630.93,
-      "meet": "Run for the Roses 3200"
+      "meet": "<a href='../meets/58_all.html'>Run for the Roses 3200</a>"
     },
     {
       "x": "2025-05-03",
       "y": 605.5,
-      "meet": "Run for the Roses 3200"
+      "meet": "<a href='../meets/42_all.html'>Run for the Roses 3200</a>"
     }
   ],
   "chart-1500_meters": [
     {
       "x": "2024-02-17",
       "y": 281.72,
-      "meet": "KTCCCA President's Day Weekend Invite 2024"
+      "meet": "<a href='../meets/390_all.html'>KTCCCA President's Day Weekend Invite 2024</a>"
     }
   ],
   "chart-25_mile_run": [
     {
       "x": "2022-09-24",
       "y": 875.8,
-      "meet": "Palatine Meet of Champions Invitational"
+      "meet": "<a href='../meets/936_all.html'>Palatine Meet of Champions Invitational</a>"
     }
   ],
   "chart-3_miles": [
     {
       "x": "2025-09-27",
       "y": 993.9,
-      "meet": "Palatine Invitational - Meet of Champions"
+      "meet": "<a href='../meets/931_all.html'>Palatine Invitational - Meet of Champions</a>"
     }
   ],
   "chart-4x400_relay": [
     {
       "x": "2025-01-18",
       "y": 221.88,
-      "meet": "Ohio State HS Qualifier # 2"
+      "meet": "<a href='../meets/20_all.html'>Ohio State HS Qualifier # 2</a>"
     },
     {
       "x": "2026-01-17",
       "y": 233.86,
-      "meet": "Ohio State HS Qualifier # 1"
+      "meet": "<a href='../meets/254_all.html'>Ohio State HS Qualifier # 1</a>"
     }
   ],
   "chart-4x800_relay": [
     {
       "x": "2023-02-10",
       "y": 531.94,
-      "meet": "Eastern Indoors Invitational"
+      "meet": "<a href='../meets/30_all.html'>Eastern Indoors Invitational</a>"
     },
     {
       "x": "2023-03-04",
       "y": 534.61,
-      "meet": "KTCCCA State Indoor TF Classes AA and AAA 2023"
+      "meet": "<a href='../meets/31_all.html'>KTCCCA State Indoor TF Classes AA and AAA 2023</a>"
     },
     {
       "x": "2023-04-21",
       "y": 509.21,
-      "meet": "Eastern Relays"
+      "meet": "<a href='../meets/69_all.html'>Eastern Relays</a>"
     },
     {
       "x": "2023-05-24",
       "y": 492.97,
-      "meet": "KHSSA Class 3A Region 3"
+      "meet": "<a href='../meets/76_all.html'>KHSSA Class 3A Region 3</a>"
     },
     {
       "x": "2023-06-03",
       "y": 492.4,
-      "meet": "KHSAA Class 3A State Championship"
+      "meet": "<a href='../meets/77_all.html'>KHSAA Class 3A State Championship</a>"
     },
     {
       "x": "2024-01-20",
       "y": 543.24,
-      "meet": "Ohio State HS Qualifier # 2"
+      "meet": "<a href='../meets/23_all.html'>Ohio State HS Qualifier # 2</a>"
     },
     {
       "x": "2024-02-09",
       "y": 500.59,
-      "meet": "Eastern Indoors 2024"
+      "meet": "<a href='../meets/655_all.html'>Eastern Indoors 2024</a>"
     },
     {
       "x": "2024-03-02",
       "y": 520.84,
-      "meet": "KHSAA Class 3A Indoor State Track &amp; Field Championships"
+      "meet": "<a href='../meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a>"
     },
     {
       "x": "2024-03-15",
       "y": 509.82,
-      "meet": "adidas Track Nationals"
+      "meet": "<a href='../meets/28_all.html'>adidas Track Nationals</a>"
     },
     {
       "x": "2024-04-27",
       "y": 505.44,
-      "meet": "Coach Cooper - Brother Borgia TF Inv"
+      "meet": "<a href='../meets/56_all.html'>Coach Cooper - Brother Borgia TF Inv</a>"
     },
     {
       "x": "2024-05-02",
       "y": 509.51,
-      "meet": "Ballard HS TF Derby Invite"
+      "meet": "<a href='../meets/57_all.html'>Ballard HS TF Derby Invite</a>"
     },
     {
       "x": "2024-06-01",
       "y": 491.18,
-      "meet": "KHSAA Class 3A Track &amp; Field State Championship"
+      "meet": "<a href='../meets/62_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a>"
     },
     {
       "x": "2025-01-18",
       "y": 488.98,
-      "meet": "Ohio State HS Qualifier # 2"
+      "meet": "<a href='../meets/20_all.html'>Ohio State HS Qualifier # 2</a>"
     },
     {
       "x": "2025-01-26",
       "y": 537.13,
-      "meet": "The Games"
+      "meet": "<a href='../meets/21_all.html'>The Games</a>"
     },
     {
       "x": "2025-02-07",
       "y": 484.76,
-      "meet": "Eastern Indoors Invite"
+      "meet": "<a href='../meets/10_all.html'>Eastern Indoors Invite</a>"
     },
     {
       "x": "2025-02-15",
       "y": 499.56,
-      "meet": "KTCCCA Presidents Day Invitational"
+      "meet": "<a href='../meets/13_all.html'>KTCCCA Presidents Day Invitational</a>"
     },
     {
       "x": "2025-02-23",
       "y": 498.52,
-      "meet": "Louisville Indoor"
+      "meet": "<a href='../meets/14_all.html'>Louisville Indoor</a>"
     },
     {
       "x": "2025-03-04",
       "y": 487.48,
-      "meet": "KHSAA Indoor Track &amp; Field State Championships"
+      "meet": "<a href='../meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a>"
     },
     {
       "x": "2025-03-21",
       "y": 488.98,
-      "meet": "adidas Track Nationals"
+      "meet": "<a href='../meets/18_all.html'>adidas Track Nationals</a>"
     },
     {
       "x": "2025-04-12",
       "y": 515.39,
-      "meet": "Johnny Conn TF Invitational"
+      "meet": "<a href='../meets/36_all.html'>Johnny Conn TF Invitational</a>"
     },
     {
       "x": "2025-04-19",
       "y": 478.08,
-      "meet": "Eastern Relays"
+      "meet": "<a href='../meets/52_all.html'>Eastern Relays</a>"
     },
     {
       "x": "2025-05-10",
       "y": 490.54,
-      "meet": "Metro Meet of Champions"
+      "meet": "<a href='../meets/44_all.html'>Metro Meet of Champions</a>"
     },
     {
       "x": "2025-05-21",
       "y": 490.45,
-      "meet": "Class 3A Region 3"
+      "meet": "<a href='../meets/46_all.html'>Class 3A Region 3</a>"
     },
     {
       "x": "2025-05-29",
       "y": 482.08,
-      "meet": "KHSAA Class 3A Track &amp; Field State Championship"
+      "meet": "<a href='../meets/47_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a>"
     },
     {
       "x": "2025-06-22",
       "y": 474.8,
-      "meet": "New Balance Nationals Outdoor"
+      "meet": "<a href='../meets/48_all.html'>New Balance Nationals Outdoor</a>"
     }
   ],
   "chart-5000_meters": [
     {
       "x": "2022-08-20",
       "y": 1149.7,
-      "meet": "Central Kentucky Run for the Gold"
+      "meet": "<a href='../meets/694_all.html'>Central Kentucky Run for the Gold</a>"
     },
     {
       "x": "2022-08-27",
       "y": 1142.2,
-      "meet": "Tiger Run"
+      "meet": "<a href='../meets/1033_all.html'>Tiger Run</a>"
     },
     {
       "x": "2022-09-09",
       "y": 1167.7,
-      "meet": "Rumble Through the Jungle"
+      "meet": "<a href='../meets/959_all.html'>Rumble Through the Jungle</a>"
     },
     {
       "x": "2022-09-16",
       "y": 1145.9,
-      "meet": "Trinity / Valkyrie Invitational"
+      "meet": "<a href='../meets/1041_all.html'>Trinity / Valkyrie Invitational</a>"
     },
     {
       "x": "2022-09-30",
       "y": 1147.4,
-      "meet": "Louisville XC Classic"
+      "meet": "<a href='../meets/874_all.html'>Louisville XC Classic</a>"
     },
     {
       "x": "2022-10-08",
       "y": 1126.6,
-      "meet": "Haunted Woods Classic"
+      "meet": "<a href='../meets/768_all.html'>Haunted Woods Classic</a>"
     },
     {
       "x": "2022-10-14",
       "y": 1152.7,
-      "meet": "KTCCCA Meet of Champions"
+      "meet": "<a href='../meets/803_all.html'>KTCCCA Meet of Champions</a>"
     },
     {
       "x": "2022-10-20",
       "y": 1112.7,
-      "meet": "Metro JV Regional"
+      "meet": "<a href='../meets/879_all.html'>Metro JV Regional</a>"
     },
     {
       "x": "2023-08-19",
       "y": 1037.6,
-      "meet": "Central Kentucky Run for the Gold"
+      "meet": "<a href='../meets/695_all.html'>Central Kentucky Run for the Gold</a>"
     },
     {
       "x": "2023-08-26",
       "y": 1115.2,
-      "meet": "STXXC Tiger Run"
+      "meet": "<a href='../meets/976_all.html'>STXXC Tiger Run</a>"
     },
     {
       "x": "2023-09-08",
       "y": 1082.1,
-      "meet": "Rumble Through the Jungle"
+      "meet": "<a href='../meets/960_all.html'>Rumble Through the Jungle</a>"
     },
     {
       "x": "2023-09-15",
       "y": 1052.3,
-      "meet": "The Southern Showcase powered by Huntsville High"
+      "meet": "<a href='../meets/1012_all.html'>The Southern Showcase powered by Huntsville High</a>"
     },
     {
       "x": "2023-09-29",
       "y": 1128.9,
-      "meet": "Louisville XC Classic"
+      "meet": "<a href='../meets/875_all.html'>Louisville XC Classic</a>"
     },
     {
       "x": "2023-10-19",
       "y": 1066.8,
-      "meet": "Metro JV Regional"
+      "meet": "<a href='../meets/880_all.html'>Metro JV Regional</a>"
     },
     {
       "x": "2023-12-02",
       "y": 1115.8,
-      "meet": "RunningLane Cross Country Championships"
+      "meet": "<a href='../meets/975_all.html'>RunningLane Cross Country Championships</a>"
     },
     {
       "x": "2024-08-24",
       "y": 1022.8,
-      "meet": "St Xavier Tiger Run"
+      "meet": "<a href='../meets/981_all.html'>St Xavier Tiger Run</a>"
     },
     {
       "x": "2024-09-06",
       "y": 1051.9,
-      "meet": "Rumble Through the Jungle"
+      "meet": "<a href='../meets/961_all.html'>Rumble Through the Jungle</a>"
     },
     {
       "x": "2024-09-13",
       "y": 1056.0,
-      "meet": "The Southern Showcase - Powered by Huntsville High School"
+      "meet": "<a href='../meets/1011_all.html'>The Southern Showcase - Powered by Huntsville High School</a>"
     },
     {
       "x": "2024-09-20",
       "y": 1013.6,
-      "meet": "Trinity / Valkyrie Invitational"
+      "meet": "<a href='../meets/1042_all.html'>Trinity / Valkyrie Invitational</a>"
     },
     {
       "x": "2024-10-04",
       "y": 1055.6,
-      "meet": "Louisville XC Classic"
+      "meet": "<a href='../meets/876_all.html'>Louisville XC Classic</a>"
     },
     {
       "x": "2024-10-12",
       "y": 1017.2,
-      "meet": "Haunted Woods Classic"
+      "meet": "<a href='../meets/770_all.html'>Haunted Woods Classic</a>"
     },
     {
       "x": "2024-10-26",
       "y": 1017.6,
-      "meet": "KHSAA Region 3 Class 3A"
+      "meet": "<a href='../meets/779_all.html'>KHSAA Region 3 Class 3A</a>"
     },
     {
       "x": "2024-11-02",
       "y": 1051.2,
-      "meet": "KHSAA State Cross Country Championships"
+      "meet": "<a href='../meets/789_all.html'>KHSAA State Cross Country Championships</a>"
     },
     {
       "x": "2025-08-30",
       "y": 999.3,
-      "meet": "STXXC Tiger Run"
+      "meet": "<a href='../meets/977_all.html'>STXXC Tiger Run</a>"
     },
     {
       "x": "2025-09-19",
       "y": 987.2,
-      "meet": "Trinity / Valkyrie Invitational"
+      "meet": "<a href='../meets/1043_all.html'>Trinity / Valkyrie Invitational</a>"
     },
     {
       "x": "2025-10-03",
       "y": 1015.8,
-      "meet": "Louisville XC Classic"
+      "meet": "<a href='../meets/877_all.html'>Louisville XC Classic</a>"
     },
     {
       "x": "2025-10-25",
       "y": 996.6,
-      "meet": "KHSAA Region 3 Class 3A"
+      "meet": "<a href='../meets/780_all.html'>KHSAA Region 3 Class 3A</a>"
     },
     {
       "x": "2025-11-01",
       "y": 1057.8,
-      "meet": "2025 KHSAA State Cross Country Championships"
+      "meet": "<a href='../meets/676_all.html'>2025 KHSAA State Cross Country Championships</a>"
     }
   ]
 };
@@ -749,8 +747,8 @@
                     return meetName;
                   },
                   label: function(context) {
-                    const dt = new Date(context.parsed.x);
-                    const dateStr = dt.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                    const date = new Date(context.parsed.x);
+                    const dateStr = date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
                     return `Date: ${dateStr}\nTime: ${formatChartTime(context.parsed.y)}`;
                   }
                 }
