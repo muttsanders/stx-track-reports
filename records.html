@@ -9,166 +9,140 @@
       a { color: #0b5fff; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .muted { color: #666; }
+
       .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
-      .titlewrap { min-width: 240px; }
-      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
-      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
-      .subline { margin: 0; }
-      .athlete-profile-links { margin: 4px 0 8px 0; font-size: 14px; font-weight: 700; }
-      .athlete-profile-links a { margin-right: 15px; }
-      .meet-links { margin: 4px 0 10px 0; font-size: 14px; font-weight: 700; }
-      .meet-links a { margin-right: 15px; }
+      .meetname { font-size: 28px; font-weight: 800; margin: 0 0 6px 0; }
+      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; }
+
       .nav { text-align: right; white-space: nowrap; font-size: 14px; }
       .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
       .nav a.records-link, .nav span.records-link,
       .nav a.depth-link, .nav span.depth-link,
-      .nav a.pre-race-link, .nav span.pre-race-link {
+      .nav a.pre-race-link, .nav span.pre-race-link,
+      .nav a.comparison-link, .nav span.comparison-link {
         font-size: 16px;
         font-weight: 700;
         margin-left: 12px;
       }
       .nav span { color: #333; }
+
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
       .twocol { display:flex; gap:16px; align-items:flex-start; }
       .col { flex: 1 1 0; min-width: 320px; }
       @media (max-width: 900px) { .twocol { flex-direction: column; } }
+
       .table-wrap { overflow-x: auto; max-width: 100%; }
       table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
       th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
       th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
       tr:nth-child(even) { background: #fafafa; }
-      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
-      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
-      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
-      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
-      .stx-team-highlight { background-color: #fcf8e3; }
-      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
+      .rankcell { font-weight: 800; }
+
+      .section-header { margin: 18px 0 0 0; font-size: 22px; font-weight: 900; }
+      .section-note { margin: 4px 0 0 0; }
+
       .footer { margin-top: 24px; color: #777; font-size: 12px; }
       code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
-      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
-      .filterbar label { cursor:pointer; }
-      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
-      .splits-col { display: none; }
-      .show-splits .splits-col { display: table-cell; }
-      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
-      .tabbtn { border:1px solid #ddd; background:#fff; border-radius: 999px; padding:6px 10px; font-size: 13px; cursor:pointer; }
-      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
-      .tabpane { display:none; }
-      .tabpane.active { display:block; }
-      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
-      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
-      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
-      .ath-col h3 { margin: 0 0 6px 0; }
-      .rankcell { font-weight: 800; }
-      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
-      .hide-graphs .chart-container { display: none; }
-
-      /* Meet page filter: hide non-StX rows when toggled */
-      body.stx-only .non-stx-row { display: none; }
-
-      /* On athlete pages, we still show non-StX history for allow-listed athletes */
-      .non-stx-row { opacity: 0.80; }
     </style>
     
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
 
     <div class="topbar">
-      <div class="titlewrap">
+      <div>
         <div class="meetname">StX Records (development)</div>
         <div class="warning-big">DATA NOT COMPLETE</div>
-        <p class="subline muted">
-          Top 10 per event • Non-relay: best (min) per athlete • Relay: best team time per meet • Team = <b>St Xavier (KY)</b> • <b>All-time</b>
-          <br><span class="muted">If tied, the oldest occurrence is shown (earliest date, then meet name).</span>
+        <p class="muted">
+          Top 10 per event • Non-relay: best (min) per athlete • Relay: best team time per meet •
+          Team = <b>St Xavier (KY)</b> • <b>All-time</b><br>
+          If tied, the oldest occurrence is shown (earliest date, then meet name).
         </p>
       </div>
       <div class="nav">
         <a class='home-link' href='index.html'>Home</a> <span class='records-link'>StX Records</span> <a class='depth-link' href='depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='pre_race.html'>Pre-Race</a> <a class='comparison-link' href='athlete_comparison.html'>Athlete Comparison</a>
       </div>
     </div>
-    
+    <h2 class='section-header'>Track Records</h2>
         <div class="card">
-          <h2>800 Meters</h2>
+          <h3>800 Meters</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>1:55.4</td><td>2026</td><td><a href='meets/358_all.html'>Southeast Showdown</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/geoffrey_spencer.html'>Geoffrey Spencer</a></td><td>1:56.9</td><td>2009</td><td><a href='meets/365_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/roman_schrader.html'>Roman Schrader</a></td><td>1:56.9</td><td>2022</td><td><a href='meets/649_all.html'>BSC Indoor Icebreaker 2022</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/thomas_cave.html'>Thomas Cave</a></td><td>1:56.9</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/eoin_corbett.html'>Eoin Corbett</a></td><td>1:57.7</td><td>2019</td><td><a href='meets/217_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/matt_hillenbrand.html'>Matt Hillenbrand</a></td><td>1:58.0</td><td>2009</td><td><a href='meets/365_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/anthony_passafiume.html'>Anthony Passafiume</a></td><td>1:59.1</td><td>2025</td><td><a href='meets/18_all.html'>adidas Track Nationals</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/austin_carter.html'>Austin Carter</a></td><td>1:59.5</td><td>2010</td><td><a href='meets/388_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/nick_reader.html'>Nick Reader</a></td><td>1:59.6</td><td>2012</td><td><a href='meets/233_all.html'>UK High School Invitational
-</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/matthew_thomas.html'>Matthew Thomas</a></td><td>1:59.6</td><td>2016</td><td><a href='meets/316_all.html'>Indiana Open Indoor Meet</a></td></tr></tbody></table></div>
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Nick Sanders</td><td>1:55.4</td><td>2026</td><td><a href='meets/358_all.html'>Southeast Showdown</a></td></tr><tr><td class="rankcell">2</td><td>Geoffrey Spencer</td><td>1:56.9</td><td>2009</td><td><a href='meets/365_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">3</td><td>Roman Schrader</td><td>1:56.9</td><td>2022</td><td><a href='meets/649_all.html'>BSC Indoor Icebreaker 2022</a></td></tr><tr><td class="rankcell">4</td><td>Thomas Cave</td><td>1:56.9</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">5</td><td>Eoin Corbett</td><td>1:57.7</td><td>2019</td><td><a href='meets/217_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">6</td><td>Matt Hillenbrand</td><td>1:58.0</td><td>2009</td><td><a href='meets/365_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">7</td><td>Anthony Passafiume</td><td>1:59.1</td><td>2025</td><td><a href='meets/18_all.html'>adidas Track Nationals</a></td></tr><tr><td class="rankcell">8</td><td>Austin Carter</td><td>1:59.5</td><td>2010</td><td><a href='meets/388_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">9</td><td>Nick Reader</td><td>1:59.6</td><td>2012</td><td><a href='meets/233_all.html'>UK High School Invitational
+</a></td></tr><tr><td class="rankcell">10</td><td>Matthew Thomas</td><td>1:59.6</td><td>2016</td><td><a href='meets/316_all.html'>Indiana Open Indoor Meet</a></td></tr></tbody></table></div>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>1:52.9</td><td>2003</td><td><a href='meets/328_all.html'>Male Bulldog Classic</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/matt_hillenbrand.html'>Matt Hillenbrand</a></td><td>1:54.3</td><td>2009</td><td><a href='meets/573_all.html'>Nike Outdoor Nationals</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/william_mulloy.html'>William Mulloy</a></td><td>1:54.8</td><td>2014</td><td><a href='meets/172_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/michael_reader.html'>Michael Reader</a></td><td>1:54.8</td><td>1984</td><td><a href='meets/345_all.html'>Iroquois Sectional</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>1:54.8</td><td>2022</td><td><a href='meets/88_all.html'>Brother Borgia/Coach Cooper Invitational</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/michael_sivori.html'>Michael Sivori</a></td><td>1:54.9</td><td>1984</td><td><a href='meets/345_all.html'>Iroquois Sectional</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/chuck_roberts.html'>Chuck Roberts</a></td><td>1:55.2</td><td>1965</td><td><a href='meets/363_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/austin_carter.html'>Austin Carter</a></td><td>1:55.6</td><td>2011</td><td><a href='meets/266_all.html'>Region 3 Class AAA</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/david_buechler.html'>David Buechler</a></td><td>1:55.6</td><td>1974</td><td><a href='meets/291_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/thomas_cave.html'>Thomas Cave</a></td><td>1:55.9</td><td>2013</td><td><a href='meets/175_all.html'>Eastern Relays - Day #2</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Bobby Curtis</td><td>1:52.9</td><td>2003</td><td><a href='meets/328_all.html'>Male Bulldog Classic</a></td></tr><tr><td class="rankcell">2</td><td>Matt Hillenbrand</td><td>1:54.3</td><td>2009</td><td><a href='meets/573_all.html'>Nike Outdoor Nationals</a></td></tr><tr><td class="rankcell">3</td><td>William Mulloy</td><td>1:54.8</td><td>2014</td><td><a href='meets/172_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">4</td><td>Michael Reader</td><td>1:54.8</td><td>1984</td><td><a href='meets/345_all.html'>Iroquois Sectional</a></td></tr><tr><td class="rankcell">5</td><td>Sami Hattab</td><td>1:54.8</td><td>2022</td><td><a href='meets/88_all.html'>Brother Borgia/Coach Cooper Invitational</a></td></tr><tr><td class="rankcell">6</td><td>Michael Sivori</td><td>1:54.9</td><td>1984</td><td><a href='meets/345_all.html'>Iroquois Sectional</a></td></tr><tr><td class="rankcell">7</td><td>Chuck Roberts</td><td>1:55.2</td><td>1965</td><td><a href='meets/363_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">8</td><td>Austin Carter</td><td>1:55.6</td><td>2011</td><td><a href='meets/266_all.html'>Region 3 Class AAA</a></td></tr><tr><td class="rankcell">9</td><td>David Buechler</td><td>1:55.6</td><td>1974</td><td><a href='meets/291_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">10</td><td>Thomas Cave</td><td>1:55.9</td><td>2013</td><td><a href='meets/175_all.html'>Eastern Relays - Day #2</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>1600 Meters</h2>
+          <h3>1600 Meters</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>4:13.5</td><td>2025</td><td><a href='meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/sam_lewis.html'>Sam Lewis</a></td><td>4:24.0</td><td>2013</td><td><a href='meets/231_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/william_mulloy.html'>William Mulloy</a></td><td>4:26.1</td><td>2014</td><td><a href='meets/230_all.html'>Indiana Track Club High School Open</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/jackson_carnes.html'>Jackson Carnes</a></td><td>4:27.1</td><td>2009</td><td><a href='meets/391_all.html'>Indiana TC Indoor Open</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/patrick_schaefer.html'>Patrick Schaefer</a></td><td>4:27.2</td><td>2018</td><td><a href='meets/314_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/matthew_thomas.html'>Matthew Thomas</a></td><td>4:27.4</td><td>2015</td><td><a href='meets/229_all.html'>Indiana Track Club High School Open</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>4:29.4</td><td>2013</td><td><a href='meets/231_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/matthew_frick.html'>Matthew Frick</a></td><td>4:29.5</td><td>2025</td><td><a href='meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/nick_reader.html'>Nick Reader</a></td><td>4:29.7</td><td>2013</td><td><a href='meets/231_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/cooper_marchal.html'>Cooper Marchal</a></td><td>4:30.3</td><td>2018</td><td><a href='meets/314_all.html'>Indiana Track Club Open</a></td></tr></tbody></table></div>
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Nick Sanders</td><td>4:13.5</td><td>2025</td><td><a href='meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td></tr><tr><td class="rankcell">2</td><td>Sam Lewis</td><td>4:24.0</td><td>2013</td><td><a href='meets/231_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">3</td><td>William Mulloy</td><td>4:26.1</td><td>2014</td><td><a href='meets/230_all.html'>Indiana Track Club High School Open</a></td></tr><tr><td class="rankcell">4</td><td>Jackson Carnes</td><td>4:27.1</td><td>2009</td><td><a href='meets/391_all.html'>Indiana TC Indoor Open</a></td></tr><tr><td class="rankcell">5</td><td>Patrick Schaefer</td><td>4:27.2</td><td>2018</td><td><a href='meets/314_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">6</td><td>Matthew Thomas</td><td>4:27.4</td><td>2015</td><td><a href='meets/229_all.html'>Indiana Track Club High School Open</a></td></tr><tr><td class="rankcell">7</td><td>Connor Sheryak</td><td>4:29.4</td><td>2013</td><td><a href='meets/231_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">8</td><td>Matthew Frick</td><td>4:29.5</td><td>2025</td><td><a href='meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td></tr><tr><td class="rankcell">9</td><td>Nick Reader</td><td>4:29.7</td><td>2013</td><td><a href='meets/231_all.html'>Indiana Track Club Open</a></td></tr><tr><td class="rankcell">10</td><td>Cooper Marchal</td><td>4:30.3</td><td>2018</td><td><a href='meets/314_all.html'>Indiana Track Club Open</a></td></tr></tbody></table></div>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>4:08.3</td><td>2002</td><td><a href='meets/203_all.html'>Arcadia Invitational</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>4:09.2</td><td>2025</td><td><a href='meets/47_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>4:13.4</td><td>2022</td><td><a href='meets/93_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/matthew_thomas.html'>Matthew Thomas</a></td><td>4:14.1</td><td>2016</td><td><a href='meets/163_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>4:15.2</td><td>2021</td><td><a href='meets/110_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/brian_long.html'>Brian Long</a></td><td>4:15.7</td><td>2007</td><td><a href='meets/362_all.html'>Bardstown/St. Xavier/Trinity</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/joseph_buechler.html'>Joseph Buechler</a></td><td>4:17.3</td><td>1980</td><td><a href='meets/263_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/joe_butler.html'>Joe Butler</a></td><td>4:17.4</td><td>1985</td><td><a href='meets/284_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/grady_shiflet.html'>Grady Shiflet</a></td><td>4:18.0</td><td>2019</td><td><a href='meets/124_all.html'>KHSAA 3A State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/william_mulloy.html'>William Mulloy</a></td><td>4:18.4</td><td>2014</td><td><a href='meets/172_all.html'>Kentucky State Track Meet</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Bobby Curtis</td><td>4:08.3</td><td>2002</td><td><a href='meets/203_all.html'>Arcadia Invitational</a></td></tr><tr><td class="rankcell">2</td><td>Nick Sanders</td><td>4:09.2</td><td>2025</td><td><a href='meets/47_all.html'>KHSAA Class 3A Track &amp; Field State Championship</a></td></tr><tr><td class="rankcell">3</td><td>Sami Hattab</td><td>4:13.4</td><td>2022</td><td><a href='meets/93_all.html'>KHSAA Class 3A State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">4</td><td>Matthew Thomas</td><td>4:14.1</td><td>2016</td><td><a href='meets/163_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">5</td><td>Nolan Hester</td><td>4:15.2</td><td>2021</td><td><a href='meets/110_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">6</td><td>Brian Long</td><td>4:15.7</td><td>2007</td><td><a href='meets/362_all.html'>Bardstown/St. Xavier/Trinity</a></td></tr><tr><td class="rankcell">7</td><td>Joseph Buechler</td><td>4:17.3</td><td>1980</td><td><a href='meets/263_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">8</td><td>Joe Butler</td><td>4:17.4</td><td>1985</td><td><a href='meets/284_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">9</td><td>Grady Shiflet</td><td>4:18.0</td><td>2019</td><td><a href='meets/124_all.html'>KHSAA 3A State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">10</td><td>William Mulloy</td><td>4:18.4</td><td>2014</td><td><a href='meets/172_all.html'>Kentucky State Track Meet</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>1 Mile</h2>
+          <h3>1 Mile</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>4:10.2</td><td>2003</td><td><a href='meets/368_all.html'>Nike Indoor Classic</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/william_mulloy.html'>William Mulloy</a></td><td>4:14.2</td><td>2014</td><td><a href='meets/369_all.html'>New Balance Nationals Indoor</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>4:16.8</td><td>2025</td><td><a href='meets/18_all.html'>adidas Track Nationals</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/sam_lewis.html'>Sam Lewis</a></td><td>4:18.4</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/grady_shiflet.html'>Grady Shiflet</a></td><td>4:18.6</td><td>2019</td><td><a href='meets/217_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/austin_carter.html'>Austin Carter</a></td><td>4:19.9</td><td>2011</td><td><a href='meets/370_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/thomas_davis.html'>Thomas Davis</a></td><td>4:21.6</td><td>2006</td><td><a href='meets/371_all.html'>UK High School Indoor Invitational</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/matthew_thomas.html'>Matthew Thomas</a></td><td>4:21.6</td><td>2016</td><td><a href='meets/226_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/nick_reader.html'>Nick Reader</a></td><td>4:21.7</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>4:22.3</td><td>2023</td><td><a href='meets/30_all.html'>Eastern Indoors Invitational</a></td></tr></tbody></table></div>
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Bobby Curtis</td><td>4:10.2</td><td>2003</td><td><a href='meets/368_all.html'>Nike Indoor Classic</a></td></tr><tr><td class="rankcell">2</td><td>William Mulloy</td><td>4:14.2</td><td>2014</td><td><a href='meets/369_all.html'>New Balance Nationals Indoor</a></td></tr><tr><td class="rankcell">3</td><td>Nick Sanders</td><td>4:16.8</td><td>2025</td><td><a href='meets/18_all.html'>adidas Track Nationals</a></td></tr><tr><td class="rankcell">4</td><td>Sam Lewis</td><td>4:18.4</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">5</td><td>Grady Shiflet</td><td>4:18.6</td><td>2019</td><td><a href='meets/217_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">6</td><td>Austin Carter</td><td>4:19.9</td><td>2011</td><td><a href='meets/370_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">7</td><td>Thomas Davis</td><td>4:21.6</td><td>2006</td><td><a href='meets/371_all.html'>UK High School Indoor Invitational</a></td></tr><tr><td class="rankcell">8</td><td>Matthew Thomas</td><td>4:21.6</td><td>2016</td><td><a href='meets/226_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">9</td><td>Nick Reader</td><td>4:21.7</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">10</td><td>Sami Hattab</td><td>4:22.3</td><td>2023</td><td><a href='meets/30_all.html'>Eastern Indoors Invitational</a></td></tr></tbody></table></div>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>4:07.1</td><td>2003</td><td><a href='meets/356_all.html'>Golden West Invitational</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>4:11.2</td><td>2022</td><td><a href='meets/89_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/william_mulloy.html'>William Mulloy</a></td><td>4:12.4</td><td>2014</td><td><a href='meets/353_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/matthew_thomas.html'>Matthew Thomas</a></td><td>4:14.1</td><td>2016</td><td><a href='meets/160_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/paul_kinny.html'>Paul Kinny</a></td><td>4:15.1</td><td>1975</td><td><a href='meets/346_all.html'>St. X Regional</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/david_buechler.html'>David Buechler</a></td><td>4:15.5</td><td>1974</td><td><a href='meets/535_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>4:15.6</td><td>2025</td><td><a href='meets/41_all.html'>Dream Mile 2025</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/grady_shiflet.html'>Grady Shiflet</a></td><td>4:18.6</td><td>2004</td><td><a href='meets/271_all.html'>Class 3A Regions</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/thomas_cave.html'>Thomas Cave</a></td><td>4:18.6</td><td>2013</td><td><a href='meets/349_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>4:18.8</td><td>2021</td><td><a href='meets/103_all.html'>Kentucky Dream Mile</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Bobby Curtis</td><td>4:07.1</td><td>2003</td><td><a href='meets/356_all.html'>Golden West Invitational</a></td></tr><tr><td class="rankcell">2</td><td>Sami Hattab</td><td>4:11.2</td><td>2022</td><td><a href='meets/89_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">3</td><td>William Mulloy</td><td>4:12.4</td><td>2014</td><td><a href='meets/353_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">4</td><td>Matthew Thomas</td><td>4:14.1</td><td>2016</td><td><a href='meets/160_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">5</td><td>Paul Kinny</td><td>4:15.1</td><td>1975</td><td><a href='meets/346_all.html'>St. X Regional</a></td></tr><tr><td class="rankcell">6</td><td>David Buechler</td><td>4:15.5</td><td>1974</td><td><a href='meets/535_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">7</td><td>Nick Sanders</td><td>4:15.6</td><td>2025</td><td><a href='meets/41_all.html'>Dream Mile 2025</a></td></tr><tr><td class="rankcell">8</td><td>Grady Shiflet</td><td>4:18.6</td><td>2004</td><td><a href='meets/271_all.html'>Class 3A Regions</a></td></tr><tr><td class="rankcell">9</td><td>Thomas Cave</td><td>4:18.6</td><td>2013</td><td><a href='meets/349_all.html'>Kentucky Dream Mile</a></td></tr><tr><td class="rankcell">10</td><td>Nolan Hester</td><td>4:18.8</td><td>2021</td><td><a href='meets/103_all.html'>Kentucky Dream Mile</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>3200 Meters</h2>
+          <h3>3200 Meters</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>9:16.8</td><td>2025</td><td><a href='meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/matthew_thomas.html'>Matthew Thomas</a></td><td>9:40.9</td><td>2015</td><td><a href='meets/394_all.html'>Brother Borgia/Coach Cooper Invitational 2015</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/sam_schweickhardt.html'>Sam Schweickhardt</a></td><td>9:54.7</td><td>2025</td><td><a href='meets/14_all.html'>Louisville Indoor</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/matthew_wantland.html'>Matthew Wantland</a></td><td>9:59.5</td><td>2021</td><td><a href='meets/313_all.html'>KTCCCA Age Group Meet Afternoon Session</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/joshua_striegel.html'>Joshua Striegel</a></td><td>10:00.9</td><td>2021</td><td><a href='meets/313_all.html'>KTCCCA Age Group Meet Afternoon Session</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/tristan_hindorff.html'>Tristan Hindorff</a></td><td>10:03.0</td><td>2024</td><td><a href='meets/23_all.html'>Ohio State HS Qualifier # 2</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/matthew_frick.html'>Matthew Frick</a></td><td>10:06.4</td><td>2025</td><td><a href='meets/20_all.html'>Ohio State HS Qualifier # 2</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/ian_mccaslin.html'>Ian McCaslin</a></td><td>10:07.5</td><td>2010</td><td><a href='meets/372_all.html'>Ohio State University Buckeye High School Qualifier</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/baron_staab.html'>Baron Staab</a></td><td>10:08.6</td><td>2025</td><td><a href='meets/13_all.html'>KTCCCA Presidents Day Invitational</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/ian_obryan.html'>Ian O'Bryan</a></td><td>10:12.2</td><td>2026</td><td><a href='meets/1076_all.html'>HS CLassic Field Results on Milesplit</a></td></tr></tbody></table></div>
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Nick Sanders</td><td>9:16.8</td><td>2025</td><td><a href='meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td></tr><tr><td class="rankcell">2</td><td>Matthew Thomas</td><td>9:40.9</td><td>2015</td><td><a href='meets/394_all.html'>Brother Borgia/Coach Cooper Invitational 2015</a></td></tr><tr><td class="rankcell">3</td><td>Sam Schweickhardt</td><td>9:54.7</td><td>2025</td><td><a href='meets/14_all.html'>Louisville Indoor</a></td></tr><tr><td class="rankcell">4</td><td>Matthew Wantland</td><td>9:59.5</td><td>2021</td><td><a href='meets/313_all.html'>KTCCCA Age Group Meet Afternoon Session</a></td></tr><tr><td class="rankcell">5</td><td>Joshua Striegel</td><td>10:00.9</td><td>2021</td><td><a href='meets/313_all.html'>KTCCCA Age Group Meet Afternoon Session</a></td></tr><tr><td class="rankcell">6</td><td>Tristan Hindorff</td><td>10:03.0</td><td>2024</td><td><a href='meets/23_all.html'>Ohio State HS Qualifier # 2</a></td></tr><tr><td class="rankcell">7</td><td>Matthew Frick</td><td>10:06.4</td><td>2025</td><td><a href='meets/20_all.html'>Ohio State HS Qualifier # 2</a></td></tr><tr><td class="rankcell">8</td><td>Ian McCaslin</td><td>10:07.5</td><td>2010</td><td><a href='meets/372_all.html'>Ohio State University Buckeye High School Qualifier</a></td></tr><tr><td class="rankcell">9</td><td>Baron Staab</td><td>10:08.6</td><td>2025</td><td><a href='meets/13_all.html'>KTCCCA Presidents Day Invitational</a></td></tr><tr><td class="rankcell">10</td><td>Ian O'Bryan</td><td>10:12.2</td><td>2026</td><td><a href='meets/1076_all.html'>HS CLassic Field Results on Milesplit</a></td></tr></tbody></table></div>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>8:48.4</td><td>2003</td><td><a href='meets/201_all.html'>Arcadia Invitational</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>9:03.8</td><td>2021</td><td><a href='meets/105_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>9:12.1</td><td>2022</td><td><a href='meets/86_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/zack_beavin.html'>Zack Beavin</a></td><td>9:13.1</td><td>2012</td><td><a href='meets/179_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>9:14.0</td><td>2025</td><td><a href='meets/32_all.html'>Lloyd White Memorial Distance Festival</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/christopher_striegel.html'>Christopher Striegel</a></td><td>9:14.9</td><td>2014</td><td><a href='meets/172_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>9:14.9</td><td>2012</td><td><a href='meets/179_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/brian_long.html'>Brian Long</a></td><td>9:16.2</td><td>2007</td><td><a href='meets/361_all.html'>Taco Bell Classic</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/scott_mcclain.html'>Scott McClain</a></td><td>9:19.0</td><td>2006</td><td><a href='meets/342_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/zach_larkin.html'>Zach Larkin</a></td><td>9:19.6</td><td>2018</td><td><a href='meets/134_all.html'>Eastern Relays</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Bobby Curtis</td><td>8:48.4</td><td>2003</td><td><a href='meets/201_all.html'>Arcadia Invitational</a></td></tr><tr><td class="rankcell">2</td><td>Nolan Hester</td><td>9:03.8</td><td>2021</td><td><a href='meets/105_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">3</td><td>Sami Hattab</td><td>9:12.1</td><td>2022</td><td><a href='meets/86_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">4</td><td>Zack Beavin</td><td>9:13.1</td><td>2012</td><td><a href='meets/179_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">5</td><td>Nick Sanders</td><td>9:14.0</td><td>2025</td><td><a href='meets/32_all.html'>Lloyd White Memorial Distance Festival</a></td></tr><tr><td class="rankcell">6</td><td>Christopher Striegel</td><td>9:14.9</td><td>2014</td><td><a href='meets/172_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">7</td><td>Connor Sheryak</td><td>9:14.9</td><td>2012</td><td><a href='meets/179_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">8</td><td>Brian Long</td><td>9:16.2</td><td>2007</td><td><a href='meets/361_all.html'>Taco Bell Classic</a></td></tr><tr><td class="rankcell">9</td><td>Scott McClain</td><td>9:19.0</td><td>2006</td><td><a href='meets/342_all.html'>Eastern Relays</a></td></tr><tr><td class="rankcell">10</td><td>Zach Larkin</td><td>9:19.6</td><td>2018</td><td><a href='meets/134_all.html'>Eastern Relays</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>2 Miles</h2>
+          <h3>2 Miles</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>9:15.7</td><td>2025</td><td><a href='meets/18_all.html'>adidas Track Nationals</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/brian_long.html'>Brian Long</a></td><td>9:16.5</td><td>2007</td><td><a href='meets/240_all.html'>National Scholastic Indoor Championships</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/zach_beavin.html'>Zach Beavin</a></td><td>9:21.6</td><td>2012</td><td><a href='meets/234_all.html'>New Balance Indoor Nationals</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/chris_striegel.html'>Chris Striegel</a></td><td>9:21.8</td><td>2014</td><td><a href='meets/373_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>9:24.4</td><td>2021</td><td><a href='meets/210_all.html'>Louisville Indoor Games</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/patrick_schaefer.html'>Patrick Schaefer</a></td><td>9:25.9</td><td>2018</td><td><a href='meets/220_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>9:27.6</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/scott_mcclain.html'>Scott McClain</a></td><td>9:31.0</td><td>2006</td><td><a href='meets/371_all.html'>UK High School Indoor Invitational</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/zach_larkin.html'>Zach Larkin</a></td><td>9:32.5</td><td>2018</td><td><a href='meets/219_all.html'>Vanderbilt HS Indoor Invitational</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/christopher_striegel.html'>Christopher Striegel</a></td><td>9:33.1</td><td>2014</td><td><a href='meets/635_all.html'>Wildcat Classic</a></td></tr></tbody></table></div>
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Nick Sanders</td><td>9:15.7</td><td>2025</td><td><a href='meets/18_all.html'>adidas Track Nationals</a></td></tr><tr><td class="rankcell">2</td><td>Brian Long</td><td>9:16.5</td><td>2007</td><td><a href='meets/240_all.html'>National Scholastic Indoor Championships</a></td></tr><tr><td class="rankcell">3</td><td>Zach Beavin</td><td>9:21.6</td><td>2012</td><td><a href='meets/234_all.html'>New Balance Indoor Nationals</a></td></tr><tr><td class="rankcell">4</td><td>Chris Striegel</td><td>9:21.8</td><td>2014</td><td><a href='meets/373_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">5</td><td>Nolan Hester</td><td>9:24.4</td><td>2021</td><td><a href='meets/210_all.html'>Louisville Indoor Games</a></td></tr><tr><td class="rankcell">6</td><td>Patrick Schaefer</td><td>9:25.9</td><td>2018</td><td><a href='meets/220_all.html'>University of Kentucky HS Invitational</a></td></tr><tr><td class="rankcell">7</td><td>Connor Sheryak</td><td>9:27.6</td><td>2013</td><td><a href='meets/366_all.html'>UK High School Invitational</a></td></tr><tr><td class="rankcell">8</td><td>Scott McClain</td><td>9:31.0</td><td>2006</td><td><a href='meets/371_all.html'>UK High School Indoor Invitational</a></td></tr><tr><td class="rankcell">9</td><td>Zach Larkin</td><td>9:32.5</td><td>2018</td><td><a href='meets/219_all.html'>Vanderbilt HS Indoor Invitational</a></td></tr><tr><td class="rankcell">10</td><td>Christopher Striegel</td><td>9:33.1</td><td>2014</td><td><a href='meets/635_all.html'>Wildcat Classic</a></td></tr></tbody></table></div>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/joseph_buechler.html'>Joseph Buechler</a></td><td>9:09.7</td><td>1980</td><td><a href='meets/364_all.html'>Atlanta Track Classic</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/chris_striegel.html'>Chris Striegel</a></td><td>9:22.9</td><td>2014</td><td><a href='meets/169_all.html'>Mobile Challenge of Champions</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/christopher_striegel.html'>Christopher Striegel</a></td><td>9:22.9</td><td>2014</td><td><a href='meets/169_all.html'>Mobile Challenge of Champions</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>9:28.1</td><td>2021</td><td><a href='meets/111_all.html'>The Outdoor Nationals</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/paul_kinny.html'>Paul Kinny</a></td><td>9:31.2</td><td>1974</td><td><a href='meets/535_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/jackson_carnes.html'>Jackson Carnes</a></td><td>9:33.8</td><td>2009</td><td><a href='meets/556_all.html'>Mobile Challenge of Champions (Invitational Division)</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>9:35.0</td><td>2022</td><td><a href='meets/265_all.html'>New Balance Nationals Outdoor</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/zach_larkin.html'>Zach Larkin</a></td><td>9:36.4</td><td>2018</td><td><a href='meets/130_all.html'>Mobile Challenge of Champions</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/mark_grundy.html'>Mark Grundy</a></td><td>9:38.8</td><td>1975</td><td><a href='meets/346_all.html'>St. X Regional</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/patrick_schaefer.html'>Patrick Schaefer</a></td><td>9:43.5</td><td>2018</td><td><a href='meets/130_all.html'>Mobile Challenge of Champions</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Joseph Buechler</td><td>9:09.7</td><td>1980</td><td><a href='meets/364_all.html'>Atlanta Track Classic</a></td></tr><tr><td class="rankcell">2</td><td>Chris Striegel</td><td>9:22.9</td><td>2014</td><td><a href='meets/169_all.html'>Mobile Challenge of Champions</a></td></tr><tr><td class="rankcell">3</td><td>Christopher Striegel</td><td>9:22.9</td><td>2014</td><td><a href='meets/169_all.html'>Mobile Challenge of Champions</a></td></tr><tr><td class="rankcell">4</td><td>Nolan Hester</td><td>9:28.1</td><td>2021</td><td><a href='meets/111_all.html'>The Outdoor Nationals</a></td></tr><tr><td class="rankcell">5</td><td>Paul Kinny</td><td>9:31.2</td><td>1974</td><td><a href='meets/535_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">6</td><td>Jackson Carnes</td><td>9:33.8</td><td>2009</td><td><a href='meets/556_all.html'>Mobile Challenge of Champions (Invitational Division)</a></td></tr><tr><td class="rankcell">7</td><td>Sami Hattab</td><td>9:35.0</td><td>2022</td><td><a href='meets/265_all.html'>New Balance Nationals Outdoor</a></td></tr><tr><td class="rankcell">8</td><td>Zach Larkin</td><td>9:36.4</td><td>2018</td><td><a href='meets/130_all.html'>Mobile Challenge of Champions</a></td></tr><tr><td class="rankcell">9</td><td>Mark Grundy</td><td>9:38.8</td><td>1975</td><td><a href='meets/346_all.html'>St. X Regional</a></td></tr><tr><td class="rankcell">10</td><td>Patrick Schaefer</td><td>9:43.5</td><td>2018</td><td><a href='meets/130_all.html'>Mobile Challenge of Champions</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>4x800 Relay</h2>
+          <h3>4x800 Relay</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
+              <h4>Indoor</h4>
               <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Year</th><th>Meet</th><th>Result</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>2025</td><td><a href='meets/10_all.html'>Eastern Indoors Invite</a></td><td>8:04.8</td></tr><tr><td class="rankcell">2</td><td>2025</td><td><a href='meets/15_all.html'>KHSAA Indoor Track &amp; Field State Championships</a></td><td>8:07.5</td></tr><tr><td class="rankcell">3</td><td>2013</td><td><a href='meets/386_all.html'>Mason Dixon Games</a></td><td>8:07.9</td></tr><tr><td class="rankcell">4</td><td>2025</td><td><a href='meets/20_all.html'>Ohio State HS Qualifier # 2</a></td><td>8:09.0</td></tr><tr><td class="rankcell">5</td><td>2025</td><td><a href='meets/18_all.html'>adidas Track Nationals</a></td><td>8:09.0</td></tr><tr><td class="rankcell">6</td><td>2009</td><td><a href='meets/391_all.html'>Indiana TC Indoor Open</a></td><td>8:10.0</td></tr><tr><td class="rankcell">7</td><td>2009</td><td><a href='meets/383_all.html'>Mason Dixon Games</a></td><td>8:10.0</td></tr><tr><td class="rankcell">8</td><td>2012</td><td><a href='meets/232_all.html'>Indiana Track Club High School Open</a></td><td>8:10.0</td></tr><tr><td class="rankcell">9</td><td>2006</td><td><a href='meets/371_all.html'>UK High School Indoor Invitational</a></td><td>8:10.1</td></tr><tr><td class="rankcell">10</td><td>2012</td><td><a href='meets/385_all.html'>Mason Dixon Games</a></td><td>8:14.4</td></tr></tbody></table></div>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
+              <h4>Outdoor</h4>
               <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Year</th><th>Meet</th><th>Result</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>2021</td><td><a href='meets/111_all.html'>The Outdoor Nationals</a></td><td>7:47.8</td></tr><tr><td class="rankcell">2</td><td>2021</td><td><a href='meets/108_all.html'>Louisville Meet of Champions</a></td><td>7:48.7</td></tr><tr><td class="rankcell">3</td><td>2015</td><td><a href='meets/168_all.html'>Kentucky State Track Meet</a></td><td>7:51.1</td></tr><tr><td class="rankcell">4</td><td>2012</td><td><a href='meets/262_all.html'>Kentucky State Track Meet</a></td><td>7:52.2</td></tr><tr><td class="rankcell">5</td><td>2015</td><td><a href='meets/165_all.html'>Taco Bell Classic</a></td><td>7:54.7</td></tr><tr><td class="rankcell">6</td><td>2025</td><td><a href='meets/48_all.html'>New Balance Nationals Outdoor</a></td><td>7:54.8</td></tr><tr><td class="rankcell">7</td><td>2012</td><td><a href='meets/178_all.html'>Taco Bell Classic
 </a></td><td>7:55.6</td></tr><tr><td class="rankcell">8</td><td>2009</td><td><a href='meets/190_all.html'>Kentucky State Track Meet</a></td><td>7:56.9</td></tr><tr><td class="rankcell">9</td><td>2021</td><td><a href='meets/110_all.html'>Kentucky State Track Meet</a></td><td>7:57.8</td></tr><tr><td class="rankcell">10</td><td>2013</td><td><a href='meets/176_all.html'>Kentucky State Track Meet</a></td><td>7:57.9</td></tr></tbody></table></div>
             </div>
@@ -176,130 +150,186 @@
         </div>
         
         <div class="card">
-          <h2>4x400 Relay</h2>
+          <h3>4x400 Relay</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
+              <h4>Indoor</h4>
               <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Year</th><th>Meet</th><th>Result</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>2026</td><td><a href='meets/664_all.html'>KTCCCA President's Day Weekend Invite-SATURDAY 2026</a></td><td>3:26.6</td></tr><tr><td class="rankcell">2</td><td>2024</td><td><a href='meets/23_all.html'>Ohio State HS Qualifier # 2</a></td><td>3:41.1</td></tr><tr><td class="rankcell">3</td><td>2025</td><td><a href='meets/20_all.html'>Ohio State HS Qualifier # 2</a></td><td>3:41.9</td></tr><tr><td class="rankcell">4</td><td>2026</td><td><a href='meets/254_all.html'>Ohio State HS Qualifier # 1</a></td><td>3:53.9</td></tr></tbody></table></div>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
+              <h4>Outdoor</h4>
               <p class='muted'>No Outdoor results.</p>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>10000 Meters</h2>
+          <h3>1500 Meters</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Nolan Hester</td><td>3:58.3</td><td>2021</td><td><a href='meets/211_all.html'>KTCCCA Class AAA Indoor State Championships</a></td></tr><tr><td class="rankcell">2</td><td>Bobby Curtis</td><td>4:02.3</td><td>2001</td><td><a href='meets/379_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">3</td><td>Brian Long</td><td>4:08.2</td><td>2007</td><td><a href='meets/553_all.html'>Mason-Dixon Games</a></td></tr><tr><td class="rankcell">4</td><td>William Mulloy</td><td>4:12.1</td><td>2015</td><td><a href='meets/564_all.html'>New Balance Nationals Indoor</a></td></tr><tr><td class="rankcell">5</td><td>Thomas Davis</td><td>4:13.5</td><td>2005</td><td><a href='meets/381_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">6</td><td>Tristan Hindorff</td><td>4:13.8</td><td>2024</td><td><a href='meets/390_all.html'>KTCCCA President's Day Weekend Invite 2024</a></td></tr><tr><td class="rankcell">7</td><td>Jackson Carnes</td><td>4:14.2</td><td>2009</td><td><a href='meets/383_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">8</td><td>Austin Carter</td><td>4:15.2</td><td>2011</td><td><a href='meets/384_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">9</td><td>Brodie Terkhorn</td><td>4:15.3</td><td>2024</td><td><a href='meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">10</td><td>Ryan Burchett</td><td>4:17.8</td><td>2021</td><td><a href='meets/209_all.html'>KTCCCA Age Group Meet</a></td></tr></tbody></table></div>
+            </div>
+            <div class="col">
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Austin Carter</td><td>4:26.9</td><td>2008</td><td><a href='meets/643_all.html'>AAU Kentucky Meet</a></td></tr><tr><td class="rankcell">2</td><td>Jack Marsh</td><td>5:36.2</td><td>2021</td><td><a href='meets/644_all.html'>AAU Region 6 Qualifier Knoxville</a></td></tr></tbody></table></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>3000 Meters</h3>
+          <div class="twocol">
+            <div class="col">
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Bobby Curtis</td><td>8:38.3</td><td>2003</td><td><a href='meets/375_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">2</td><td>Chris Striegel</td><td>8:49.2</td><td>2013</td><td><a href='meets/386_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">3</td><td>Nolan Hester</td><td>8:55.5</td><td>2021</td><td><a href='meets/389_all.html'>Bruin Relays</a></td></tr><tr><td class="rankcell">4</td><td>Tristan Hindorff</td><td>8:56.2</td><td>2024</td><td><a href='meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">5</td><td>Connor Sheryak</td><td>8:57.8</td><td>2012</td><td><a href='meets/385_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">6</td><td>Sami Hattab</td><td>9:03.3</td><td>2022</td><td><a href='meets/208_all.html'>KTCCCA State AA/AAA Indoor Championships</a></td></tr><tr><td class="rankcell">7</td><td>Ryan Burchett</td><td>9:13.7</td><td>2021</td><td><a href='meets/211_all.html'>KTCCCA Class AAA Indoor State Championships</a></td></tr><tr><td class="rankcell">8</td><td>Ian McCaslin</td><td>9:15.8</td><td>2011</td><td><a href='meets/584_all.html'>OWU Quad</a></td></tr><tr><td class="rankcell">9</td><td>Joshua Striegel</td><td>9:21.8</td><td>2021</td><td><a href='meets/211_all.html'>KTCCCA Class AAA Indoor State Championships</a></td></tr><tr><td class="rankcell">10</td><td>Matthew Wantland</td><td>9:22.6</td><td>2021</td><td><a href='meets/389_all.html'>Bruin Relays</a></td></tr></tbody></table></div>
+            </div>
+            <div class="col">
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Brian Long</td><td>8:24.4</td><td>2007</td><td><a href='meets/586_all.html'>Penn Relays Carnival</a></td></tr><tr><td class="rankcell">2</td><td>Scott McClain</td><td>9:27.8</td><td>2007</td><td><a href='meets/647_all.html'>Big East Outdoor Championship</a></td></tr><tr><td class="rankcell">3</td><td>Austin Carter</td><td>11:41.8</td><td>2008</td><td><a href='meets/643_all.html'>AAU Kentucky Meet</a></td></tr></tbody></table></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>5000 Meters</h3>
+          <div class="twocol">
+            <div class="col">
+              <h4>Indoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Brian Long</td><td>14:37.2</td><td>2008</td><td><a href='meets/560_all.html'>NYC Gotham Cup</a></td></tr><tr><td class="rankcell">2</td><td>Connor Sheryak</td><td>14:42.8</td><td>2013</td><td><a href='meets/561_all.html'>Navy Invitational</a></td></tr><tr><td class="rankcell">3</td><td>Ian McCaslin</td><td>16:10.6</td><td>2011</td><td><a href='meets/574_all.html'>North Coast AC Relays</a></td></tr></tbody></table></div>
+            </div>
+            <div class="col">
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>William Mulloy</td><td>15:05.1</td><td>2014</td><td><a href='meets/531_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">2</td><td>Connor Sheryak</td><td>15:07.2</td><td>2013</td><td><a href='meets/530_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">3</td><td>Chris Striegel</td><td>15:08.0</td><td>2014</td><td><a href='meets/531_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">4</td><td>Christopher Striegel</td><td>15:08.0</td><td>2014</td><td><a href='meets/531_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">5</td><td>Zack Beavin</td><td>15:17.8</td><td>2012</td><td><a href='meets/529_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">6</td><td>Zachary Larkin</td><td>15:21.1</td><td>2018</td><td><a href='meets/659_all.html'>KYtrackXC.com 5K Showdown 2018</a></td></tr><tr><td class="rankcell">7</td><td>Scott McClain</td><td>15:26.8</td><td>2007</td><td><a href='meets/554_all.html'>Missouri Relays</a></td></tr><tr><td class="rankcell">8</td><td>Ryan Guenthner</td><td>15:28.6</td><td>2017</td><td><a href='meets/318_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">9</td><td>Cooper Marchal</td><td>15:29.8</td><td>2018</td><td><a href='meets/659_all.html'>KYtrackXC.com 5K Showdown 2018</a></td></tr><tr><td class="rankcell">10</td><td>Patrick Schaefer</td><td>15:30.4</td><td>2018</td><td><a href='meets/659_all.html'>KYtrackXC.com 5K Showdown 2018</a></td></tr></tbody></table></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>880 Yard Run</h3>
+          <div class="twocol">
+            <div class="col">
+              <h4>Indoor</h4>
               <p class='muted'>No Indoor results.</p>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/brian_long.html'>Brian Long</a></td><td>31:15.0</td><td>2007</td><td><a href='meets/896_all.html'>NCAA Division I Mid Atlantic Region</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/scott_mcclain.html'>Scott McClain</a></td><td>34:09.9</td><td>2006</td><td><a href='meets/894_all.html'>NCAA DI Cross Country Championships</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>David Buechler</td><td>1:56.3</td><td>1974</td><td><a href='meets/535_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">2</td><td>Chris Schissler</td><td>2:02.5</td><td>1978</td><td><a href='meets/537_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">3</td><td>Joe Wedding</td><td>2:05.1</td><td>1952</td><td><a href='meets/533_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">4</td><td>Schmitt</td><td>2:06.1</td><td>1950</td><td><a href='meets/532_all.html'>Kentucky State Track Meet</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
-        
+        <h2 class='section-header'>Cross Country (XC) Records</h2>
         <div class="card">
-          <h2>1500 Meters</h2>
+          <h3>800 Meters</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>3:58.3</td><td>2021</td><td><a href='meets/211_all.html'>KTCCCA Class AAA Indoor State Championships</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>4:02.3</td><td>2001</td><td><a href='meets/379_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/brian_long.html'>Brian Long</a></td><td>4:08.2</td><td>2007</td><td><a href='meets/553_all.html'>Mason-Dixon Games</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/william_mulloy.html'>William Mulloy</a></td><td>4:12.1</td><td>2015</td><td><a href='meets/564_all.html'>New Balance Nationals Indoor</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/thomas_davis.html'>Thomas Davis</a></td><td>4:13.5</td><td>2005</td><td><a href='meets/381_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/tristan_hindorff.html'>Tristan Hindorff</a></td><td>4:13.8</td><td>2024</td><td><a href='meets/390_all.html'>KTCCCA President's Day Weekend Invite 2024</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/jackson_carnes.html'>Jackson Carnes</a></td><td>4:14.2</td><td>2009</td><td><a href='meets/383_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/austin_carter.html'>Austin Carter</a></td><td>4:15.2</td><td>2011</td><td><a href='meets/384_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/brodie_terkhorn.html'>Brodie Terkhorn</a></td><td>4:15.3</td><td>2024</td><td><a href='meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/ryan_burchett.html'>Ryan Burchett</a></td><td>4:17.8</td><td>2021</td><td><a href='meets/209_all.html'>KTCCCA Age Group Meet</a></td></tr></tbody></table></div>
-            </div>
-            <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/austin_carter.html'>Austin Carter</a></td><td>4:26.9</td><td>2008</td><td><a href='meets/643_all.html'>AAU Kentucky Meet</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/jack_marsh.html'>Jack Marsh</a></td><td>5:36.2</td><td>2021</td><td><a href='meets/644_all.html'>AAU Region 6 Qualifier Knoxville</a></td></tr></tbody></table></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <h2>2.5 Mile Run</h2>
-          <div class="twocol">
-            <div class="col">
-              <h3>Indoor</h3>
+              <h4>Indoor</h4>
               <p class='muted'>No Indoor results.</p>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/patrick_schaefer.html'>Patrick Schaefer</a></td><td>13:12.6</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/joey_schrepferman.html'>Joey Schrepferman</a></td><td>13:34.5</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/clay_meiers.html'>Clay Meiers</a></td><td>13:48.9</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/cooper_marchal.html'>Cooper Marchal</a></td><td>13:53.2</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/clint_sherman.html'>Clint Sherman</a></td><td>14:10.7</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/eric_portaro.html'>Eric Portaro</a></td><td>14:17.4</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/nick_poole.html'>Nick Poole</a></td><td>14:27.2</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/anthony_passafiume.html'>Anthony Passafiume</a></td><td>14:35.8</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/sam_schweickhardt.html'>Sam Schweickhardt</a></td><td>14:37.1</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/henry_pudlo.html'>Henry Pudlo</a></td><td>15:25.9</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Brian Long</td><td>24:42.0</td><td>2007</td><td><a href='meets/937_all.html'>Paul Short Run</a></td></tr><tr><td class="rankcell">2</td><td>Scott McClain</td><td>24:51.0</td><td>2006</td><td><a href='meets/687_all.html'>Big East Championships</a></td></tr><tr><td class="rankcell">3</td><td>Ian McCaslin</td><td>27:13.9</td><td>2010</td><td><a href='meets/924_all.html'>Ohio Wesleyan Invitational</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>3 Miles</h2>
+          <h3>3200 Meters</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
+              <h4>Indoor</h4>
               <p class='muted'>No Indoor results.</p>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>14:45.4</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>14:56.5</td><td>2012</td><td><a href='meets/926_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/chris_striegel.html'>Chris Striegel</a></td><td>14:58.9</td><td>2013</td><td><a href='meets/927_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/christopher_striegel.html'>Christopher Striegel</a></td><td>14:58.9</td><td>2013</td><td><a href='meets/927_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/sam_lewis.html'>Sam Lewis</a></td><td>15:01.4</td><td>2012</td><td><a href='meets/926_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/patrick_schaefer.html'>Patrick Schaefer</a></td><td>15:03.5</td><td>2016</td><td><a href='meets/932_all.html'>Palatine Invite</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/spencer_hayden.html'>Spencer Hayden</a></td><td>15:05.0</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>15:05.9</td><td>2025</td><td><a href='meets/931_all.html'>Palatine Invitational - Meet of Champions</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/max_mudd.html'>Max Mudd</a></td><td>15:09.3</td><td>2013</td><td><a href='meets/927_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/grady_shiflet.html'>Grady Shiflet</a></td><td>15:19.8</td><td>2018</td><td><a href='meets/934_all.html'>Palatine Invite</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Aaron Graves</td><td>11:34.6</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">2</td><td>Eric Beyerle</td><td>11:47.0</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">3</td><td>Sam Kinny</td><td>11:50.5</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">4</td><td>Michael Blum</td><td>11:52.3</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">5</td><td>Tyler Skaggs</td><td>11:54.8</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">6</td><td>Ian Ording</td><td>12:07.2</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">7</td><td>Ryan Hines</td><td>12:09.3</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">8</td><td>Patrick Thompson</td><td>12:18.4</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">9</td><td>Chris Bartlett</td><td>12:34.3</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr><tr><td class="rankcell">10</td><td>Will Ford</td><td>12:41.8</td><td>2007</td><td><a href='meets/733_all.html'>Freshmen Challenge</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>3000 Meters</h2>
+          <h3>10000 Meters</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>8:38.3</td><td>2003</td><td><a href='meets/375_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/chris_striegel.html'>Chris Striegel</a></td><td>8:49.2</td><td>2013</td><td><a href='meets/386_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>8:55.5</td><td>2021</td><td><a href='meets/389_all.html'>Bruin Relays</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/tristan_hindorff.html'>Tristan Hindorff</a></td><td>8:56.2</td><td>2024</td><td><a href='meets/27_all.html'>KHSAA Class 3A Indoor State Track &amp; Field Championships</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>8:57.8</td><td>2012</td><td><a href='meets/385_all.html'>Mason Dixon Games</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/sami_hattab.html'>Sami Hattab</a></td><td>9:03.3</td><td>2022</td><td><a href='meets/208_all.html'>KTCCCA State AA/AAA Indoor Championships</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/ryan_burchett.html'>Ryan Burchett</a></td><td>9:13.7</td><td>2021</td><td><a href='meets/211_all.html'>KTCCCA Class AAA Indoor State Championships</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/ian_mccaslin.html'>Ian McCaslin</a></td><td>9:15.8</td><td>2011</td><td><a href='meets/584_all.html'>OWU Quad</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/joshua_striegel.html'>Joshua Striegel</a></td><td>9:21.8</td><td>2021</td><td><a href='meets/211_all.html'>KTCCCA Class AAA Indoor State Championships</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/matthew_wantland.html'>Matthew Wantland</a></td><td>9:22.6</td><td>2021</td><td><a href='meets/389_all.html'>Bruin Relays</a></td></tr></tbody></table></div>
-            </div>
-            <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/brian_long.html'>Brian Long</a></td><td>8:24.4</td><td>2007</td><td><a href='meets/586_all.html'>Penn Relays Carnival</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>9:05.2</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>9:17.8</td><td>2020</td><td><a href='meets/957_all.html'>Rumble Through the Jungle</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/scott_mcclain.html'>Scott McClain</a></td><td>9:27.8</td><td>2007</td><td><a href='meets/647_all.html'>Big East Outdoor Championship</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/chris_saldana.html'>Chris Saldana</a></td><td>9:35.1</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/thomas_cave.html'>Thomas Cave</a></td><td>9:40.0</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/mark_johnson.html'>Mark Johnson</a></td><td>9:43.6</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/joshua_striegel.html'>Joshua Striegel</a></td><td>9:48.8</td><td>2020</td><td><a href='meets/957_all.html'>Rumble Through the Jungle</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/charlie_hammon.html'>Charlie Hammon</a></td><td>9:53.5</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/nick_reader.html'>Nick Reader</a></td><td>9:54.3</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr></tbody></table></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <h2>4000 Meter Run</h2>
-          <div class="twocol">
-            <div class="col">
-              <h3>Indoor</h3>
+              <h4>Indoor</h4>
               <p class='muted'>No Indoor results.</p>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>12:55.6</td><td>2009</td><td><a href='meets/1021_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/jackson_carnes.html'>Jackson Carnes</a></td><td>13:03.4</td><td>2006</td><td><a href='meets/1018_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/thomas_mann.html'>Thomas Mann</a></td><td>13:06.2</td><td>2006</td><td><a href='meets/734_all.html'>Freshmen Challenge #2</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/max_mudd.html'>Max Mudd</a></td><td>13:08.0</td><td>2010</td><td><a href='meets/1022_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/matt_hillenbrand.html'>Matt Hillenbrand</a></td><td>13:23.4</td><td>2006</td><td><a href='meets/734_all.html'>Freshmen Challenge #2</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/austin_carter.html'>Austin Carter</a></td><td>13:25.8</td><td>2007</td><td><a href='meets/1019_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/zack_beavin.html'>Zack Beavin</a></td><td>13:25.9</td><td>2008</td><td><a href='meets/679_all.html'>AAU National Championships</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/spencer_hayden.html'>Spencer Hayden</a></td><td>13:27.9</td><td>2012</td><td><a href='meets/680_all.html'>AAU National Championships</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/grady_shiflet.html'>Grady Shiflet</a></td><td>13:34.1</td><td>2015</td><td><a href='meets/1027_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/zachary_larkin.html'>Zachary Larkin</a></td><td>13:34.6</td><td>2015</td><td><a href='meets/1027_all.html'>Tiger Run</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Brian Long</td><td>31:15.0</td><td>2007</td><td><a href='meets/896_all.html'>NCAA Division I Mid Atlantic Region</a></td></tr><tr><td class="rankcell">2</td><td>Scott McClain</td><td>34:09.9</td><td>2006</td><td><a href='meets/894_all.html'>NCAA DI Cross Country Championships</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
         
         <div class="card">
-          <h2>5000 Meters</h2>
+          <h3>2.5 Mile Run</h3>
           <div class="twocol">
             <div class="col">
-              <h3>Indoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/brian_long.html'>Brian Long</a></td><td>14:37.2</td><td>2008</td><td><a href='meets/560_all.html'>NYC Gotham Cup</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>14:42.8</td><td>2013</td><td><a href='meets/561_all.html'>Navy Invitational</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/ian_mccaslin.html'>Ian McCaslin</a></td><td>16:10.6</td><td>2011</td><td><a href='meets/574_all.html'>North Coast AC Relays</a></td></tr></tbody></table></div>
-            </div>
-            <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/bobby_curtis.html'>Bobby Curtis</a></td><td>14:41.0</td><td>2001</td><td><a href='meets/884_all.html'>Metro Meet of Champions</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/joseph_buechler.html'>Joseph Buechler</a></td><td>14:52.0</td><td>1980</td><td><a href='meets/1050_all.html'>Trinity Invitational</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/nick_sanders.html'>Nick Sanders</a></td><td>15:01.8</td><td>2025</td><td><a href='meets/1043_all.html'>Trinity / Valkyrie Invitational</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/william_mulloy.html'>William Mulloy</a></td><td>15:05.1</td><td>2014</td><td><a href='meets/531_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">5</td><td><a href='athletes/connor_sheryak.html'>Connor Sheryak</a></td><td>15:07.2</td><td>2013</td><td><a href='meets/530_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">6</td><td><a href='athletes/john_perkins.html'>John Perkins</a></td><td>15:08.0</td><td>1991</td><td><a href='meets/793_all.html'>KTCCCA Meet of Champions</a></td></tr><tr><td class="rankcell">7</td><td><a href='athletes/chris_striegel.html'>Chris Striegel</a></td><td>15:08.0</td><td>2014</td><td><a href='meets/531_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">8</td><td><a href='athletes/christopher_striegel.html'>Christopher Striegel</a></td><td>15:08.0</td><td>2014</td><td><a href='meets/531_all.html'>KYtrackXC.com 5K Showdown</a></td></tr><tr><td class="rankcell">9</td><td><a href='athletes/nolan_hester.html'>Nolan Hester</a></td><td>15:17.5</td><td>2020</td><td><a href='meets/792_all.html'>KTCCCA High School Meet of Champions CLASS AAA</a></td></tr><tr><td class="rankcell">10</td><td><a href='athletes/zack_beavin.html'>Zack Beavin</a></td><td>15:17.8</td><td>2012</td><td><a href='meets/529_all.html'>KYtrackXC.com 5K Showdown</a></td></tr></tbody></table></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card">
-          <h2>880 Yard Run</h2>
-          <div class="twocol">
-            <div class="col">
-              <h3>Indoor</h3>
+              <h4>Indoor</h4>
               <p class='muted'>No Indoor results.</p>
             </div>
             <div class="col">
-              <h3>Outdoor</h3>
-              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td><a href='athletes/david_buechler.html'>David Buechler</a></td><td>1:56.3</td><td>1974</td><td><a href='meets/535_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">2</td><td><a href='athletes/chris_schissler.html'>Chris Schissler</a></td><td>2:02.5</td><td>1978</td><td><a href='meets/537_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">3</td><td><a href='athletes/joe_wedding.html'>Joe Wedding</a></td><td>2:05.1</td><td>1952</td><td><a href='meets/533_all.html'>Kentucky State Track Meet</a></td></tr><tr><td class="rankcell">4</td><td><a href='athletes/schmitt.html'>Schmitt</a></td><td>2:06.1</td><td>1950</td><td><a href='meets/532_all.html'>Kentucky State Track Meet</a></td></tr></tbody></table></div>
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Patrick Schaefer</td><td>13:12.6</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">2</td><td>Joey Schrepferman</td><td>13:34.5</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">3</td><td>Clay Meiers</td><td>13:48.9</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">4</td><td>Cooper Marchal</td><td>13:53.2</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">5</td><td>Clint Sherman</td><td>14:10.7</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">6</td><td>Eric Portaro</td><td>14:17.4</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">7</td><td>Nick Poole</td><td>14:27.2</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">8</td><td>Anthony Passafiume</td><td>14:35.8</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr><tr><td class="rankcell">9</td><td>Sam Schweickhardt</td><td>14:37.1</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr><tr><td class="rankcell">10</td><td>Henry Pudlo</td><td>15:25.9</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr></tbody></table></div>
             </div>
           </div>
         </div>
-        <div class="footer">Generated at <code>2026-02-24 10:57:36</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+        
+        <div class="card">
+          <h3>3 Miles</h3>
+          <div class="twocol">
+            <div class="col">
+              <h4>Indoor</h4>
+              <p class='muted'>No Indoor results.</p>
+            </div>
+            <div class="col">
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Sami Hattab</td><td>14:45.4</td><td>2022</td><td><a href='meets/936_all.html'>Palatine Meet of Champions Invitational</a></td></tr><tr><td class="rankcell">2</td><td>Connor Sheryak</td><td>14:56.5</td><td>2012</td><td><a href='meets/926_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">3</td><td>Chris Striegel</td><td>14:58.9</td><td>2013</td><td><a href='meets/927_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">4</td><td>Christopher Striegel</td><td>14:58.9</td><td>2013</td><td><a href='meets/927_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">5</td><td>Sam Lewis</td><td>15:01.4</td><td>2012</td><td><a href='meets/926_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">6</td><td>Patrick Schaefer</td><td>15:03.5</td><td>2016</td><td><a href='meets/932_all.html'>Palatine Invite</a></td></tr><tr><td class="rankcell">7</td><td>Spencer Hayden</td><td>15:05.0</td><td>2014</td><td><a href='meets/928_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">8</td><td>Nick Sanders</td><td>15:05.9</td><td>2025</td><td><a href='meets/931_all.html'>Palatine Invitational - Meet of Champions</a></td></tr><tr><td class="rankcell">9</td><td>Max Mudd</td><td>15:09.3</td><td>2013</td><td><a href='meets/927_all.html'>Palatine Invitational</a></td></tr><tr><td class="rankcell">10</td><td>Grady Shiflet</td><td>15:19.8</td><td>2018</td><td><a href='meets/934_all.html'>Palatine Invite</a></td></tr></tbody></table></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>3000 Meters</h3>
+          <div class="twocol">
+            <div class="col">
+              <h4>Indoor</h4>
+              <p class='muted'>No Indoor results.</p>
+            </div>
+            <div class="col">
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Connor Sheryak</td><td>9:05.2</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">2</td><td>Nolan Hester</td><td>9:17.8</td><td>2020</td><td><a href='meets/957_all.html'>Rumble Through the Jungle</a></td></tr><tr><td class="rankcell">3</td><td>Chris Saldana</td><td>9:35.1</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">4</td><td>Thomas Cave</td><td>9:40.0</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">5</td><td>Mark Johnson</td><td>9:43.6</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">6</td><td>Joshua Striegel</td><td>9:48.8</td><td>2020</td><td><a href='meets/957_all.html'>Rumble Through the Jungle</a></td></tr><tr><td class="rankcell">7</td><td>Charlie Hammon</td><td>9:53.5</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">8</td><td>Nick Reader</td><td>9:54.3</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">9</td><td>Sam Lewis</td><td>9:55.7</td><td>2009</td><td><a href='meets/707_all.html'>Derby City Classic FS-JV Race 1</a></td></tr><tr><td class="rankcell">10</td><td>Ryan Burchett</td><td>9:56.9</td><td>2020</td><td><a href='meets/957_all.html'>Rumble Through the Jungle</a></td></tr></tbody></table></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>4000 Meter Run</h3>
+          <div class="twocol">
+            <div class="col">
+              <h4>Indoor</h4>
+              <p class='muted'>No Indoor results.</p>
+            </div>
+            <div class="col">
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Connor Sheryak</td><td>12:55.6</td><td>2009</td><td><a href='meets/1021_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">2</td><td>Jackson Carnes</td><td>13:03.4</td><td>2006</td><td><a href='meets/1018_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">3</td><td>Thomas Mann</td><td>13:06.2</td><td>2006</td><td><a href='meets/734_all.html'>Freshmen Challenge #2</a></td></tr><tr><td class="rankcell">4</td><td>Max Mudd</td><td>13:08.0</td><td>2010</td><td><a href='meets/1022_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">5</td><td>Matt Hillenbrand</td><td>13:23.4</td><td>2006</td><td><a href='meets/734_all.html'>Freshmen Challenge #2</a></td></tr><tr><td class="rankcell">6</td><td>Austin Carter</td><td>13:25.8</td><td>2007</td><td><a href='meets/1019_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">7</td><td>Zack Beavin</td><td>13:25.9</td><td>2008</td><td><a href='meets/679_all.html'>AAU National Championships</a></td></tr><tr><td class="rankcell">8</td><td>Spencer Hayden</td><td>13:27.9</td><td>2012</td><td><a href='meets/680_all.html'>AAU National Championships</a></td></tr><tr><td class="rankcell">9</td><td>Grady Shiflet</td><td>13:34.1</td><td>2015</td><td><a href='meets/1027_all.html'>Tiger Run</a></td></tr><tr><td class="rankcell">10</td><td>Zachary Larkin</td><td>13:34.6</td><td>2015</td><td><a href='meets/1027_all.html'>Tiger Run</a></td></tr></tbody></table></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>5000 Meters</h3>
+          <div class="twocol">
+            <div class="col">
+              <h4>Indoor</h4>
+              <p class='muted'>No Indoor results.</p>
+            </div>
+            <div class="col">
+              <h4>Outdoor</h4>
+              <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Athlete</th><th>Result</th><th>Year</th><th>Meet</th></tr></thead><tbody><tr><td class="rankcell">1</td><td>Bobby Curtis</td><td>14:41.0</td><td>2001</td><td><a href='meets/884_all.html'>Metro Meet of Champions</a></td></tr><tr><td class="rankcell">2</td><td>Joseph Buechler</td><td>14:52.0</td><td>1980</td><td><a href='meets/1050_all.html'>Trinity Invitational</a></td></tr><tr><td class="rankcell">3</td><td>Nick Sanders</td><td>15:01.8</td><td>2025</td><td><a href='meets/1043_all.html'>Trinity / Valkyrie Invitational</a></td></tr><tr><td class="rankcell">4</td><td>John Perkins</td><td>15:08.0</td><td>1991</td><td><a href='meets/793_all.html'>KTCCCA Meet of Champions</a></td></tr><tr><td class="rankcell">5</td><td>Nolan Hester</td><td>15:17.5</td><td>2020</td><td><a href='meets/792_all.html'>KTCCCA High School Meet of Champions CLASS AAA</a></td></tr><tr><td class="rankcell">6</td><td>Matthew Thomas</td><td>15:19.8</td><td>2015</td><td><a href='meets/860_all.html'>Lexington Catholic Invitational</a></td></tr><tr><td class="rankcell">7</td><td>Connor Sheryak</td><td>15:20.0</td><td>2012</td><td><a href='meets/742_all.html'>Great American Cross Country Festival</a></td></tr><tr><td class="rankcell">8</td><td>Sami Hattab</td><td>15:24.1</td><td>2022</td><td><a href='meets/1041_all.html'>Trinity / Valkyrie Invitational</a></td></tr><tr><td class="rankcell">9</td><td>Patrick Schaefer</td><td>15:25.1</td><td>2017</td><td><a href='meets/912_all.html'>Nike Cross Nationals Southeast Regional</a></td></tr><tr><td class="rankcell">10</td><td>Sam Lewis</td><td>15:25.9</td><td>2012</td><td><a href='meets/1065_all.html'>Trinity/Valkyrie Invitational</a></td></tr></tbody></table></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">Generated at <code>2026-02-24 12:34:49</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
 </body>
 </html>
