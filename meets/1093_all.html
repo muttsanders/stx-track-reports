@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2026-05-06 | Metro Meet of Champions</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .athlete-profile-links { margin: 4px 0 8px 0; font-size: 14px; font-weight: 700; }
+      .athlete-profile-links a { margin-right: 15px; }
+      .meet-links { margin: 4px 0 10px 0; font-size: 14px; font-weight: 700; }
+      .meet-links a { margin-right: 15px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link,
+      .nav a.comparison-link, .nav span.comparison-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; }
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
+      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn { border:1px solid #ddd; background:#fff; border-radius: 999px; padding:6px 10px; font-size: 13px; cursor:pointer; }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+      .rankcell { font-weight: 800; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
+      .hide-graphs .chart-container { display: none; }
+      /* Meet page filter: hide non-StX rows when toggled */
+      body.stx-only .non-stx-row { display: none; }
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
+      .non-stx-row { opacity: 0.80; }
+      /* PR section header rows (Track / XC) */
+      .sporthdr { background: #efefef; font-weight: 900; }
+      .dimmed-pr { color: #999; font-weight: normal; }
+    </style>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2026-05-06</div>
+        <div class="meetname">Metro Meet of Champions</div>
+        
+        <p class="subline muted">Outdoor</p>
+      </div>
+      <div class="nav">
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='pre-race-link' href='../pre_race.html'>Pre-Race</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+      </div>
+    </div>
+    
+    <div class="filterbar" style="margin: 4px 0 10px 0;">
+      <label>
+        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+        StX Athletes Only
+      </label>
+    </div>
+    <script>
+      function toggleStxOnly(checkbox) {
+        if (checkbox.checked) {
+          document.body.classList.add('stx-only');
+        } else {
+          document.body.classList.remove('stx-only');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('stxOnlyToggle');
+        if (checkbox) {
+          toggleStxOnly(checkbox);
+        }
+      });
+    </script>
+    <div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr class="non-stx-row"><td>Nolan Crider</td><td>St. Xavier (KY) (KY) KY</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>4:23.54</td><td>64.59</td><td class="slowest">68.52</td><td>66.50</td><td class="fastest">63.92</td></tr><tr class="non-stx-row"><td>Matthew Frick</td><td>St. Xavier (KY) (KY) KY</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>4:26.45</td><td class="fastest">64.86</td><td class="slowest">68.45</td><td>66.16</td><td>66.98</td></tr><tr class="non-stx-row"><td>Noah Bamba</td><td>Trinity Louisville</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td></td><td>4:30.50</td><td class="fastest">65.09</td><td>68.53</td><td class="slowest">68.64</td><td>68.23</td></tr><tr class="non-stx-row"><td>Jack Tindall</td><td>Trinity Louisville</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>4:30.89</td><td class="fastest">65.22</td><td>68.72</td><td class="slowest">68.85</td><td>68.11</td></tr><tr class="non-stx-row"><td>Jerry McConnell</td><td>Trinity Louisville</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td></td><td>4:31.45</td><td class="fastest">65.41</td><td>68.78</td><td class="slowest">68.94</td><td>68.33</td></tr><tr class="non-stx-row"><td>Mason Ellis</td><td>Eastern</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>4:35.57</td><td class="fastest">65.58</td><td>69.92</td><td class="slowest">70.79</td><td>69.28</td></tr><tr class="non-stx-row"><td>Eli Guthrie</td><td>Male</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>4:39.19</td><td class="fastest">66.84</td><td>70.49</td><td class="slowest">71.84</td><td>70.03</td></tr><tr class="non-stx-row"><td>Ian O'Bryan</td><td>St. Xavier (KY) (KY) KY</td><td>1</td><td>8</td><td class="dimmed-pr"></td><td></td><td>4:43.03</td><td class="fastest">66.36</td><td>71.76</td><td class="slowest">75.32</td><td>69.59</td></tr><tr class="non-stx-row"><td>Everett Derrick</td><td>St. Xavier (KY) (KY) KY</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>4:44.11</td><td class="fastest">65.71</td><td>68.78</td><td>71.97</td><td class="slowest">77.65</td></tr><tr class="non-stx-row"><td>Scout Conley</td><td>Ballard</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>4:44.50</td><td class="fastest">67.19</td><td>70.68</td><td class="slowest">73.45</td><td>73.18</td></tr><tr class="non-stx-row"><td>Christofer Espinoza</td><td>Iroquois</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>4:44.80</td><td>69.56</td><td>72.12</td><td class="slowest">74.25</td><td class="fastest">68.88</td></tr><tr class="non-stx-row"><td>Parker Lesshafft</td><td>St. Xavier (KY) (KY) KY</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>4:46.54</td><td class="fastest">66.61</td><td>71.63</td><td class="slowest">75.47</td><td>72.83</td></tr><tr class="non-stx-row"><td>Eli Clark</td><td>Ballard</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>4:50.61</td><td class="fastest">68.94</td><td>72.39</td><td>74.37</td><td class="slowest">74.91</td></tr><tr class="non-stx-row"><td>Amor Amor</td><td>Iroquois</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>4:54.10</td><td class="fastest">69.85</td><td>72.14</td><td class="slowest">77.95</td><td>74.16</td></tr><tr class="non-stx-row"><td>Amir Wiseman</td><td>Eastern</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>4:54.52</td><td class="fastest">68.56</td><td>73.42</td><td>75.31</td><td class="slowest">77.23</td></tr><tr class="non-stx-row"><td>Joshua Huff</td><td>Desales</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>4:59.32</td><td class="fastest">70.43</td><td>75.70</td><td class="slowest">78.91</td><td>74.27</td></tr><tr class="non-stx-row"><td>Collin Liu</td><td>Du Pont Manual</td><td>1</td><td>17</td><td class="dimmed-pr"></td><td></td><td>5:04.00</td><td class="fastest">71.78</td><td>77.56</td><td class="slowest">78.62</td><td>76.04</td></tr><tr class="non-stx-row"><td>Tabor Schureck</td><td>Atherton</td><td>1</td><td>18</td><td class="dimmed-pr"></td><td></td><td>5:05.17</td><td class="fastest">72.51</td><td class="slowest">79.28</td><td>78.49</td><td>74.89</td></tr><tr class="non-stx-row"><td>Ben Xie</td><td>Du Pont Manual</td><td>1</td><td>19</td><td class="dimmed-pr"></td><td></td><td>5:09.29</td><td class="fastest">72.12</td><td>79.21</td><td class="slowest">82.66</td><td>75.30</td></tr><tr class="non-stx-row"><td>George Lazaro</td><td>Butler</td><td>1</td><td>20</td><td class="dimmed-pr"></td><td></td><td>5:14.96</td><td>75.16</td><td>82.71</td><td class="slowest">83.16</td><td class="fastest">73.94</td></tr><tr class="non-stx-row"><td>David Thang</td><td>Butler</td><td>1</td><td>21</td><td class="dimmed-pr"></td><td></td><td>5:21.01</td><td class="fastest">74.82</td><td>82.75</td><td class="slowest">83.42</td><td>80.02</td></tr><tr class="non-stx-row"><td>Angel Alvarez</td><td>Southern</td><td>1</td><td>22</td><td class="dimmed-pr"></td><td></td><td>6:13.36</td><td class="fastest">81.41</td><td>102.17</td><td class="slowest">102.80</td><td>86.97</td></tr><tr class="non-stx-row"><td>Thomas Woodmore</td><td>Southern</td><td>1</td><td>23</td><td class="dimmed-pr"></td><td></td><td>6:33.06</td><td class="fastest">83.55</td><td class="slowest">103.93</td><td>103.18</td><td>102.40</td></tr></tbody></table></div></div><div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Group</th><th>Place</th><th>Leg</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th><th>Total_Laps</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr><td><a href='../athletes/sam_schweickhardt.html'>Sam Schweickhardt</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY) - A</td><td>1</td><td>1</td><td>1</td><td class="dimmed-pr">8:04.76</td><td>8:02.08</td><td>8:05.02</td><td>2:04.58</td><td class="fastest">58.20</td><td class="slowest">66.37</td><td></td><td></td></tr><tr><td><a href='../athletes/anthony_passafiume.html'>Anthony Passafiume</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY) - A</td><td>1</td><td>1</td><td>2</td><td class="dimmed-pr">8:04.76</td><td>7:54.80</td><td>8:05.02</td><td>2:00.66</td><td></td><td></td><td class="fastest">55.56</td><td class="slowest">65.09</td></tr><tr><td><a href='../athletes/tony_parilli.html'>Tony Parilli</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY) - A</td><td>1</td><td>1</td><td>3</td><td class="dimmed-pr">8:11.98</td><td>8:10.45</td><td class="pr">8:05.02</td><td>2:04.52</td><td class="fastest">57.37</td><td class="slowest">67.15</td><td></td><td></td></tr><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY) - A</td><td>1</td><td>1</td><td>4</td><td class="dimmed-pr">8:04.76</td><td>7:54.80</td><td>8:05.02</td><td>1:55.27</td><td></td><td></td><td class="fastest">55.54</td><td class="slowest">59.72</td></tr><tr class="non-stx-row"><td>John Willen</td><td>DuPont Manual - A</td><td>DuPont Manual - A</td><td>1</td><td>2</td><td>1</td><td class="dimmed-pr"></td><td></td><td>8:09.18</td><td>1:57.96</td><td class="fastest">56.70</td><td class="slowest">61.26</td><td></td><td></td></tr><tr class="non-stx-row"><td>Oliver Zausch</td><td>DuPont Manual - A</td><td>DuPont Manual - A</td><td>1</td><td>2</td><td>2</td><td class="dimmed-pr"></td><td></td><td>8:09.18</td><td>2:02.70</td><td></td><td></td><td class="fastest">58.84</td><td class="slowest">63.86</td></tr><tr class="non-stx-row"><td>Brady Merten</td><td>DuPont Manual - A</td><td>DuPont Manual - A</td><td>1</td><td>2</td><td>3</td><td class="dimmed-pr"></td><td></td><td>8:09.18</td><td>2:02.63</td><td class="fastest">59.17</td><td class="slowest">63.47</td><td></td><td></td></tr><tr class="non-stx-row"><td>Calvin Brooks Jr</td><td>DuPont Manual - A</td><td>DuPont Manual - A</td><td>1</td><td>2</td><td>4</td><td class="dimmed-pr"></td><td></td><td>8:09.18</td><td>2:05.88</td><td></td><td></td><td class="fastest">58.23</td><td class="slowest">67.65</td></tr><tr class="non-stx-row"><td>Darnell Cauley Jr.</td><td>Male - A</td><td>Male - A</td><td>1</td><td>3</td><td>1</td><td class="dimmed-pr"></td><td></td><td>8:37.35</td><td>2:07.80</td><td class="fastest">59.47</td><td class="slowest">68.34</td><td></td><td></td></tr><tr class="non-stx-row"><td>Lincoln Richardson</td><td>Male - A</td><td>Male - A</td><td>1</td><td>3</td><td>2</td><td class="dimmed-pr"></td><td></td><td>8:37.35</td><td>2:11.84</td><td></td><td></td><td class="fastest">63.71</td><td class="slowest">68.13</td></tr><tr class="non-stx-row"><td>Landon Coleman</td><td>Male - A</td><td>Male - A</td><td>1</td><td>3</td><td>3</td><td class="dimmed-pr"></td><td></td><td>8:37.35</td><td>2:08.32</td><td class="fastest">61.21</td><td class="slowest">67.11</td><td></td><td></td></tr><tr class="non-stx-row"><td>Cameron Cramer</td><td>Male - A</td><td>Male - A</td><td>1</td><td>3</td><td>4</td><td class="dimmed-pr"></td><td></td><td>8:37.35</td><td>2:09.40</td><td></td><td></td><td class="fastest">61.74</td><td class="slowest">67.66</td></tr><tr class="non-stx-row"><td>Scout Conley</td><td>Ballard - A</td><td>Ballard - A</td><td>1</td><td>4</td><td>1</td><td class="dimmed-pr"></td><td></td><td>8:41.11</td><td>2:12.03</td><td class="fastest">62.17</td><td class="slowest">69.86</td><td></td><td></td></tr><tr class="non-stx-row"><td>William McCammon</td><td>Ballard - A</td><td>Ballard - A</td><td>1</td><td>4</td><td>2</td><td class="dimmed-pr"></td><td></td><td>8:41.11</td><td>2:08.95</td><td></td><td></td><td class="fastest">62.50</td><td class="slowest">66.45</td></tr><tr class="non-stx-row"><td>Thomas Raymond</td><td>Ballard - A</td><td>Ballard - A</td><td>1</td><td>4</td><td>3</td><td class="dimmed-pr"></td><td></td><td>8:41.11</td><td>2:11.10</td><td class="fastest">61.72</td><td class="slowest">69.38</td><td></td><td></td></tr><tr class="non-stx-row"><td>Eli Clark</td><td>Ballard - A</td><td>Ballard - A</td><td>1</td><td>4</td><td>4</td><td class="dimmed-pr"></td><td></td><td>8:41.11</td><td>2:09.03</td><td></td><td></td><td class="fastest">59.53</td><td class="slowest">69.50</td></tr><tr class="non-stx-row"><td>Preston Goodwin</td><td>Atherton - A</td><td>Atherton - A</td><td>1</td><td>5</td><td>1</td><td class="dimmed-pr"></td><td></td><td>8:55.34</td><td>2:09.61</td><td class="fastest">62.50</td><td class="slowest">67.11</td><td></td><td></td></tr><tr class="non-stx-row"><td>Elliott Williams</td><td>Atherton - A</td><td>Atherton - A</td><td>1</td><td>5</td><td>2</td><td class="dimmed-pr"></td><td></td><td>8:55.34</td><td>2:11.09</td><td></td><td></td><td class="fastest">62.42</td><td class="slowest">68.67</td></tr><tr class="non-stx-row"><td>Ian Robertson</td><td>Atherton - A</td><td>Atherton - A</td><td>1</td><td>5</td><td>3</td><td class="dimmed-pr"></td><td></td><td>8:55.34</td><td>2:12.78</td><td class="fastest">63.55</td><td class="slowest">69.24</td><td></td><td></td></tr><tr class="non-stx-row"><td>Milo Westbrook</td><td>Atherton - A</td><td>Atherton - A</td><td>1</td><td>5</td><td>4</td><td class="dimmed-pr"></td><td></td><td>8:55.34</td><td>2:21.85</td><td></td><td></td><td class="fastest">66.87</td><td class="slowest">74.98</td></tr><tr class="non-stx-row"><td>Amor Amor</td><td>Iroquois - A</td><td>Iroquois - A</td><td>1</td><td>6</td><td>1</td><td class="dimmed-pr"></td><td></td><td>8:57.33</td><td>2:06.07</td><td class="fastest">58.01</td><td class="slowest">68.06</td><td></td><td></td></tr><tr class="non-stx-row"><td>Abass Osman</td><td>Iroquois - A</td><td>Iroquois - A</td><td>1</td><td>6</td><td>2</td><td class="dimmed-pr"></td><td></td><td>8:57.33</td><td>2:27.82</td><td></td><td></td><td class="fastest">67.18</td><td class="slowest">80.64</td></tr><tr class="non-stx-row"><td>Leo Mnyomoelwa</td><td>Iroquois - A</td><td>Iroquois - A</td><td>1</td><td>6</td><td>3</td><td class="dimmed-pr"></td><td></td><td>8:57.33</td><td>2:17.05</td><td class="fastest">62.61</td><td class="slowest">74.43</td><td></td><td></td></tr><tr class="non-stx-row"><td>Christofer Espinoza</td><td>Iroquois - A</td><td>Iroquois - A</td><td>1</td><td>6</td><td>4</td><td class="dimmed-pr"></td><td></td><td>8:57.33</td><td>2:06.39</td><td></td><td></td><td class="fastest">58.71</td><td class="slowest">67.68</td></tr><tr class="non-stx-row"><td>Zion Green</td><td>W.E.B. Dubois - A</td><td>W.E.B. Dubois - A</td><td>1</td><td>7</td><td>1</td><td class="dimmed-pr"></td><td></td><td>9:21.88</td><td>2:18.87</td><td class="fastest">61.16</td><td class="slowest">77.71</td><td></td><td></td></tr><tr class="non-stx-row"><td>Chase Knuckles</td><td>W.E.B. Dubois - A</td><td>W.E.B. Dubois - A</td><td>1</td><td>7</td><td>2</td><td class="dimmed-pr"></td><td></td><td>9:21.88</td><td>2:15.68</td><td></td><td></td><td class="fastest">63.27</td><td class="slowest">72.41</td></tr><tr class="non-stx-row"><td>Zycarius Hearn</td><td>W.E.B. Dubois - A</td><td>W.E.B. Dubois - A</td><td>1</td><td>7</td><td>3</td><td class="dimmed-pr"></td><td></td><td>9:21.88</td><td>2:23.06</td><td class="fastest">62.23</td><td class="slowest">80.84</td><td></td><td></td></tr><tr class="non-stx-row"><td>Aaron Bradford</td><td>W.E.B. Dubois - A</td><td>W.E.B. Dubois - A</td><td>1</td><td>7</td><td>4</td><td class="dimmed-pr"></td><td></td><td>9:21.88</td><td>2:24.26</td><td></td><td></td><td class="fastest">61.82</td><td class="slowest">82.45</td></tr><tr class="non-stx-row"><td>Atem Deng</td><td>Central - A</td><td>Central - A</td><td>1</td><td>8</td><td>1</td><td class="dimmed-pr"></td><td></td><td>9:28.83</td><td>2:10.86</td><td class="fastest">59.81</td><td class="slowest">71.05</td><td></td><td></td></tr><tr class="non-stx-row"><td>Joshua Turner Jr</td><td>Central - A</td><td>Central - A</td><td>1</td><td>8</td><td>2</td><td class="dimmed-pr"></td><td></td><td>9:28.83</td><td>2:27.58</td><td></td><td></td><td class="fastest">66.10</td><td class="slowest">81.48</td></tr><tr class="non-stx-row"><td>Damon Weakley</td><td>Central - A</td><td>Central - A</td><td>1</td><td>8</td><td>3</td><td class="dimmed-pr"></td><td></td><td>9:28.83</td><td>2:21.18</td><td class="fastest">69.71</td><td class="slowest">71.47</td><td></td><td></td></tr><tr class="non-stx-row"><td>Omar Prudencio</td><td>Central - A</td><td>Central - A</td><td>1</td><td>8</td><td>4</td><td class="dimmed-pr"></td><td></td><td>9:28.83</td><td>2:29.21</td><td></td><td></td><td class="fastest">68.44</td><td class="slowest">80.77</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-05-06 18:52:22</code> from <code>C:\\Users\\Bob\\OneDrive\\StX_XC_Track\\data\\stx_track.db</code></div>
+</body>
+</html>
