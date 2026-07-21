@@ -57,6 +57,8 @@
       .tabpane { display:none; }
       .tabpane.active { display:block; }
       .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
@@ -89,27 +91,27 @@
       </div>
     </div>
     
-    <div class="filterbar" style="margin: 4px 0 10px 0;">
-      <label>
-        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-        StX Athletes Only
-      </label>
-    </div>
-    <script>
-      function toggleStxOnly(checkbox) {
-        if (checkbox.checked) {
-          document.body.classList.add('stx-only');
-        } else {
-          document.body.classList.remove('stx-only');
-        }
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        const checkbox = document.getElementById('stxOnlyToggle');
-        if (checkbox) {
-          toggleStxOnly(checkbox);
-        }
-      });
-    </script>
-    <div class='card'><h2>5000 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/thomas_davis.html'>Thomas Davis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>3</td><td class="dimmed-pr"></td><td>16:37.80</td><td>16:53.50</td></tr><tr><td><a href='../athletes/brian_pyles.html'>Brian Pyles</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>4</td><td class="dimmed-pr"></td><td>16:43.60</td><td>16:54.70</td></tr><tr><td><a href='../athletes/justin_gooch.html'>Justin Gooch</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>9</td><td class="dimmed-pr"></td><td>16:01.90</td><td>17:07.60</td></tr><tr><td><a href='../athletes/sean_bowling.html'>Sean Bowling</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>11</td><td class="dimmed-pr"></td><td>16:27.30</td><td>17:11.40</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-19 08:20:53</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+        <div class="filterbar" style="margin: 4px 0 10px 0;">
+          <label>
+            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+            StX Athletes Only
+          </label>
+        </div>
+        <script>
+          function toggleStxOnly(checkbox) {
+            if (checkbox.checked) {
+              document.body.classList.add('stx-only');
+            } else {
+              document.body.classList.remove('stx-only');
+            }
+          }
+          document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.getElementById('stxOnlyToggle');
+            if (checkbox) {
+              toggleStxOnly(checkbox);
+            }
+          });
+        </script>
+        <p class='subline muted'>November 1, 2003</p><div class='card'><h2>5000 Meters</h2><h3>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>5K</th><th>’02</th><th>PR</th><th>PPM</th></tr></thead><tbody><tr><td>3</td><td><a href='../athletes/thomas_davis.html'>Davis, Thomas</a></td><td>16:53.50</td><td>16:40.00</td><td>16:37.80</td><td>5:26</td></tr><tr><td>4</td><td><a href='../athletes/brian_pyles.html'>Pyles, Brian</a></td><td>16:54.70</td><td></td><td>16:43.60</td><td>5:27</td></tr><tr><td>9</td><td><a href='../athletes/justin_gooch.html'>Gooch, Justin</a></td><td>17:07.60</td><td></td><td>16:01.90</td><td>5:31</td></tr><tr><td>11</td><td><a href='../athletes/sean_bowling.html'>Bowling, Sean</a></td><td>17:11.40</td><td>16:27.30</td><td>16:27.30</td><td>5:32</td></tr></tbody></table></div><h3 style='margin-top:24px'>Team Scores</h3><p class='muted'>No team scores loaded for this race.</p></div><div class='xc-history-heading'><h1>Region 2 AAA 2002</h1></div><p class='subline muted'>November 2, 2002</p><div class='card'><h2>5000 Meters</h2><h3>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>5K</th><th>’01</th><th>PR</th><th>PPM</th></tr></thead><tbody><tr><td>4</td><td><a href='../athletes/sean_bowling.html'>Bowling, Sean</a></td><td>16:27.30</td><td></td><td></td><td>5:18</td></tr><tr><td>6</td><td><a href='../athletes/john_bergamini.html'>Bergamini, John</a></td><td>16:30.50</td><td></td><td></td><td>5:19</td></tr><tr><td>7</td><td><a href='../athletes/thomas_davis.html'>Davis, Thomas</a></td><td class='pr' title='Personal record'>16:40.00</td><td></td><td>17:09.40</td><td>5:22</td></tr><tr><td>10</td><td><a href='../athletes/john_brown.html'>Brown, John</a></td><td>16:50.30</td><td></td><td></td><td>5:25</td></tr><tr><td>11</td><td><a href='../athletes/dan_heverin.html'>Heverin, Dan</a></td><td>16:54.20</td><td>16:06.70</td><td>16:06.70</td><td>5:26</td></tr><tr><td>14</td><td><a href='../athletes/bryan_reed.html'>Reed, Bryan</a></td><td>17:04.10</td><td></td><td></td><td>5:30</td></tr><tr><td>16</td><td><a href='../athletes/nick_hettich.html'>Hettich, Nick</a></td><td>17:10.70</td><td></td><td></td><td>5:32</td></tr></tbody></table></div><h3 style='margin-top:24px'>Team Scores</h3><p class='muted'>No team scores loaded for this race.</p></div><div class='xc-history-heading'><h1>Region 2 AAA 2001</h1></div><p class='subline muted'>October 27, 2001</p><div class='card'><h2>5000 Meters</h2><h3>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>5K</th><th>’00</th><th>PR</th><th>PPM</th></tr></thead><tbody><tr><td>3</td><td><a href='../athletes/peter_meirose.html'>Meirose, Peter</a></td><td class='pr' title='Personal record'>15:46.00</td><td>17:01.20</td><td>16:05.00</td><td>5:04</td></tr><tr><td>5</td><td><a href='../athletes/jack_misbach.html'>Misbach, Jack</a></td><td class='pr' title='Personal record'>15:57.00</td><td></td><td>16:50.40</td><td>5:08</td></tr><tr><td>7</td><td><a href='../athletes/justin_gooch.html'>Gooch, Justin</a></td><td class='pr' title='Personal record'>16:01.90</td><td></td><td>17:00.00</td><td>5:10</td></tr><tr><td>8</td><td><a href='../athletes/dan_heverin.html'>Heverin, Dan</a></td><td class='pr' title='Personal record'>16:06.70</td><td></td><td>17:07.10</td><td>5:11</td></tr><tr><td>9</td><td><a href='../athletes/michael_schuler.html'>Schuler, Michael</a></td><td class='pr' title='Personal record'>16:11.20</td><td></td><td>17:09.20</td><td>5:13</td></tr><tr><td>12</td><td><a href='../athletes/kenny_koller.html'>Koller, Kenny</a></td><td>16:16.00</td><td></td><td></td><td>5:14</td></tr><tr><td>17</td><td><a href='../athletes/brad_lawson.html'>Lawson, Brad</a></td><td class='pr' title='Personal record'>16:35.90</td><td></td><td>17:04.90</td><td>5:21</td></tr><tr><td>23</td><td><a href='../athletes/eddie_kinny.html'>Kinny, Eddie</a></td><td>16:56.40</td><td></td><td></td><td>5:27</td></tr></tbody></table></div><h3 style='margin-top:24px'>Team Scores</h3><p class='muted'>No team scores loaded for this race.</p></div><div class='xc-history-heading'><h1>Region 2 AAA 2000</h1></div><p class='subline muted'>October 28, 2000</p><div class='card'><h2>5000 Meters</h2><h3>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>5K</th><th>’00</th><th>PR</th><th>PPM</th></tr></thead><tbody><tr><td>1</td><td><a href='../athletes/bobby_curtis.html'>Curtis, Bobby</a></td><td class='pr' title='Personal record'>15:01.30</td><td></td><td>15:16.30</td><td>4:50</td></tr><tr><td>8</td><td><a href='../athletes/chris_glasser.html'>Glasser, Chris</a></td><td class='pr' title='Personal record'>16:29.90</td><td></td><td>16:44.90</td><td>5:19</td></tr><tr><td>11</td><td><a href='../athletes/jason_beyer.html'>Beyer, Jason</a></td><td>16:45.90</td><td></td><td></td><td>5:24</td></tr><tr><td>14</td><td><a href='../athletes/peter_meirose.html'>Meirose, Peter</a></td><td class='pr' title='Personal record'>17:01.20</td><td></td><td>17:14.80</td><td>5:29</td></tr><tr><td>18</td><td><a href='../athletes/chris_ubben.html'>Ubben, Chris</a></td><td>17:19.60</td><td></td><td></td><td>5:35</td></tr><tr><td>22</td><td><a href='../athletes/kevin_troklus.html'>Troklus, Kevin</a></td><td>17:27.50</td><td></td><td></td><td>5:37</td></tr><tr><td>24</td><td><a href='../athletes/ryan_houk.html'>Houk, Ryan</a></td><td>17:32.90</td><td></td><td>17:24.90</td><td>5:39</td></tr></tbody></table></div><h3 style='margin-top:24px'>Team Scores</h3><p class='muted'>No team scores loaded for this race.</p></div><div class="footer">Generated at <code>2026-07-20 17:57:07</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 </body>
 </html>

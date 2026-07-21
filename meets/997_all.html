@@ -57,6 +57,8 @@
       .tabpane { display:none; }
       .tabpane.active { display:block; }
       .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
@@ -89,27 +91,27 @@
       </div>
     </div>
     
-    <div class="filterbar" style="margin: 4px 0 10px 0;">
-      <label>
-        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-        StX Athletes Only
-      </label>
-    </div>
-    <script>
-      function toggleStxOnly(checkbox) {
-        if (checkbox.checked) {
-          document.body.classList.add('stx-only');
-        } else {
-          document.body.classList.remove('stx-only');
-        }
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        const checkbox = document.getElementById('stxOnlyToggle');
-        if (checkbox) {
-          toggleStxOnly(checkbox);
-        }
-      });
-    </script>
-    <div class='card'><h2>4000 Meter Run</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/isaac_baker.html'>Isaac Baker</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>8</td><td class="dimmed-pr"></td><td>14:38.60</td><td>16:42.70</td></tr><tr><td><a href='../athletes/gibb_jensen.html'>Gibb Jensen</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>9</td><td class="dimmed-pr"></td><td>16:45.90</td><td class="pr">16:43.60</td></tr><tr><td><a href='../athletes/javier_santos.html'>Javier Santos</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>14</td><td class="dimmed-pr"></td><td>16:20.10</td><td>17:17.70</td></tr><tr><td><a href='../athletes/aidan_welborn.html'>Aidan Welborn</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>24</td><td class="dimmed-pr"></td><td>16:32.60</td><td>18:21.00</td></tr><tr><td><a href='../athletes/ryan_thorne.html'>Ryan Thorne</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>26</td><td class="dimmed-pr"></td><td>16:34.80</td><td>18:35.00</td></tr><tr><td><a href='../athletes/landon_johnson.html'>Landon Johnson</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>29</td><td class="dimmed-pr"></td><td>18:23.90</td><td>18:51.50</td></tr><tr><td><a href='../athletes/collin_white.html'>Collin White</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>32</td><td class="dimmed-pr"></td><td>16:14.00</td><td>19:10.60</td></tr><tr><td><a href='../athletes/william_frye.html'>William Frye</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>33</td><td class="dimmed-pr"></td><td>18:10.30</td><td>19:15.40</td></tr></tbody></table></div></div><div class='card'><h2>5000 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/sean_obryan.html'>Sean Obryan</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>6</td><td class="dimmed-pr"></td><td></td><td class="pr">22:50.10</td></tr><tr><td><a href='../athletes/zach_blincoe.html'>Zach Blincoe</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>7</td><td class="dimmed-pr"></td><td></td><td class="pr">22:50.70</td></tr><tr><td><a href='../athletes/nick_zoglman.html'>Nick Zoglman</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>8</td><td class="dimmed-pr"></td><td></td><td class="pr">22:59.00</td></tr><tr><td><a href='../athletes/hayden_willman.html'>Hayden Willman</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>13</td><td class="dimmed-pr"></td><td></td><td class="pr">23:44.50</td></tr><tr><td><a href='../athletes/john_riley_kaufman.html'>John Riley Kaufman</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>14</td><td class="dimmed-pr"></td><td></td><td class="pr">23:46.50</td></tr><tr><td><a href='../athletes/ryan_whalen.html'>Ryan Whalen</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>20</td><td class="dimmed-pr"></td><td></td><td class="pr">24:37.40</td></tr><tr><td><a href='../athletes/daven_mcdaniel.html'>Daven Mcdaniel</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>22</td><td class="dimmed-pr"></td><td>23:22.20</td><td>24:49.60</td></tr><tr><td><a href='../athletes/logan_ransdell.html'>Logan Ransdell</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>26</td><td class="dimmed-pr"></td><td>23:26.00</td><td>26:36.80</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-19 08:10:10</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+        <div class="filterbar" style="margin: 4px 0 10px 0;">
+          <label>
+            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+            StX Athletes Only
+          </label>
+        </div>
+        <script>
+          function toggleStxOnly(checkbox) {
+            if (checkbox.checked) {
+              document.body.classList.add('stx-only');
+            } else {
+              document.body.classList.remove('stx-only');
+            }
+          }
+          document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.getElementById('stxOnlyToggle');
+            if (checkbox) {
+              toggleStxOnly(checkbox);
+            }
+          });
+        </script>
+        <p class='subline muted'>September 8, 2020</p><div class='card'><h2>4000 Meter Run</h2><h3>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>4000 Meter Run</th><th>PR</th><th>PPM</th></tr></thead><tbody><tr><td>8</td><td><a href='../athletes/isaac_baker.html'>Baker, Isaac</a></td><td>16:42.70</td><td>14:38.60</td><td></td></tr><tr><td>9</td><td><a href='../athletes/gibb_jensen.html'>Jensen, Gibb</a></td><td class='pr' title='Personal record'>16:43.60</td><td>16:45.90</td><td></td></tr><tr><td>14</td><td><a href='../athletes/javier_santos.html'>Santos, Javier</a></td><td>17:17.70</td><td>16:20.10</td><td></td></tr><tr><td>24</td><td><a href='../athletes/aidan_welborn.html'>Welborn, Aidan</a></td><td>18:21.00</td><td>16:32.60</td><td></td></tr><tr><td>26</td><td><a href='../athletes/ryan_thorne.html'>Thorne, Ryan</a></td><td>18:35.00</td><td>16:34.80</td><td></td></tr><tr><td>29</td><td><a href='../athletes/landon_johnson.html'>Johnson, Landon</a></td><td>18:51.50</td><td>18:23.90</td><td></td></tr><tr><td>32</td><td><a href='../athletes/collin_white.html'>White, Collin</a></td><td>19:10.60</td><td>16:14.00</td><td></td></tr><tr><td>33</td><td><a href='../athletes/william_frye.html'>Frye, William</a></td><td>19:15.40</td><td>18:10.30</td><td></td></tr></tbody></table></div><h3 style='margin-top:24px'>Team Scores</h3><p class='muted'>No team scores loaded for this race.</p></div><div class='card'><h2>5000 Meters</h2><h3>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>5K</th><th>PR</th><th>PPM</th></tr></thead><tbody><tr><td>6</td><td><a href='../athletes/sean_obryan.html'>Obryan, Sean</a></td><td>22:50.10</td><td></td><td>7:21</td></tr><tr><td>7</td><td><a href='../athletes/zach_blincoe.html'>Blincoe, Zach</a></td><td>22:50.70</td><td></td><td>7:21</td></tr><tr><td>8</td><td><a href='../athletes/nick_zoglman.html'>Zoglman, Nick</a></td><td>22:59.00</td><td></td><td>7:24</td></tr><tr><td>13</td><td><a href='../athletes/hayden_willman.html'>Willman, Hayden</a></td><td>23:44.50</td><td></td><td>7:39</td></tr><tr><td>14</td><td><a href='../athletes/john_riley_kaufman.html'>Kaufman, John Riley</a></td><td>23:46.50</td><td></td><td>7:39</td></tr><tr><td>20</td><td><a href='../athletes/ryan_whalen.html'>Whalen, Ryan</a></td><td>24:37.40</td><td></td><td>7:56</td></tr><tr><td>22</td><td><a href='../athletes/daven_mcdaniel.html'>Mcdaniel, Daven</a></td><td>24:49.60</td><td>23:22.20</td><td>7:59</td></tr><tr><td>26</td><td><a href='../athletes/logan_ransdell.html'>Ransdell, Logan</a></td><td>26:36.80</td><td>23:26.00</td><td>8:34</td></tr></tbody></table></div><h3 style='margin-top:24px'>Team Scores</h3><p class='muted'>No team scores loaded for this race.</p></div><div class="footer">Generated at <code>2026-07-20 17:30:25</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 </body>
 </html>

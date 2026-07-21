@@ -57,6 +57,8 @@
       .tabpane { display:none; }
       .tabpane.active { display:block; }
       .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
       .ath-col h3 { margin: 0 0 6px 0; }
@@ -89,27 +91,27 @@
       </div>
     </div>
     
-    <div class="filterbar" style="margin: 4px 0 10px 0;">
-      <label>
-        <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
-        StX Athletes Only
-      </label>
-    </div>
-    <script>
-      function toggleStxOnly(checkbox) {
-        if (checkbox.checked) {
-          document.body.classList.add('stx-only');
-        } else {
-          document.body.classList.remove('stx-only');
-        }
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        const checkbox = document.getElementById('stxOnlyToggle');
-        if (checkbox) {
-          toggleStxOnly(checkbox);
-        }
-      });
-    </script>
-    <div class='card'><h2>5000 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/aaron_flannery.html'>Aaron Flannery</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>6</td><td class="dimmed-pr"></td><td>17:35.80</td><td>18:35.20</td></tr><tr><td><a href='../athletes/ted_graves.html'>Ted Graves</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>7</td><td class="dimmed-pr"></td><td>17:26.60</td><td>18:51.30</td></tr><tr><td><a href='../athletes/ryan_appel.html'>Ryan Appel</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>18</td><td class="dimmed-pr"></td><td></td><td class="pr">19:39.40</td></tr><tr><td><a href='../athletes/ben_wainwright.html'>Ben Wainwright</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>23</td><td class="dimmed-pr"></td><td>19:10.50</td><td>19:46.70</td></tr><tr><td><a href='../athletes/justin_allard.html'>Justin Allard</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>25</td><td class="dimmed-pr"></td><td>19:02.10</td><td>19:51.30</td></tr><tr><td><a href='../athletes/eric_beyerle.html'>Eric Beyerle</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>27</td><td class="dimmed-pr"></td><td>18:32.20</td><td>19:57.70</td></tr><tr><td><a href='../athletes/clay_wright.html'>Clay Wright</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>28</td><td class="dimmed-pr"></td><td>18:10.20</td><td>20:02.20</td></tr><tr><td><a href='../athletes/drew_nelson.html'>Drew Nelson</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>29</td><td class="dimmed-pr"></td><td></td><td class="pr">20:03.80</td></tr><tr><td><a href='../athletes/chip_raque.html'>Chip Raque</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>37</td><td class="dimmed-pr"></td><td></td><td class="pr">20:32.90</td></tr><tr><td><a href='../athletes/adam_dant.html'>Adam Dant</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>39</td><td class="dimmed-pr"></td><td>18:31.30</td><td>20:35.30</td></tr><tr><td><a href='../athletes/willie_thompson.html'>Willie Thompson</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>45</td><td class="dimmed-pr"></td><td>19:31.20</td><td>20:51.30</td></tr><tr><td><a href='../athletes/ryan_resiert.html'>Ryan Resiert</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>46</td><td class="dimmed-pr"></td><td>19:41.10</td><td>20:51.80</td></tr><tr><td><a href='../athletes/mason_dunaway.html'>Mason Dunaway</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>48</td><td class="dimmed-pr"></td><td></td><td class="pr">20:57.40</td></tr><tr><td><a href='../athletes/devin_schroeder.html'>Devin Schroeder</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>50</td><td class="dimmed-pr"></td><td>20:50.00</td><td>21:08.50</td></tr><tr><td><a href='../athletes/taylor_crismon.html'>Taylor Crismon</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>51</td><td class="dimmed-pr"></td><td>20:53.50</td><td>21:11.30</td></tr><tr><td><a href='../athletes/adam_kleine_kracht.html'>Adam Kleine-Kracht</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>53</td><td class="dimmed-pr"></td><td>20:00.30</td><td>21:13.20</td></tr><tr><td><a href='../athletes/will_sack.html'>Will Sack</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>58</td><td class="dimmed-pr"></td><td></td><td class="pr">21:24.20</td></tr><tr><td><a href='../athletes/bobby_koch.html'>Bobby Koch</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>64</td><td class="dimmed-pr"></td><td></td><td class="pr">21:32.80</td></tr><tr><td><a href='../athletes/ben_koch.html'>Ben Koch</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>67</td><td class="dimmed-pr"></td><td></td><td class="pr">21:45.70</td></tr><tr><td><a href='../athletes/jay_klapheke.html'>Jay Klapheke</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>94</td><td class="dimmed-pr"></td><td></td><td class="pr">22:48.50</td></tr><tr><td><a href='../athletes/blake_sheehy.html'>Blake Sheehy</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>105</td><td class="dimmed-pr"></td><td></td><td class="pr">23:21.80</td></tr><tr><td><a href='../athletes/jacob_madalon.html'>Jacob Madalon</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>117</td><td class="dimmed-pr"></td><td></td><td class="pr">24:08.00</td></tr><tr><td><a href='../athletes/griffin_knepp.html'>Griffin Knepp</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>139</td><td class="dimmed-pr"></td><td></td><td class="pr">26:17.60</td></tr><tr><td><a href='../athletes/david_bossmeyer.html'>David Bossmeyer</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>xc</td><td>155</td><td class="dimmed-pr"></td><td>26:53.90</td><td>27:36.10</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-19 08:17:47</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+        <div class="filterbar" style="margin: 4px 0 10px 0;">
+          <label>
+            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+            StX Athletes Only
+          </label>
+        </div>
+        <script>
+          function toggleStxOnly(checkbox) {
+            if (checkbox.checked) {
+              document.body.classList.add('stx-only');
+            } else {
+              document.body.classList.remove('stx-only');
+            }
+          }
+          document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.getElementById('stxOnlyToggle');
+            if (checkbox) {
+              toggleStxOnly(checkbox);
+            }
+          });
+        </script>
+        <p class='subline muted'>September 15, 2009</p><div class='card'><h2>5000 Meters</h2><h3>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>5K</th><th>PR</th><th>PPM</th></tr></thead><tbody><tr><td>6</td><td><a href='../athletes/aaron_flannery.html'>Flannery, Aaron</a></td><td>18:35.20</td><td>17:35.80</td><td>5:59</td></tr><tr><td>7</td><td><a href='../athletes/ted_graves.html'>Graves, Ted</a></td><td>18:51.30</td><td>17:26.60</td><td>6:04</td></tr><tr><td>18</td><td><a href='../athletes/ryan_appel.html'>Appel, Ryan</a></td><td>19:39.40</td><td></td><td>6:20</td></tr><tr><td>23</td><td><a href='../athletes/ben_wainwright.html'>Wainwright, Ben</a></td><td>19:46.70</td><td>19:10.50</td><td>6:22</td></tr><tr><td>25</td><td><a href='../athletes/justin_allard.html'>Allard, Justin</a></td><td>19:51.30</td><td>19:02.10</td><td>6:23</td></tr><tr><td>27</td><td><a href='../athletes/eric_beyerle.html'>Beyerle, Eric</a></td><td>19:57.70</td><td>18:32.20</td><td>6:26</td></tr><tr><td>28</td><td><a href='../athletes/clay_wright.html'>Wright, Clay</a></td><td>20:02.20</td><td>18:10.20</td><td>6:27</td></tr><tr><td>29</td><td><a href='../athletes/drew_nelson.html'>Nelson, Drew</a></td><td>20:03.80</td><td></td><td>6:27</td></tr><tr><td>37</td><td><a href='../athletes/chip_raque.html'>Raque, Chip</a></td><td>20:32.90</td><td></td><td>6:37</td></tr><tr><td>39</td><td><a href='../athletes/adam_dant.html'>Dant, Adam</a></td><td>20:35.30</td><td>18:31.30</td><td>6:38</td></tr><tr><td>45</td><td><a href='../athletes/willie_thompson.html'>Thompson, Willie</a></td><td>20:51.30</td><td>19:31.20</td><td>6:43</td></tr><tr><td>46</td><td><a href='../athletes/ryan_resiert.html'>Resiert, Ryan</a></td><td>20:51.80</td><td>19:41.10</td><td>6:43</td></tr><tr><td>48</td><td><a href='../athletes/mason_dunaway.html'>Dunaway, Mason</a></td><td>20:57.40</td><td></td><td>6:45</td></tr><tr><td>50</td><td><a href='../athletes/devin_schroeder.html'>Schroeder, Devin</a></td><td>21:08.50</td><td>20:50.00</td><td>6:48</td></tr><tr><td>51</td><td><a href='../athletes/taylor_crismon.html'>Crismon, Taylor</a></td><td>21:11.30</td><td>20:53.50</td><td>6:49</td></tr><tr><td>53</td><td><a href='../athletes/adam_kleine_kracht.html'>Kleine-Kracht, Adam</a></td><td>21:13.20</td><td>20:00.30</td><td>6:50</td></tr><tr><td>58</td><td><a href='../athletes/will_sack.html'>Sack, Will</a></td><td>21:24.20</td><td></td><td>6:53</td></tr><tr><td>64</td><td><a href='../athletes/bobby_koch.html'>Koch, Bobby</a></td><td>21:32.80</td><td></td><td>6:56</td></tr><tr><td>67</td><td><a href='../athletes/ben_koch.html'>Koch, Ben</a></td><td>21:45.70</td><td></td><td>7:00</td></tr><tr><td>94</td><td><a href='../athletes/jay_klapheke.html'>Klapheke, Jay</a></td><td>22:48.50</td><td></td><td>7:20</td></tr><tr><td>105</td><td><a href='../athletes/blake_sheehy.html'>Sheehy, Blake</a></td><td>23:21.80</td><td></td><td>7:31</td></tr><tr><td>117</td><td><a href='../athletes/jacob_madalon.html'>Madalon, Jacob</a></td><td>24:08.00</td><td></td><td>7:46</td></tr><tr><td>139</td><td><a href='../athletes/griffin_knepp.html'>Knepp, Griffin</a></td><td>26:17.60</td><td></td><td>8:28</td></tr><tr><td>155</td><td><a href='../athletes/david_bossmeyer.html'>Bossmeyer, David</a></td><td>27:36.10</td><td>26:53.90</td><td>8:53</td></tr></tbody></table></div><h3 style='margin-top:24px'>Team Scores</h3><p class='muted'>No team scores loaded for this race.</p></div><div class="footer">Generated at <code>2026-07-20 17:49:28</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 </body>
 </html>
