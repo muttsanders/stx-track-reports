@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2025-08-09 | Two Mile Time Trial</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .athlete-profile-links { margin: 4px 0 8px 0; font-size: 14px; font-weight: 700; }
+      .athlete-profile-links a { margin-right: 15px; }
+      .meet-links { margin: 4px 0 10px 0; font-size: 14px; font-weight: 700; }
+      .meet-links a { margin-right: 15px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link,
+      .nav a.comparison-link, .nav span.comparison-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; }
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
+      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn { border:1px solid #ddd; background:#fff; border-radius: 999px; padding:6px 10px; font-size: 13px; cursor:pointer; }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+      .rankcell { font-weight: 800; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
+      .hide-graphs .chart-container { display: none; }
+      /* Meet page filter: hide non-StX rows when toggled */
+      body.stx-only .non-stx-row { display: none; }
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
+      .non-stx-row { opacity: 0.80; }
+      /* PR section header rows (Track / XC) */
+      .sporthdr { background: #efefef; font-weight: 900; }
+      .dimmed-pr { color: #999; font-weight: normal; }
+      .pr-parade { border: 2px solid #f0a45d; background: #fff8f0; padding: 9px 12px; }
+      .pr-parade h2 { display:inline; margin:0 8px 0 0; color:#8a431d; font-size:18px; }
+      .pr-parade-list { display:inline; line-height:1.8; }
+      .pr-parade-entry { white-space:nowrap; }
+      .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
+      .xc-team-score-heading h3 { margin:0; }
+      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
+      .xc-team-extra-row { display:none; }
+      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+    </style>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="titlewrap">
+        <div class="date">2025-08-09</div>
+        <div class="meetname">Two Mile Time Trial</div>
+        
+        <p class="subline muted">Outdoor</p>
+      </div>
+      <div class="nav">
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+      </div>
+    </div>
+    
+        <div class="filterbar" style="margin: 4px 0 10px 0;">
+          <label>
+            <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
+            StX Athletes Only
+          </label>
+        </div>
+        <script>
+          function toggleStxOnly(checkbox) {
+            if (checkbox.checked) {
+              document.body.classList.add('stx-only');
+            } else {
+              document.body.classList.remove('stx-only');
+            }
+          }
+          document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.getElementById('stxOnlyToggle');
+            if (checkbox) {
+              toggleStxOnly(checkbox);
+            }
+          });
+        </script>
+        
+    <div class='card pr-parade'>
+      <h2>🎉 PR Parade:</h2>
+      <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/nick_sanders.html'>Sanders, Nick</a>, <span class='pr-time'>0:09.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/sam_schweickhardt.html'>Schweickhardt, Sam</a>, <span class='pr-time'>0:09.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/nolan_crider.html'>Crider, Nolan</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/everett_derrick.html'>Derrick, Everett</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/matthew_frick.html'>Frick, Matthew</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/james_george.html'>George, James</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/tyler_hogan.html'>Hogan, Tyler</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/owen_mayes.html'>Mayes, Owen</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/ian_obryan.html'>O'Bryan, Ian</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/anthony_passafiume.html'>Passafiume, Anthony</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/baron_staab.html'>Staab, Baron</a>, <span class='pr-time'>0:10.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/james_bush.html'>Bush, James</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/sam_church.html'>Church, Sam</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/jack_clifford.html'>Clifford, Jack</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/ryder_garcia.html'>Garcia, Ryder</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/quenton_horton.html'>Horton, Quenton</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/william_korte.html'>Korte, William</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/matthew_meirose.html'>Meirose, Matthew</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/xavier_mudd.html'>Mudd, Xavier</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/tony_parilli.html'>Parilli, Tony</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/levi_roach.html'>Roach, Levi</a>, <span class='pr-time'>0:11.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/thomas_allgeier.html'>Allgeier, Thomas</a>, <span class='pr-time'>0:12.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/garrett_pate.html'>Pate, Garrett</a>, <span class='pr-time'>0:12.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/evan_pfeffer.html'>Pfeffer, Evan</a>, <span class='pr-time'>0:12.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/bobby_poston.html'>Poston, Bobby</a>, <span class='pr-time'>0:12.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/ian_vickerstaff.html'>Vickerstaff, Ian</a>, <span class='pr-time'>0:12.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/august_cruz.html'>Cruz, August</a>, <span class='pr-time'>0:13.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/alex_jemley.html'>Jemley, Alex</a>, <span class='pr-time'>0:13.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/garrett_kiper.html'>Kiper, Garrett</a>, <span class='pr-time'>0:13.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/levi_thornton.html'>Thornton, Levi</a>, <span class='pr-time'>0:13.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/nick_wolff.html'>Wolff, Nick</a>, <span class='pr-time'>0:13.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/jacob_hettinger.html'>Hettinger, Jacob</a>, <span class='pr-time'>0:14.00</span></span>; <span class='pr-parade-entry'><a href='../athletes/nils_carlson.html'>Carlson, Nils</a>, <span class='pr-time'>0:16.00</span></span></div>
+    </div>
+    <p class='subline muted'>August 9, 2025<br>Seneca Park, Louisville, KY</p><div class='card'><h2>2 Mile</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th>2025</th><th>2024</th><th>2023</th><th>2022</th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>1</td><td><a href='../athletes/nick_sanders.html'>Sanders, Nick</a></td><td>12</td><td class='pr' title='Personal record'>0:09.00</td><td>9:51.00</td><td></td><td></td><td>9:51.00</td><td>0:04</td></tr><tr><td>2</td><td><a href='../athletes/sam_schweickhardt.html'>Schweickhardt, Sam</a></td><td>12</td><td class='pr' title='Personal record'>0:09.00</td><td>10:28.00</td><td></td><td></td><td>10:28.00</td><td>0:04</td></tr><tr><td>3</td><td><a href='../athletes/marshall_wilson.html'>Wilson, Marshall</a></td><td>12</td><td>0:09.00</td><td></td><td></td><td></td><td></td><td>0:04</td></tr><tr><td>4</td><td><a href='../athletes/nolan_crider.html'>Crider, Nolan</a></td><td>11</td><td class='pr' title='Personal record'>0:10.00</td><td></td><td></td><td></td><td>12:00.00</td><td>0:05</td></tr><tr><td>5</td><td><a href='../athletes/matthew_frick.html'>Frick, Matthew</a></td><td>11</td><td class='pr' title='Personal record'>0:10.00</td><td>10:18.00</td><td></td><td></td><td>10:18.00</td><td>0:05</td></tr><tr><td>8</td><td><a href='../athletes/james_george.html'>George, James</a></td><td>12</td><td class='pr' title='Personal record'>0:10.00</td><td>10:42.00</td><td></td><td></td><td>10:42.00</td><td>0:05</td></tr><tr><td>9</td><td><a href='../athletes/anthony_passafiume.html'>Passafiume, Anthony</a></td><td>12</td><td class='pr' title='Personal record'>0:10.00</td><td>10:32.00</td><td></td><td></td><td>10:32.00</td><td>0:05</td></tr><tr><td>10</td><td><a href='../athletes/everett_derrick.html'>Derrick, Everett</a></td><td>11</td><td class='pr' title='Personal record'>0:10.00</td><td>10:57.00</td><td></td><td></td><td>10:57.00</td><td>0:05</td></tr><tr><td>11</td><td><a href='../athletes/baron_staab.html'>Staab, Baron</a></td><td>11</td><td class='pr' title='Personal record'>0:10.00</td><td>10:48.00</td><td></td><td></td><td>10:48.00</td><td>0:05</td></tr><tr><td>12</td><td><a href='../athletes/tyler_hogan.html'>Hogan, Tyler</a></td><td>11</td><td class='pr' title='Personal record'>0:10.00</td><td>11:28.00</td><td></td><td></td><td>11:28.00</td><td>0:05</td></tr><tr><td>13</td><td><a href='../athletes/owen_mayes.html'>Mayes, Owen</a></td><td>10</td><td class='pr' title='Personal record'>0:10.00</td><td>11:52.00</td><td></td><td></td><td>11:44.00</td><td>0:05</td></tr><tr><td>15</td><td><a href='../athletes/ian_obryan.html'>O'Bryan, Ian</a></td><td>10</td><td class='pr' title='Personal record'>0:10.00</td><td>12:18.00</td><td></td><td></td><td>12:18.00</td><td>0:05</td></tr><tr><td>18</td><td><a href='../athletes/levi_roach.html'>Roach, Levi</a></td><td>11</td><td class='pr' title='Personal record'>0:11.00</td><td>11:36.00</td><td></td><td></td><td>11:36.00</td><td>0:05</td></tr><tr><td>20</td><td><a href='../athletes/matthew_meirose.html'>Meirose, Matthew</a></td><td>11</td><td class='pr' title='Personal record'>0:11.00</td><td>12:11.00</td><td></td><td></td><td>12:11.00</td><td>0:05</td></tr><tr><td>21</td><td><a href='../athletes/jack_clifford.html'>Clifford, Jack</a></td><td>11</td><td class='pr' title='Personal record'>0:11.00</td><td>11:45.00</td><td></td><td></td><td>11:45.00</td><td>0:05</td></tr><tr><td>23</td><td><a href='../athletes/colin_bozich.html'>Bozich, Colin</a></td><td>9</td><td>0:11.00</td><td></td><td></td><td></td><td></td><td>0:05</td></tr><tr><td>24</td><td><a href='../athletes/ryder_garcia.html'>Garcia, Ryder</a></td><td>12</td><td class='pr' title='Personal record'>0:11.00</td><td>11:50.00</td><td></td><td></td><td>11:50.00</td><td>0:05</td></tr><tr><td>25</td><td><a href='../athletes/xavier_mudd.html'>Mudd, Xavier</a></td><td>11</td><td class='pr' title='Personal record'>0:11.00</td><td>11:54.00</td><td></td><td></td><td>11:54.00</td><td>0:05</td></tr><tr><td>26</td><td><a href='../athletes/william_korte.html'>Korte, William</a></td><td>12</td><td class='pr' title='Personal record'>0:11.00</td><td>11:17.00</td><td></td><td></td><td>11:17.00</td><td>0:05</td></tr><tr><td>27</td><td><a href='../athletes/james_bush.html'>Bush, James</a></td><td>11</td><td class='pr' title='Personal record'>0:11.00</td><td>11:25.00</td><td></td><td></td><td>11:25.00</td><td>0:05</td></tr><tr><td>29</td><td><a href='../athletes/tony_parilli.html'>Parilli, Tony</a></td><td>12</td><td class='pr' title='Personal record'>0:11.00</td><td>11:26.00</td><td></td><td></td><td>11:26.00</td><td>0:05</td></tr><tr><td>30</td><td><a href='../athletes/cooper_hogan.html'>Hogan, Cooper</a></td><td>9</td><td>0:11.00</td><td></td><td></td><td></td><td></td><td>0:05</td></tr><tr><td>32</td><td><a href='../athletes/nathan_worley.html'>Worley, Nathan</a></td><td>9</td><td>0:11.00</td><td></td><td></td><td></td><td></td><td>0:05</td></tr><tr><td>33</td><td><a href='../athletes/quenton_horton.html'>Horton, Quenton</a></td><td>10</td><td class='pr' title='Personal record'>0:11.00</td><td>12:15.00</td><td></td><td></td><td>12:15.00</td><td>0:05</td></tr><tr><td>35</td><td><a href='../athletes/leo_falk.html'>Falk, Leo</a></td><td>9</td><td>0:11.00</td><td></td><td></td><td></td><td></td><td>0:05</td></tr><tr><td>38</td><td><a href='../athletes/sam_church.html'>Church, Sam</a></td><td>10</td><td class='pr' title='Personal record'>0:11.00</td><td>12:50.00</td><td></td><td></td><td>12:50.00</td><td>0:05</td></tr><tr><td>41</td><td><a href='../athletes/rajii_walsh.html'>Walsh, Rajii</a></td><td>11</td><td>0:12.00</td><td></td><td></td><td></td><td></td><td>0:06</td></tr><tr><td>43</td><td><a href='../athletes/thomas_allgeier.html'>Allgeier, Thomas</a></td><td>10</td><td class='pr' title='Personal record'>0:12.00</td><td>13:01.00</td><td></td><td></td><td>13:01.00</td><td>0:06</td></tr><tr><td>44</td><td><a href='../athletes/jonah_roach.html'>Roach, Jonah</a></td><td>9</td><td>0:12.00</td><td></td><td></td><td></td><td></td><td>0:06</td></tr><tr><td>45</td><td><a href='../athletes/ian_vickerstaff.html'>Vickerstaff, Ian</a></td><td>10</td><td class='pr' title='Personal record'>0:12.00</td><td>14:03.00</td><td></td><td></td><td>14:03.00</td><td>0:06</td></tr><tr><td>47</td><td><a href='../athletes/garrett_pate.html'>Pate, Garrett</a></td><td>11</td><td class='pr' title='Personal record'>0:12.00</td><td>12:24.00</td><td></td><td></td><td>12:24.00</td><td>0:06</td></tr><tr><td>51</td><td><a href='../athletes/henry_metzger.html'>Metzger, Henry</a></td><td>9</td><td>0:12.00</td><td></td><td></td><td></td><td></td><td>0:06</td></tr><tr><td>53</td><td><a href='../athletes/andrew_reed.html'>Reed, Andrew</a></td><td>9</td><td>0:12.00</td><td></td><td></td><td></td><td></td><td>0:06</td></tr><tr><td>54</td><td><a href='../athletes/evan_pfeffer.html'>Pfeffer, Evan</a></td><td>11</td><td class='pr' title='Personal record'>0:12.00</td><td>13:59.00</td><td></td><td></td><td>13:59.00</td><td>0:06</td></tr><tr><td>55</td><td><a href='../athletes/bobby_poston.html'>Poston, Bobby</a></td><td>10</td><td class='pr' title='Personal record'>0:12.00</td><td>12:32.00</td><td></td><td></td><td>12:32.00</td><td>0:06</td></tr><tr><td>56</td><td><a href='../athletes/thomas_dusza.html'>Dusza, Thomas</a></td><td>9</td><td>0:12.00</td><td></td><td></td><td></td><td></td><td>0:06</td></tr><tr><td>58</td><td><a href='../athletes/henry_gettelfinger.html'>Gettelfinger, Henry</a></td><td>9</td><td>0:13.00</td><td></td><td></td><td></td><td></td><td>0:06</td></tr><tr><td>63</td><td><a href='../athletes/levi_thornton.html'>Thornton, Levi</a></td><td>11</td><td class='pr' title='Personal record'>0:13.00</td><td>12:58.00</td><td></td><td></td><td>12:58.00</td><td>0:06</td></tr><tr><td>64</td><td><a href='../athletes/nick_wolff.html'>Wolff, Nick</a></td><td>11</td><td class='pr' title='Personal record'>0:13.00</td><td>13:36.00</td><td></td><td></td><td>13:36.00</td><td>0:06</td></tr><tr><td>66</td><td><a href='../athletes/august_cruz.html'>Cruz, August</a></td><td>10</td><td class='pr' title='Personal record'>0:13.00</td><td>14:56.00</td><td></td><td></td><td>14:56.00</td><td>0:06</td></tr><tr><td>67</td><td><a href='../athletes/garrett_kiper.html'>Kiper, Garrett</a></td><td>11</td><td class='pr' title='Personal record'>0:13.00</td><td>13:42.00</td><td></td><td></td><td>13:42.00</td><td>0:06</td></tr><tr><td>70</td><td><a href='../athletes/tristan_bohannon.html'>Bohannon, Tristan</a></td><td>9</td><td>0:13.00</td><td></td><td></td><td></td><td></td><td>0:06</td></tr><tr><td>72</td><td><a href='../athletes/alex_jemley.html'>Jemley, Alex</a></td><td>10</td><td class='pr' title='Personal record'>0:13.00</td><td>15:05.00</td><td></td><td></td><td>15:05.00</td><td>0:06</td></tr><tr><td>76</td><td><a href='../athletes/ben_lewis.html'>Lewis, Ben</a></td><td>9</td><td>0:14.00</td><td></td><td></td><td></td><td></td><td>0:07</td></tr><tr><td>78</td><td><a href='../athletes/jack_schneider.html'>Schneider, Jack</a></td><td>9</td><td>0:14.00</td><td></td><td></td><td></td><td></td><td>0:07</td></tr><tr><td>82</td><td><a href='../athletes/mason_horlander.html'>Horlander, Mason</a></td><td>9</td><td>0:14.00</td><td></td><td></td><td></td><td></td><td>0:07</td></tr><tr><td>88</td><td><a href='../athletes/jacob_hettinger.html'>Hettinger, Jacob</a></td><td>11</td><td class='pr' title='Personal record'>0:14.00</td><td>13:55.00</td><td></td><td></td><td>13:55.00</td><td>0:07</td></tr><tr><td>98</td><td><a href='../athletes/charles_hackman.html'>Hackman, Charles</a></td><td>9</td><td>0:15.00</td><td></td><td></td><td></td><td></td><td>0:07</td></tr><tr><td>108</td><td><a href='../athletes/jack_eifler.html'>Eifler, Jack</a></td><td>9</td><td>0:16.00</td><td></td><td></td><td></td><td></td><td>0:08</td></tr><tr><td>110</td><td><a href='../athletes/nils_carlson.html'>Carlson, Nils</a></td><td>11</td><td class='pr' title='Personal record'>0:16.00</td><td>15:48.00</td><td></td><td></td><td>15:48.00</td><td>0:08</td></tr><tr><td>116</td><td><a href='../athletes/jayden_nguyen.html'>Nguyen, Jayden</a></td><td>10</td><td>0:16.00</td><td></td><td></td><td></td><td></td><td>0:08</td></tr><tr><td>118</td><td><a href='../athletes/trevor_onan.html'>O'Nan, Trevor</a></td><td>9</td><td>0:16.00</td><td></td><td></td><td></td><td></td><td>0:08</td></tr><tr><td>123</td><td><a href='../athletes/owen_mattingly.html'>Mattingly, Owen</a></td><td>9</td><td>0:17.00</td><td></td><td></td><td></td><td></td><td>0:08</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-23 20:00:08</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+</body>
+</html>
