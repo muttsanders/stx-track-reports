@@ -1,0 +1,717 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Coach Pre-Race Sheet | Coaches National Youth Championship</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .athlete-profile-links { margin: 4px 0 8px 0; font-size: 14px; font-weight: 700; }
+      .athlete-profile-links a { margin-right: 15px; }
+      .meet-links { margin: 4px 0 10px 0; font-size: 14px; font-weight: 700; }
+      .meet-links a { margin-right: 15px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link,
+      .nav a.comparison-link, .nav span.comparison-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; }
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
+      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn { border:1px solid #ddd; background:#fff; border-radius: 999px; padding:6px 10px; font-size: 13px; cursor:pointer; }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+      .rankcell { font-weight: 800; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
+      .hide-graphs .chart-container { display: none; }
+      /* Meet page filter: hide non-StX rows when toggled */
+      body.stx-only .non-stx-row { display: none; }
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
+      .non-stx-row { opacity: 0.80; }
+      /* PR section header rows (Track / XC) */
+      .sporthdr { background: #efefef; font-weight: 900; }
+      .dimmed-pr { color: #999; font-weight: normal; }
+      .pr-parade { border: 2px solid #f0a45d; background: #fff8f0; padding: 9px 12px; }
+      .pr-parade h2 { display:inline; margin:0 8px 0 0; color:#8a431d; font-size:18px; }
+      .pr-parade-list { display:inline; line-height:1.8; }
+      .pr-parade-entry { white-space:nowrap; }
+      .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
+      .xc-team-score-heading h3 { margin:0; }
+      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
+      .xc-team-extra-row { display:none; }
+      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
+    </style>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+
+    <style>
+      .coach-sheet { max-width:1100px; margin:0 auto; }
+      .coach-sheet-header {
+        display:flex; justify-content:space-between; align-items:flex-start;
+        gap:16px; margin-bottom:14px;
+      }
+      .coach-sheet-header h1 { margin:0 0 4px 0; }
+      .coach-actions { display:flex; gap:8px; flex-wrap:wrap; }
+      .coach-actions button {
+        border:1px solid #bbb; border-radius:7px; background:#fff;
+        padding:7px 12px; cursor:pointer; font-weight:700;
+      }
+      .coach-actions .print-button { background:#0b5fff; color:#fff; border-color:#0b5fff; }
+      .coach-form {
+        border:2px solid #1f2937; border-radius:10px; padding:16px;
+        margin-bottom:22px;
+      }
+      .coach-form h2 { margin:0 0 12px 0; }
+      .coach-fields {
+        display:grid; grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:12px 18px; margin-bottom:16px;
+      }
+      .coach-field label, .coach-notes label {
+        display:block; font-size:12px; font-weight:800; text-transform:uppercase;
+        letter-spacing:.04em; margin-bottom:4px;
+      }
+      .coach-field input {
+        box-sizing:border-box; width:100%; border:0; border-bottom:1px solid #555;
+        padding:6px 4px; font:inherit; background:transparent;
+      }
+      .coach-race-toolbar {
+        display:flex; justify-content:space-between; align-items:center;
+        gap:12px; margin:18px 0 10px 0;
+      }
+      .coach-race-toolbar h3 { margin:0; }
+      .coach-control-button {
+        border:1px solid #aaa; border-radius:6px; background:#fff;
+        padding:5px 9px; cursor:pointer; font-size:12px; font-weight:700;
+      }
+      .coach-race-group {
+        border:1px solid #9ca3af; border-radius:8px; padding:12px;
+        margin:0 0 14px 0; background:#fafafa;
+      }
+      .coach-race-group-header {
+        display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+        margin-bottom:9px;
+      }
+      .coach-group-name {
+        flex:1 1 220px; min-width:180px; border:0;
+        border-bottom:2px solid #1f2937; background:transparent;
+        padding:4px; font-size:20px; font-weight:800;
+      }
+      .coach-racer-count {
+        border-radius:999px; background:#e5e7eb; padding:5px 10px;
+        font-size:12px; font-weight:800; white-space:nowrap;
+      }
+      .coach-group-controls {
+        display:flex; gap:5px; flex-wrap:wrap;
+      }
+      .coach-group-schedule {
+        display:grid; grid-template-columns:repeat(4, minmax(100px, 1fr));
+        gap:9px; margin-bottom:10px;
+      }
+      .coach-group-schedule label {
+        display:block; font-size:11px; font-weight:800;
+        text-transform:uppercase; margin-bottom:2px;
+      }
+      .coach-group-schedule input {
+        box-sizing:border-box; width:100%; border:0;
+        border-bottom:1px solid #777; background:transparent;
+        padding:4px; font:inherit;
+      }
+      .coach-roster-grid { width:100%; margin:0; table-layout:fixed; }
+      .coach-roster-grid td { padding:0; background:#fff; }
+      .coach-roster-grid input {
+        box-sizing:border-box; width:100%; border:0; background:transparent;
+        padding:6px 7px; font:14px Arial, sans-serif;
+      }
+      .coach-notes { margin-top:14px; }
+      .coach-notes textarea {
+        box-sizing:border-box; width:100%; min-height:75px; resize:vertical;
+        border:1px solid #888; border-radius:6px; padding:9px;
+        font:14px/1.45 Arial, sans-serif;
+      }
+      .coach-history-note { margin:0 0 8px 0; }
+      .coach-history .non-stx-row { display:none; }
+      @media (max-width:760px) {
+        .coach-fields { grid-template-columns:1fr; }
+        .coach-group-schedule { grid-template-columns:repeat(2, minmax(100px, 1fr)); }
+        .coach-sheet-header { flex-direction:column; }
+      }
+      @media print {
+        body { margin:0.35in; }
+        .coach-actions, .coach-race-toolbar, .coach-group-controls,
+        .nav, .footer, .xc-team-score-heading label { display:none !important; }
+        .coach-sheet { max-width:none; }
+        .coach-sheet-header { margin-bottom:8px; }
+        .coach-form { margin-bottom:14px; padding:12px; }
+        .coach-race-group { break-inside:auto; background:#fff; }
+        .coach-roster-grid input { padding:4px 6px; }
+        .coach-notes textarea { min-height:55px; resize:none; }
+        .coach-history-heading { break-before:page; margin-top:0; }
+        .card { break-inside:avoid; }
+      }
+    </style>
+    <div class="coach-sheet">
+      <div class="coach-sheet-header">
+        <div>
+          <h1>Coach Pre-Race Sheet</h1>
+          <div class="meetname">Coaches National Youth Championship</div>
+          <p class="muted subline">Type the upcoming-race information below. Changes save automatically on this browser.</p>
+        </div>
+        <div class="coach-actions">
+          <a href="index.html">Choose Another Event</a>
+          <a href="../meets/701_all.html">Latest historical meet</a>
+          <button type="button" id="copy-google-docs-button" onclick="copyCoachSheetForGoogleDocs()">Copy for Google Docs</button>
+          <button type="button" class="print-button" onclick="window.print()">Print / Save PDF</button>
+          <button type="button" onclick="clearCoachSheet()">Clear Form</button>
+        </div>
+      </div>
+
+      <section class="coach-form">
+        <h2>Upcoming Race</h2>
+        <div class="coach-fields">
+          <div class="coach-field">
+            <label for="upcoming-date">Date</label>
+            <input id="upcoming-date" type="date" data-coach-save>
+          </div>
+          <div class="coach-field">
+            <label for="upcoming-location">Location</label>
+            <input id="upcoming-location" type="text" data-coach-save>
+          </div>
+          <div class="coach-field">
+            <label for="upcoming-weather">Weather</label>
+            <input id="upcoming-weather" type="text" data-coach-save>
+          </div>
+          <div class="coach-field">
+            <label for="upcoming-meet-notes">Meet Notes</label>
+            <input id="upcoming-meet-notes" type="text" data-coach-save>
+          </div>
+        </div>
+
+        <div class="coach-race-toolbar">
+          <h3>Race Groups</h3>
+          <button type="button" class="coach-control-button" onclick="addRaceGroup()">
+            + Add Race Group
+          </button>
+        </div>
+        <div id="coach-race-groups"></div>
+
+        <div class="coach-notes">
+          <label for="coach-notes">Alternates / Scratches / Coach Notes</label>
+          <textarea id="coach-notes" data-coach-save></textarea>
+        </div>
+      </section>
+
+      <section class="coach-history">
+        <p class="coach-history-note muted">
+          Automatically populated from the most recent Coaches National Youth Championship edition in the database.
+        </p>
+        <div class='xc-history-heading'><h1>Historical Reference: Cross Country Coaches National Youth Championships 2014</h1></div><p class='subline muted'>November 22, 2014<br>Percy Warner Park, Nashville, TN</p><div class='card'><h2>4000 Meter Run</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2014<span class='xc-result-date'>11/22</span></th><th class='xc-result-year-1'>2013<span class='xc-result-date'>11/23</span></th><th class='xc-result-year-3'>2011<span class='xc-result-date'>11/19</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>61</td><td><a href='../athletes/clint_sherman.html'>Sherman, Clint</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>14:58.50</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-3'></td><td>14:21.10</td><td></td></tr></tbody></table></div></div>
+      </section>
+      <div class="footer">Generated at <code>2026-07-27 14:44:12</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    </div>
+    <script>
+      const coachStoragePrefix = "coach-pre-race-8";
+      const coachFields = Array.from(document.querySelectorAll("[data-coach-save]"));
+      const raceGroupsContainer = document.getElementById("coach-race-groups");
+
+      function coachStorageKey(field) {
+        return `${coachStoragePrefix}:${field.id}`;
+      }
+
+      function blankAthletes(columns, rows) {
+        return Array(columns * rows).fill("");
+      }
+
+      function initialRaceGroups() {
+        return [
+          {
+            name: "JV",
+            arrival: "",
+            warmup: "",
+            race: "",
+            departure: "",
+            columns: 5,
+            rows: 12,
+            athletes: blankAthletes(5, 12)
+          },
+          {
+            name: "Varsity",
+            arrival: "",
+            warmup: "",
+            race: "",
+            departure: "",
+            columns: 3,
+            rows: 5,
+            athletes: blankAthletes(3, 5)
+          }
+        ];
+      }
+
+      function loadRaceGroups() {
+        try {
+          const saved = localStorage.getItem(`${coachStoragePrefix}:race-groups`);
+          if (!saved) return initialRaceGroups();
+          const parsed = JSON.parse(saved);
+          if (!Array.isArray(parsed) || !parsed.length) return initialRaceGroups();
+          return parsed.map(group => {
+            const columns = Math.max(1, Number(group.columns) || 1);
+            const rows = Math.max(1, Number(group.rows) || 1);
+            const athletes = Array.isArray(group.athletes)
+              ? group.athletes.slice(0, columns * rows)
+              : [];
+            while (athletes.length < columns * rows) athletes.push("");
+            return {
+              name: String(group.name || ""),
+              arrival: String(group.arrival || ""),
+              warmup: String(group.warmup || ""),
+              race: String(group.race || ""),
+              departure: String(group.departure || ""),
+              columns,
+              rows,
+              athletes
+            };
+          });
+        } catch (_error) {
+          return initialRaceGroups();
+        }
+      }
+
+      let raceGroups = loadRaceGroups();
+
+      function escapeCoachValue(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;");
+      }
+
+      function racerCount(group) {
+        return group.athletes.filter(name => String(name).trim()).length;
+      }
+
+      function saveRaceGroups() {
+        localStorage.setItem(
+          `${coachStoragePrefix}:race-groups`,
+          JSON.stringify(raceGroups)
+        );
+      }
+
+      function renderRaceGroups() {
+        raceGroupsContainer.innerHTML = raceGroups.map((group, groupIndex) => {
+          const rosterRows = Array.from({ length: group.rows }, (_unused, rowIndex) => {
+            const cells = Array.from({ length: group.columns }, (_unusedCell, columnIndex) => {
+              const athleteIndex = rowIndex * group.columns + columnIndex;
+              return `
+                <td>
+                  <input
+                    type="text"
+                    aria-label="Racer ${athleteIndex + 1}"
+                    data-group="${groupIndex}"
+                    data-athlete="${athleteIndex}"
+                    value="${escapeCoachValue(group.athletes[athleteIndex])}"
+                  >
+                </td>`;
+            }).join("");
+            return `<tr>${cells}</tr>`;
+          }).join("");
+
+          return `
+            <section class="coach-race-group">
+              <div class="coach-race-group-header">
+                <input
+                  class="coach-group-name"
+                  type="text"
+                  aria-label="Race group name"
+                  data-group="${groupIndex}"
+                  data-field="name"
+                  value="${escapeCoachValue(group.name)}"
+                >
+                <span class="coach-racer-count" id="coach-racer-count-${groupIndex}">
+                  ${racerCount(group)} racers
+                </span>
+                <div class="coach-group-controls">
+                  <button type="button" class="coach-control-button" onclick="addRosterRow(${groupIndex})">+ Row</button>
+                  <button type="button" class="coach-control-button" onclick="addRosterColumn(${groupIndex})">+ Column</button>
+                  <button type="button" class="coach-control-button" onclick="removeRaceGroup(${groupIndex})">Remove Group</button>
+                </div>
+              </div>
+              <div class="coach-group-schedule">
+                ${["arrival", "warmup", "race", "departure"].map(field => `
+                  <div>
+                    <label>${field}</label>
+                    <input
+                      type="text"
+                      data-group="${groupIndex}"
+                      data-field="${field}"
+                      value="${escapeCoachValue(group[field])}"
+                    >
+                  </div>
+                `).join("")}
+              </div>
+              <div class="table-wrap">
+                <table class="coach-roster-grid"><tbody>${rosterRows}</tbody></table>
+              </div>
+            </section>`;
+        }).join("");
+      }
+
+      function addRaceGroup() {
+        raceGroups.push({
+          name: "New Race Group",
+          arrival: "",
+          warmup: "",
+          race: "",
+          departure: "",
+          columns: 3,
+          rows: 6,
+          athletes: blankAthletes(3, 6)
+        });
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function addRosterRow(groupIndex) {
+        const group = raceGroups[groupIndex];
+        group.rows += 1;
+        group.athletes.push(...blankAthletes(group.columns, 1));
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function addRosterColumn(groupIndex) {
+        const group = raceGroups[groupIndex];
+        const expanded = [];
+        for (let rowIndex = 0; rowIndex < group.rows; rowIndex += 1) {
+          const start = rowIndex * group.columns;
+          expanded.push(...group.athletes.slice(start, start + group.columns), "");
+        }
+        group.columns += 1;
+        group.athletes = expanded;
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function removeRaceGroup(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!window.confirm(`Remove the ${group.name || "unnamed"} race group?`)) return;
+        raceGroups.splice(groupIndex, 1);
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      raceGroupsContainer.addEventListener("input", event => {
+        const target = event.target;
+        const groupIndex = Number(target.dataset.group);
+        if (!Number.isInteger(groupIndex) || !raceGroups[groupIndex]) return;
+        if (target.dataset.field) {
+          raceGroups[groupIndex][target.dataset.field] = target.value;
+        } else if (target.dataset.athlete !== undefined) {
+          const athleteIndex = Number(target.dataset.athlete);
+          raceGroups[groupIndex].athletes[athleteIndex] = target.value;
+          const count = document.getElementById(`coach-racer-count-${groupIndex}`);
+          if (count) count.textContent = `${racerCount(raceGroups[groupIndex])} racers`;
+        }
+        saveRaceGroups();
+      });
+
+      coachFields.forEach(field => {
+        const saved = localStorage.getItem(coachStorageKey(field));
+        if (saved !== null) field.value = saved;
+        field.addEventListener("input", () => {
+          localStorage.setItem(coachStorageKey(field), field.value);
+        });
+      });
+
+      function clearCoachSheet() {
+        if (!window.confirm("Clear all information entered on this coach sheet?")) return;
+        Object.keys(localStorage)
+          .filter(key => key.startsWith(`${coachStoragePrefix}:`))
+          .forEach(key => localStorage.removeItem(key));
+        coachFields.forEach(field => {
+          field.value = "";
+        });
+        raceGroups = initialRaceGroups();
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function coachFieldValue(id) {
+        const field = document.getElementById(id);
+        return field ? field.value.trim() : "";
+      }
+
+      function googleDocsHtml() {
+        const detailRows = [
+          ["Date", coachFieldValue("upcoming-date")],
+          ["Location", coachFieldValue("upcoming-location")],
+          ["Weather", coachFieldValue("upcoming-weather")],
+          ["Meet Notes", coachFieldValue("upcoming-meet-notes")]
+        ].filter(row => row[1]);
+
+        const details = detailRows.length
+          ? `<table style="border-collapse:collapse;width:100%;margin-bottom:14px">
+              ${detailRows.map(row => `
+                <tr>
+                  <td style="border:1px solid #777;padding:6px;font-weight:bold;width:120px">${escapeCoachValue(row[0])}</td>
+                  <td style="border:1px solid #777;padding:6px">${escapeCoachValue(row[1])}</td>
+                </tr>`).join("")}
+            </table>`
+          : "";
+
+        const groups = raceGroups.map(group => {
+          const schedule = [
+            ["Arrival", group.arrival],
+            ["Warmup", group.warmup],
+            ["Race", group.race],
+            ["Departure", group.departure]
+          ];
+          const athletes = group.athletes
+            .map(name => String(name || "").trim())
+            .filter(Boolean);
+          const columns = Math.max(1, Math.min(group.columns, 5));
+          const rosterRows = [];
+          for (let index = 0; index < athletes.length; index += columns) {
+            const row = athletes.slice(index, index + columns);
+            while (row.length < columns) row.push("");
+            rosterRows.push(
+              `<tr>${row.map(name => `<td style="border:1px solid #777;padding:6px">${escapeCoachValue(name)}</td>`).join("")}</tr>`
+            );
+          }
+          if (!rosterRows.length) {
+            rosterRows.push(
+              `<tr>${Array.from({ length: columns }, () => '<td style="border:1px solid #777;padding:12px">&nbsp;</td>').join("")}</tr>`
+            );
+          }
+          return `
+            <h2 style="margin:18px 0 6px">${escapeCoachValue(group.name || "Race Group")} (${athletes.length} racers)</h2>
+            <table style="border-collapse:collapse;width:100%;margin-bottom:8px">
+              <tr>${schedule.map(item => `<th style="border:1px solid #777;padding:5px;background:#eee">${item[0]}</th>`).join("")}</tr>
+              <tr>${schedule.map(item => `<td style="border:1px solid #777;padding:6px;text-align:center">${escapeCoachValue(item[1]) || "&nbsp;"}</td>`).join("")}</tr>
+            </table>
+            <table style="border-collapse:collapse;width:100%;margin-bottom:12px">${rosterRows.join("")}</table>`;
+        }).join("");
+
+        const notes = coachFieldValue("coach-notes");
+        return `
+          <div>
+            <h1 style="margin-bottom:2px">Coach Pre-Race Sheet</h1>
+            <h2 style="margin-top:0">Coaches National Youth Championship</h2>
+            ${details}
+            ${groups}
+            ${notes ? `<h2>Alternates / Scratches / Coach Notes</h2><p>${escapeCoachValue(notes).replaceAll("\n", "<br>")}</p>` : ""}
+          </div>`;
+      }
+
+      function googleDocsPlainText() {
+        const lines = [
+          "Coach Pre-Race Sheet",
+          "Coaches National Youth Championship",
+          ""
+        ];
+        [
+          ["Date", coachFieldValue("upcoming-date")],
+          ["Location", coachFieldValue("upcoming-location")],
+          ["Weather", coachFieldValue("upcoming-weather")],
+          ["Meet Notes", coachFieldValue("upcoming-meet-notes")]
+        ].forEach(item => {
+          if (item[1]) lines.push(`${item[0]}: ${item[1]}`);
+        });
+        raceGroups.forEach(group => {
+          const athletes = group.athletes
+            .map(name => String(name || "").trim())
+            .filter(Boolean);
+          lines.push("", `${group.name || "Race Group"} (${athletes.length} racers)`);
+          lines.push(
+            `Arrival: ${group.arrival || ""} | Warmup: ${group.warmup || ""} | ` +
+            `Race: ${group.race || ""} | Departure: ${group.departure || ""}`
+          );
+          athletes.forEach(name => lines.push(name));
+        });
+        const notes = coachFieldValue("coach-notes");
+        if (notes) lines.push("", "Alternates / Scratches / Coach Notes", notes);
+        return lines.join("\n");
+      }
+
+      async function copyCoachSheetForGoogleDocs() {
+        const button = document.getElementById("copy-google-docs-button");
+        const originalText = button.textContent;
+        const richHtml = googleDocsHtml();
+        const plainText = googleDocsPlainText();
+        try {
+          if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+            const item = new ClipboardItem({
+              "text/html": new Blob([richHtml], { type: "text/html" }),
+              "text/plain": new Blob([plainText], { type: "text/plain" })
+            });
+            await navigator.clipboard.write([item]);
+          } else {
+            const copyArea = document.createElement("div");
+            copyArea.contentEditable = "true";
+            copyArea.style.position = "fixed";
+            copyArea.style.left = "-9999px";
+            copyArea.innerHTML = richHtml;
+            document.body.appendChild(copyArea);
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(copyArea);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            if (!document.execCommand("copy")) throw new Error("Copy command failed");
+            selection.removeAllRanges();
+            copyArea.remove();
+          }
+          button.textContent = "Copied — Paste into Google Docs";
+        } catch (_error) {
+          window.prompt("Copy this text, then paste it into Google Docs:", plainText);
+          button.textContent = "Copy Manually";
+        }
+        window.setTimeout(() => {
+          button.textContent = originalText;
+        }, 3500);
+      }
+
+      renderRaceGroups();
+    </script>
+    
+</body>
+</html>

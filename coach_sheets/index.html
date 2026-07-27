@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Coach Pre-Race Sheets</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .athlete-profile-links { margin: 4px 0 8px 0; font-size: 14px; font-weight: 700; }
+      .athlete-profile-links a { margin-right: 15px; }
+      .meet-links { margin: 4px 0 10px 0; font-size: 14px; font-weight: 700; }
+      .meet-links a { margin-right: 15px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link,
+      .nav a.comparison-link, .nav span.comparison-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; }
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
+      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn { border:1px solid #ddd; background:#fff; border-radius: 999px; padding:6px 10px; font-size: 13px; cursor:pointer; }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .ath-col h3 { margin: 0 0 6px 0; }
+      .rankcell { font-weight: 800; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
+      .hide-graphs .chart-container { display: none; }
+      /* Meet page filter: hide non-StX rows when toggled */
+      body.stx-only .non-stx-row { display: none; }
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
+      .non-stx-row { opacity: 0.80; }
+      /* PR section header rows (Track / XC) */
+      .sporthdr { background: #efefef; font-weight: 900; }
+      .dimmed-pr { color: #999; font-weight: normal; }
+      .pr-parade { border: 2px solid #f0a45d; background: #fff8f0; padding: 9px 12px; }
+      .pr-parade h2 { display:inline; margin:0 8px 0 0; color:#8a431d; font-size:18px; }
+      .pr-parade-list { display:inline; line-height:1.8; }
+      .pr-parade-entry { white-space:nowrap; }
+      .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
+      .xc-team-score-heading h3 { margin:0; }
+      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
+      .xc-team-extra-row { display:none; }
+      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
+    </style>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+
+    <style>
+      .coach-selector { max-width:900px; margin:0 auto; }
+      .coach-selector-card {
+        border:2px solid #1f2937; border-radius:12px; padding:20px;
+        margin:18px 0 24px 0; background:#fafafa;
+      }
+      .coach-selector-card label {
+        display:block; margin-bottom:7px; font-weight:800;
+      }
+      .coach-sport-filter {
+        display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+        margin-bottom:14px;
+      }
+      .coach-sport-filter .pill { margin-right:0; }
+      .coach-selector-row {
+        display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:10px;
+      }
+      .coach-selector-row select {
+        box-sizing:border-box; width:100%; padding:11px 12px;
+        border:1px solid #777; border-radius:7px; background:#fff;
+        font:16px Arial, sans-serif;
+      }
+      .coach-selector-row button {
+        border:1px solid #0b5fff; border-radius:7px; background:#0b5fff;
+        color:#fff; padding:10px 18px; font-weight:800; cursor:pointer;
+      }
+      .coach-event-list {
+        display:grid; grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:10px;
+      }
+      .coach-event-card {
+        display:flex; flex-direction:column; gap:4px;
+        border:1px solid #d1d5db; border-radius:8px; padding:11px 13px;
+        color:#0645d6; text-decoration:none; background:#fff;
+      }
+      .coach-event-card:hover { border-color:#0b5fff; background:#f4f8ff; }
+      .coach-event-card span { color:#666; font-size:12px; }
+      @media (max-width:680px) {
+        .coach-selector-row, .coach-event-list { grid-template-columns:1fr; }
+      }
+    </style>
+    <div class="coach-selector">
+      <div class="topbar">
+        <div class="titlewrap">
+          <div class="meetname">Coach Pre-Race Sheets</div>
+          <p class="subline muted">Choose an event to prepare its upcoming-race sheet.</p>
+        </div>
+        <div class="nav">
+          <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <span class='coach-link'>Coach Pre-Race</span>
+        </div>
+      </div>
+
+      <section class="coach-selector-card">
+        <div class="coach-sport-filter">
+          <span class="pill">Sport</span>
+          <label><input type="radio" name="coach-sport" value="all" checked> All</label>
+          <label><input type="radio" name="coach-sport" value="xc"> XC</label>
+          <label><input type="radio" name="coach-sport" value="track"> Track</label>
+        </div>
+        <label for="coach-event-select">Event Name</label>
+        <div class="coach-selector-row">
+          <select id="coach-event-select">
+            <option value="">Select an event...</option>
+            <option value="1.html" data-sport="xc">AAU Cross Country National Championships</option><option value="2.html" data-sport="xc">All Ohio Championship</option><option value="3.html" data-sport="xc">Assumption JV Meet</option><option value="4.html" data-sport="xc">Big East Championship</option><option value="5.html" data-sport="xc">Capital View Classic</option><option value="6.html" data-sport="xc">Capitol View Classic</option><option value="7.html" data-sport="xc">Central Kentucky Run for the Gold</option><option value="8.html" data-sport="xc">Coaches National Youth Championship</option><option value="9.html" data-sport="xc">Desales Master Schedule Meet</option><option value="10.html" data-sport="xc">Foot Locker Nationals</option><option value="11.html" data-sport="xc">Franklin County Invite</option><option value="12.html" data-sport="xc">Freshmen Challenge</option><option value="13.html" data-sport="xc">Great American XC Festival</option><option value="14.html" data-sport="xc">Greater Louisville Classic</option><option value="15.html" data-sport="xc">Haunted Woods Classic</option><option value="16.html" data-sport="xc">Hillbilly Run</option><option value="17.html" data-sport="xc">Jeff Co Master Schedule Meet</option><option value="19.html" data-sport="xc">Kentucky State Meet</option><option value="18.html" data-sport="xc">KTCCCA Meet of Champions</option><option value="20.html" data-sport="xc">Lexington Catholic Invitational</option><option value="21.html" data-sport="xc">Louisville Metro JV XC Championship</option><option value="22.html" data-sport="xc">Nike Cross Nationals</option><option value="23.html" data-sport="xc">Nike Cross Southeast Regional</option><option value="24.html" data-sport="xc">North Hardin Invite</option><option value="25.html" data-sport="xc">Palatine Invitational</option><option value="26.html" data-sport="xc">Region Championship</option><option value="27.html" data-sport="xc">Rumble Through the Jungle</option><option value="28.html" data-sport="xc">RunningLane XC Championships</option><option value="29.html" data-sport="xc">South Regional Championship</option><option value="30.html" data-sport="xc">St Henry Invite</option><option value="31.html" data-sport="xc">St X Champions Series Meet 1</option><option value="32.html" data-sport="xc">St X Champions Series Meet 2</option><option value="33.html" data-sport="xc">St X Champions Series Meet 3</option><option value="34.html" data-sport="xc">St X Master Schedule Meet</option><option value="35.html" data-sport="xc">St Xavier Master Schedule Meet</option><option value="36.html" data-sport="xc">St. Xavier Tiger Run</option><option value="37.html" data-sport="xc">St. Xavier/Trinity Dual</option><option value="40.html" data-sport="xc">the Southern Showcase</option><option value="38.html" data-sport="xc">Titan Cross Country Classic</option><option value="39.html" data-sport="xc">Trinity/Valkyrie Invitational</option><option value="41.html" data-sport="xc">Two Mile Time Trial</option>
+          </select>
+          <button type="button" onclick="openCoachEvent()">Open Pre-Race Sheet</button>
+        </div>
+      </section>
+
+      <h2>All Coach Sheets</h2>
+      <div class="coach-event-list"><a class="coach-event-card" data-sport="xc" href="1.html"><strong>AAU Cross Country National Championships</strong><span>XC &middot; 5 historical meets &middot; latest 2015-12-05</span></a><a class="coach-event-card" data-sport="xc" href="2.html"><strong>All Ohio Championship</strong><span>XC &middot; 1 historical meet &middot; latest 2010-10-01</span></a><a class="coach-event-card" data-sport="xc" href="3.html"><strong>Assumption JV Meet</strong><span>XC &middot; 4 historical meets &middot; latest 2015-09-26</span></a><a class="coach-event-card" data-sport="xc" href="4.html"><strong>Big East Championship</strong><span>XC &middot; 2 historical meets &middot; latest 2007-10-27</span></a><a class="coach-event-card" data-sport="xc" href="5.html"><strong>Capital View Classic</strong><span>XC &middot; 1 historical meet &middot; latest 2007-10-06</span></a><a class="coach-event-card" data-sport="xc" href="6.html"><strong>Capitol View Classic</strong><span>XC &middot; 2 historical meets &middot; latest 2024-09-13</span></a><a class="coach-event-card" data-sport="xc" href="7.html"><strong>Central Kentucky Run for the Gold</strong><span>XC &middot; 4 historical meets &middot; latest 2024-08-31</span></a><a class="coach-event-card" data-sport="xc" href="8.html"><strong>Coaches National Youth Championship</strong><span>XC &middot; 3 historical meets &middot; latest 2014-11-22</span></a><a class="coach-event-card" data-sport="xc" href="9.html"><strong>Desales Master Schedule Meet</strong><span>XC &middot; 3 historical meets &middot; latest 2011-09-27</span></a><a class="coach-event-card" data-sport="xc" href="10.html"><strong>Foot Locker Nationals</strong><span>XC &middot; 10 historical meets &middot; latest 2007-11-24</span></a><a class="coach-event-card" data-sport="xc" href="11.html"><strong>Franklin County Invite</strong><span>XC &middot; 9 historical meets &middot; latest 2019-09-14</span></a><a class="coach-event-card" data-sport="xc" href="12.html"><strong>Freshmen Challenge</strong><span>XC &middot; 4 historical meets &middot; latest 2007-10-18</span></a><a class="coach-event-card" data-sport="xc" href="13.html"><strong>Great American XC Festival</strong><span>XC &middot; 16 historical meets &middot; latest 2023-10-06</span></a><a class="coach-event-card" data-sport="xc" href="14.html"><strong>Greater Louisville Classic</strong><span>XC &middot; 15 historical meets &middot; latest 2025-10-03</span></a><a class="coach-event-card" data-sport="xc" href="15.html"><strong>Haunted Woods Classic</strong><span>XC &middot; 7 historical meets &middot; latest 2025-10-11</span></a><a class="coach-event-card" data-sport="xc" href="16.html"><strong>Hillbilly Run</strong><span>XC &middot; 2 historical meets &middot; latest 2012-10-06</span></a><a class="coach-event-card" data-sport="xc" href="17.html"><strong>Jeff Co Master Schedule Meet</strong><span>XC &middot; 2 historical meets &middot; latest 2009-10-13</span></a><a class="coach-event-card" data-sport="xc" href="19.html"><strong>Kentucky State Meet</strong><span>XC &middot; 43 historical meets &middot; latest 2025-11-01</span></a><a class="coach-event-card" data-sport="xc" href="18.html"><strong>KTCCCA Meet of Champions</strong><span>XC &middot; 25 historical meets &middot; latest 2024-10-20</span></a><a class="coach-event-card" data-sport="xc" href="20.html"><strong>Lexington Catholic Invitational</strong><span>XC &middot; 16 historical meets &middot; latest 2017-10-07</span></a><a class="coach-event-card" data-sport="xc" href="21.html"><strong>Louisville Metro JV XC Championship</strong><span>XC &middot; 14 historical meets &middot; latest 2025-10-23</span></a><a class="coach-event-card" data-sport="xc" href="22.html"><strong>Nike Cross Nationals</strong><span>XC &middot; 3 historical meets &middot; latest 2016-12-03</span></a><a class="coach-event-card" data-sport="xc" href="23.html"><strong>Nike Cross Southeast Regional</strong><span>XC &middot; 14 historical meets &middot; latest 2025-11-22</span></a><a class="coach-event-card" data-sport="xc" href="24.html"><strong>North Hardin Invite</strong><span>XC &middot; 6 historical meets &middot; latest 2011-10-08</span></a><a class="coach-event-card" data-sport="xc" href="25.html"><strong>Palatine Invitational</strong><span>XC &middot; 11 historical meets &middot; latest 2025-09-27</span></a><a class="coach-event-card" data-sport="xc" href="26.html"><strong>Region Championship</strong><span>XC &middot; 25 historical meets &middot; latest 2025-10-25</span></a><a class="coach-event-card" data-sport="xc" href="27.html"><strong>Rumble Through the Jungle</strong><span>XC &middot; 21 historical meets &middot; latest 2024-09-06</span></a><a class="coach-event-card" data-sport="xc" href="28.html"><strong>RunningLane XC Championships</strong><span>XC &middot; 5 historical meets &middot; latest 2025-12-06</span></a><a class="coach-event-card" data-sport="xc" href="29.html"><strong>South Regional Championship</strong><span>XC &middot; 4 historical meets &middot; latest 2022-11-26</span></a><a class="coach-event-card" data-sport="xc" href="30.html"><strong>St Henry Invite</strong><span>XC &middot; 4 historical meets &middot; latest 2012-10-13</span></a><a class="coach-event-card" data-sport="xc" href="31.html"><strong>St X Champions Series Meet 1</strong><span>XC &middot; 4 historical meets &middot; latest 2025-09-10</span></a><a class="coach-event-card" data-sport="xc" href="32.html"><strong>St X Champions Series Meet 2</strong><span>XC &middot; 4 historical meets &middot; latest 2025-09-24</span></a><a class="coach-event-card" data-sport="xc" href="33.html"><strong>St X Champions Series Meet 3</strong><span>XC &middot; 1 historical meet &middot; latest 2020-10-06</span></a><a class="coach-event-card" data-sport="xc" href="34.html"><strong>St X Master Schedule Meet</strong><span>XC &middot; 3 historical meets &middot; latest 2012-10-09</span></a><a class="coach-event-card" data-sport="xc" href="35.html"><strong>St Xavier Master Schedule Meet</strong><span>XC &middot; 5 historical meets &middot; latest 2013-10-17</span></a><a class="coach-event-card" data-sport="xc" href="36.html"><strong>St. Xavier Tiger Run</strong><span>XC &middot; 24 historical meets &middot; latest 2025-08-30</span></a><a class="coach-event-card" data-sport="xc" href="37.html"><strong>St. Xavier/Trinity Dual</strong><span>XC &middot; 6 historical meets &middot; latest 2024-10-01</span></a><a class="coach-event-card" data-sport="xc" href="40.html"><strong>the Southern Showcase</strong><span>XC &middot; 3 historical meets &middot; latest 2025-09-12</span></a><a class="coach-event-card" data-sport="xc" href="38.html"><strong>Titan Cross Country Classic</strong><span>XC &middot; 5 historical meets &middot; latest 2018-10-06</span></a><a class="coach-event-card" data-sport="xc" href="39.html"><strong>Trinity/Valkyrie Invitational</strong><span>XC &middot; 26 historical meets &middot; latest 2025-09-19</span></a><a class="coach-event-card" data-sport="xc" href="41.html"><strong>Two Mile Time Trial</strong><span>XC &middot; 7 historical meets &middot; latest 2026-07-25</span></a></div>
+      <p id="coach-no-events" class="muted" hidden>No grouped events are available for this sport yet.</p>
+      <div class="footer">Generated at <code>2026-07-27 14:42:05</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    </div>
+    <script>
+      function openCoachEvent() {
+        const selector = document.getElementById("coach-event-select");
+        if (selector.value) window.location.href = selector.value;
+      }
+      const coachEventOptions = Array.from(
+        document.querySelectorAll("#coach-event-select option[data-sport]")
+      ).map(option => ({
+        value: option.value,
+        label: option.textContent,
+        sport: option.dataset.sport
+      }));
+
+      function applyCoachSportFilter(sport) {
+        const selector = document.getElementById("coach-event-select");
+        const visibleEvents = coachEventOptions.filter(event =>
+          sport === "all" || event.sport === sport
+        );
+        selector.innerHTML = '<option value="">Select an event...</option>';
+        visibleEvents.forEach(event => {
+          const option = document.createElement("option");
+          option.value = event.value;
+          option.textContent = event.label;
+          option.dataset.sport = event.sport;
+          selector.appendChild(option);
+        });
+        document.querySelectorAll(".coach-event-card").forEach(card => {
+          card.hidden = sport !== "all" && card.dataset.sport !== sport;
+        });
+        document.getElementById("coach-no-events").hidden = visibleEvents.length > 0;
+      }
+
+      document.getElementById("coach-event-select").addEventListener("change", event => {
+        if (event.target.value) window.location.href = event.target.value;
+      });
+      document.querySelectorAll('input[name="coach-sport"]').forEach(radio => {
+        radio.addEventListener("change", event => applyCoachSportFilter(event.target.value));
+      });
+    </script>
+    
+</body>
+</html>
