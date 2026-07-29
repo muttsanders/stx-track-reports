@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>2024-04-23 | Eastern Relays - Open Events 2024</title>
+  <title>2024-04-23 | Eastern Relays</title>
   
     <style>
       body { font-family: Arial, sans-serif; margin: 24px; }
@@ -61,7 +61,38 @@
       .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
-      .ath-col h3 { margin: 0 0 6px 0; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
       .rankcell { font-weight: 800; }
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
       .hide-graphs .chart-container { display: none; }
@@ -82,6 +113,101 @@
       .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
       .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
     </style>
     
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -92,12 +218,12 @@
     <div class="topbar">
       <div class="titlewrap">
         <div class="date">2024-04-23</div>
-        <div class="meetname">Eastern Relays - Open Events 2024</div>
+        <div class="meetname">Eastern Relays</div>
         <div class="meet-links"><a href="https://ky.milesplit.com/meets/622546-eastern-relays-open-events-2024/results/1048124/formatted" target="_blank">Milesplit Meet Link</a></div>
         <p class="subline muted">Outdoor</p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Coach Pre-Race</a>
       </div>
     </div>
     
@@ -127,6 +253,6 @@
       <h2>🎉 PR Parade:</h2>
       <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/vince_rink.html'>Vince Rink</a>, <span class='pr-time'>2:09.44</span></span>; <span class='pr-parade-entry'><a href='../athletes/vincent_yochum.html'>Vincent Yochum</a>, <span class='pr-time'>2:19.06</span></span></div>
     </div>
-    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Milo Adams</td><td>Sovereign Grace</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>2:05.40</td></tr><tr class="non-stx-row"><td>Jack Salyers</td><td>Covington Catholic</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>2:08.41</td></tr><tr><td><a href='../athletes/vince_rink.html'>Vince Rink</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>3</td><td class="dimmed-pr">2:14.99</td><td>2:10.10</td><td class="pr">2:09.44</td></tr><tr class="non-stx-row"><td>Caleb Wiegand</td><td>Oldham County</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>2:09.68</td></tr><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td>2:10.22</td><td>2:10.49</td></tr><tr class="non-stx-row"><td>Zachary Wood</td><td>Sovereign Grace</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>2:11.95</td></tr><tr class="non-stx-row"><td>Michael Cook</td><td>Walden</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>2:12.44</td></tr><tr class="non-stx-row"><td>Jackson Germann</td><td>Covington Catholic</td><td>1</td><td>8</td><td class="dimmed-pr"></td><td></td><td>2:12.51</td></tr><tr class="non-stx-row"><td>Ethan Fitzgibbon</td><td>Christian Academy-Louisville</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>2:12.69</td></tr><tr class="non-stx-row"><td>Josh Matheny</td><td>Trinity (Louisville)</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>2:12.87</td></tr><tr class="non-stx-row"><td>Luke O'Hara</td><td>Covington Catholic</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>2:13.19</td></tr><tr class="non-stx-row"><td>Benjamin Bitner</td><td>Highlands Latin</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>2:13.74</td></tr><tr class="non-stx-row"><td>Jeremiah Beardsley</td><td>Christian Academy-Louisville</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>2:13.92</td></tr><tr class="non-stx-row"><td>William McCollough</td><td>Bartlett High School</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>2:14.16</td></tr><tr class="non-stx-row"><td>Austin Wheeldon</td><td>Oldham County</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>2:14.21</td></tr><tr class="non-stx-row"><td>Anderson Goetz</td><td>Oldham County</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>2:16.52</td></tr><tr class="non-stx-row"><td>Joel Barczak</td><td>Covington Catholic</td><td>1</td><td>17</td><td class="dimmed-pr"></td><td></td><td>2:17.32</td></tr><tr class="non-stx-row"><td>Grayson Meyer</td><td>Fern Creek</td><td>1</td><td>18</td><td class="dimmed-pr"></td><td></td><td>2:17.83</td></tr><tr class="non-stx-row"><td>Gregory Perez</td><td>New Albany High School</td><td>1</td><td>19</td><td class="dimmed-pr"></td><td></td><td>2:18.79</td></tr><tr><td><a href='../athletes/vincent_yochum.html'>Vincent Yochum</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>20</td><td class="dimmed-pr">2:19.88</td><td>2:20.73</td><td class="pr">2:19.06</td></tr><tr class="non-stx-row"><td>Max Grisham</td><td>Sovereign Grace</td><td>1</td><td>21</td><td class="dimmed-pr"></td><td></td><td>2:19.32</td></tr><tr class="non-stx-row"><td>Michael Okeke</td><td>Dupont Manual</td><td>1</td><td>22</td><td class="dimmed-pr"></td><td></td><td>2:20.01</td></tr><tr class="non-stx-row"><td>Braden Franxman</td><td>Covington Catholic</td><td>1</td><td>23</td><td class="dimmed-pr"></td><td></td><td>2:20.25</td></tr><tr class="non-stx-row"><td>Taha Khan</td><td>Bartlett High School</td><td>1</td><td>24</td><td class="dimmed-pr"></td><td></td><td>2:21.08</td></tr><tr><td><a href='../athletes/hayden_willman.html'>Hayden Willman</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>25</td><td class="dimmed-pr">2:14.86</td><td>2:15.99</td><td>2:21.72</td></tr><tr class="non-stx-row"><td>Nicky Byers</td><td>Oldham County</td><td>1</td><td>26</td><td class="dimmed-pr"></td><td></td><td>2:21.94</td></tr><tr class="non-stx-row"><td>Nolan Hurley</td><td>Oldham County</td><td>1</td><td>27</td><td class="dimmed-pr"></td><td></td><td>2:22.58</td></tr><tr class="non-stx-row"><td>Luke Stephens</td><td>Christian Academy-Louisville</td><td>1</td><td>28</td><td class="dimmed-pr"></td><td></td><td>2:23.22</td></tr><tr class="non-stx-row"><td>Hudson Blakemore</td><td>Oldham County</td><td>1</td><td>29</td><td class="dimmed-pr"></td><td></td><td>2:24.25</td></tr><tr class="non-stx-row"><td>Barrett Bush</td><td>Oldham County</td><td>1</td><td>30</td><td class="dimmed-pr"></td><td></td><td>2:24.86</td></tr><tr class="non-stx-row"><td>Mason Daley</td><td>New Albany High School</td><td>1</td><td>31</td><td class="dimmed-pr"></td><td></td><td>2:25.14</td></tr><tr class="non-stx-row"><td>Chris Zirkle</td><td>Oldham County</td><td>1</td><td>32</td><td class="dimmed-pr"></td><td></td><td>2:25.27</td></tr><tr class="non-stx-row"><td>Ethan Brown</td><td>Oldham County</td><td>1</td><td>33</td><td class="dimmed-pr"></td><td></td><td>2:26.61</td></tr><tr class="non-stx-row"><td>Ian Trenkamp</td><td>Covington Catholic</td><td>1</td><td>34</td><td class="dimmed-pr"></td><td></td><td>2:27.98</td></tr><tr class="non-stx-row"><td>Chase Matthews</td><td>Dupont Manual</td><td>1</td><td>35</td><td class="dimmed-pr"></td><td></td><td>2:28.71</td></tr><tr class="non-stx-row"><td>Ian Allen-Farnsley</td><td>New Albany High School</td><td>1</td><td>36</td><td class="dimmed-pr"></td><td></td><td>2:28.98</td></tr><tr class="non-stx-row"><td>Brennan Hurley</td><td>Oldham County</td><td>1</td><td>37</td><td class="dimmed-pr"></td><td></td><td>2:29.75</td></tr><tr class="non-stx-row"><td>Olie Smith</td><td>North Oldham</td><td>1</td><td>38</td><td class="dimmed-pr"></td><td></td><td>2:30.30</td></tr><tr class="non-stx-row"><td>Conlan Bobay</td><td>North Oldham</td><td>1</td><td>39</td><td class="dimmed-pr"></td><td></td><td>2:33.09</td></tr><tr class="non-stx-row"><td>Levi Nau</td><td>Highlands Latin</td><td>1</td><td>40</td><td class="dimmed-pr"></td><td></td><td>2:33.21</td></tr><tr class="non-stx-row"><td>Dielo Wendel</td><td>Oldham County</td><td>1</td><td>41</td><td class="dimmed-pr"></td><td></td><td>2:33.51</td></tr><tr class="non-stx-row"><td>Ben Wulfeck</td><td>Covington Catholic</td><td>1</td><td>42</td><td class="dimmed-pr"></td><td></td><td>2:35.67</td></tr><tr class="non-stx-row"><td>Cooper Hall</td><td>Highlands Latin</td><td>1</td><td>43</td><td class="dimmed-pr"></td><td></td><td>2:35.76</td></tr><tr class="non-stx-row"><td>Leo Kusch</td><td>CKY Homeschool</td><td>1</td><td>44</td><td class="dimmed-pr"></td><td></td><td>2:40.23</td></tr><tr class="non-stx-row"><td>Bryce Bivin</td><td>Oldham County</td><td>1</td><td>45</td><td class="dimmed-pr"></td><td></td><td>2:40.48</td></tr><tr class="non-stx-row"><td>Caleb Pinnick</td><td>Highlands Latin</td><td>1</td><td>46</td><td class="dimmed-pr"></td><td></td><td>2:40.84</td></tr><tr class="non-stx-row"><td>Lucas Brown</td><td>Oldham County</td><td>1</td><td>47</td><td class="dimmed-pr"></td><td></td><td>2:42.00</td></tr><tr class="non-stx-row"><td>James Dumke</td><td>Oldham County</td><td>1</td><td>48</td><td class="dimmed-pr"></td><td></td><td>2:53.01</td></tr><tr class="non-stx-row"><td>Logan Schmuckie</td><td>Oldham County</td><td>1</td><td>49</td><td class="dimmed-pr"></td><td></td><td>3:22.72</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Judah Blair</td><td>Madison Central</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>10:01.96</td></tr><tr class="non-stx-row"><td>Iain Tuinstra</td><td>Beavercreek</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>10:04.63</td></tr><tr class="non-stx-row"><td>Jared Sargent</td><td>Carroll</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td></td><td>10:17.89</td></tr><tr class="non-stx-row"><td>Connor Kramer</td><td>Carroll</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>10:20.10</td></tr><tr class="non-stx-row"><td>Carter Lord</td><td>New Albany High School</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td></td><td>10:21.74</td></tr><tr class="non-stx-row"><td>Ian Dunlap</td><td>North Oldham</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>10:27.98</td></tr><tr class="non-stx-row"><td>Ben Cebe</td><td>Trinity (Louisville)</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>10:29.82</td></tr><tr class="non-stx-row"><td>Samuel Claunch</td><td>Highlands Latin</td><td>1</td><td>8</td><td class="dimmed-pr"></td><td></td><td>10:32.30</td></tr><tr class="non-stx-row"><td>Caden Coleman</td><td>Madison Central</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>10:32.86</td></tr><tr class="non-stx-row"><td>Jacob Evaldi</td><td>New Albany High School</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>10:33.38</td></tr><tr class="non-stx-row"><td>Lincoln Richardson</td><td>Male</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>10:51.09</td></tr><tr class="non-stx-row"><td>Jadin Sanchez</td><td>Sovereign Grace</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>10:55.35</td></tr><tr class="non-stx-row"><td>Matthew Keller</td><td>CKY Homeschool</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>10:56.18</td></tr><tr class="non-stx-row"><td>Rye Ellison</td><td>Sovereign Grace</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>10:57.12</td></tr><tr class="non-stx-row"><td>Daniel Hudson</td><td>Sovereign Grace</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>10:57.69</td></tr><tr class="non-stx-row"><td>Mark Kipelio</td><td>Madison Central</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>11:07.45</td></tr><tr class="non-stx-row"><td>Dylan Kyser</td><td>Trinity (Louisville)</td><td>1</td><td>17</td><td class="dimmed-pr"></td><td></td><td>11:08.27</td></tr><tr class="non-stx-row"><td>Brandon Messmann</td><td>Ohio County</td><td>1</td><td>18</td><td class="dimmed-pr"></td><td></td><td>11:15.25</td></tr><tr class="non-stx-row"><td>Chase Duncan</td><td>Sovereign Grace</td><td>1</td><td>19</td><td class="dimmed-pr"></td><td></td><td>11:21.95</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-23 20:16:00</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Milo Adams</td><td>Sovereign Grace</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>2:05.40</td></tr><tr class="non-stx-row"><td>Jack Salyers</td><td>Covington Catholic</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>2:08.41</td></tr><tr><td><a href='../athletes/vince_rink.html'>Vince Rink</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>3</td><td class="dimmed-pr">2:14.99</td><td>2:10.10</td><td class="pr">2:09.44</td></tr><tr class="non-stx-row"><td>Caleb Wiegand</td><td>Oldham County</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>2:09.68</td></tr><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td>2:10.22</td><td>2:10.49</td></tr><tr class="non-stx-row"><td>Zachary Wood</td><td>Sovereign Grace</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>2:11.95</td></tr><tr class="non-stx-row"><td>Michael Cook</td><td>Walden</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>2:12.44</td></tr><tr class="non-stx-row"><td>Jackson Germann</td><td>Covington Catholic</td><td>1</td><td>8</td><td class="dimmed-pr"></td><td></td><td>2:12.51</td></tr><tr class="non-stx-row"><td>Ethan Fitzgibbon</td><td>Christian Academy-Louisville</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>2:12.69</td></tr><tr class="non-stx-row"><td>Josh Matheny</td><td>Trinity (Louisville)</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>2:12.87</td></tr><tr class="non-stx-row"><td>Luke O'Hara</td><td>Covington Catholic</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>2:13.19</td></tr><tr class="non-stx-row"><td>Benjamin Bitner</td><td>Highlands Latin</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>2:13.74</td></tr><tr class="non-stx-row"><td>Jeremiah Beardsley</td><td>Christian Academy-Louisville</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>2:13.92</td></tr><tr class="non-stx-row"><td>William McCollough</td><td>Bartlett High School</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>2:14.16</td></tr><tr class="non-stx-row"><td>Austin Wheeldon</td><td>Oldham County</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>2:14.21</td></tr><tr class="non-stx-row"><td>Anderson Goetz</td><td>Oldham County</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>2:16.52</td></tr><tr class="non-stx-row"><td>Joel Barczak</td><td>Covington Catholic</td><td>1</td><td>17</td><td class="dimmed-pr"></td><td></td><td>2:17.32</td></tr><tr class="non-stx-row"><td>Grayson Meyer</td><td>Fern Creek</td><td>1</td><td>18</td><td class="dimmed-pr"></td><td></td><td>2:17.83</td></tr><tr class="non-stx-row"><td>Gregory Perez</td><td>New Albany High School</td><td>1</td><td>19</td><td class="dimmed-pr"></td><td></td><td>2:18.79</td></tr><tr><td><a href='../athletes/vincent_yochum.html'>Vincent Yochum</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>20</td><td class="dimmed-pr">2:19.88</td><td>2:20.73</td><td class="pr">2:19.06</td></tr><tr class="non-stx-row"><td>Max Grisham</td><td>Sovereign Grace</td><td>1</td><td>21</td><td class="dimmed-pr"></td><td></td><td>2:19.32</td></tr><tr class="non-stx-row"><td>Michael Okeke</td><td>Dupont Manual</td><td>1</td><td>22</td><td class="dimmed-pr"></td><td></td><td>2:20.01</td></tr><tr class="non-stx-row"><td>Braden Franxman</td><td>Covington Catholic</td><td>1</td><td>23</td><td class="dimmed-pr"></td><td></td><td>2:20.25</td></tr><tr class="non-stx-row"><td>Taha Khan</td><td>Bartlett High School</td><td>1</td><td>24</td><td class="dimmed-pr"></td><td></td><td>2:21.08</td></tr><tr><td><a href='../athletes/hayden_willman.html'>Hayden Willman</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>25</td><td class="dimmed-pr">2:14.86</td><td>2:15.99</td><td>2:21.72</td></tr><tr class="non-stx-row"><td>Nicky Byers</td><td>Oldham County</td><td>1</td><td>26</td><td class="dimmed-pr"></td><td></td><td>2:21.94</td></tr><tr class="non-stx-row"><td>Nolan Hurley</td><td>Oldham County</td><td>1</td><td>27</td><td class="dimmed-pr"></td><td></td><td>2:22.58</td></tr><tr class="non-stx-row"><td>Luke Stephens</td><td>Christian Academy-Louisville</td><td>1</td><td>28</td><td class="dimmed-pr"></td><td></td><td>2:23.22</td></tr><tr class="non-stx-row"><td>Hudson Blakemore</td><td>Oldham County</td><td>1</td><td>29</td><td class="dimmed-pr"></td><td></td><td>2:24.25</td></tr><tr class="non-stx-row"><td>Barrett Bush</td><td>Oldham County</td><td>1</td><td>30</td><td class="dimmed-pr"></td><td></td><td>2:24.86</td></tr><tr class="non-stx-row"><td>Mason Daley</td><td>New Albany High School</td><td>1</td><td>31</td><td class="dimmed-pr"></td><td></td><td>2:25.14</td></tr><tr class="non-stx-row"><td>Chris Zirkle</td><td>Oldham County</td><td>1</td><td>32</td><td class="dimmed-pr"></td><td></td><td>2:25.27</td></tr><tr class="non-stx-row"><td>Ethan Brown</td><td>Oldham County</td><td>1</td><td>33</td><td class="dimmed-pr"></td><td></td><td>2:26.61</td></tr><tr class="non-stx-row"><td>Ian Trenkamp</td><td>Covington Catholic</td><td>1</td><td>34</td><td class="dimmed-pr"></td><td></td><td>2:27.98</td></tr><tr class="non-stx-row"><td>Chase Matthews</td><td>Dupont Manual</td><td>1</td><td>35</td><td class="dimmed-pr"></td><td></td><td>2:28.71</td></tr><tr class="non-stx-row"><td>Ian Allen-Farnsley</td><td>New Albany High School</td><td>1</td><td>36</td><td class="dimmed-pr"></td><td></td><td>2:28.98</td></tr><tr class="non-stx-row"><td>Brennan Hurley</td><td>Oldham County</td><td>1</td><td>37</td><td class="dimmed-pr"></td><td></td><td>2:29.75</td></tr><tr class="non-stx-row"><td>Olie Smith</td><td>North Oldham</td><td>1</td><td>38</td><td class="dimmed-pr"></td><td></td><td>2:30.30</td></tr><tr class="non-stx-row"><td>Conlan Bobay</td><td>North Oldham</td><td>1</td><td>39</td><td class="dimmed-pr"></td><td></td><td>2:33.09</td></tr><tr class="non-stx-row"><td>Levi Nau</td><td>Highlands Latin</td><td>1</td><td>40</td><td class="dimmed-pr"></td><td></td><td>2:33.21</td></tr><tr class="non-stx-row"><td>Dielo Wendel</td><td>Oldham County</td><td>1</td><td>41</td><td class="dimmed-pr"></td><td></td><td>2:33.51</td></tr><tr class="non-stx-row"><td>Ben Wulfeck</td><td>Covington Catholic</td><td>1</td><td>42</td><td class="dimmed-pr"></td><td></td><td>2:35.67</td></tr><tr class="non-stx-row"><td>Cooper Hall</td><td>Highlands Latin</td><td>1</td><td>43</td><td class="dimmed-pr"></td><td></td><td>2:35.76</td></tr><tr class="non-stx-row"><td>Leo Kusch</td><td>CKY Homeschool</td><td>1</td><td>44</td><td class="dimmed-pr"></td><td></td><td>2:40.23</td></tr><tr class="non-stx-row"><td>Bryce Bivin</td><td>Oldham County</td><td>1</td><td>45</td><td class="dimmed-pr"></td><td></td><td>2:40.48</td></tr><tr class="non-stx-row"><td>Caleb Pinnick</td><td>Highlands Latin</td><td>1</td><td>46</td><td class="dimmed-pr"></td><td></td><td>2:40.84</td></tr><tr class="non-stx-row"><td>Lucas Brown</td><td>Oldham County</td><td>1</td><td>47</td><td class="dimmed-pr"></td><td></td><td>2:42.00</td></tr><tr class="non-stx-row"><td>James Dumke</td><td>Oldham County</td><td>1</td><td>48</td><td class="dimmed-pr"></td><td></td><td>2:53.01</td></tr><tr class="non-stx-row"><td>Logan Schmuckie</td><td>Oldham County</td><td>1</td><td>49</td><td class="dimmed-pr"></td><td></td><td>3:22.72</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Judah Blair</td><td>Madison Central</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>10:01.96</td></tr><tr class="non-stx-row"><td>Iain Tuinstra</td><td>Beavercreek</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>10:04.63</td></tr><tr class="non-stx-row"><td>Jared Sargent</td><td>Carroll</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td></td><td>10:17.89</td></tr><tr class="non-stx-row"><td>Connor Kramer</td><td>Carroll</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>10:20.10</td></tr><tr class="non-stx-row"><td>Carter Lord</td><td>New Albany High School</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td></td><td>10:21.74</td></tr><tr class="non-stx-row"><td>Ian Dunlap</td><td>North Oldham</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>10:27.98</td></tr><tr class="non-stx-row"><td>Ben Cebe</td><td>Trinity (Louisville)</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>10:29.82</td></tr><tr class="non-stx-row"><td>Samuel Claunch</td><td>Highlands Latin</td><td>1</td><td>8</td><td class="dimmed-pr"></td><td></td><td>10:32.30</td></tr><tr class="non-stx-row"><td>Caden Coleman</td><td>Madison Central</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>10:32.86</td></tr><tr class="non-stx-row"><td>Jacob Evaldi</td><td>New Albany High School</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>10:33.38</td></tr><tr class="non-stx-row"><td>Lincoln Richardson</td><td>Male</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>10:51.09</td></tr><tr class="non-stx-row"><td>Jadin Sanchez</td><td>Sovereign Grace</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>10:55.35</td></tr><tr class="non-stx-row"><td>Matthew Keller</td><td>CKY Homeschool</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>10:56.18</td></tr><tr class="non-stx-row"><td>Rye Ellison</td><td>Sovereign Grace</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>10:57.12</td></tr><tr class="non-stx-row"><td>Daniel Hudson</td><td>Sovereign Grace</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>10:57.69</td></tr><tr class="non-stx-row"><td>Mark Kipelio</td><td>Madison Central</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>11:07.45</td></tr><tr class="non-stx-row"><td>Dylan Kyser</td><td>Trinity (Louisville)</td><td>1</td><td>17</td><td class="dimmed-pr"></td><td></td><td>11:08.27</td></tr><tr class="non-stx-row"><td>Brandon Messmann</td><td>Ohio County</td><td>1</td><td>18</td><td class="dimmed-pr"></td><td></td><td>11:15.25</td></tr><tr class="non-stx-row"><td>Chase Duncan</td><td>Sovereign Grace</td><td>1</td><td>19</td><td class="dimmed-pr"></td><td></td><td>11:21.95</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-28 19:36:33</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 </body>
 </html>

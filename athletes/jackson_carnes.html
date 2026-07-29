@@ -61,7 +61,38 @@
       .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
-      .ath-col h3 { margin: 0 0 6px 0; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
       .rankcell { font-weight: 800; }
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
       .hide-graphs .chart-container { display: none; }
@@ -82,6 +113,101 @@
       .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
       .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
     </style>
     
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -97,7 +223,7 @@
         
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Coach Pre-Race</a>
       </div>
     </div>
     <div class="card">
@@ -124,10 +250,10 @@
         <span class="muted">(default on)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
-      <div id="athlete-results-wrap"><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2010</td><td>2010-05-07</td><td><a href='../meets/350_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>11</td><td>4:26.62</td></tr><tr><td>2010</td><td>2010-04-28</td><td><a href='../meets/588_all.html'>Sacred Heart Master Schedule Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1</td><td>4:28.90</td></tr><tr><td>2010</td><td>2010-04-20</td><td><a href='../meets/601_all.html'>St. X/Trinity/Bardstown</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1</td><td>4:45.50</td></tr><tr><td>2010</td><td>2010-04-09</td><td><a href='../meets/559_all.html'>Mountain Brook Invite</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>3</td><td>4:38.60</td></tr><tr><td>2009</td><td>2009-02-08</td><td><a href='../meets/391_all.html'>Indiana TC Indoor Open</a></td><td>Indoor</td><td>1600 Meters</td><td>1</td><td>2</td><td>4:27.08</td></tr><tr><td>2009</td><td>2009-01-24</td><td><a href='../meets/631_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>1</td><td>4:31.80</td></tr><tr><td>2008</td><td>2008-05-17</td><td><a href='../meets/603_all.html'>St. Xavier Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1</td><td>4:27.30</td></tr><tr><td>2008</td><td>2008-05-10</td><td><a href='../meets/579_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1</td><td>4:33.70</td></tr><tr><td>2008</td><td>2008-05-05</td><td><a href='../meets/621_all.html'>St. Xavier/Trinity Dual Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1</td><td>4:28.60</td></tr><tr><td>2008</td><td>2008-04-26</td><td><a href='../meets/510_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1</td><td>4:26.60</td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/324_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>4</td><td>4:29.61</td></tr><tr><td>2008</td><td>2008-04-11</td><td><a href='../meets/624_all.html'>Taco Bell Classic</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>1</td><td>4:38.10</td></tr><tr><td>2008</td><td>2008-04-05</td><td><a href='../meets/514_all.html'>Greenwood Ribbons Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1</td><td>4:33.90</td></tr><tr><td>2007</td><td>2007-04-28</td><td><a href='../meets/194_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>8</td><td>4:43.41</td></tr><tr><td>2007</td><td>2007-04-21</td><td><a href='../meets/325_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>13</td><td>4:42.71</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2010</td><td>2010-05-29</td><td><a href='../meets/185_all.html'>KHSAA Class 3A Region 3 Championships</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:51.69</td></tr><tr><td>2010</td><td>2010-05-15</td><td><a href='../meets/504_all.html'>Coach Cooper / Brother Borgia Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:44.70</td></tr><tr><td>2010</td><td>2010-05-08</td><td><a href='../meets/580_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:47.40</td></tr><tr><td>2010</td><td>2010-04-09</td><td><a href='../meets/559_all.html'>Mountain Brook Invite</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:47.40</td></tr><tr><td>2010</td><td>2010-03-27</td><td><a href='../meets/542_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:55.20</td></tr><tr><td>2009</td><td>2009-05-09</td><td><a href='../meets/505_all.html'>Coach Cooper / Brother Borgia Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>2</td><td>10:02.20</td></tr><tr><td>2009</td><td>2009-05-04</td><td><a href='../meets/620_all.html'>St. Xavier Quad Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>2</td><td>9:37.10</td></tr><tr><td>2009</td><td>2009-04-18</td><td><a href='../meets/323_all.html'>Bulldog Classic</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>2</td><td>9:36.68</td></tr><tr><td>2009</td><td>2009-04-04</td><td><a href='../meets/556_all.html'>Mobile Challenge of Champions (Invitational Division)</a></td><td>Outdoor</td><td>2 Miles</td><td>1</td><td>1</td><td>9:33.80</td></tr><tr><td>2009</td><td>2009-03-28</td><td><a href='../meets/506_all.html'>Colonel Classic</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:50.30</td></tr><tr><td>2009</td><td>2009-03-21</td><td><a href='../meets/541_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:44.60</td></tr><tr><td>2009</td><td>2009-03-13</td><td><a href='../meets/239_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>2 Miles</td><td>1</td><td>26</td><td>9:41.82</td></tr><tr><td>2009</td><td>2009-02-21</td><td><a href='../meets/365_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>1</td><td>5</td><td>9:36.57</td></tr><tr><td>2008</td><td>2008-05-30</td><td><a href='../meets/193_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:34.89</td></tr><tr><td>2008</td><td>2008-05-24</td><td><a href='../meets/192_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:34.94</td></tr><tr><td>2008</td><td>2008-05-17</td><td><a href='../meets/603_all.html'>St. Xavier Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:48.10</td></tr><tr><td>2008</td><td>2008-05-10</td><td><a href='../meets/579_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:44.60</td></tr><tr><td>2007</td><td>2007-05-15</td><td><a href='../meets/355_all.html'>Jefferson County Meet of Champions</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>6</td><td>10:16.30</td></tr><tr><td>2007</td><td>2007-05-12</td><td><a href='../meets/578_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>3</td><td>10:20.00</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>1500 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2009</td><td>2009-03-06</td><td><a href='../meets/383_all.html'>Mason Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>3</td><td>4:14.22</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1500_meters"></canvas></div><h3 class='section-title'>4000 Meter Run</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2006</td><td>2006-10-05</td><td><a href='../meets/734_all.html'>Freshmen Challenge</a></td><td>Outdoor</td><td>4000 Meter Run</td><td>xc</td><td>2</td><td>13:05.10</td></tr><tr><td>2006</td><td>2006-08-26</td><td><a href='../meets/1018_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>4000 Meter Run</td><td>xc</td><td>1</td><td>13:03.40</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4000_meter_run"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2010</td><td>2010-06-03</td><td><a href='../meets/186_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>3</td><td>8:10.79</td><td></td></tr><tr><td>2010</td><td>2010-05-29</td><td><a href='../meets/185_all.html'>KHSAA Class 3A Region 3 Championships</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>2</td><td>8:07.19</td><td></td></tr><tr><td>2009</td><td>2009-04-18</td><td><a href='../meets/323_all.html'>Bulldog Classic</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier (KY) 'A'</td><td>2</td><td>7</td><td>8:37.35</td><td></td></tr><tr><td>2008</td><td>2008-05-30</td><td><a href='../meets/193_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>3</td><td>8:06.35</td><td></td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/324_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier (KY) 'A'</td><td>3</td><td>1</td><td>8:16.46</td><td></td></tr><tr><td>1996</td><td>1996-05-31</td><td><a href='../meets/322_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier (KY) 'A'</td><td>2</td><td>7</td><td>8:37.35</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2009</td><td>2009-09-18</td><td><a href='../meets/1062_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>19</td><td>15:56.80</td></tr><tr><td>2009</td><td>2009-08-29</td><td><a href='../meets/1021_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:44.90</td></tr><tr><td>2008</td><td>2008-11-29</td><td><a href='../meets/904_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>15:38.00</td></tr><tr><td>2008</td><td>2008-11-15</td><td><a href='../meets/833_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:03.60</td></tr><tr><td>2008</td><td>2008-11-08</td><td><a href='../meets/945_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:49.50</td></tr><tr><td>2008</td><td>2008-10-25</td><td><a href='../meets/982_all.html'>St Henry Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:58.50</td></tr><tr><td>2008</td><td>2008-10-21</td><td><a href='../meets/1039_all.html'>St. Xavier/Trinity Dual</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:31.10</td></tr><tr><td>2008</td><td>2008-10-18</td><td><a href='../meets/980_all.html'>South Oldham Dragon Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:12.80</td></tr><tr><td>2008</td><td>2008-10-11</td><td><a href='../meets/751_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>16:23.80</td></tr><tr><td>2008</td><td>2008-09-27</td><td><a href='../meets/730_all.html'>Franklin County Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:09.10</td></tr><tr><td>2008</td><td>2008-09-19</td><td><a href='../meets/1061_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>15:58.20</td></tr><tr><td>2008</td><td>2008-09-13</td><td><a href='../meets/965_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:30.10</td></tr><tr><td>2008</td><td>2008-08-30</td><td><a href='../meets/1020_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:07.50</td></tr><tr><td>2007</td><td>2007-11-10</td><td><a href='../meets/832_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>17</td><td>16:22.10</td></tr><tr><td>2007</td><td>2007-10-13</td><td><a href='../meets/854_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>8</td><td>16:19.30</td></tr><tr><td>2007</td><td>2007-09-29</td><td><a href='../meets/1070_all.html'>Volunteer Cross Country Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:44.30</td></tr><tr><td>2007</td><td>2007-09-22</td><td><a href='../meets/979_all.html'>South Oldham Dragon Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>6</td><td>17:43.30</td></tr><tr><td>2007</td><td>2007-09-14</td><td><a href='../meets/1058_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>6</td><td>16:04.90</td></tr><tr><td>2007</td><td>2007-09-08</td><td><a href='../meets/964_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:26.30</td></tr><tr><td>2007</td><td>2007-08-25</td><td><a href='../meets/1019_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:16.90</td></tr><tr><td>2006</td><td>2006-10-14</td><td><a href='../meets/853_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>17:30.20</td></tr><tr><td>2006</td><td>2006-10-07</td><td><a href='../meets/772_all.html'>Hillbilly Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>28</td><td>17:14.00</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div></div>
+      <div id="athlete-results-wrap"><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2010</td><td>2010-05-07</td><td><a href='../meets/350_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>11</td><td>4:26.62</td></tr><tr><td>2010</td><td>2010-04-28</td><td><a href='../meets/588_all.html'>Sacred Heart Master Schedule Meet</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:28.90</td></tr><tr><td>2010</td><td>2010-04-20</td><td><a href='../meets/601_all.html'>St. X/Trinity JV Dual</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:45.50</td></tr><tr><td>2010</td><td>2010-04-09</td><td><a href='../meets/559_all.html'>Mountain Brook Invite</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>3</td><td>4:38.60</td></tr><tr><td>2009</td><td>2009-02-08</td><td><a href='../meets/391_all.html'>Indiana TC Indoor Open</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>2</td><td>4:27.08</td></tr><tr><td>2009</td><td>2009-01-24</td><td><a href='../meets/631_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:31.80</td></tr><tr><td>2008</td><td>2008-05-17</td><td><a href='../meets/603_all.html'>St. Xavier Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:27.30</td></tr><tr><td>2008</td><td>2008-05-10</td><td><a href='../meets/579_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:33.70</td></tr><tr><td>2008</td><td>2008-05-05</td><td><a href='../meets/621_all.html'>St. X/Trinity JV Dual</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:28.60</td></tr><tr><td>2008</td><td>2008-04-26</td><td><a href='../meets/510_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:26.60</td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/324_all.html'>Male Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>4</td><td>4:29.61</td></tr><tr><td>2008</td><td>2008-04-11</td><td><a href='../meets/624_all.html'>Taco Bell Classic</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:38.10</td></tr><tr><td>2008</td><td>2008-04-05</td><td><a href='../meets/514_all.html'>Greenwood Ribbons Meet</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:33.90</td></tr><tr><td>2007</td><td>2007-04-28</td><td><a href='../meets/194_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>8</td><td>4:43.41</td></tr><tr><td>2007</td><td>2007-04-21</td><td><a href='../meets/325_all.html'>Male Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>13</td><td>4:42.71</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2010</td><td>2010-05-29</td><td><a href='../meets/185_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:51.69</td></tr><tr><td>2010</td><td>2010-05-15</td><td><a href='../meets/504_all.html'>Brother Borgia/Coach Cooper Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:44.70</td></tr><tr><td>2010</td><td>2010-05-08</td><td><a href='../meets/580_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:47.40</td></tr><tr><td>2010</td><td>2010-04-09</td><td><a href='../meets/559_all.html'>Mountain Brook Invite</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:47.40</td></tr><tr><td>2010</td><td>2010-03-27</td><td><a href='../meets/542_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:55.20</td></tr><tr><td>2009</td><td>2009-05-09</td><td><a href='../meets/505_all.html'>Brother Borgia/Coach Cooper Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>2</td><td>10:02.20</td></tr><tr><td>2009</td><td>2009-05-04</td><td><a href='../meets/620_all.html'>St. Xavier Quad</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>2</td><td>9:37.10</td></tr><tr><td>2009</td><td>2009-04-18</td><td><a href='../meets/323_all.html'>Male Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>2</td><td>9:36.68</td></tr><tr><td>2009</td><td>2009-04-04</td><td><a href='../meets/556_all.html'>Mobile Challenge of Champions</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:33.80</td></tr><tr><td>2009</td><td>2009-03-28</td><td><a href='../meets/506_all.html'>Colonel Classic</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:50.30</td></tr><tr><td>2009</td><td>2009-03-21</td><td><a href='../meets/541_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:44.60</td></tr><tr><td>2009</td><td>2009-03-13</td><td><a href='../meets/239_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>26</td><td>9:41.82</td></tr><tr><td>2009</td><td>2009-02-21</td><td><a href='../meets/365_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>5</td><td>9:36.57</td></tr><tr><td>2008</td><td>2008-05-30</td><td><a href='../meets/193_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:34.89</td></tr><tr><td>2008</td><td>2008-05-24</td><td><a href='../meets/192_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:34.94</td></tr><tr><td>2008</td><td>2008-05-17</td><td><a href='../meets/603_all.html'>St. Xavier Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:48.10</td></tr><tr><td>2008</td><td>2008-05-10</td><td><a href='../meets/579_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:44.60</td></tr><tr><td>2007</td><td>2007-05-15</td><td><a href='../meets/355_all.html'>Louisville Meet of Champions</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>6</td><td>10:16.30</td></tr><tr><td>2007</td><td>2007-05-12</td><td><a href='../meets/578_all.html'>North Hardin Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>3</td><td>10:20.00</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>1500 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2009</td><td>2009-03-06</td><td><a href='../meets/383_all.html'>Mason-Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>3</td><td>4:14.22</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1500_meters"></canvas></div><h3 class='section-title'>4000 Meter Run</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2006</td><td>2006-10-05</td><td><a href='../meets/734_all.html'>Freshmen Challenge</a></td><td>Outdoor</td><td>4000 Meter Run</td><td>xc</td><td>2</td><td>13:05.10</td></tr><tr><td>2006</td><td>2006-08-26</td><td><a href='../meets/1018_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>4000 Meter Run</td><td>xc</td><td>1</td><td>13:03.40</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4000_meter_run"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2010</td><td>2010-06-03</td><td><a href='../meets/186_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>3</td><td>8:10.79</td><td></td></tr><tr><td>2010</td><td>2010-05-29</td><td><a href='../meets/185_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>2</td><td>8:07.19</td><td></td></tr><tr><td>2009</td><td>2009-04-18</td><td><a href='../meets/323_all.html'>Male Invitational</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier (KY) 'A'</td><td>2</td><td>7</td><td>8:37.35</td><td></td></tr><tr><td>2008</td><td>2008-05-30</td><td><a href='../meets/193_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>3</td><td>8:06.35</td><td></td></tr><tr><td>2008</td><td>2008-04-19</td><td><a href='../meets/324_all.html'>Male Invitational</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier (KY) 'A'</td><td>3</td><td>1</td><td>8:16.46</td><td></td></tr><tr><td>1996</td><td>1996-05-31</td><td><a href='../meets/322_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St. Xavier (KY) 'A'</td><td>2</td><td>7</td><td>8:37.35</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2009</td><td>2009-09-18</td><td><a href='../meets/1062_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>19</td><td>15:56.80</td></tr><tr><td>2009</td><td>2009-08-29</td><td><a href='../meets/1021_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:44.90</td></tr><tr><td>2008</td><td>2008-11-29</td><td><a href='../meets/904_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>15:38.00</td></tr><tr><td>2008</td><td>2008-11-15</td><td><a href='../meets/833_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:03.60</td></tr><tr><td>2008</td><td>2008-11-08</td><td><a href='../meets/945_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:49.50</td></tr><tr><td>2008</td><td>2008-10-25</td><td><a href='../meets/982_all.html'>St Henry Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:58.50</td></tr><tr><td>2008</td><td>2008-10-21</td><td><a href='../meets/1039_all.html'>St. Xavier/Trinity Dual</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:31.10</td></tr><tr><td>2008</td><td>2008-10-18</td><td><a href='../meets/980_all.html'>South Oldham Dragon Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:12.80</td></tr><tr><td>2008</td><td>2008-10-11</td><td><a href='../meets/751_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>16:23.80</td></tr><tr><td>2008</td><td>2008-09-27</td><td><a href='../meets/730_all.html'>Franklin County Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:09.10</td></tr><tr><td>2008</td><td>2008-09-19</td><td><a href='../meets/1061_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>15:58.20</td></tr><tr><td>2008</td><td>2008-09-13</td><td><a href='../meets/965_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:30.10</td></tr><tr><td>2008</td><td>2008-08-30</td><td><a href='../meets/1020_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:07.50</td></tr><tr><td>2007</td><td>2007-11-10</td><td><a href='../meets/832_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>17</td><td>16:22.10</td></tr><tr><td>2007</td><td>2007-10-13</td><td><a href='../meets/854_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>8</td><td>16:19.30</td></tr><tr><td>2007</td><td>2007-09-29</td><td><a href='../meets/1070_all.html'>Volunteer Cross Country Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:44.30</td></tr><tr><td>2007</td><td>2007-09-22</td><td><a href='../meets/979_all.html'>South Oldham Dragon Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>6</td><td>17:43.30</td></tr><tr><td>2007</td><td>2007-09-14</td><td><a href='../meets/1058_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>6</td><td>16:04.90</td></tr><tr><td>2007</td><td>2007-09-08</td><td><a href='../meets/964_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:26.30</td></tr><tr><td>2007</td><td>2007-08-25</td><td><a href='../meets/1019_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:16.90</td></tr><tr><td>2006</td><td>2006-10-14</td><td><a href='../meets/853_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>17:30.20</td></tr><tr><td>2006</td><td>2006-10-07</td><td><a href='../meets/772_all.html'>Hillbilly Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>28</td><td>17:14.00</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div></div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-07-23 22:48:01</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-07-28 21:39:56</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -172,7 +298,7 @@
     {
       "x": "2007-04-21",
       "y": 282.71,
-      "meet": "<a href='../meets/325_all.html'>Male Bulldog Classic</a>"
+      "meet": "<a href='../meets/325_all.html'>Male Invitational</a>"
     },
     {
       "x": "2007-04-28",
@@ -192,7 +318,7 @@
     {
       "x": "2008-04-19",
       "y": 269.61,
-      "meet": "<a href='../meets/324_all.html'>Male Bulldog Classic</a>"
+      "meet": "<a href='../meets/324_all.html'>Male Invitational</a>"
     },
     {
       "x": "2008-04-26",
@@ -202,7 +328,7 @@
     {
       "x": "2008-05-05",
       "y": 268.6,
-      "meet": "<a href='../meets/621_all.html'>St. Xavier/Trinity Dual Meet</a>"
+      "meet": "<a href='../meets/621_all.html'>St. X/Trinity JV Dual</a>"
     },
     {
       "x": "2008-05-10",
@@ -232,7 +358,7 @@
     {
       "x": "2010-04-20",
       "y": 285.5,
-      "meet": "<a href='../meets/601_all.html'>St. X/Trinity/Bardstown</a>"
+      "meet": "<a href='../meets/601_all.html'>St. X/Trinity JV Dual</a>"
     },
     {
       "x": "2010-04-28",
@@ -254,7 +380,7 @@
     {
       "x": "2007-05-15",
       "y": 616.3,
-      "meet": "<a href='../meets/355_all.html'>Jefferson County Meet of Champions</a>"
+      "meet": "<a href='../meets/355_all.html'>Louisville Meet of Champions</a>"
     },
     {
       "x": "2008-05-10",
@@ -269,12 +395,12 @@
     {
       "x": "2008-05-24",
       "y": 574.94,
-      "meet": "<a href='../meets/192_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/192_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2008-05-30",
       "y": 574.89,
-      "meet": "<a href='../meets/193_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/193_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2009-02-21",
@@ -299,22 +425,22 @@
     {
       "x": "2009-04-04",
       "y": 573.8,
-      "meet": "<a href='../meets/556_all.html'>Mobile Challenge of Champions (Invitational Division)</a>"
+      "meet": "<a href='../meets/556_all.html'>Mobile Challenge of Champions</a>"
     },
     {
       "x": "2009-04-18",
       "y": 576.68,
-      "meet": "<a href='../meets/323_all.html'>Bulldog Classic</a>"
+      "meet": "<a href='../meets/323_all.html'>Male Invitational</a>"
     },
     {
       "x": "2009-05-04",
       "y": 577.1,
-      "meet": "<a href='../meets/620_all.html'>St. Xavier Quad Meet</a>"
+      "meet": "<a href='../meets/620_all.html'>St. Xavier Quad</a>"
     },
     {
       "x": "2009-05-09",
       "y": 602.2,
-      "meet": "<a href='../meets/505_all.html'>Coach Cooper / Brother Borgia Meet</a>"
+      "meet": "<a href='../meets/505_all.html'>Brother Borgia/Coach Cooper Invitational</a>"
     },
     {
       "x": "2010-03-27",
@@ -334,19 +460,19 @@
     {
       "x": "2010-05-15",
       "y": 584.7,
-      "meet": "<a href='../meets/504_all.html'>Coach Cooper / Brother Borgia Invitational</a>"
+      "meet": "<a href='../meets/504_all.html'>Brother Borgia/Coach Cooper Invitational</a>"
     },
     {
       "x": "2010-05-29",
       "y": 591.69,
-      "meet": "<a href='../meets/185_all.html'>KHSAA Class 3A Region 3 Championships</a>"
+      "meet": "<a href='../meets/185_all.html'>KHSAA Regionals Outdoor</a>"
     }
   ],
   "chart-1500_meters": [
     {
       "x": "2009-03-06",
       "y": 254.22,
-      "meet": "<a href='../meets/383_all.html'>Mason Dixon Games</a>"
+      "meet": "<a href='../meets/383_all.html'>Mason-Dixon Games</a>"
     }
   ],
   "chart-4000_meter_run": [
@@ -365,32 +491,32 @@
     {
       "x": "1996-05-31",
       "y": 517.35,
-      "meet": "<a href='../meets/322_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/322_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2008-04-19",
       "y": 496.46,
-      "meet": "<a href='../meets/324_all.html'>Male Bulldog Classic</a>"
+      "meet": "<a href='../meets/324_all.html'>Male Invitational</a>"
     },
     {
       "x": "2008-05-30",
       "y": 486.35,
-      "meet": "<a href='../meets/193_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/193_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2009-04-18",
       "y": 517.35,
-      "meet": "<a href='../meets/323_all.html'>Bulldog Classic</a>"
+      "meet": "<a href='../meets/323_all.html'>Male Invitational</a>"
     },
     {
       "x": "2010-05-29",
       "y": 487.19,
-      "meet": "<a href='../meets/185_all.html'>KHSAA Class 3A Region 3 Championships</a>"
+      "meet": "<a href='../meets/185_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2010-06-03",
       "y": 490.79,
-      "meet": "<a href='../meets/186_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/186_all.html'>Kentucky State Outdoor Track Meet</a>"
     }
   ],
   "chart-5000_meters": [

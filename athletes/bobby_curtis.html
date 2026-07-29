@@ -61,7 +61,38 @@
       .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
-      .ath-col h3 { margin: 0 0 6px 0; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
       .rankcell { font-weight: 800; }
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
       .hide-graphs .chart-container { display: none; }
@@ -82,6 +113,101 @@
       .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
       .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
     </style>
     
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -97,7 +223,7 @@
         
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Coach Pre-Race</a>
       </div>
     </div>
     <div class="card">
@@ -124,10 +250,10 @@
         <span class="muted">(default on)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
-      <div id="athlete-results-wrap"><h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>1.0</td><td>1:54.93</td></tr><tr><td>2003</td><td>2003-05-19</td><td><a href='../meets/332_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1.0</td><td>1:57.35</td></tr><tr><td>2003</td><td>2003-04-25</td><td><a href='../meets/500_all.html'>Central Hardin Invitational</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1.0</td><td>2:01.80</td></tr><tr><td>2003</td><td>2003-04-19</td><td><a href='../meets/328_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1.0</td><td>1:52.89</td></tr><tr><td>2002</td><td>2002-05-31</td><td><a href='../meets/204_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>1.0</td><td>1:54.72</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-06-15</td><td><a href='../meets/356_all.html'>Golden West Invitational</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:07.06</td></tr><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>3</td><td>1.0</td><td>4:18.56</td></tr><tr><td>2003</td><td>2003-05-19</td><td><a href='../meets/332_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:18.74</td></tr><tr><td>2003</td><td>2003-03-15</td><td><a href='../meets/368_all.html'>Nike Indoor Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:10.20</td></tr><tr><td>2002</td><td>2002-06-14</td><td><a href='../meets/337_all.html'>adidas Outdoor Championships</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:09.05</td></tr><tr><td>2002</td><td>2002-06-08</td><td><a href='../meets/512_all.html'>Golden West Invitational</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:07.60</td></tr><tr><td>2002</td><td>2002-05-31</td><td><a href='../meets/204_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>3</td><td>1.0</td><td>4:13.16</td></tr><tr><td>2002</td><td>2002-05-18</td><td><a href='../meets/333_all.html'>Wolverine Relays</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:24.44</td></tr><tr><td>2002</td><td>2002-04-25</td><td><a href='../meets/585_all.html'>Penn Relays Carnival</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:18.50</td></tr><tr><td>2002</td><td>2002-04-20</td><td><a href='../meets/329_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:26.15</td></tr><tr><td>2002</td><td>2002-04-12</td><td><a href='../meets/203_all.html'>Arcadia Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:08.29</td></tr><tr><td>2002</td><td>2002-03-10</td><td><a href='../meets/334_all.html'>Nike Indoor Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:16.14</td></tr><tr><td>2002</td><td>2002-03-09</td><td><a href='../meets/570_all.html'>Nike Indoor Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:16.10</td></tr><tr><td>2001</td><td>2001-06-15</td><td><a href='../meets/335_all.html'>adidas Outdoor Championships</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>5.0</td><td>4:12.60</td></tr><tr><td>2001</td><td>2001-06-01</td><td><a href='../meets/205_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>3</td><td>1.0</td><td>4:17.43</td></tr><tr><td>2001</td><td>2001-05-23</td><td><a href='../meets/331_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:26.15</td></tr><tr><td>2001</td><td>2001-04-26</td><td><a href='../meets/336_all.html'>Penn Relays Carnival</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>5.0</td><td>4:12.60</td></tr><tr><td>2001</td><td>2001-03-10</td><td><a href='../meets/569_all.html'>Nike Indoor Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:12.00</td></tr><tr><td>2001</td><td>2001-02-17</td><td><a href='../meets/625_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:22.00</td></tr><tr><td>2000</td><td>2000-06-17</td><td><a href='../meets/511_all.html'>Foot Locker National Championship</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:16.90</td></tr><tr><td>2000</td><td>2000-06-02</td><td><a href='../meets/206_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>3</td><td>1.0</td><td>4:19.60</td></tr><tr><td>2000</td><td>2000-05-24</td><td><a href='../meets/330_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:31.90</td></tr><tr><td>2000</td><td>2000-04-29</td><td><a href='../meets/520_all.html'>Heart of the Bluegrass</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:24.70</td></tr><tr><td>2000</td><td>2000-04-22</td><td><a href='../meets/641_all.html'>Woodford County Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>1.0</td><td>4:25.80</td></tr><tr><td>2000</td><td>2000-03-11</td><td><a href='../meets/568_all.html'>Nike Indoor Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>1.0</td><td>4:26.70</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>3</td><td>1.0</td><td>9:12.19</td></tr><tr><td>2003</td><td>2003-05-19</td><td><a href='../meets/332_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1.0</td><td>9:23.24</td></tr><tr><td>2003</td><td>2003-04-11</td><td><a href='../meets/201_all.html'>Arcadia Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>4.0</td><td>8:48.39</td></tr><tr><td>2002</td><td>2002-04-20</td><td><a href='../meets/329_all.html'>Male Bulldog Classic</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1.0</td><td>9:39.44</td></tr><tr><td>2001</td><td>2001-06-01</td><td><a href='../meets/205_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>3</td><td>1.0</td><td>9:15.25</td></tr><tr><td>2001</td><td>2001-05-23</td><td><a href='../meets/331_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1.0</td><td>9:39.44</td></tr><tr><td>2000</td><td>2000-06-02</td><td><a href='../meets/206_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>3</td><td>1.0</td><td>9:41.92</td></tr><tr><td>2000</td><td>2000-05-24</td><td><a href='../meets/330_all.html'>Region 2 AAA</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1.0</td><td>9:28.10</td></tr><tr><td>2000</td><td>2000-04-29</td><td><a href='../meets/520_all.html'>Heart of the Bluegrass</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1.0</td><td>9:35.20</td></tr><tr><td>2000</td><td>2000-04-22</td><td><a href='../meets/641_all.html'>Woodford County Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1.0</td><td>9:40.70</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>1500 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2002</td><td>2002-02-22</td><td><a href='../meets/387_all.html'>Mason Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>1.0</td><td>4:02.80</td></tr><tr><td>2001</td><td>2001-02-23</td><td><a href='../meets/379_all.html'>Mason Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>1.0</td><td>4:02.33</td></tr><tr><td>2000</td><td>2000-02-25</td><td><a href='../meets/378_all.html'>Mason Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>2.0</td><td>4:10.94</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1500_meters"></canvas></div><h3 class='section-title'>3000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-02-21</td><td><a href='../meets/375_all.html'>Mason Dixon Games</a></td><td>Indoor</td><td>3000 Meters</td><td>1</td><td>1.0</td><td>8:38.30</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3000_meters"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>1.0</td><td>8:04.32</td><td></td></tr><tr><td>2002</td><td>2002-05-31</td><td><a href='../meets/204_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>1.0</td><td>8:01.10</td><td></td></tr><tr><td>2001</td><td>2001-06-01</td><td><a href='../meets/205_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>4.0</td><td>8:17.53</td><td></td></tr><tr><td>2000</td><td>2000-06-02</td><td><a href='../meets/206_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>8.0</td><td>8:26.37</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2002</td><td>2002-12-14</td><td><a href='../meets/714_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3.0</td><td>15:06.10</td></tr><tr><td>2002</td><td>2002-11-30</td><td><a href='../meets/718_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:49.90</td></tr><tr><td>2002</td><td>2002-11-09</td><td><a href='../meets/827_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1.0</td><td>15:24.20</td></tr><tr><td>2002</td><td>2002-08-30</td><td><a href='../meets/1015_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1.0</td><td>15:15.40</td></tr><tr><td>2001</td><td>2001-12-08</td><td><a href='../meets/715_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>21.0</td><td>15:41.00</td></tr><tr><td>2001</td><td>2001-11-24</td><td><a href='../meets/717_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:52.20</td></tr><tr><td>2001</td><td>2001-11-03</td><td><a href='../meets/826_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1.0</td><td>15:06.00</td></tr><tr><td>2001</td><td>2001-10-20</td><td><a href='../meets/884_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:41.00</td></tr><tr><td>2001</td><td>2001-10-06</td><td><a href='../meets/848_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1.0</td><td>14:58.30</td></tr><tr><td>2001</td><td>2001-09-15</td><td><a href='../meets/1053_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:44.00</td></tr><tr><td>2001</td><td>2001-09-08</td><td><a href='../meets/756_all.html'>Great Race of the Great Bay</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:29.30</td></tr><tr><td>2000</td><td>2000-12-09</td><td><a href='../meets/713_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10.0</td><td>15:16.00</td></tr><tr><td>2000</td><td>2000-11-25</td><td><a href='../meets/716_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:11.00</td></tr><tr><td>2000</td><td>2000-11-04</td><td><a href='../meets/825_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1.0</td><td>15:28.30</td></tr><tr><td>2000</td><td>2000-10-28</td><td><a href='../meets/938_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1.0</td><td>15:01.30</td></tr><tr><td>2000</td><td>2000-10-21</td><td><a href='../meets/798_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1.0</td><td>15:16.30</td></tr><tr><td>2000</td><td>2000-09-23</td><td><a href='../meets/748_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:37.00</td></tr><tr><td>2000</td><td>2000-09-16</td><td><a href='../meets/1052_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:20.00</td></tr><tr><td>1999</td><td>1999-11-06</td><td><a href='../meets/824_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2.0</td><td>15:56.30</td></tr><tr><td>1999</td><td>1999-10-23</td><td><a href='../meets/797_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3.0</td><td>16:03.10</td></tr><tr><td>1999</td><td>1999-09-25</td><td><a href='../meets/725_all.html'>Franklin County Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>15.0</td><td>17:37.80</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div></div>
+      <div id="athlete-results-wrap"><h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>1</td><td>1:54.93</td></tr><tr><td>2003</td><td>2003-05-19</td><td><a href='../meets/332_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1</td><td>1:57.35</td></tr><tr><td>2003</td><td>2003-04-25</td><td><a href='../meets/500_all.html'>Central Hardin Invitational</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1</td><td>2:01.80</td></tr><tr><td>2003</td><td>2003-04-19</td><td><a href='../meets/328_all.html'>Male Invitational</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>1</td><td>1:52.89</td></tr><tr><td>2002</td><td>2002-05-31</td><td><a href='../meets/204_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>800 Meters</td><td>3</td><td>1</td><td>1:54.72</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-06-15</td><td><a href='../meets/356_all.html'>Golden West Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:07.06</td></tr><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>3</td><td>1</td><td>4:18.56</td></tr><tr><td>2003</td><td>2003-05-19</td><td><a href='../meets/332_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:18.74</td></tr><tr><td>2003</td><td>2003-03-15</td><td><a href='../meets/368_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:10.20</td></tr><tr><td>2002</td><td>2002-06-14</td><td><a href='../meets/337_all.html'>adidas Outdoor Championships</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:09.05</td></tr><tr><td>2002</td><td>2002-06-08</td><td><a href='../meets/512_all.html'>Golden West Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:07.60</td></tr><tr><td>2002</td><td>2002-05-31</td><td><a href='../meets/204_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>3</td><td>1</td><td>4:13.16</td></tr><tr><td>2002</td><td>2002-05-18</td><td><a href='../meets/333_all.html'>Wolverine Relays</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:24.44</td></tr><tr><td>2002</td><td>2002-04-25</td><td><a href='../meets/585_all.html'>Penn Relays Carnival</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:18.50</td></tr><tr><td>2002</td><td>2002-04-20</td><td><a href='../meets/329_all.html'>Male Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:26.15</td></tr><tr><td>2002</td><td>2002-04-12</td><td><a href='../meets/203_all.html'>Arcadia Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:08.29</td></tr><tr><td>2002</td><td>2002-03-10</td><td><a href='../meets/334_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:16.14</td></tr><tr><td>2002</td><td>2002-03-09</td><td><a href='../meets/570_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:16.10</td></tr><tr><td>2001</td><td>2001-06-15</td><td><a href='../meets/335_all.html'>adidas Outdoor Championships</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>5</td><td>4:12.60</td></tr><tr><td>2001</td><td>2001-06-01</td><td><a href='../meets/205_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>3</td><td>1</td><td>4:17.43</td></tr><tr><td>2001</td><td>2001-05-23</td><td><a href='../meets/331_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:26.15</td></tr><tr><td>2001</td><td>2001-04-26</td><td><a href='../meets/336_all.html'>Penn Relays Carnival</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>5</td><td>4:12.60</td></tr><tr><td>2001</td><td>2001-03-10</td><td><a href='../meets/569_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:12.00</td></tr><tr><td>2001</td><td>2001-02-17</td><td><a href='../meets/625_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:22.00</td></tr><tr><td>2000</td><td>2000-06-17</td><td><a href='../meets/511_all.html'>Foot Locker National Championship</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:16.90</td></tr><tr><td>2000</td><td>2000-06-02</td><td><a href='../meets/206_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>3</td><td>1</td><td>4:19.60</td></tr><tr><td>2000</td><td>2000-05-24</td><td><a href='../meets/330_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:31.90</td></tr><tr><td>2000</td><td>2000-04-29</td><td><a href='../meets/520_all.html'>Heart of the Bluegrass</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:24.70</td></tr><tr><td>2000</td><td>2000-04-22</td><td><a href='../meets/641_all.html'>Woodford County Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:25.80</td></tr><tr><td>2000</td><td>2000-03-11</td><td><a href='../meets/568_all.html'>Nike Indoor Nationals</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:26.70</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>3</td><td>1</td><td>9:12.19</td></tr><tr><td>2003</td><td>2003-05-19</td><td><a href='../meets/332_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:23.24</td></tr><tr><td>2003</td><td>2003-04-11</td><td><a href='../meets/201_all.html'>Arcadia Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>4</td><td>8:48.39</td></tr><tr><td>2002</td><td>2002-04-20</td><td><a href='../meets/329_all.html'>Male Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:39.44</td></tr><tr><td>2001</td><td>2001-06-01</td><td><a href='../meets/205_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>3</td><td>1</td><td>9:15.25</td></tr><tr><td>2001</td><td>2001-05-23</td><td><a href='../meets/331_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:39.44</td></tr><tr><td>2000</td><td>2000-06-02</td><td><a href='../meets/206_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>3</td><td>1</td><td>9:41.92</td></tr><tr><td>2000</td><td>2000-05-24</td><td><a href='../meets/330_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:28.10</td></tr><tr><td>2000</td><td>2000-04-29</td><td><a href='../meets/520_all.html'>Heart of the Bluegrass</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:35.20</td></tr><tr><td>2000</td><td>2000-04-22</td><td><a href='../meets/641_all.html'>Woodford County Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:40.70</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>1500 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2002</td><td>2002-02-22</td><td><a href='../meets/387_all.html'>Mason-Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>1</td><td>4:02.80</td></tr><tr><td>2001</td><td>2001-02-23</td><td><a href='../meets/379_all.html'>Mason-Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>1</td><td>4:02.33</td></tr><tr><td>2000</td><td>2000-02-25</td><td><a href='../meets/378_all.html'>Mason-Dixon Games</a></td><td>Indoor</td><td>1500 Meters</td><td>1</td><td>2</td><td>4:10.94</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1500_meters"></canvas></div><h3 class='section-title'>3000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2003</td><td>2003-02-21</td><td><a href='../meets/375_all.html'>Mason-Dixon Games</a></td><td>Indoor</td><td>3000 Meters</td><td>1</td><td>1</td><td>8:38.30</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3000_meters"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2003</td><td>2003-05-30</td><td><a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>1</td><td>8:04.32</td><td></td></tr><tr><td>2002</td><td>2002-05-31</td><td><a href='../meets/204_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>1</td><td>8:01.10</td><td></td></tr><tr><td>2001</td><td>2001-06-01</td><td><a href='../meets/205_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>4</td><td>8:17.53</td><td></td></tr><tr><td>2000</td><td>2000-06-02</td><td><a href='../meets/206_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>3</td><td>St Xavier (KY)</td><td>4</td><td>8</td><td>8:26.37</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2002</td><td>2002-12-14</td><td><a href='../meets/714_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>15:06.10</td></tr><tr><td>2002</td><td>2002-11-30</td><td><a href='../meets/718_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:49.90</td></tr><tr><td>2002</td><td>2002-11-09</td><td><a href='../meets/827_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:24.20</td></tr><tr><td>2002</td><td>2002-08-30</td><td><a href='../meets/1015_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:15.40</td></tr><tr><td>2001</td><td>2001-12-08</td><td><a href='../meets/715_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>21</td><td>15:41.00</td></tr><tr><td>2001</td><td>2001-11-24</td><td><a href='../meets/717_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:52.20</td></tr><tr><td>2001</td><td>2001-11-03</td><td><a href='../meets/826_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:06.00</td></tr><tr><td>2001</td><td>2001-10-20</td><td><a href='../meets/884_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:41.00</td></tr><tr><td>2001</td><td>2001-10-06</td><td><a href='../meets/848_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>14:58.30</td></tr><tr><td>2001</td><td>2001-09-15</td><td><a href='../meets/1053_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>14:44.00</td></tr><tr><td>2001</td><td>2001-09-08</td><td><a href='../meets/756_all.html'>Great Race of the Great Bay</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:29.30</td></tr><tr><td>2000</td><td>2000-12-09</td><td><a href='../meets/713_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10</td><td>15:16.00</td></tr><tr><td>2000</td><td>2000-11-25</td><td><a href='../meets/716_all.html'>Foot Locker Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:11.00</td></tr><tr><td>2000</td><td>2000-11-04</td><td><a href='../meets/825_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:28.30</td></tr><tr><td>2000</td><td>2000-10-28</td><td><a href='../meets/938_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:01.30</td></tr><tr><td>2000</td><td>2000-10-21</td><td><a href='../meets/798_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>1</td><td>15:16.30</td></tr><tr><td>2000</td><td>2000-09-23</td><td><a href='../meets/748_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:37.00</td></tr><tr><td>2000</td><td>2000-09-16</td><td><a href='../meets/1052_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td></td><td>15:20.00</td></tr><tr><td>1999</td><td>1999-11-06</td><td><a href='../meets/824_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>15:56.30</td></tr><tr><td>1999</td><td>1999-10-23</td><td><a href='../meets/797_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:03.10</td></tr><tr><td>1999</td><td>1999-09-25</td><td><a href='../meets/725_all.html'>Franklin County Invite</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>15</td><td>17:37.80</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div></div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-07-23 22:37:43</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-07-28 21:39:44</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -172,12 +298,12 @@
     {
       "x": "2002-05-31",
       "y": 114.72,
-      "meet": "<a href='../meets/204_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/204_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2003-04-19",
       "y": 112.89,
-      "meet": "<a href='../meets/328_all.html'>Male Bulldog Classic</a>"
+      "meet": "<a href='../meets/328_all.html'>Male Invitational</a>"
     },
     {
       "x": "2003-04-25",
@@ -187,19 +313,19 @@
     {
       "x": "2003-05-19",
       "y": 117.35,
-      "meet": "<a href='../meets/332_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/332_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2003-05-30",
       "y": 114.93,
-      "meet": "<a href='../meets/202_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a>"
     }
   ],
   "chart-1600_meters_1_mile": [
     {
       "x": "2000-03-11",
       "y": 266.7,
-      "meet": "<a href='../meets/568_all.html'>Nike Indoor Classic</a>"
+      "meet": "<a href='../meets/568_all.html'>Nike Indoor Nationals</a>"
     },
     {
       "x": "2000-04-22",
@@ -214,12 +340,12 @@
     {
       "x": "2000-05-24",
       "y": 271.9,
-      "meet": "<a href='../meets/330_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/330_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2000-06-02",
       "y": 259.6,
-      "meet": "<a href='../meets/206_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/206_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2000-06-17",
@@ -234,7 +360,7 @@
     {
       "x": "2001-03-10",
       "y": 252.0,
-      "meet": "<a href='../meets/569_all.html'>Nike Indoor Classic</a>"
+      "meet": "<a href='../meets/569_all.html'>Nike Indoor Nationals</a>"
     },
     {
       "x": "2001-04-26",
@@ -244,12 +370,12 @@
     {
       "x": "2001-05-23",
       "y": 266.15,
-      "meet": "<a href='../meets/331_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/331_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2001-06-01",
       "y": 257.43,
-      "meet": "<a href='../meets/205_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/205_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2001-06-15",
@@ -259,12 +385,12 @@
     {
       "x": "2002-03-09",
       "y": 256.1,
-      "meet": "<a href='../meets/570_all.html'>Nike Indoor Classic</a>"
+      "meet": "<a href='../meets/570_all.html'>Nike Indoor Nationals</a>"
     },
     {
       "x": "2002-03-10",
       "y": 256.14,
-      "meet": "<a href='../meets/334_all.html'>Nike Indoor Classic</a>"
+      "meet": "<a href='../meets/334_all.html'>Nike Indoor Nationals</a>"
     },
     {
       "x": "2002-04-12",
@@ -274,7 +400,7 @@
     {
       "x": "2002-04-20",
       "y": 266.15,
-      "meet": "<a href='../meets/329_all.html'>Male Bulldog Classic</a>"
+      "meet": "<a href='../meets/329_all.html'>Male Invitational</a>"
     },
     {
       "x": "2002-04-25",
@@ -289,7 +415,7 @@
     {
       "x": "2002-05-31",
       "y": 253.16,
-      "meet": "<a href='../meets/204_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/204_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2002-06-08",
@@ -304,17 +430,17 @@
     {
       "x": "2003-03-15",
       "y": 250.2,
-      "meet": "<a href='../meets/368_all.html'>Nike Indoor Classic</a>"
+      "meet": "<a href='../meets/368_all.html'>Nike Indoor Nationals</a>"
     },
     {
       "x": "2003-05-19",
       "y": 258.74,
-      "meet": "<a href='../meets/332_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/332_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2003-05-30",
       "y": 258.56,
-      "meet": "<a href='../meets/202_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2003-06-15",
@@ -336,27 +462,27 @@
     {
       "x": "2000-05-24",
       "y": 568.1,
-      "meet": "<a href='../meets/330_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/330_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2000-06-02",
       "y": 581.92,
-      "meet": "<a href='../meets/206_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/206_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2001-05-23",
       "y": 579.44,
-      "meet": "<a href='../meets/331_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/331_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2001-06-01",
       "y": 555.25,
-      "meet": "<a href='../meets/205_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/205_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2002-04-20",
       "y": 579.44,
-      "meet": "<a href='../meets/329_all.html'>Male Bulldog Classic</a>"
+      "meet": "<a href='../meets/329_all.html'>Male Invitational</a>"
     },
     {
       "x": "2003-04-11",
@@ -366,58 +492,58 @@
     {
       "x": "2003-05-19",
       "y": 563.24,
-      "meet": "<a href='../meets/332_all.html'>Region 2 AAA</a>"
+      "meet": "<a href='../meets/332_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2003-05-30",
       "y": 552.19,
-      "meet": "<a href='../meets/202_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a>"
     }
   ],
   "chart-1500_meters": [
     {
       "x": "2000-02-25",
       "y": 250.94,
-      "meet": "<a href='../meets/378_all.html'>Mason Dixon Games</a>"
+      "meet": "<a href='../meets/378_all.html'>Mason-Dixon Games</a>"
     },
     {
       "x": "2001-02-23",
       "y": 242.33,
-      "meet": "<a href='../meets/379_all.html'>Mason Dixon Games</a>"
+      "meet": "<a href='../meets/379_all.html'>Mason-Dixon Games</a>"
     },
     {
       "x": "2002-02-22",
       "y": 242.8,
-      "meet": "<a href='../meets/387_all.html'>Mason Dixon Games</a>"
+      "meet": "<a href='../meets/387_all.html'>Mason-Dixon Games</a>"
     }
   ],
   "chart-3000_meters": [
     {
       "x": "2003-02-21",
       "y": 518.3,
-      "meet": "<a href='../meets/375_all.html'>Mason Dixon Games</a>"
+      "meet": "<a href='../meets/375_all.html'>Mason-Dixon Games</a>"
     }
   ],
   "chart-4x800_relay": [
     {
       "x": "2000-06-02",
       "y": 506.37,
-      "meet": "<a href='../meets/206_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/206_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2001-06-01",
       "y": 497.53,
-      "meet": "<a href='../meets/205_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/205_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2002-05-31",
       "y": 481.1,
-      "meet": "<a href='../meets/204_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/204_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2003-05-30",
       "y": 484.32,
-      "meet": "<a href='../meets/202_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/202_all.html'>Kentucky State Outdoor Track Meet</a>"
     }
   ],
   "chart-5000_meters": [

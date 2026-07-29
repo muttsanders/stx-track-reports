@@ -61,7 +61,38 @@
       .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
-      .ath-col h3 { margin: 0 0 6px 0; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
       .rankcell { font-weight: 800; }
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
       .hide-graphs .chart-container { display: none; }
@@ -82,6 +113,101 @@
       .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
       .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
     </style>
     
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -97,7 +223,7 @@
         
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Coach Pre-Race</a>
       </div>
     </div>
     <div class="card">
@@ -124,10 +250,10 @@
         <span class="muted">(default on)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
-      <div id="athlete-results-wrap"><h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-04-20</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>22</td><td>2:02.38</td></tr><tr><td>2018</td><td>2018-03-17</td><td><a href='../meets/126_all.html'>Villa For Life</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:04.46</td></tr><tr><td>2018</td><td>2018-03-17</td><td><a href='../meets/657_all.html'>Villa For Life 2018</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:04.46</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-05-04</td><td><a href='../meets/137_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>11</td><td>4:22.41</td></tr><tr><td>2018</td><td>2018-04-20</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>14</td><td>4:28.44</td></tr><tr><td>2018</td><td>2018-04-14</td><td><a href='../meets/132_all.html'>Johnny Coon Invitational</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>2</td><td>4:27.67</td></tr><tr><td>2018</td><td>2018-02-17</td><td><a href='../meets/220_all.html'>University of Kentucky HS Invitational</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>14</td><td>4:27.85</td></tr><tr><td>2018</td><td>2018-01-27</td><td><a href='../meets/218_all.html'>Wildcat HS Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>3</td><td>4:27.35</td></tr><tr><td>2017</td><td>2017-05-02</td><td><a href='../meets/308_all.html'>St. Xavier Master Schedule Meet #2</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>1</td><td>4:44.05</td></tr><tr><td>2017</td><td>2017-02-11</td><td><a href='../meets/223_all.html'>Indiana Track Club High School Open</a></td><td>Indoor</td><td>1600 Meters</td><td>1</td><td>5</td><td>4:33.69</td></tr><tr><td>2017</td><td>2017-01-28</td><td><a href='../meets/222_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>3</td><td>4:32.88</td></tr><tr><td>2016</td><td>2016-05-27</td><td><a href='../meets/163_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>6</td><td>4:29.81</td></tr><tr><td>2016</td><td>2016-05-21</td><td><a href='../meets/162_all.html'>Region 3 AAA</a></td><td>Outdoor</td><td>1600 Meters</td><td>1</td><td>4</td><td>4:30.72</td></tr><tr><td>2016</td><td>2016-05-06</td><td><a href='../meets/160_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>12</td><td>4:25.73</td></tr><tr><td>2016</td><td>2016-04-29</td><td><a href='../meets/159_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>18</td><td>4:27.24</td></tr><tr><td>2016</td><td>2016-04-23</td><td><a href='../meets/310_all.html'>Brother Borgia/Coach Cooper Invitational</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>3</td><td>4:27.20</td></tr><tr><td>2016</td><td>2016-04-08</td><td><a href='../meets/156_all.html'>Taco Bell Classic</a></td><td>Outdoor</td><td>1 Mile</td><td>1</td><td>19</td><td>4:33.59</td></tr><tr><td>2016</td><td>2016-03-11</td><td><a href='../meets/227_all.html'>New Balance Nationals Indoor</a></td><td>Indoor</td><td>1 Mile</td><td>3</td><td>9</td><td>4:33.41</td></tr><tr><td>2016</td><td>2016-01-30</td><td><a href='../meets/225_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1 Mile</td><td>1</td><td>3</td><td>4:35.58</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-05-17</td><td><a href='../meets/139_all.html'>Kentucky State Track Meet</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>3</td><td>9:35.42</td></tr><tr><td>2018</td><td>2018-05-12</td><td><a href='../meets/138_all.html'>KHSAA Class AAA Region 3 Championships</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:49.31</td></tr><tr><td>2018</td><td>2018-04-28</td><td><a href='../meets/136_all.html'>Brother Borgia Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>1</td><td>9:34.87</td></tr><tr><td>2018</td><td>2018-04-20</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>17</td><td>9:19.63</td></tr><tr><td>2018</td><td>2018-04-07</td><td><a href='../meets/130_all.html'>Mobile Challenge of Champions</a></td><td>Outdoor</td><td>2 Miles</td><td>1</td><td>3</td><td>9:36.43</td></tr><tr><td>2018</td><td>2018-03-09</td><td><a href='../meets/221_all.html'>New Balance Nationals Indoor</a></td><td>Indoor</td><td>2 Miles</td><td>2</td><td>16</td><td>9:35.23</td></tr><tr><td>2018</td><td>2018-02-03</td><td><a href='../meets/219_all.html'>Vanderbilt HS Indoor Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>1</td><td>8</td><td>9:32.46</td></tr><tr><td>2017</td><td>2017-02-18</td><td><a href='../meets/224_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>2 Miles</td><td>1</td><td>6</td><td>9:39.32</td></tr><tr><td>2016</td><td>2016-04-29</td><td><a href='../meets/159_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>24</td><td>9:32.45</td></tr><tr><td>2016</td><td>2016-04-16</td><td><a href='../meets/158_all.html'>Johnny Conn Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>2</td><td>9:46.61</td></tr><tr><td>2016</td><td>2016-03-26</td><td><a href='../meets/153_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters</td><td>1</td><td>3</td><td>9:54.00</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>3 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2017</td><td>2017-09-23</td><td><a href='../meets/933_all.html'>Palatine Invitational</a></td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>14</td><td>15:21.20</td></tr><tr><td>2016</td><td>2016-09-24</td><td><a href='../meets/932_all.html'>Palatine Invitational</a></td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>33</td><td>15:25.00</td></tr><tr><td>2015</td><td>2015-09-26</td><td><a href='../meets/929_all.html'>Palatine Invitational</a></td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>63</td><td>15:53.10</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3_miles"></canvas></div><h3 class='section-title'>4000 Meter Run</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2015</td><td>2015-08-29</td><td><a href='../meets/1027_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>4000 Meter Run</td><td>xc</td><td>2</td><td>13:34.60</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4000_meter_run"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-03-23</td><td><a href='../meets/659_all.html'>KYtrackXC.com 5K Showdown 2018</a></td><td>Outdoor</td><td>5000 Meters</td><td>1</td><td>3</td><td>15:21.15</td></tr><tr><td>2017</td><td>2017-11-25</td><td><a href='../meets/912_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>51</td><td>16:02.80</td></tr><tr><td>2017</td><td>2017-11-04</td><td><a href='../meets/842_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10</td><td>16:14.20</td></tr><tr><td>2017</td><td>2017-10-28</td><td><a href='../meets/781_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>15:50.40</td></tr><tr><td>2017</td><td>2017-10-14</td><td><a href='../meets/1073_all.html'>Woodford County Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:18.20</td></tr><tr><td>2017</td><td>2017-10-07</td><td><a href='../meets/745_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>31</td><td>15:51.80</td></tr><tr><td>2017</td><td>2017-09-29</td><td><a href='../meets/764_all.html'>Greater Louisville Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10</td><td>16:09.50</td></tr><tr><td>2017</td><td>2017-09-16</td><td><a href='../meets/1046_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>26</td><td>16:06.30</td></tr><tr><td>2017</td><td>2017-09-09</td><td><a href='../meets/954_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>17</td><td>17:08.40</td></tr><tr><td>2017</td><td>2017-08-26</td><td><a href='../meets/1029_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>7</td><td>16:05.80</td></tr><tr><td>2016</td><td>2016-12-03</td><td><a href='../meets/903_all.html'>Nike Cross Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>93</td><td>16:50.20</td></tr><tr><td>2016</td><td>2016-11-26</td><td><a href='../meets/911_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>40</td><td>15:58.40</td></tr><tr><td>2016</td><td>2016-11-05</td><td><a href='../meets/841_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>8</td><td>16:14.30</td></tr><tr><td>2016</td><td>2016-10-29</td><td><a href='../meets/953_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:16.90</td></tr><tr><td>2016</td><td>2016-10-15</td><td><a href='../meets/861_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>5</td><td>15:39.80</td></tr><tr><td>2016</td><td>2016-09-30</td><td><a href='../meets/744_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>32</td><td>15:52.60</td></tr><tr><td>2016</td><td>2016-09-17</td><td><a href='../meets/1045_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>25</td><td>16:09.60</td></tr><tr><td>2016</td><td>2016-09-10</td><td><a href='../meets/974_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10</td><td>17:24.80</td></tr><tr><td>2016</td><td>2016-08-27</td><td><a href='../meets/1028_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>8</td><td>16:51.70</td></tr><tr><td>2016</td><td>2016-03-18</td><td><a href='../meets/658_all.html'>KYtrackXC.com 5K Showdown 2016</a></td><td>Outdoor</td><td>5000 Meters</td><td>1</td><td>7</td><td>15:49.86</td></tr><tr><td>2015</td><td>2015-11-28</td><td><a href='../meets/910_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>61</td><td>16:07.90</td></tr><tr><td>2015</td><td>2015-11-07</td><td><a href='../meets/840_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>16:05.10</td></tr><tr><td>2015</td><td>2015-10-31</td><td><a href='../meets/952_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>7</td><td>15:58.60</td></tr><tr><td>2015</td><td>2015-10-17</td><td><a href='../meets/860_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>19</td><td>16:14.10</td></tr><tr><td>2015</td><td>2015-10-02</td><td><a href='../meets/762_all.html'>Greater Louisville Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>12</td><td>16:25.10</td></tr><tr><td>2015</td><td>2015-09-19</td><td><a href='../meets/1044_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:36.00</td></tr><tr><td>2015</td><td>2015-09-12</td><td><a href='../meets/973_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>25</td><td>17:45.70</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div></div>
+      <div id="athlete-results-wrap"><h3 class='section-title'>800 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-04-20</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>22</td><td>2:02.38</td></tr><tr><td>2018</td><td>2018-03-17</td><td><a href='../meets/126_all.html'>Villa For Life</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:04.46</td></tr><tr><td>2018</td><td>2018-03-17</td><td><a href='../meets/657_all.html'>Villa For Life</a></td><td>Outdoor</td><td>800 Meters</td><td>1</td><td>4</td><td>2:04.46</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-800_meters"></canvas></div><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-05-04</td><td><a href='../meets/137_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>11</td><td>4:22.41</td></tr><tr><td>2018</td><td>2018-04-20</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>14</td><td>4:28.44</td></tr><tr><td>2018</td><td>2018-04-14</td><td><a href='../meets/132_all.html'>Johnny Conn Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>2</td><td>4:27.67</td></tr><tr><td>2018</td><td>2018-02-17</td><td><a href='../meets/220_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>14</td><td>4:27.85</td></tr><tr><td>2018</td><td>2018-01-27</td><td><a href='../meets/218_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>3</td><td>4:27.35</td></tr><tr><td>2017</td><td>2017-05-02</td><td><a href='../meets/308_all.html'>St. X JV Series Meet 2</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>1</td><td>4:44.05</td></tr><tr><td>2017</td><td>2017-02-11</td><td><a href='../meets/223_all.html'>Indiana Track Club High School Open</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>5</td><td>4:33.69</td></tr><tr><td>2017</td><td>2017-01-28</td><td><a href='../meets/222_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>3</td><td>4:32.88</td></tr><tr><td>2016</td><td>2016-05-27</td><td><a href='../meets/163_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>6</td><td>4:29.81</td></tr><tr><td>2016</td><td>2016-05-21</td><td><a href='../meets/162_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>4</td><td>4:30.72</td></tr><tr><td>2016</td><td>2016-05-06</td><td><a href='../meets/160_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>12</td><td>4:25.73</td></tr><tr><td>2016</td><td>2016-04-29</td><td><a href='../meets/159_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>18</td><td>4:27.24</td></tr><tr><td>2016</td><td>2016-04-23</td><td><a href='../meets/310_all.html'>Brother Borgia/Coach Cooper Invitational</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>3</td><td>4:27.20</td></tr><tr><td>2016</td><td>2016-04-08</td><td><a href='../meets/156_all.html'>Taco Bell Classic</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>19</td><td>4:33.59</td></tr><tr><td>2016</td><td>2016-03-11</td><td><a href='../meets/227_all.html'>New Balance Nationals Indoor</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>3</td><td>9</td><td>4:33.41</td></tr><tr><td>2016</td><td>2016-01-30</td><td><a href='../meets/225_all.html'>Wildcat Classic</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>3</td><td>4:35.58</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-05-17</td><td><a href='../meets/139_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>3</td><td>9:35.42</td></tr><tr><td>2018</td><td>2018-05-12</td><td><a href='../meets/138_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:49.31</td></tr><tr><td>2018</td><td>2018-04-28</td><td><a href='../meets/136_all.html'>Brother Borgia/Coach Cooper Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>1</td><td>9:34.87</td></tr><tr><td>2018</td><td>2018-04-20</td><td><a href='../meets/134_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>17</td><td>9:19.63</td></tr><tr><td>2018</td><td>2018-04-07</td><td><a href='../meets/130_all.html'>Mobile Challenge of Champions</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>3</td><td>9:36.43</td></tr><tr><td>2018</td><td>2018-03-09</td><td><a href='../meets/221_all.html'>New Balance Nationals Indoor</a></td><td>Indoor</td><td>3200 Meters / 2 Miles</td><td>2</td><td>16</td><td>9:35.23</td></tr><tr><td>2018</td><td>2018-02-03</td><td><a href='../meets/219_all.html'>Vanderbilt HS Indoor Invitational</a></td><td>Indoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>8</td><td>9:32.46</td></tr><tr><td>2017</td><td>2017-02-18</td><td><a href='../meets/224_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>6</td><td>9:39.32</td></tr><tr><td>2016</td><td>2016-04-29</td><td><a href='../meets/159_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>24</td><td>9:32.45</td></tr><tr><td>2016</td><td>2016-04-16</td><td><a href='../meets/158_all.html'>Johnny Conn Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>2</td><td>9:46.61</td></tr><tr><td>2016</td><td>2016-03-26</td><td><a href='../meets/153_all.html'>Lenny Lyles Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>3</td><td>9:54.00</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>3 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2017</td><td>2017-09-23</td><td><a href='../meets/933_all.html'>Palatine Invitational</a></td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>14</td><td>15:21.20</td></tr><tr><td>2016</td><td>2016-09-24</td><td><a href='../meets/932_all.html'>Palatine Invitational</a></td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>33</td><td>15:25.00</td></tr><tr><td>2015</td><td>2015-09-26</td><td><a href='../meets/929_all.html'>Palatine Invitational</a></td><td>Outdoor</td><td>3 Miles</td><td>xc</td><td>63</td><td>15:53.10</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3_miles"></canvas></div><h3 class='section-title'>4000 Meter Run</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2015</td><td>2015-08-29</td><td><a href='../meets/1027_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>4000 Meter Run</td><td>xc</td><td>2</td><td>13:34.60</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4000_meter_run"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2018</td><td>2018-03-23</td><td><a href='../meets/659_all.html'>KYtrackXC.com 5K Showdown</a></td><td>Outdoor</td><td>5000 Meters</td><td>1</td><td>3</td><td>15:21.15</td></tr><tr><td>2017</td><td>2017-11-25</td><td><a href='../meets/912_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>51</td><td>16:02.80</td></tr><tr><td>2017</td><td>2017-11-04</td><td><a href='../meets/842_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10</td><td>16:14.20</td></tr><tr><td>2017</td><td>2017-10-28</td><td><a href='../meets/781_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>15:50.40</td></tr><tr><td>2017</td><td>2017-10-14</td><td><a href='../meets/1073_all.html'>Woodford County Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:18.20</td></tr><tr><td>2017</td><td>2017-10-07</td><td><a href='../meets/745_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>31</td><td>15:51.80</td></tr><tr><td>2017</td><td>2017-09-29</td><td><a href='../meets/764_all.html'>Greater Louisville Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10</td><td>16:09.50</td></tr><tr><td>2017</td><td>2017-09-16</td><td><a href='../meets/1046_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>26</td><td>16:06.30</td></tr><tr><td>2017</td><td>2017-09-09</td><td><a href='../meets/954_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>17</td><td>17:08.40</td></tr><tr><td>2017</td><td>2017-08-26</td><td><a href='../meets/1029_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>7</td><td>16:05.80</td></tr><tr><td>2016</td><td>2016-12-03</td><td><a href='../meets/903_all.html'>Nike Cross Nationals</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>93</td><td>16:50.20</td></tr><tr><td>2016</td><td>2016-11-26</td><td><a href='../meets/911_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>40</td><td>15:58.40</td></tr><tr><td>2016</td><td>2016-11-05</td><td><a href='../meets/841_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>8</td><td>16:14.30</td></tr><tr><td>2016</td><td>2016-10-29</td><td><a href='../meets/953_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>3</td><td>16:16.90</td></tr><tr><td>2016</td><td>2016-10-15</td><td><a href='../meets/861_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>5</td><td>15:39.80</td></tr><tr><td>2016</td><td>2016-09-30</td><td><a href='../meets/744_all.html'>Great American XC Festival</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>32</td><td>15:52.60</td></tr><tr><td>2016</td><td>2016-09-17</td><td><a href='../meets/1045_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>25</td><td>16:09.60</td></tr><tr><td>2016</td><td>2016-09-10</td><td><a href='../meets/974_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>10</td><td>17:24.80</td></tr><tr><td>2016</td><td>2016-08-27</td><td><a href='../meets/1028_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>8</td><td>16:51.70</td></tr><tr><td>2016</td><td>2016-03-18</td><td><a href='../meets/658_all.html'>KYtrackXC.com 5K Showdown</a></td><td>Outdoor</td><td>5000 Meters</td><td>1</td><td>7</td><td>15:49.86</td></tr><tr><td>2015</td><td>2015-11-28</td><td><a href='../meets/910_all.html'>Nike Cross Southeast Regional</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>61</td><td>16:07.90</td></tr><tr><td>2015</td><td>2015-11-07</td><td><a href='../meets/840_all.html'>Kentucky State Meet</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>11</td><td>16:05.10</td></tr><tr><td>2015</td><td>2015-10-31</td><td><a href='../meets/952_all.html'>Region Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>7</td><td>15:58.60</td></tr><tr><td>2015</td><td>2015-10-17</td><td><a href='../meets/860_all.html'>Lexington Catholic Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>19</td><td>16:14.10</td></tr><tr><td>2015</td><td>2015-10-02</td><td><a href='../meets/762_all.html'>Greater Louisville Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>12</td><td>16:25.10</td></tr><tr><td>2015</td><td>2015-09-19</td><td><a href='../meets/1044_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>2</td><td>16:36.00</td></tr><tr><td>2015</td><td>2015-09-12</td><td><a href='../meets/973_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>25</td><td>17:45.70</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div></div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-07-23 23:15:04</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-07-28 21:40:20</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -177,7 +303,7 @@
     {
       "x": "2018-03-17",
       "y": 124.46,
-      "meet": "<a href='../meets/657_all.html'>Villa For Life 2018</a>"
+      "meet": "<a href='../meets/657_all.html'>Villa For Life</a>"
     },
     {
       "x": "2018-04-20",
@@ -219,12 +345,12 @@
     {
       "x": "2016-05-21",
       "y": 270.72,
-      "meet": "<a href='../meets/162_all.html'>Region 3 AAA</a>"
+      "meet": "<a href='../meets/162_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2016-05-27",
       "y": 269.81,
-      "meet": "<a href='../meets/163_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/163_all.html'>Kentucky State Outdoor Track Meet</a>"
     },
     {
       "x": "2017-01-28",
@@ -239,22 +365,22 @@
     {
       "x": "2017-05-02",
       "y": 284.05,
-      "meet": "<a href='../meets/308_all.html'>St. Xavier Master Schedule Meet #2</a>"
+      "meet": "<a href='../meets/308_all.html'>St. X JV Series Meet 2</a>"
     },
     {
       "x": "2018-01-27",
       "y": 267.35,
-      "meet": "<a href='../meets/218_all.html'>Wildcat HS Classic</a>"
+      "meet": "<a href='../meets/218_all.html'>Wildcat Classic</a>"
     },
     {
       "x": "2018-02-17",
       "y": 267.85,
-      "meet": "<a href='../meets/220_all.html'>University of Kentucky HS Invitational</a>"
+      "meet": "<a href='../meets/220_all.html'>UK High School Invitational</a>"
     },
     {
       "x": "2018-04-14",
       "y": 267.67,
-      "meet": "<a href='../meets/132_all.html'>Johnny Coon Invitational</a>"
+      "meet": "<a href='../meets/132_all.html'>Johnny Conn Invitational</a>"
     },
     {
       "x": "2018-04-20",
@@ -311,17 +437,17 @@
     {
       "x": "2018-04-28",
       "y": 574.87,
-      "meet": "<a href='../meets/136_all.html'>Brother Borgia Invitational</a>"
+      "meet": "<a href='../meets/136_all.html'>Brother Borgia/Coach Cooper Invitational</a>"
     },
     {
       "x": "2018-05-12",
       "y": 589.31,
-      "meet": "<a href='../meets/138_all.html'>KHSAA Class AAA Region 3 Championships</a>"
+      "meet": "<a href='../meets/138_all.html'>KHSAA Regionals Outdoor</a>"
     },
     {
       "x": "2018-05-17",
       "y": 575.42,
-      "meet": "<a href='../meets/139_all.html'>Kentucky State Track Meet</a>"
+      "meet": "<a href='../meets/139_all.html'>Kentucky State Outdoor Track Meet</a>"
     }
   ],
   "chart-3_miles": [
@@ -387,7 +513,7 @@
     {
       "x": "2016-03-18",
       "y": 949.86,
-      "meet": "<a href='../meets/658_all.html'>KYtrackXC.com 5K Showdown 2016</a>"
+      "meet": "<a href='../meets/658_all.html'>KYtrackXC.com 5K Showdown</a>"
     },
     {
       "x": "2016-08-27",
@@ -482,7 +608,7 @@
     {
       "x": "2018-03-23",
       "y": 921.15,
-      "meet": "<a href='../meets/659_all.html'>KYtrackXC.com 5K Showdown 2018</a>"
+      "meet": "<a href='../meets/659_all.html'>KYtrackXC.com 5K Showdown</a>"
     }
   ]
 };

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nick Sanders vs. Air Force XC</title>
+  
+    <style>
+      :root {
+        --air-force-blue: #003087;
+        --air-force-light: #d9e8f6;
+        --stx-blue: #0057d9;
+        --ink: #172033;
+        --muted: #5e6878;
+        --line: #d8dee8;
+        --card: #ffffff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; color: var(--ink); background: #f4f7fb;
+        font: 16px/1.45 Arial, sans-serif;
+      }
+      a { color: #005ee8; }
+      .hero {
+        color: white; padding: 30px clamp(20px, 5vw, 70px);
+        background: linear-gradient(120deg, #00205b, #0073cf);
+      }
+      .hero h1 { margin: 3px 0 4px; font-size: clamp(30px, 4vw, 48px); }
+      .eyebrow { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+      .hero p { max-width: 850px; margin: 6px 0; }
+      main { max-width: 1240px; margin: 0 auto; padding: 24px; }
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .card {
+        background: var(--card); border: 1px solid var(--line);
+        border-radius: 14px; padding: 20px; margin-bottom: 18px;
+        box-shadow: 0 3px 14px rgba(20, 45, 80, .06);
+      }
+      .metric { font-size: 30px; color: var(--air-force-blue); font-weight: 800; }
+      .label { color: var(--muted); font-size: 14px; }
+      .status {
+        border-left: 6px solid #f5b335; background: #fff9e9;
+      }
+      .note { color: var(--muted); }
+      .table-wrap { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { padding: 9px 11px; text-align: left; border-bottom: 1px solid var(--line); }
+      th { background: #eef4fb; color: #223a60; }
+      tr.nick { background: #fff4d5; font-weight: 700; }
+      .tag {
+        display: inline-block; margin: 3px; padding: 4px 9px;
+        border-radius: 999px; background: var(--air-force-light);
+        color: #163e70; font-weight: 700;
+      }
+      .sources a { margin-right: 16px; }
+      @media (max-width: 760px) {
+        .grid { grid-template-columns: 1fr; }
+        main { padding: 14px; }
+      }
+    </style>
+    
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">College Comparison Lab · Cross-Country</div>
+    <h1>Nick Sanders vs. Air Force XC</h1>
+    <p>
+      Stored results and dated roster information for Nick and the United
+      States Air Force Academy men's program.
+    </p>
+  </header>
+  <main>
+    <section class="card status">
+      <h2>Roster status</h2>
+      <p>
+        Nick is recorded here as an <strong>incoming USAFA runner</strong>.
+        He was not listed on the public TFRRS or official USAFA roster
+        snapshots checked on 2026-07-28. Athletic.net's live
+        page could not be independently read because it requires an
+        interactive browser challenge.
+      </p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="label">Nick's StX 5K PR</div>
+        <div class="metric">15:01.87</div>
+        <div class="note">Best of 36 stored 5K results</div>
+      </div>
+      <div class="card">
+        <div class="label">Nick's first stored StX 5K</div>
+        <div class="metric">19:16.02</div>
+        <div class="note">2022-08-20</div>
+      </div>
+      <div class="card">
+        <div class="label">Verified TFRRS roster</div>
+        <div class="metric">30</div>
+        <div class="note">Nick is not included in this source count</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Nick's annual StX 5K data</h2>
+      <p class="note">
+        These are unadjusted results stored in the StX database.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Year</th><th>5K best</th><th>Results</th></tr></thead>
+          <tbody><tr><td>2022</td><td><strong>18:45.66</strong></td><td>8</td></tr><tr><td>2023</td><td><strong>16:51.20</strong></td><td>9</td></tr><tr><td>2024</td><td><strong>15:44.09</strong></td><td>10</td></tr><tr><td>2025</td><td><strong>15:01.87</strong></td><td>9</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Current Air Force men's XC roster snapshot</h2>
+      <p><span class='tag'>Freshmen: 7</span> <span class='tag'>Sophomores: 10</span> <span class='tag'>Juniors: 5</span> <span class='tag'>Seniors: 8</span></p>
+      <p class="note">
+        Names and classes are from TFRRS. The next data pass will add each
+        runner's collegiate 8K history and high-school entry marks.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Athlete</th><th>Class</th><th>Data status</th></tr></thead>
+          <tbody>
+            <tr class="nick">
+              <td>Nick Sanders</td><td>Incoming</td>
+              <td>Not yet listed on the source roster</td>
+            </tr>
+            <tr><td><a href='https://www.tfrrs.org/athletes/9201299/Air_Force/Auge_Martin.html' target='_blank' rel='noopener'>Auge Martin</a></td><td>FR-1</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/teams/xc/CO_college_m_Air_Force.html' target='_blank' rel='noopener'>Bryce Denton</a></td><td>FR-1</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/9174699/Air_Force/Christopher_Creedon.html' target='_blank' rel='noopener'>Christopher Creedon</a></td><td>FR-1</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/9174701/Air_Force/Corbin_Cole.html' target='_blank' rel='noopener'>Corbin Cole</a></td><td>FR-1</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/9174700/Air_Force/Joshua_Shriver.html' target='_blank' rel='noopener'>Joshua Shriver</a></td><td>FR-1</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/9174702/Air_Force/Ryan_Daly.html' target='_blank' rel='noopener'>Ryan Daly</a></td><td>FR-1</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/teams/xc/CO_college_m_Air_Force.html' target='_blank' rel='noopener'>Will Bradbury</a></td><td>FR-1</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/teams/xc/CO_college_m_Air_Force.html' target='_blank' rel='noopener'>Alexander Pinckney</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8931477/Air_Force/Cody_Kelley.html' target='_blank' rel='noopener'>Cody Kelley</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8916761/Air_Force/David_Sliwinski.html' target='_blank' rel='noopener'>David Sliwinski</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8916764/Air_Force/James_Patrick_Allen.html' target='_blank' rel='noopener'>James Patrick Allen</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8617832/Air_Force/Jonah_Hochstetler.html' target='_blank' rel='noopener'>Jonah Hochstetler</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8916758/Air_Force/Matthew_Edwards.html' target='_blank' rel='noopener'>Matthew Edwards</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8916759/Air_Force/Parker_Hintz.html' target='_blank' rel='noopener'>Parker Hintz</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8628714/Air_Force/Patrick_Lawson.html' target='_blank' rel='noopener'>Patrick Lawson</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8916762/Air_Force/Saketh_Rudraraju.html' target='_blank' rel='noopener'>Saketh Rudraraju</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8916763/Air_Force/Terrance_Allen.html' target='_blank' rel='noopener'>Terrance Allen</a></td><td>SO-2</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8617823/Air_Force/Benjamin_Davenport.html' target='_blank' rel='noopener'>Benjamin Davenport</a></td><td>JR-3</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8617891/Air_Force/Dominykas_Remeikis.html' target='_blank' rel='noopener'>Dominykas Remeikis</a></td><td>JR-3</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/teams/xc/CO_college_m_Air_Force.html' target='_blank' rel='noopener'>Joseph White</a></td><td>JR-3</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8617890/Air_Force/Joshua_Razo.html' target='_blank' rel='noopener'>Joshua Razo</a></td><td>JR-3</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/teams/xc/CO_college_m_Air_Force.html' target='_blank' rel='noopener'>Roman Thomas</a></td><td>JR-3</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/9178538/Air_Force/Ashton_Higgerson.html' target='_blank' rel='noopener'>Ashton Higgerson</a></td><td>SR-4</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8273674/Air_Force/Ben_Scheller.html' target='_blank' rel='noopener'>Ben Scheller</a></td><td>SR-4</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8273669/Air_Force/Brenton_Maddox.html' target='_blank' rel='noopener'>Brenton Maddox</a></td><td>SR-4</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8273664/Air_Force/Ethan_Ashley.html' target='_blank' rel='noopener'>Ethan Ashley</a></td><td>SR-4</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8273668/Air_Force/Jayden_Nats.html' target='_blank' rel='noopener'>Jayden Nats</a></td><td>SR-4</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8273665/Air_Force/Max_Sannes.html' target='_blank' rel='noopener'>Max Sannes</a></td><td>SR-4</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8324707/Air_Force/Tanner_Lindahl.html' target='_blank' rel='noopener'>Tanner Lindahl</a></td><td>SR-4</td><td>College XC results pending import</td></tr><tr><td><a href='https://www.tfrrs.org/athletes/8273666/Air_Force/Zachary_Ayers.html' target='_blank' rel='noopener'>Zachary Ayers</a></td><td>SR-4</td><td>College XC results pending import</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Nick's complete StX 5K history</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Meet</th><th>Time</th><th>Place</th></tr></thead>
+          <tbody><tr><td>2025-12-06</td><td><a href='https://ky.milesplit.com/meets/701350-new-balance-runninglane-xc-championships-2025/results/1243409' target='_blank' rel='noopener'>RunningLane XC Championships</a></td><td>15:09.14</td><td>12</td></tr><tr><td>2025-11-22</td><td><a href='https://nc.milesplit.com/meets/715381-nike-cross-nationals-southeast-regional-2025/results/1242950/formatted/' target='_blank' rel='noopener'>Nike Cross Southeast Regional</a></td><td>15:19.80</td><td>15</td></tr><tr><td>2025-11-01</td><td><a href='https://ky.milesplit.com/meets/711786-2025-khsaa-state-cross-country-championships-2025/results/1239248/formatted/' target='_blank' rel='noopener'>Kentucky State Meet</a></td><td>15:37.46</td><td>3</td></tr><tr><td>2025-10-25</td><td><a href='https://ky.milesplit.com/meets/710621-khsaa-region-3-class-3a-2025/results/1236227/formatted/' target='_blank' rel='noopener'>Region Championship</a></td><td>15:07.23</td><td>1</td></tr><tr><td>2025-10-11</td><td><a href='https://ky.milesplit.com/meets/690388-haunted-woods-classic-2025/results/1228536/formatted/' target='_blank' rel='noopener'>Haunted Woods Classic</a></td><td>15:46.97</td><td>1</td></tr><tr><td>2025-10-03</td><td><a href='https://ky.milesplit.com/meets/691863-louisville-xc-classic-2025/results/1222076/formatted/' target='_blank' rel='noopener'>Greater Louisville Classic</a></td><td>15:26.90</td><td>1</td></tr><tr><td>2025-09-19</td><td><a href='https://ky.milesplit.com/meets/660251-trinity-valkyrie-invitational-2025/results/1210821/formatted/' target='_blank' rel='noopener'>Trinity/Valkyrie Invitational</a></td><td>15:01.87</td><td>11</td></tr><tr><td>2025-09-12</td><td><a href='https://al.milesplit.com/meets/662214-the-southern-showcase-powered-by-huntsville-high-school-2025/results/1219125/formatted/' target='_blank' rel='noopener'>the Southern Showcase</a></td><td>15:24.67</td><td>14</td></tr><tr><td>2025-08-30</td><td><a href='https://ky.milesplit.com/meets/687593-stxxc-tiger-run-2025/results/1198146/formatted/' target='_blank' rel='noopener'>St. Xavier Tiger Run</a></td><td>15:25.99</td><td>1</td></tr><tr><td>2024-12-07</td><td><a href='https://www.milesplit.com/meets/626800-new-balance-runninglane-xc-championships-2024/results/1109146/formatted/' target='_blank' rel='noopener'>RunningLane XC Championships</a></td><td>15:54.31</td><td>9</td></tr><tr><td>2024-11-23</td><td><a href='https://nc.milesplit.com/meets/643403-nike-cross-nationals-southeast-regional-2024/results/1108406/formatted/' target='_blank' rel='noopener'>Nike Cross Southeast Regional</a></td><td>16:21.33</td><td>88</td></tr><tr><td>2024-11-02</td><td><a href='https://ky.milesplit.com/meets/627923-khsaa-state-cross-country-championships-2024/results/1105086/formatted/' target='_blank' rel='noopener'>Kentucky State Meet</a></td><td>16:33.16</td><td>31</td></tr><tr><td>2024-10-26</td><td><a href='https://ky.milesplit.com/meets/642493-khsaa-region-3-class-3a-2024/results/1102546/formatted/' target='_blank' rel='noopener'>Region Championship</a></td><td>16:28.50</td><td>6</td></tr><tr><td>2024-10-12</td><td><a href='https://ky.milesplit.com/meets/618973-haunted-woods-classic-2024/results/1094367/formatted/' target='_blank' rel='noopener'>Haunted Woods Classic</a></td><td>16:06.62</td><td>11</td></tr><tr><td>2024-10-04</td><td><a href='https://ky.milesplit.com/meets/579413-louisville-xc-classic-2024/results/1089190/formatted/' target='_blank' rel='noopener'>Greater Louisville Classic</a></td><td>16:51.90</td><td>25</td></tr><tr><td>2024-09-20</td><td><a href='https://ky.milesplit.com/meets/598802-trinity-valkyrie-invitational-2024/results/1078997/formatted/' target='_blank' rel='noopener'>Trinity/Valkyrie Invitational</a></td><td>15:44.09</td><td>35</td></tr><tr><td>2024-09-13</td><td><a href='https://al.milesplit.com/meets/582631-the-southern-showcase-powered-by-huntsville-high-school-2024/results/1073344/formatted/' target='_blank' rel='noopener'>the Southern Showcase</a></td><td>16:20.90</td><td>40</td></tr><tr><td>2024-09-06</td><td><a href='https://ky.milesplit.com/meets/603224-rumble-through-the-jungle-2024/results/1069381/formatted/' target='_blank' rel='noopener'>Rumble Through the Jungle</a></td><td>16:45.44</td><td>15</td></tr><tr><td>2024-08-24</td><td><a href='https://ky.milesplit.com/meets/635352-st-xavier-tiger-run-2024/results/1063122/formatted/' target='_blank' rel='noopener'>St. Xavier Tiger Run</a></td><td>16:19.12</td><td>39</td></tr><tr><td>2023-12-02</td><td><a href='https://www.milesplit.com/meets/565753-runninglane-cross-country-championships-2023/results/990336/formatted/' target='_blank' rel='noopener'>RunningLane XC Championships</a></td><td>17:47.30</td><td>214</td></tr><tr><td>2023-11-19</td><td><a href='https://nc.milesplit.com/meets/581744-nxr-southeast-regional-2023/results/990013/formatted/' target='_blank' rel='noopener'>Nike Cross Southeast Regional</a></td><td>17:09.50</td><td>42</td></tr><tr><td>2023-10-19</td><td><a href='https://ky.milesplit.com/meets/509553-metro-jv-regional-2023/results/984203/formatted/' target='_blank' rel='noopener'>Louisville Metro JV XC Championship</a></td><td>16:51.20</td><td>8</td></tr><tr><td>2023-10-06</td><td><a href='https://nc.milesplit.com/meets/562189-great-american-xc-festival-2023/results/974418/formatted/' target='_blank' rel='noopener'>Great American XC Festival</a></td><td>17:22.30</td><td>259</td></tr><tr><td>2023-09-29</td><td><a href='https://ky.milesplit.com/meets/515295-louisville-xc-classic-2023/results/968998/formatted/' target='_blank' rel='noopener'>Greater Louisville Classic</a></td><td>17:45.70</td><td>4</td></tr><tr><td>2023-09-15</td><td><a href='https://al.milesplit.com/meets/517095-the-southern-showcase-powered-by-huntsville-high-2023/results/959337/formatted/' target='_blank' rel='noopener'>the Southern Showcase</a></td><td>17:15.00</td><td>62</td></tr><tr><td>2023-09-08</td><td><a href='https://ky.milesplit.com/meets/536649-rumble-through-the-jungle-2023/results/955081/formatted/' target='_blank' rel='noopener'>Rumble Through the Jungle</a></td><td>17:49.40</td><td>41</td></tr><tr><td>2023-08-26</td><td><a href='https://ky.milesplit.com/meets/561943-stxxc-tiger-run-2023/results/950289/formatted/' target='_blank' rel='noopener'>St. Xavier Tiger Run</a></td><td>18:32.98</td><td>84</td></tr><tr><td>2023-08-19</td><td><a href='https://ky.milesplit.com/meets/556928-central-kentucky-run-for-the-gold-2023/results/949729' target='_blank' rel='noopener'>Central Kentucky Run for the Gold</a></td><td>17:36.70</td><td>12</td></tr><tr><td>2022-10-20</td><td><a href='https://ky.milesplit.com/meets/505270-metro-jv-regional-2022/results/858672/formatted/' target='_blank' rel='noopener'>Louisville Metro JV XC Championship</a></td><td>18:45.66</td><td>33</td></tr><tr><td>2022-10-14</td><td><a href='https://ky.milesplit.com/meets/496752-ktccca-meet-of-champions-2022/results/854542/formatted/' target='_blank' rel='noopener'>KTCCCA Meet of Champions</a></td><td>19:31.76</td><td>71</td></tr><tr><td>2022-10-08</td><td><a href='https://ky.milesplit.com/meets/451580-haunted-woods-classic-2022/results/848704/formatted/' target='_blank' rel='noopener'>Haunted Woods Classic</a></td><td>19:31.83</td><td>24</td></tr><tr><td>2022-09-30</td><td><a href='https://ky.milesplit.com/meets/458220-louisville-xc-classic-2022/results/845663/formatted/' target='_blank' rel='noopener'>Greater Louisville Classic</a></td><td>19:11.30</td><td>43</td></tr><tr><td>2022-09-16</td><td><a href='https://ky.milesplit.com/meets/462003-trinity-valkyrie-invitational-2022/results/835054/formatted/' target='_blank' rel='noopener'>Trinity/Valkyrie Invitational</a></td><td>19:29.62</td><td>27</td></tr><tr><td>2022-09-09</td><td><a href='https://ky.milesplit.com/meets/452964-rumble-through-the-jungle-2022/results/831959/formatted/' target='_blank' rel='noopener'>Rumble Through the Jungle</a></td><td>19:42.92</td><td>9</td></tr><tr><td>2022-08-27</td><td><a href='https://ky.milesplit.com/meets/484033-tiger-run-2022/results/827359/formatted/' target='_blank' rel='noopener'>St. Xavier Tiger Run</a></td><td>19:08.52</td><td>18</td></tr><tr><td>2022-08-20</td><td><a href='https://ky.milesplit.com/meets/485983-central-kentucky-run-for-the-gold-2022/results/826036/formatted/' target='_blank' rel='noopener'>Central Kentucky Run for the Gold</a></td><td>19:16.02</td><td>13</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card sources">
+      <h2>Sources</h2>
+      <p>
+        <a href="https://www.tfrrs.org/teams/xc/CO_college_m_Air_Force.html" target="_blank" rel="noopener">TFRRS Air Force</a>
+        <a href="https://www.athletic.net/team/20583/cross-country/2026" target="_blank" rel="noopener">Athletic.net 2026</a>
+        <a href="https://goairforcefalcons.com/sports/cross-country/roster" target="_blank" rel="noopener">Official USAFA roster</a>
+      </p>
+      <p class="note">
+        TFRRS page generated 2026-07-15; roster observed
+        2026-07-28. Report generated 2026-07-28.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

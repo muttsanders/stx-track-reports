@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>2025-05-03 | Dream Mile 2025</title>
+  <title>2025-05-03 | Kentucky Dream Mile</title>
   
     <style>
       body { font-family: Arial, sans-serif; margin: 24px; }
@@ -61,7 +61,38 @@
       .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
-      .ath-col h3 { margin: 0 0 6px 0; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
       .rankcell { font-weight: 800; }
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
       .hide-graphs .chart-container { display: none; }
@@ -82,6 +113,101 @@
       .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
       .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
     </style>
     
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -92,12 +218,12 @@
     <div class="topbar">
       <div class="titlewrap">
         <div class="date">2025-05-03</div>
-        <div class="meetname">Dream Mile 2025</div>
+        <div class="meetname">Kentucky Dream Mile</div>
         <div class="meet-links"><a href="https://ky.milesplit.com/meets/679354-kentucky-dream-mile-2025/results/1165971/formatted" target="_blank">Milesplit Meet Link</a></div>
         <p class="subline muted">Outdoor</p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Coach Pre-Race</a>
       </div>
     </div>
     
@@ -127,6 +253,6 @@
       <h2>🎉 PR Parade:</h2>
       <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/nick_sanders.html'>Nick Sanders</a>, <span class='pr-time'>4:15.63</span></span></div>
     </div>
-    <div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr class="non-stx-row"><td>Will Sheets</td><td>Covington Catholic</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>4:07.23</td><td>62.38</td><td class="slowest">65.11</td><td>60.44</td><td class="fastest">59.29</td></tr><tr class="non-stx-row"><td>Roman Sierpina</td><td>Louisville Collegiate</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>4:08.81</td><td>61.72</td><td class="slowest">65.33</td><td>62.11</td><td class="fastest">59.65</td></tr><tr class="non-stx-row"><td>Riku Sugie</td><td>Thomas Nelson</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td></td><td>4:09.05</td><td>61.56</td><td class="slowest">65.34</td><td>62.55</td><td class="fastest">59.60</td></tr><tr class="non-stx-row"><td>Paul Van Laningham</td><td>Cooper</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>4:10.31</td><td>62.08</td><td class="slowest">65.67</td><td class="fastest">61.10</td><td>61.46</td></tr><tr class="non-stx-row"><td>Lincoln Herald</td><td>Grant County</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td></td><td>4:12.14</td><td class="fastest">60.87</td><td class="slowest">65.92</td><td>63.20</td><td>62.17</td></tr><tr class="non-stx-row"><td>Eli Oetken</td><td>Trinity Louisville</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>4:13.55</td><td class="fastest">61.57</td><td class="slowest">65.47</td><td>63.36</td><td>63.16</td></tr><tr class="non-stx-row"><td>Xavier Richardson</td><td>Lafayette</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>4:14.30</td><td class="fastest">61.27</td><td class="slowest">65.97</td><td>63.29</td><td>63.77</td></tr><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>8</td><td class="dimmed-pr">4:16.82</td><td>4:16.78</td><td class="pr">4:15.63</td><td class="fastest">61.83</td><td class="slowest">65.52</td><td>63.63</td><td>64.64</td></tr><tr class="non-stx-row"><td>Sean Crady</td><td>Oldham County</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>4:16.61</td><td class="fastest">61.96</td><td class="slowest">65.62</td><td>64.41</td><td>64.62</td></tr><tr class="non-stx-row"><td>Joe Mayer</td><td>Covington Catholic</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>4:17.12</td><td class="fastest">63.14</td><td class="slowest">65.93</td><td>64.01</td><td>64.04</td></tr><tr class="non-stx-row"><td>Van Weimer</td><td>Lafayette</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>4:17.67</td><td class="fastest">61.48</td><td>65.86</td><td>64.14</td><td class="slowest">66.19</td></tr><tr class="non-stx-row"><td>Josh Arnett</td><td>Paul Dunbar</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>4:18.28</td><td class="fastest">61.82</td><td class="slowest">65.82</td><td>64.82</td><td>65.82</td></tr><tr class="non-stx-row"><td>Isaac Riggs</td><td>Bethlehem</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>4:20.04</td><td class="fastest">62.73</td><td>66.48</td><td class="slowest">67.24</td><td>63.59</td></tr><tr class="non-stx-row"><td>Canaan Thomas</td><td>Henry Clay Senior</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>4:20.10</td><td class="fastest">62.22</td><td class="slowest">67.17</td><td>65.70</td><td>65.01</td></tr><tr class="non-stx-row"><td>Kyle Crady</td><td>Oldham County</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>4:20.59</td><td class="fastest">62.14</td><td>66.08</td><td class="slowest">67.49</td><td>64.88</td></tr><tr class="non-stx-row"><td>Charley Townsend</td><td>North Oldham</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>4:23.47</td><td class="fastest">62.42</td><td>66.24</td><td>65.74</td><td class="slowest">69.07</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-26 13:39:43</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr class="non-stx-row"><td>Will Sheets</td><td>Covington Catholic</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>4:07.23</td><td>62.38</td><td class="slowest">65.11</td><td>60.44</td><td class="fastest">59.29</td></tr><tr class="non-stx-row"><td>Roman Sierpina</td><td>Louisville Collegiate</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>4:08.81</td><td>61.72</td><td class="slowest">65.33</td><td>62.11</td><td class="fastest">59.65</td></tr><tr class="non-stx-row"><td>Riku Sugie</td><td>Thomas Nelson</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td></td><td>4:09.05</td><td>61.56</td><td class="slowest">65.34</td><td>62.55</td><td class="fastest">59.60</td></tr><tr class="non-stx-row"><td>Paul Van Laningham</td><td>Cooper</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>4:10.31</td><td>62.08</td><td class="slowest">65.67</td><td class="fastest">61.10</td><td>61.46</td></tr><tr class="non-stx-row"><td>Lincoln Herald</td><td>Grant County</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td></td><td>4:12.14</td><td class="fastest">60.87</td><td class="slowest">65.92</td><td>63.20</td><td>62.17</td></tr><tr class="non-stx-row"><td>Eli Oetken</td><td>Trinity Louisville</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>4:13.55</td><td class="fastest">61.57</td><td class="slowest">65.47</td><td>63.36</td><td>63.16</td></tr><tr class="non-stx-row"><td>Xavier Richardson</td><td>Lafayette</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>4:14.30</td><td class="fastest">61.27</td><td class="slowest">65.97</td><td>63.29</td><td>63.77</td></tr><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>8</td><td class="dimmed-pr">4:16.82</td><td>4:16.78</td><td class="pr">4:15.63</td><td class="fastest">61.83</td><td class="slowest">65.52</td><td>63.63</td><td>64.64</td></tr><tr class="non-stx-row"><td>Sean Crady</td><td>Oldham County</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>4:16.61</td><td class="fastest">61.96</td><td class="slowest">65.62</td><td>64.41</td><td>64.62</td></tr><tr class="non-stx-row"><td>Joe Mayer</td><td>Covington Catholic</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>4:17.12</td><td class="fastest">63.14</td><td class="slowest">65.93</td><td>64.01</td><td>64.04</td></tr><tr class="non-stx-row"><td>Van Weimer</td><td>Lafayette</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>4:17.67</td><td class="fastest">61.48</td><td>65.86</td><td>64.14</td><td class="slowest">66.19</td></tr><tr class="non-stx-row"><td>Josh Arnett</td><td>Paul Dunbar</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>4:18.28</td><td class="fastest">61.82</td><td class="slowest">65.82</td><td>64.82</td><td>65.82</td></tr><tr class="non-stx-row"><td>Isaac Riggs</td><td>Bethlehem</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>4:20.04</td><td class="fastest">62.73</td><td>66.48</td><td class="slowest">67.24</td><td>63.59</td></tr><tr class="non-stx-row"><td>Canaan Thomas</td><td>Henry Clay Senior</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>4:20.10</td><td class="fastest">62.22</td><td class="slowest">67.17</td><td>65.70</td><td>65.01</td></tr><tr class="non-stx-row"><td>Kyle Crady</td><td>Oldham County</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>4:20.59</td><td class="fastest">62.14</td><td>66.08</td><td class="slowest">67.49</td><td>64.88</td></tr><tr class="non-stx-row"><td>Charley Townsend</td><td>North Oldham</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>4:23.47</td><td class="fastest">62.42</td><td>66.24</td><td>65.74</td><td class="slowest">69.07</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-28 19:27:30</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 </body>
 </html>

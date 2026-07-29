@@ -61,7 +61,38 @@
       .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
       .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
       .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
-      .ath-col h3 { margin: 0 0 6px 0; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
       .rankcell { font-weight: 800; }
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
       .hide-graphs .chart-container { display: none; }
@@ -82,6 +113,101 @@
       .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
       .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
     </style>
     
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -93,11 +219,11 @@
       <div class="titlewrap">
         <div class="date">2012-09-22</div>
         <div class="meetname">Palatine Invitational</div>
-        <div class="meet-links"><a href="https://ky.milesplit.com/meets/121419-palatine-invitational-2012/results/213847" target="_blank">Milesplit Meet Link</a></div>
-        <p class="subline muted">Outdoor</p>
+        <div class="meet-links"><a href="https://ky.milesplit.com/meets/121419-palatine-invitational-2012/results/213847" target="_blank">Milesplit Meet Link</a> <a class="coach-sheet-link" href="../coach_sheets/25.html">&#128203; Coach Pre-Race Sheet</a></div>
+        
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Coach Pre-Race</a>
       </div>
     </div>
     
@@ -122,6 +248,6 @@
             }
           });
         </script>
-        <p class='subline muted'>September 22, 2012<br>Deer Grove East Forest Preserve, Palatine, IL</p><div class='card'><h2>3 Miles</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th>2012</th><th>2011</th><th>2010</th><th>2009</th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>6</td><td><a href='../athletes/connor_sheryak.html'>Sheryak, Connor</a></td><td>12</td><td>14:56.50</td><td></td><td></td><td></td><td></td><td>4:59</td></tr><tr><td>10</td><td><a href='../athletes/sam_lewis.html'>Lewis, Sam</a></td><td>12</td><td>15:01.40</td><td></td><td></td><td></td><td></td><td>5:00</td></tr><tr><td>20</td><td><a href='../athletes/chris_striegel.html'>Striegel, Chris</a></td><td>11</td><td>15:15.60</td><td></td><td></td><td></td><td></td><td>5:05</td></tr><tr><td>20</td><td><a href='../athletes/christopher_striegel.html'>Striegel, Christopher</a></td><td>11</td><td>15:15.60</td><td></td><td></td><td></td><td></td><td>5:05</td></tr><tr><td>26</td><td><a href='../athletes/thomas_cave.html'>Cave, Thomas</a></td><td>12</td><td>15:24.70</td><td></td><td></td><td></td><td></td><td>5:08</td></tr><tr><td>27</td><td><a href='../athletes/nick_reader.html'>Reader, Nick</a></td><td>12</td><td>15:25.20</td><td></td><td></td><td></td><td></td><td>5:08</td></tr><tr><td>39</td><td><a href='../athletes/mark_johnson.html'>Johnson, Mark</a></td><td>12</td><td>15:35.00</td><td></td><td></td><td></td><td></td><td>5:12</td></tr><tr><td>44</td><td><a href='../athletes/max_mudd.html'>Mudd, Max</a></td><td>11</td><td>15:38.90</td><td></td><td></td><td></td><td></td><td>5:13</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-23 21:00:18</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+        <p class='subline muted'>September 22, 2012<br>Deer Grove East Forest Preserve, Palatine, IL</p><div class='card'><h2>3 Miles</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2012<span class='xc-result-date'>9/22</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>6</td><td><a href='../athletes/connor_sheryak.html'>Sheryak, Connor</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>14:56.50</td><td></td><td>4:59</td></tr><tr><td>10</td><td><a href='../athletes/sam_lewis.html'>Lewis, Sam</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>15:01.40</td><td></td><td>5:00</td></tr><tr><td>20</td><td><a href='../athletes/chris_striegel.html'>Striegel, Chris</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>15:15.60</td><td></td><td>5:05</td></tr><tr><td>20</td><td><a href='../athletes/christopher_striegel.html'>Striegel, Christopher</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>15:15.60</td><td></td><td>5:05</td></tr><tr><td>26</td><td><a href='../athletes/thomas_cave.html'>Cave, Thomas</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>15:24.70</td><td></td><td>5:08</td></tr><tr><td>27</td><td><a href='../athletes/nick_reader.html'>Reader, Nick</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>15:25.20</td><td></td><td>5:08</td></tr><tr><td>39</td><td><a href='../athletes/mark_johnson.html'>Johnson, Mark</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>15:35.00</td><td></td><td>5:12</td></tr><tr><td>44</td><td><a href='../athletes/max_mudd.html'>Mudd, Max</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>15:38.90</td><td></td><td>5:13</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-28 20:24:26</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 </body>
 </html>
