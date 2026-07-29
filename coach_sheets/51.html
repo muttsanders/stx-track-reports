@@ -283,6 +283,12 @@
       .coach-active-racer.is-selected {
         border-color:#0b5fff; background:#dbeafe; font-weight:800;
       }
+      .coach-active-racer.is-assigned {
+        border-color:#9ca3af; background:#e5e7eb; color:#6b7280;
+      }
+      .coach-active-racer.is-assigned .coach-active-racer-pr {
+        color:#6b7280;
+      }
       .coach-active-racer.is-assigned::after {
         content:" ✓"; color:#15803d; font-weight:900;
       }
@@ -334,11 +340,22 @@
         padding:4px; font:inherit;
       }
       .coach-roster-grid { width:100%; margin:0; table-layout:fixed; }
-      .coach-roster-grid td { padding:0; background:#fff; }
+      .coach-roster-grid td {
+        position:relative; padding:0; background:#fff;
+      }
       .coach-roster-grid input {
         box-sizing:border-box; width:100%; border:0; background:transparent;
         padding:6px 7px; font:14px Arial, sans-serif;
       }
+      .coach-roster-grid td.has-athlete input { padding-left:34px; }
+      .coach-slot-number {
+        display:none; position:absolute; z-index:1; left:6px; top:50%;
+        transform:translateY(-50%); width:21px; height:21px;
+        border-radius:999px; align-items:center; justify-content:center;
+        background:#e5e7eb; color:#374151; font-size:11px; font-weight:900;
+        pointer-events:none;
+      }
+      .coach-roster-grid td.has-athlete .coach-slot-number { display:flex; }
       .coach-notes { margin-top:14px; }
       .coach-notes textarea {
         box-sizing:border-box; width:100%; min-height:75px; resize:vertical;
@@ -470,7 +487,7 @@
         </div>
         
       </section>
-      <div class="footer">Generated at <code>2026-07-28 19:18:28</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+      <div class="footer">Generated at <code>2026-07-29 12:33:06</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     </div>
     <script>
       const coachStoragePrefix = "coach-pre-race-51";
@@ -576,6 +593,11 @@
         return group.athletes.filter(name => String(name).trim()).length;
       }
 
+      function racerCountLabel(group) {
+        const count = racerCount(group);
+        return `${count} racer${count === 1 ? "" : "s"}`;
+      }
+
       function saveRaceGroups() {
         localStorage.setItem(
           `${coachStoragePrefix}:race-groups`,
@@ -585,11 +607,15 @@
 
       function renderRaceGroups() {
         raceGroupsContainer.innerHTML = raceGroups.map((group, groupIndex) => {
+          let populatedAthleteNumber = 0;
           const rosterRows = Array.from({ length: group.rows }, (_unused, rowIndex) => {
             const cells = Array.from({ length: group.columns }, (_unusedCell, columnIndex) => {
               const athleteIndex = rowIndex * group.columns + columnIndex;
+              const athleteName = String(group.athletes[athleteIndex] || "").trim();
+              const athleteNumber = athleteName ? ++populatedAthleteNumber : "";
               return `
-                <td>
+                <td class="coach-roster-slot${athleteName ? " has-athlete" : ""}">
+                  <span class="coach-slot-number" aria-hidden="true">${athleteNumber}</span>
                   <input
                     type="text"
                     list="active-racer-options"
@@ -615,11 +641,13 @@
                   value="${escapeCoachValue(group.name)}"
                 >
                 <span class="coach-racer-count" id="coach-racer-count-${groupIndex}">
-                  ${racerCount(group)} racers
+                  ${racerCountLabel(group)}
                 </span>
                 <div class="coach-group-controls">
                   <button type="button" class="coach-control-button" onclick="addRosterRow(${groupIndex})">+ Row</button>
+                  <button type="button" class="coach-control-button" onclick="removeRosterRow(${groupIndex})">− Last Row</button>
                   <button type="button" class="coach-control-button" onclick="addRosterColumn(${groupIndex})">+ Column</button>
+                  <button type="button" class="coach-control-button" onclick="removeRosterColumn(${groupIndex})">− Last Column</button>
                   <button type="button" class="coach-control-button" onclick="removeRaceGroup(${groupIndex})">Remove Group</button>
                 </div>
               </div>
@@ -680,6 +708,53 @@
         renderRaceGroups();
       }
 
+      function removeRosterRow(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!group || group.rows <= 1) {
+          window.alert("A race group must keep at least one row.");
+          return;
+        }
+        const removed = group.athletes.slice(
+          (group.rows - 1) * group.columns
+        );
+        if (
+          removed.some(name => String(name || "").trim()) &&
+          !window.confirm("Delete the last row and its assigned athletes?")
+        ) return;
+        group.rows -= 1;
+        group.athletes = group.athletes.slice(0, group.rows * group.columns);
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function removeRosterColumn(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!group || group.columns <= 1) {
+          window.alert("A race group must keep at least one column.");
+          return;
+        }
+        const removed = Array.from(
+          { length: group.rows },
+          (_unused, rowIndex) =>
+            group.athletes[rowIndex * group.columns + group.columns - 1]
+        );
+        if (
+          removed.some(name => String(name || "").trim()) &&
+          !window.confirm("Delete the last column and its assigned athletes?")
+        ) return;
+        const reduced = [];
+        for (let rowIndex = 0; rowIndex < group.rows; rowIndex += 1) {
+          const start = rowIndex * group.columns;
+          reduced.push(
+            ...group.athletes.slice(start, start + group.columns - 1)
+          );
+        }
+        group.columns -= 1;
+        group.athletes = reduced;
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
       function removeRaceGroup(groupIndex) {
         const group = raceGroups[groupIndex];
         if (!window.confirm(`Remove the ${group.name || "unnamed"} race group?`)) return;
@@ -694,11 +769,29 @@
         if (!raceGroups[groupIndex] || !Number.isInteger(athleteIndex)) return;
         raceGroups[groupIndex].athletes[athleteIndex] = racerName;
         input.value = racerName;
-        const count = document.getElementById(`coach-racer-count-${groupIndex}`);
-        if (count) count.textContent = `${racerCount(raceGroups[groupIndex])} racers`;
         selectedActiveRacer = "";
         saveRaceGroups();
+        updateRosterCounts(groupIndex);
         updateActiveRosterStatus();
+      }
+
+      function updateRosterCounts(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!group) return;
+        const count = document.getElementById(`coach-racer-count-${groupIndex}`);
+        if (count) count.textContent = racerCountLabel(group);
+        let populatedAthleteNumber = 0;
+        raceGroupsContainer
+          .querySelectorAll(`input[data-group="${groupIndex}"][data-athlete]`)
+          .forEach(input => {
+            const populated = Boolean(input.value.trim());
+            const cell = input.closest(".coach-roster-slot");
+            const number = cell ? cell.querySelector(".coach-slot-number") : null;
+            if (cell) cell.classList.toggle("has-athlete", populated);
+            if (number) {
+              number.textContent = populated ? String(++populatedAthleteNumber) : "";
+            }
+          });
       }
 
       function firstEmptyInput(groupIndex) {
@@ -812,8 +905,7 @@
         } else if (target.dataset.athlete !== undefined) {
           const athleteIndex = Number(target.dataset.athlete);
           raceGroups[groupIndex].athletes[athleteIndex] = target.value;
-          const count = document.getElementById(`coach-racer-count-${groupIndex}`);
-          if (count) count.textContent = `${racerCount(raceGroups[groupIndex])} racers`;
+          updateRosterCounts(groupIndex);
           updateActiveRosterStatus();
         }
         saveRaceGroups();
