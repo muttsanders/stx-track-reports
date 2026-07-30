@@ -28,6 +28,21 @@
       .hero h1 { margin: 3px 0 4px; font-size: clamp(30px, 4vw, 48px); }
       .eyebrow { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
       .hero p { max-width: 850px; margin: 6px 0; }
+      .hero-nav {
+        display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;
+      }
+      .hero-nav a, .hero-nav .current {
+        display: inline-block; border-radius: 999px; padding: 10px 16px;
+        font-weight: 800; text-decoration: none;
+      }
+      .hero-nav a {
+        color: #00205b; background: #ffd166;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+      }
+      .hero-nav .current {
+        color: white; border: 2px solid rgba(255, 255, 255, .8);
+        padding: 8px 14px;
+      }
       main { max-width: 1240px; margin: 0 auto; padding: 24px; }
       .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
       .card {
@@ -154,10 +169,10 @@
       Stored results and dated roster information for Nick and the United
       States Air Force Academy men's program.
     </p>
-    <p>
-      <strong>XC comparison</strong>
-      · <a href="nick_vs_air_force_track.html">Track comparison</a>
-    </p>
+    <nav class="hero-nav" aria-label="Nick versus Air Force comparisons">
+      <span class="current">XC comparison</span>
+      <a href="nick_vs_air_force_track.html">View Track comparison →</a>
+    </nav>
   </header>
   <main>
     <section class="card status">
