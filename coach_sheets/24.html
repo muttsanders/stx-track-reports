@@ -384,6 +384,23 @@
       }
       .coach-history-note { margin:0 0 8px 0; }
       .coach-history .non-stx-row { display:none; }
+      .coach-pace-reference { margin:0 0 22px 0; break-inside:avoid; }
+      .coach-pace-reference h2 { margin:0 0 7px 0; }
+      .coach-pace-grid-wrap { overflow-x:auto; }
+      .coach-pace-grid {
+        width:100%; min-width:720px; border-collapse:collapse;
+        table-layout:fixed; font:14px Arial, sans-serif;
+      }
+      .coach-pace-grid th, .coach-pace-grid td {
+        border:1px solid #374151; padding:7px 8px; text-align:center;
+      }
+      .coach-pace-grid th { background:#d1d5db; font-weight:800; }
+      .coach-pace-grid tbody tr:nth-child(odd) td { background:#c7d4c4; }
+      .coach-pace-grid tbody tr:nth-child(even) td { background:#dedede; }
+      .coach-pace-grid th:nth-child(4), .coach-pace-grid td:nth-child(4),
+      .coach-pace-grid th:nth-child(7), .coach-pace-grid td:nth-child(7) {
+        border-left-width:3px;
+      }
       @media (max-width:760px) {
         .coach-fields { grid-template-columns:1fr; }
         .coach-group-schedule { grid-template-columns:repeat(2, minmax(100px, 1fr)); }
@@ -515,13 +532,35 @@
         <datalist id="active-racer-options"></datalist>
       </section>
 
+      <section class="coach-pace-reference">
+        <h2>5K Paces</h2>
+        <div class="coach-pace-grid-wrap">
+          <table class="coach-pace-grid">
+            <thead>
+              <tr>
+                <th>5K</th><th>Mile</th><th>Vdot</th>
+                <th>5K</th><th>Mile</th><th>Vdot</th>
+                <th>5K</th><th>Mile</th><th>Vdot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>14:55</td><td>4:48</td><td>70</td><td>17:33</td><td>5:38</td><td>58</td><td>21:02</td><td>6:46</td><td>47</td></tr>
+              <tr><td>15:29</td><td>4:58</td><td>67</td><td>18:05</td><td>5:49</td><td>56</td><td>21:50</td><td>7:01</td><td>45</td></tr>
+              <tr><td>16:07</td><td>5:11</td><td>64</td><td>18:40</td><td>6:00</td><td>54</td><td>22:41</td><td>7:17</td><td>43</td></tr>
+              <tr><td>16:34</td><td>5:19</td><td>62</td><td>19:17</td><td>6:12</td><td>52</td><td>23:09</td><td>7:26</td><td>42</td></tr>
+              <tr><td>17:03</td><td>5:29</td><td>60</td><td>19:57</td><td>6:25</td><td>50</td><td>24:15</td><td>7:54</td><td>xx</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="coach-history">
         <p class="coach-history-note muted">
           Automatically populated from the most recent North Hardin Invite edition in the database.
         </p>
         <div class='xc-history-heading'><h1>Historical Reference: North Hardin Invitational 2011</h1></div><p class='subline muted'>October 8, 2011<br>North Hardin, Radcliff, KY</p><div class='card'><h2>5K</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2011<span class='xc-result-date'>10/8</span></th><th class='xc-result-year-0'>2011<span class='xc-result-date'>5/14</span></th><th class='xc-result-year-1'>2010<span class='xc-result-date'>10/9</span></th><th class='xc-result-year-1'>2010<span class='xc-result-date'>5/8</span></th><th class='xc-result-year-2'>2009<span class='xc-result-date'>10/10</span></th><th class='xc-result-year-3'>2008<span class='xc-result-date'>5/10</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>1</td><td><a href='../athletes/ben_glover.html'>Glover, Ben</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>19:14.70</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>17:32.10</td><td>6:12</td></tr><tr><td>3</td><td><a href='../athletes/ben_farber.html'>Farber, Ben</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>19:59.10</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>17:25.70</td><td>6:26</td></tr><tr><td>4</td><td><a href='../athletes/andrew_garvey.html'>Garvey, Andrew</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>20:03.90</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>18:04.70</td><td>6:27</td></tr><tr><td>5</td><td><a href='../athletes/william_mulloy.html'>Mulloy, William</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>20:09.20</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>18:52.00</td><td>6:29</td></tr><tr><td>6</td><td><a href='../athletes/henry_geisler.html'>Geisler, Henry</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>20:11.10</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>18:35.40</td><td>6:30</td></tr><tr><td>8</td><td><a href='../athletes/orion_johns.html'>Johns, Orion</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>20:45.40</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>19:16.90</td><td>6:41</td></tr><tr><td>9</td><td><a href='../athletes/andrew_parola.html'>Parola, Andrew</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:22.40</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'>19:51.90</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'>19:02.60</td><td class='xc-result-cell xc-result-year-3'></td><td>17:27.60</td><td>5:55</td></tr><tr><td>11</td><td><a href='../athletes/tyler_just.html'>Just, Tyler</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>21:01.20</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>19:10.00</td><td>6:46</td></tr><tr><td>12</td><td><a href='../athletes/brennan_wheatley.html'>Wheatley, Brennan</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>21:06.00</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>19:02.40</td><td>6:47</td></tr><tr><td>13</td><td><a href='../athletes/trent_schulten.html'>Schulten, Trent</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>21:11.10</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>19:03.20</td><td>6:49</td></tr><tr><td>17</td><td><a href='../athletes/kyle_yates.html'>Yates, Kyle</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>21:39.70</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>19:48.60</td><td>6:58</td></tr><tr><td>18</td><td><a href='../athletes/jimmy_paul.html'>Paul, Jimmy</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>19:12.50</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'>18:47.50</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'>19:40.30</td><td class='xc-result-cell xc-result-year-3'></td><td>17:10.20</td><td>6:11</td></tr><tr><td>20</td><td><a href='../athletes/alex_bush.html'>Bush, Alex</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:15.60</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'>19:58.70</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'>18:57.40</td><td class='xc-result-cell xc-result-year-3'></td><td>17:43.20</td><td>6:12</td></tr><tr><td>28</td><td><a href='../athletes/chip_raque.html'>Raque, Chip</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>19:47.50</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'>19:13.30</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>17:59.70</td><td>6:22</td></tr><tr><td>36</td><td><a href='../athletes/thomas_wichmann.html'>Wichmann, Thomas</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:07.90</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>18:22.10</td><td>6:29</td></tr><tr><td>37</td><td><a href='../athletes/josh_roux.html'>Roux, Josh</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:13.20</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'>20:10.90</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>18:48.30</td><td>6:30</td></tr><tr><td>44</td><td><a href='../athletes/griffin_knepp.html'>Knepp, Griffin</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:35.10</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>19:14.30</td><td>6:38</td></tr><tr><td>47</td><td><a href='../athletes/jacob_madalon.html'>Madalon, Jacob</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:51.60</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'>20:44.50</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>18:32.50</td><td>6:43</td></tr><tr><td>64</td><td><a href='../athletes/louis_kosse.html'>Kosse, Louis</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>24:09.50</td><td class='xc-result-cell xc-result-year-0'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td class='xc-result-cell xc-result-year-3'></td><td>20:05.00</td><td>7:47</td></tr></tbody></table></div></div>
       </section>
-      <div class="footer">Generated at <code>2026-08-04 09:12:19</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+      <div class="footer">Generated at <code>2026-08-04 09:22:22</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     </div>
     <script>
       const coachStoragePrefix = "coach-pre-race-24";
@@ -1122,9 +1161,12 @@
       }
 
       function historicalReferenceForGoogleDocs() {
-        const history = document.querySelector(".coach-history");
-        if (!history) return { html: "", text: "" };
-        const copy = history.cloneNode(true);
+        const referenceSections = Array.from(
+          document.querySelectorAll(".coach-pace-reference, .coach-history")
+        );
+        if (!referenceSections.length) return { html: "", text: "" };
+        const copy = document.createElement("div");
+        referenceSections.forEach(section => copy.appendChild(section.cloneNode(true)));
         copy.querySelectorAll("script, button, input, select, canvas, .filterbar")
           .forEach(element => element.remove());
         copy.querySelectorAll("table").forEach(table => {
@@ -1144,10 +1186,12 @@
           html: `
             <div style="page-break-before:always;margin-top:24px">
               <hr>
-              <h1>Historical Reference</h1>
               ${copy.innerHTML}
             </div>`,
-          text: history.innerText.trim()
+          text: referenceSections
+            .map(section => section.innerText.trim())
+            .filter(Boolean)
+            .join("\n\n")
         };
       }
 

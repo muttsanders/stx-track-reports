@@ -384,6 +384,23 @@
       }
       .coach-history-note { margin:0 0 8px 0; }
       .coach-history .non-stx-row { display:none; }
+      .coach-pace-reference { margin:0 0 22px 0; break-inside:avoid; }
+      .coach-pace-reference h2 { margin:0 0 7px 0; }
+      .coach-pace-grid-wrap { overflow-x:auto; }
+      .coach-pace-grid {
+        width:100%; min-width:720px; border-collapse:collapse;
+        table-layout:fixed; font:14px Arial, sans-serif;
+      }
+      .coach-pace-grid th, .coach-pace-grid td {
+        border:1px solid #374151; padding:7px 8px; text-align:center;
+      }
+      .coach-pace-grid th { background:#d1d5db; font-weight:800; }
+      .coach-pace-grid tbody tr:nth-child(odd) td { background:#c7d4c4; }
+      .coach-pace-grid tbody tr:nth-child(even) td { background:#dedede; }
+      .coach-pace-grid th:nth-child(4), .coach-pace-grid td:nth-child(4),
+      .coach-pace-grid th:nth-child(7), .coach-pace-grid td:nth-child(7) {
+        border-left-width:3px;
+      }
       @media (max-width:760px) {
         .coach-fields { grid-template-columns:1fr; }
         .coach-group-schedule { grid-template-columns:repeat(2, minmax(100px, 1fr)); }
@@ -515,6 +532,28 @@
         <datalist id="active-racer-options"></datalist>
       </section>
 
+      <section class="coach-pace-reference">
+        <h2>5K Paces</h2>
+        <div class="coach-pace-grid-wrap">
+          <table class="coach-pace-grid">
+            <thead>
+              <tr>
+                <th>5K</th><th>Mile</th><th>Vdot</th>
+                <th>5K</th><th>Mile</th><th>Vdot</th>
+                <th>5K</th><th>Mile</th><th>Vdot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>14:55</td><td>4:48</td><td>70</td><td>17:33</td><td>5:38</td><td>58</td><td>21:02</td><td>6:46</td><td>47</td></tr>
+              <tr><td>15:29</td><td>4:58</td><td>67</td><td>18:05</td><td>5:49</td><td>56</td><td>21:50</td><td>7:01</td><td>45</td></tr>
+              <tr><td>16:07</td><td>5:11</td><td>64</td><td>18:40</td><td>6:00</td><td>54</td><td>22:41</td><td>7:17</td><td>43</td></tr>
+              <tr><td>16:34</td><td>5:19</td><td>62</td><td>19:17</td><td>6:12</td><td>52</td><td>23:09</td><td>7:26</td><td>42</td></tr>
+              <tr><td>17:03</td><td>5:29</td><td>60</td><td>19:57</td><td>6:25</td><td>50</td><td>24:15</td><td>7:54</td><td>xx</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section class="coach-history">
         <p class="coach-history-note muted">
           Automatically populated from the most recent David Oliver Classic edition in the database.
@@ -530,7 +569,7 @@
         </div>
         
       </section>
-      <div class="footer">Generated at <code>2026-08-04 09:15:56</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+      <div class="footer">Generated at <code>2026-08-04 09:25:52</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     </div>
     <script>
       const coachStoragePrefix = "coach-pre-race-105";
@@ -1131,9 +1170,12 @@
       }
 
       function historicalReferenceForGoogleDocs() {
-        const history = document.querySelector(".coach-history");
-        if (!history) return { html: "", text: "" };
-        const copy = history.cloneNode(true);
+        const referenceSections = Array.from(
+          document.querySelectorAll(".coach-pace-reference, .coach-history")
+        );
+        if (!referenceSections.length) return { html: "", text: "" };
+        const copy = document.createElement("div");
+        referenceSections.forEach(section => copy.appendChild(section.cloneNode(true)));
         copy.querySelectorAll("script, button, input, select, canvas, .filterbar")
           .forEach(element => element.remove());
         copy.querySelectorAll("table").forEach(table => {
@@ -1153,10 +1195,12 @@
           html: `
             <div style="page-break-before:always;margin-top:24px">
               <hr>
-              <h1>Historical Reference</h1>
               ${copy.innerHTML}
             </div>`,
-          text: history.innerText.trim()
+          text: referenceSections
+            .map(section => section.innerText.trim())
+            .filter(Boolean)
+            .join("\n\n")
         };
       }
 
