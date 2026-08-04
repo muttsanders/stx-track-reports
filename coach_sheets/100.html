@@ -261,7 +261,7 @@
         gap:12px; margin:18px 0 10px 0;
       }
       .coach-roster-workspace {
-        display:grid; grid-template-columns:230px minmax(0, 1fr);
+        display:grid; grid-template-columns:260px minmax(0, 1fr);
         gap:16px; align-items:start;
       }
       .coach-active-roster {
@@ -465,15 +465,15 @@
           <aside class="coach-active-roster">
             <h3>Active Racers</h3>
             <p class="muted">
-              All Athletes includes kept StX classes 2027–2030.
-              Completed a Race requires at least one recorded finish. Fastest
+              All includes kept StX classes 2027–2030.
+              Complete a Race requires at least one recorded finish. Fastest
               3200 PR first.
             </p>
             <label class="coach-roster-setting" for="coach-roster-scope">
-              <span>Athletes</span>
+              <span>Current Athletes</span>
               <select id="coach-roster-scope">
-                <option value="all">All StX Athletes</option>
-                <option value="completed-race">Completed a Race</option>
+                <option value="all">All</option>
+                <option value="completed-race">Complete a Race</option>
               </select>
             </label>
             <label class="coach-roster-setting" for="coach-name-format">
@@ -481,6 +481,13 @@
               <select id="coach-name-format">
                 <option value="first-last">First Last</option>
                 <option value="last-first">Last, First</option>
+              </select>
+            </label>
+            <label class="coach-roster-setting" for="coach-sort-order">
+              <span>Sort Order</span>
+              <select id="coach-sort-order">
+                <option value="name">Name</option>
+                <option value="time">Time</option>
               </select>
             </label>
             <input
@@ -523,7 +530,7 @@
         </div>
         
       </section>
-      <div class="footer">Generated at <code>2026-08-04 08:01:18</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+      <div class="footer">Generated at <code>2026-08-04 09:15:43</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     </div>
     <script>
       const coachStoragePrefix = "coach-pre-race-100";
@@ -534,22 +541,25 @@
       const activeRacerButtons = Array.from(
         document.querySelectorAll(".coach-active-racer")
       );
+      const activeRacerList = document.querySelector(".coach-active-racer-list");
       const activeRacerSearch = document.getElementById("coach-racer-search");
       const coachRosterStatus = document.getElementById("coach-roster-status");
       const coachRosterScope = document.getElementById("coach-roster-scope");
       const coachNameFormat = document.getElementById("coach-name-format");
+      const coachSortOrder = document.getElementById("coach-sort-order");
       const activeRacerOptions = document.getElementById("active-racer-options");
       const coachNameFormatStorageKey = "coach-pre-race:name-format";
-      const coachRosterScopeStorageKey = "coach-pre-race:roster-scope";
+      const coachSortOrderStorageKey = "coach-pre-race:sort-order";
       let selectedActiveRacer = "";
-      let selectedRosterScope =
-        localStorage.getItem(coachRosterScopeStorageKey) === "completed-race"
-          ? "completed-race"
-          : "all";
+      let selectedRosterScope = "all";
       let selectedNameFormat =
         localStorage.getItem(coachNameFormatStorageKey) === "last-first"
           ? "last-first"
           : "first-last";
+      let selectedSortOrder =
+        localStorage.getItem(coachSortOrderStorageKey) === "name"
+          ? "name"
+          : "time";
 
       function lastFirstName(name) {
         const trimmed = String(name || "").trim();
@@ -569,10 +579,18 @@
       }
 
       const canonicalActiveRacers = new Map();
+      const activeRacerTimeRank = new Map();
       activeRacers.forEach(name => {
         canonicalActiveRacers.set(name.toLowerCase(), name);
         canonicalActiveRacers.set(lastFirstName(name).toLowerCase(), name);
+        activeRacerTimeRank.set(name.toLowerCase(), activeRacerTimeRank.size);
       });
+      const activeRacerButtonByName = new Map(
+        activeRacerButtons.map(button => [
+          (button.dataset.racer || "").toLowerCase(),
+          button
+        ])
+      );
 
       function canonicalRacerName(name) {
         const trimmed = String(name || "").trim();
@@ -593,9 +611,29 @@
           : activeRacers;
       }
 
+      function sortedRacersForSelectedScope() {
+        const racers = [...racersForSelectedScope()];
+        if (selectedSortOrder === "name") {
+          racers.sort((left, right) =>
+            displayRacerName(left).localeCompare(
+              displayRacerName(right),
+              undefined,
+              { sensitivity: "base" }
+            )
+          );
+        } else {
+          racers.sort((left, right) =>
+            (activeRacerTimeRank.get(left.toLowerCase()) ?? Number.MAX_SAFE_INTEGER) -
+            (activeRacerTimeRank.get(right.toLowerCase()) ?? Number.MAX_SAFE_INTEGER)
+          );
+        }
+        return racers;
+      }
+
       function refreshActiveRacerList() {
+        const sortedRacers = sortedRacersForSelectedScope();
         const availableNames = new Set(
-          racersForSelectedScope().map(name => name.toLowerCase())
+          sortedRacers.map(name => name.toLowerCase())
         );
         const searchText = activeRacerSearch.value.trim().toLowerCase();
         activeRacerButtons.forEach(button => {
@@ -605,7 +643,11 @@
           button.hidden = !availableNames.has(racerName.toLowerCase()) ||
             (Boolean(searchText) && !searchableName.includes(searchText));
         });
-        activeRacerOptions.innerHTML = racersForSelectedScope()
+        sortedRacers.forEach(name => {
+          const button = activeRacerButtonByName.get(name.toLowerCase());
+          if (button) activeRacerList.appendChild(button);
+        });
+        activeRacerOptions.innerHTML = sortedRacers
           .map(name => `<option value="${escapeCoachValue(displayRacerName(name))}"></option>`)
           .join("");
       }
@@ -623,6 +665,11 @@
         coachRosterScope.value = selectedRosterScope;
         refreshActiveRacerList();
         updateActiveRosterStatus();
+      }
+
+      function renderSortOrder() {
+        coachSortOrder.value = selectedSortOrder;
+        refreshActiveRacerList();
       }
 
       function coachStorageKey(field) {
@@ -981,7 +1028,6 @@
           ? "completed-race"
           : "all";
         selectedActiveRacer = "";
-        localStorage.setItem(coachRosterScopeStorageKey, selectedRosterScope);
         renderRosterScope();
       });
 
@@ -992,6 +1038,14 @@
         localStorage.setItem(coachNameFormatStorageKey, selectedNameFormat);
         renderNameFormat();
         renderRaceGroups();
+      });
+
+      coachSortOrder.addEventListener("change", () => {
+        selectedSortOrder = coachSortOrder.value === "name"
+          ? "name"
+          : "time";
+        localStorage.setItem(coachSortOrderStorageKey, selectedSortOrder);
+        renderSortOrder();
       });
 
       raceGroupsContainer.addEventListener("dragover", event => {
@@ -1076,7 +1130,38 @@
         return field ? field.value.trim() : "";
       }
 
+      function historicalReferenceForGoogleDocs() {
+        const history = document.querySelector(".coach-history");
+        if (!history) return { html: "", text: "" };
+        const copy = history.cloneNode(true);
+        copy.querySelectorAll("script, button, input, select, canvas, .filterbar")
+          .forEach(element => element.remove());
+        copy.querySelectorAll("table").forEach(table => {
+          table.style.borderCollapse = "collapse";
+          table.style.width = "100%";
+          table.style.marginBottom = "12px";
+        });
+        copy.querySelectorAll("th, td").forEach(cell => {
+          cell.style.border = "1px solid #777";
+          cell.style.padding = "5px";
+        });
+        copy.querySelectorAll("th").forEach(cell => {
+          cell.style.background = "#eee";
+          cell.style.fontWeight = "bold";
+        });
+        return {
+          html: `
+            <div style="page-break-before:always;margin-top:24px">
+              <hr>
+              <h1>Historical Reference</h1>
+              ${copy.innerHTML}
+            </div>`,
+          text: history.innerText.trim()
+        };
+      }
+
       function googleDocsHtml() {
+        const historicalReference = historicalReferenceForGoogleDocs();
         const detailRows = [
           ["Date", coachFieldValue("upcoming-date")],
           ["Location", coachFieldValue("upcoming-location")],
@@ -1135,10 +1220,12 @@
             ${details}
             ${groups}
             ${notes ? `<h2>Alternates / Scratches / Coach Notes</h2><p>${escapeCoachValue(notes).replaceAll("\n", "<br>")}</p>` : ""}
+            ${historicalReference.html}
           </div>`;
       }
 
       function googleDocsPlainText() {
+        const historicalReference = historicalReferenceForGoogleDocs();
         const lines = [
           "Pre-Race Sheet Creator",
           "GRC Heavy Metal Throwdown Invitational",
@@ -1165,6 +1252,9 @@
         });
         const notes = coachFieldValue("coach-notes");
         if (notes) lines.push("", "Alternates / Scratches / Coach Notes", notes);
+        if (historicalReference.text) {
+          lines.push("", "HISTORICAL REFERENCE", historicalReference.text);
+        }
         return lines.join("\n");
       }
 
@@ -1208,6 +1298,7 @@
 
       renderNameFormat();
       renderRosterScope();
+      renderSortOrder();
       renderRaceGroups();
     </script>
     

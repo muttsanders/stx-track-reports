@@ -261,7 +261,7 @@
         gap:12px; margin:18px 0 10px 0;
       }
       .coach-roster-workspace {
-        display:grid; grid-template-columns:230px minmax(0, 1fr);
+        display:grid; grid-template-columns:260px minmax(0, 1fr);
         gap:16px; align-items:start;
       }
       .coach-active-roster {
@@ -465,15 +465,15 @@
           <aside class="coach-active-roster">
             <h3>Active Racers</h3>
             <p class="muted">
-              All Athletes includes kept StX classes 2027–2030.
-              Completed a Race requires at least one recorded finish. Fastest
+              All includes kept StX classes 2027–2030.
+              Complete a Race requires at least one recorded finish. Fastest
               5K PR first.
             </p>
             <label class="coach-roster-setting" for="coach-roster-scope">
-              <span>Athletes</span>
+              <span>Current Athletes</span>
               <select id="coach-roster-scope">
-                <option value="all">All StX Athletes</option>
-                <option value="completed-race">Completed a Race</option>
+                <option value="all">All</option>
+                <option value="completed-race">Complete a Race</option>
               </select>
             </label>
             <label class="coach-roster-setting" for="coach-name-format">
@@ -481,6 +481,13 @@
               <select id="coach-name-format">
                 <option value="first-last">First Last</option>
                 <option value="last-first">Last, First</option>
+              </select>
+            </label>
+            <label class="coach-roster-setting" for="coach-sort-order">
+              <span>Sort Order</span>
+              <select id="coach-sort-order">
+                <option value="name">Name</option>
+                <option value="time">Time</option>
               </select>
             </label>
             <input
@@ -514,7 +521,7 @@
         </p>
         <div class='xc-history-heading'><h1>Historical Reference: DeSales Master Schedule Meet 2011</h1></div><p class='subline muted'>September 27, 2011<br>McNeely Lake Park, Louisville, KY</p><div class='card'><h2>5K</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2011<span class='xc-result-date'>9/27</span></th><th class='xc-result-year-1'>2010<span class='xc-result-date'>9/28</span></th><th class='xc-result-year-2'>2009<span class='xc-result-date'>9/29</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>3</td><td><a href='../athletes/alex_bush.html'>Bush, Alex</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:37.00</td><td class='xc-result-cell xc-result-year-1'>19:25.00</td><td class='xc-result-cell xc-result-year-2'></td><td>17:43.20</td><td>6:00</td></tr><tr><td>4</td><td><a href='../athletes/jack_minogue.html'>Minogue, Jack</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:40.00</td><td class='xc-result-cell xc-result-year-1'>20:28.10</td><td class='xc-result-cell xc-result-year-2'></td><td>17:39.00</td><td>6:00</td></tr><tr><td>5</td><td><a href='../athletes/sam_olshansky.html'>Olshansky, Sam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:40.00</td><td class='xc-result-cell xc-result-year-1'>19:07.70</td><td class='xc-result-cell xc-result-year-2'></td><td>17:50.20</td><td>6:00</td></tr><tr><td>6</td><td><a href='../athletes/thomas_pusty.html'>Pusty, Thomas</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>18:43.00</td><td class='xc-result-cell xc-result-year-1'>19:29.00</td><td class='xc-result-cell xc-result-year-2'>19:24.00</td><td>17:38.70</td><td>6:01</td></tr><tr><td>7</td><td><a href='../athletes/nick_reader.html'>Reader, Nick</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:56.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>16:19.00</td><td>6:06</td></tr><tr><td>8</td><td><a href='../athletes/ben_farber.html'>Farber, Ben</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>19:02.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>17:25.70</td><td>6:08</td></tr><tr><td>9</td><td><a href='../athletes/chip_raque.html'>Raque, Chip</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>19:05.00</td><td class='xc-result-cell xc-result-year-1'>19:03.50</td><td class='xc-result-cell xc-result-year-2'>19:40.60</td><td>17:59.70</td><td>6:09</td></tr><tr><td>10</td><td><a href='../athletes/ben_glover.html'>Glover, Ben</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>19:10.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>17:32.10</td><td>6:10</td></tr><tr><td>11</td><td><a href='../athletes/andrew_garvey.html'>Garvey, Andrew</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>19:18.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>18:04.70</td><td>6:13</td></tr><tr><td>14</td><td><a href='../athletes/henry_geisler.html'>Geisler, Henry</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>19:34.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>18:35.40</td><td>6:18</td></tr><tr><td>17</td><td><a href='../athletes/jacob_madalon.html'>Madalon, Jacob</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:45.00</td><td class='xc-result-cell xc-result-year-1'>19:36.00</td><td class='xc-result-cell xc-result-year-2'></td><td>18:32.50</td><td>6:21</td></tr><tr><td>18</td><td><a href='../athletes/thomas_wichmann.html'>Wichmann, Thomas</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:50.00</td><td class='xc-result-cell xc-result-year-1'>20:47.00</td><td class='xc-result-cell xc-result-year-2'></td><td>18:22.10</td><td>6:23</td></tr><tr><td>19</td><td><a href='../athletes/griffin_knepp.html'>Knepp, Griffin</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:52.00</td><td class='xc-result-cell xc-result-year-1'>21:10.00</td><td class='xc-result-cell xc-result-year-2'></td><td>19:14.30</td><td>6:24</td></tr><tr><td>20</td><td><a href='../athletes/adam_kleine_kracht.html'>Kleine-Kracht, Adam</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>19:53.00</td><td class='xc-result-cell xc-result-year-1'>20:08.00</td><td class='xc-result-cell xc-result-year-2'>20:35.00</td><td>18:43.10</td><td>6:24</td></tr><tr><td>21</td><td><a href='../athletes/william_mulloy.html'>Mulloy, William</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>19:57.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>18:52.00</td><td>6:25</td></tr><tr><td>22</td><td><a href='../athletes/josh_roux.html'>Roux, Josh</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:04.00</td><td class='xc-result-cell xc-result-year-1'>20:49.70</td><td class='xc-result-cell xc-result-year-2'></td><td>18:48.30</td><td>6:28</td></tr><tr><td>23</td><td><a href='../athletes/corbett_campell.html'>Campell, Corbett</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>20:09.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>19:13.90</td><td>6:29</td></tr><tr><td>24</td><td><a href='../athletes/tyler_just.html'>Just, Tyler</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>20:13.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>19:10.00</td><td>6:30</td></tr><tr><td>25</td><td><a href='../athletes/ben_koch.html'>Koch, Ben</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>20:21.00</td><td class='xc-result-cell xc-result-year-1'>20:28.90</td><td class='xc-result-cell xc-result-year-2'>20:48.70</td><td>18:43.70</td><td>6:33</td></tr><tr><td>26</td><td><a href='../athletes/chris_striegel.html'>Striegel, Chris</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:25.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>16:30.30</td><td>6:34</td></tr><tr><td>26</td><td><a href='../athletes/christopher_striegel.html'>Striegel, Christopher</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:25.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>16:30.30</td><td>6:34</td></tr><tr><td>27</td><td><a href='../athletes/trent_schulten.html'>Schulten, Trent</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>20:30.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>19:03.20</td><td>6:36</td></tr><tr><td>29</td><td><a href='../athletes/ben_gumbel.html'>Gumbel, Ben</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:55.00</td><td class='xc-result-cell xc-result-year-1'>22:35.00</td><td class='xc-result-cell xc-result-year-2'></td><td>18:56.90</td><td>6:44</td></tr><tr><td>31</td><td><a href='../athletes/orion_johns.html'>Johns, Orion</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>20:59.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>19:16.90</td><td>6:45</td></tr><tr><td>32</td><td><a href='../athletes/alex_medley.html'>Medley, Alex</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>21:03.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>20:26.00</td><td>6:47</td></tr><tr><td>35</td><td><a href='../athletes/eli_george.html'>George, Eli</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>21:36.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>19:29.00</td><td>6:57</td></tr><tr><td>37</td><td><a href='../athletes/nathan_hedges.html'>Hedges, Nathan</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>21:41.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>20:27.00</td><td>6:59</td></tr><tr><td>41</td><td><a href='../athletes/william_bennett.html'>Bennett, William</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>21:57.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>19:52.00</td><td>7:04</td></tr><tr><td>43</td><td><a href='../athletes/michael_portaro.html'>Portaro, Michael</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>22:20.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>20:18.00</td><td>7:11</td></tr><tr><td>45</td><td><a href='../athletes/adam_wantland.html'>Wantland, Adam</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>22:40.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>21:45.10</td><td>7:18</td></tr><tr><td>53</td><td><a href='../athletes/jeremy_prewitt.html'>Prewitt, Jeremy</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>24:15.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>21:59.40</td><td>7:48</td></tr><tr><td>55</td><td><a href='../athletes/jack_wichmann.html'>Wichmann, Jack</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>24:22.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>22:45.00</td><td>7:51</td></tr><tr><td>56</td><td><a href='../athletes/noah_leclaire.html'>Leclaire, Noah</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>24:34.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>21:57.30</td><td>7:54</td></tr><tr><td>62</td><td><a href='../athletes/t_o_eilfer.html'>Eilfer, T O</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>25:20.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>24:12.00</td><td>8:09</td></tr><tr><td>63</td><td><a href='../athletes/ben_riley.html'>Riley, Ben</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>25:28.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>22:12.10</td><td>8:12</td></tr><tr><td>66</td><td><a href='../athletes/reed_rapasky.html'>Rapasky, Reed</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>27:45.00</td><td class='xc-result-cell xc-result-year-1'></td><td class='xc-result-cell xc-result-year-2'></td><td>26:39.00</td><td>8:56</td></tr></tbody></table></div></div>
       </section>
-      <div class="footer">Generated at <code>2026-08-04 07:52:49</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+      <div class="footer">Generated at <code>2026-08-04 09:10:57</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     </div>
     <script>
       const coachStoragePrefix = "coach-pre-race-9";
@@ -525,22 +532,25 @@
       const activeRacerButtons = Array.from(
         document.querySelectorAll(".coach-active-racer")
       );
+      const activeRacerList = document.querySelector(".coach-active-racer-list");
       const activeRacerSearch = document.getElementById("coach-racer-search");
       const coachRosterStatus = document.getElementById("coach-roster-status");
       const coachRosterScope = document.getElementById("coach-roster-scope");
       const coachNameFormat = document.getElementById("coach-name-format");
+      const coachSortOrder = document.getElementById("coach-sort-order");
       const activeRacerOptions = document.getElementById("active-racer-options");
       const coachNameFormatStorageKey = "coach-pre-race:name-format";
-      const coachRosterScopeStorageKey = "coach-pre-race:roster-scope";
+      const coachSortOrderStorageKey = "coach-pre-race:sort-order";
       let selectedActiveRacer = "";
-      let selectedRosterScope =
-        localStorage.getItem(coachRosterScopeStorageKey) === "completed-race"
-          ? "completed-race"
-          : "all";
+      let selectedRosterScope = "all";
       let selectedNameFormat =
         localStorage.getItem(coachNameFormatStorageKey) === "last-first"
           ? "last-first"
           : "first-last";
+      let selectedSortOrder =
+        localStorage.getItem(coachSortOrderStorageKey) === "name"
+          ? "name"
+          : "time";
 
       function lastFirstName(name) {
         const trimmed = String(name || "").trim();
@@ -560,10 +570,18 @@
       }
 
       const canonicalActiveRacers = new Map();
+      const activeRacerTimeRank = new Map();
       activeRacers.forEach(name => {
         canonicalActiveRacers.set(name.toLowerCase(), name);
         canonicalActiveRacers.set(lastFirstName(name).toLowerCase(), name);
+        activeRacerTimeRank.set(name.toLowerCase(), activeRacerTimeRank.size);
       });
+      const activeRacerButtonByName = new Map(
+        activeRacerButtons.map(button => [
+          (button.dataset.racer || "").toLowerCase(),
+          button
+        ])
+      );
 
       function canonicalRacerName(name) {
         const trimmed = String(name || "").trim();
@@ -584,9 +602,29 @@
           : activeRacers;
       }
 
+      function sortedRacersForSelectedScope() {
+        const racers = [...racersForSelectedScope()];
+        if (selectedSortOrder === "name") {
+          racers.sort((left, right) =>
+            displayRacerName(left).localeCompare(
+              displayRacerName(right),
+              undefined,
+              { sensitivity: "base" }
+            )
+          );
+        } else {
+          racers.sort((left, right) =>
+            (activeRacerTimeRank.get(left.toLowerCase()) ?? Number.MAX_SAFE_INTEGER) -
+            (activeRacerTimeRank.get(right.toLowerCase()) ?? Number.MAX_SAFE_INTEGER)
+          );
+        }
+        return racers;
+      }
+
       function refreshActiveRacerList() {
+        const sortedRacers = sortedRacersForSelectedScope();
         const availableNames = new Set(
-          racersForSelectedScope().map(name => name.toLowerCase())
+          sortedRacers.map(name => name.toLowerCase())
         );
         const searchText = activeRacerSearch.value.trim().toLowerCase();
         activeRacerButtons.forEach(button => {
@@ -596,7 +634,11 @@
           button.hidden = !availableNames.has(racerName.toLowerCase()) ||
             (Boolean(searchText) && !searchableName.includes(searchText));
         });
-        activeRacerOptions.innerHTML = racersForSelectedScope()
+        sortedRacers.forEach(name => {
+          const button = activeRacerButtonByName.get(name.toLowerCase());
+          if (button) activeRacerList.appendChild(button);
+        });
+        activeRacerOptions.innerHTML = sortedRacers
           .map(name => `<option value="${escapeCoachValue(displayRacerName(name))}"></option>`)
           .join("");
       }
@@ -614,6 +656,11 @@
         coachRosterScope.value = selectedRosterScope;
         refreshActiveRacerList();
         updateActiveRosterStatus();
+      }
+
+      function renderSortOrder() {
+        coachSortOrder.value = selectedSortOrder;
+        refreshActiveRacerList();
       }
 
       function coachStorageKey(field) {
@@ -972,7 +1019,6 @@
           ? "completed-race"
           : "all";
         selectedActiveRacer = "";
-        localStorage.setItem(coachRosterScopeStorageKey, selectedRosterScope);
         renderRosterScope();
       });
 
@@ -983,6 +1029,14 @@
         localStorage.setItem(coachNameFormatStorageKey, selectedNameFormat);
         renderNameFormat();
         renderRaceGroups();
+      });
+
+      coachSortOrder.addEventListener("change", () => {
+        selectedSortOrder = coachSortOrder.value === "name"
+          ? "name"
+          : "time";
+        localStorage.setItem(coachSortOrderStorageKey, selectedSortOrder);
+        renderSortOrder();
       });
 
       raceGroupsContainer.addEventListener("dragover", event => {
@@ -1067,7 +1121,38 @@
         return field ? field.value.trim() : "";
       }
 
+      function historicalReferenceForGoogleDocs() {
+        const history = document.querySelector(".coach-history");
+        if (!history) return { html: "", text: "" };
+        const copy = history.cloneNode(true);
+        copy.querySelectorAll("script, button, input, select, canvas, .filterbar")
+          .forEach(element => element.remove());
+        copy.querySelectorAll("table").forEach(table => {
+          table.style.borderCollapse = "collapse";
+          table.style.width = "100%";
+          table.style.marginBottom = "12px";
+        });
+        copy.querySelectorAll("th, td").forEach(cell => {
+          cell.style.border = "1px solid #777";
+          cell.style.padding = "5px";
+        });
+        copy.querySelectorAll("th").forEach(cell => {
+          cell.style.background = "#eee";
+          cell.style.fontWeight = "bold";
+        });
+        return {
+          html: `
+            <div style="page-break-before:always;margin-top:24px">
+              <hr>
+              <h1>Historical Reference</h1>
+              ${copy.innerHTML}
+            </div>`,
+          text: history.innerText.trim()
+        };
+      }
+
       function googleDocsHtml() {
+        const historicalReference = historicalReferenceForGoogleDocs();
         const detailRows = [
           ["Date", coachFieldValue("upcoming-date")],
           ["Location", coachFieldValue("upcoming-location")],
@@ -1126,10 +1211,12 @@
             ${details}
             ${groups}
             ${notes ? `<h2>Alternates / Scratches / Coach Notes</h2><p>${escapeCoachValue(notes).replaceAll("\n", "<br>")}</p>` : ""}
+            ${historicalReference.html}
           </div>`;
       }
 
       function googleDocsPlainText() {
+        const historicalReference = historicalReferenceForGoogleDocs();
         const lines = [
           "Pre-Race Sheet Creator",
           "Desales Master Schedule Meet",
@@ -1156,6 +1243,9 @@
         });
         const notes = coachFieldValue("coach-notes");
         if (notes) lines.push("", "Alternates / Scratches / Coach Notes", notes);
+        if (historicalReference.text) {
+          lines.push("", "HISTORICAL REFERENCE", historicalReference.text);
+        }
         return lines.join("\n");
       }
 
@@ -1199,6 +1289,7 @@
 
       renderNameFormat();
       renderRosterScope();
+      renderSortOrder();
       renderRaceGroups();
     </script>
     

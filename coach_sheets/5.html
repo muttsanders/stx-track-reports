@@ -261,7 +261,7 @@
         gap:12px; margin:18px 0 10px 0;
       }
       .coach-roster-workspace {
-        display:grid; grid-template-columns:230px minmax(0, 1fr);
+        display:grid; grid-template-columns:260px minmax(0, 1fr);
         gap:16px; align-items:start;
       }
       .coach-active-roster {
@@ -465,15 +465,15 @@
           <aside class="coach-active-roster">
             <h3>Active Racers</h3>
             <p class="muted">
-              All Athletes includes kept StX classes 2027–2030.
-              Completed a Race requires at least one recorded finish. Fastest
+              All includes kept StX classes 2027–2030.
+              Complete a Race requires at least one recorded finish. Fastest
               5K PR first.
             </p>
             <label class="coach-roster-setting" for="coach-roster-scope">
-              <span>Athletes</span>
+              <span>Current Athletes</span>
               <select id="coach-roster-scope">
-                <option value="all">All StX Athletes</option>
-                <option value="completed-race">Completed a Race</option>
+                <option value="all">All</option>
+                <option value="completed-race">Complete a Race</option>
               </select>
             </label>
             <label class="coach-roster-setting" for="coach-name-format">
@@ -481,6 +481,13 @@
               <select id="coach-name-format">
                 <option value="first-last">First Last</option>
                 <option value="last-first">Last, First</option>
+              </select>
+            </label>
+            <label class="coach-roster-setting" for="coach-sort-order">
+              <span>Sort Order</span>
+              <select id="coach-sort-order">
+                <option value="name">Name</option>
+                <option value="time">Time</option>
               </select>
             </label>
             <input
@@ -514,7 +521,7 @@
         </p>
         <div class='xc-history-heading'><h1>Historical Reference: Capital View Classic 2007</h1></div><p class='subline muted'>October 6, 2007<br>Archives, Frankfort, KY</p><div class='card'><h2>5K</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2007<span class='xc-result-date'>10/6</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>3</td><td><a href='../athletes/kevin_fleig.html'>Fleig, Kevin</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>18:25.50</td><td>17:11.00</td><td>5:56</td></tr><tr><td>9</td><td><a href='../athletes/nick_amlung.html'>Amlung, Nick</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:54.40</td><td>18:09.70</td><td>6:05</td></tr><tr><td>10</td><td><a href='../athletes/anthony_meena.html'>Meena, Anthony</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:54.80</td><td>18:01.60</td><td>6:05</td></tr><tr><td>11</td><td><a href='../athletes/stuart_plamp.html'>Plamp, Stuart</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:55.60</td><td>17:58.80</td><td>6:06</td></tr><tr><td>12</td><td><a href='../athletes/justin_brezosky.html'>Brezosky, Justin</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:57.60</td><td>17:47.80</td><td>6:06</td></tr><tr><td>14</td><td><a href='../athletes/jim_ransdell.html'>Ransdell, Jim</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>19:08.40</td><td>18:10.60</td><td>6:10</td></tr><tr><td>15</td><td><a href='../athletes/john_schieman.html'>Schieman, John</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:16.30</td><td>17:57.30</td><td>6:12</td></tr><tr><td>18</td><td><a href='../athletes/ben_dant.html'>Dant, Ben</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:24.10</td><td>18:26.80</td><td>6:15</td></tr><tr><td>28</td><td><a href='../athletes/james_knoer.html'>Knoer, James</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:43.40</td><td>18:13.20</td><td>6:21</td></tr><tr><td>30</td><td><a href='../athletes/aaron_flannery.html'>Flannery, Aaron</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:46.20</td><td>18:26.40</td><td>6:22</td></tr><tr><td>34</td><td><a href='../athletes/sam_beavin.html'>Beavin, Sam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:03.90</td><td>17:26.80</td><td>6:27</td></tr><tr><td>36</td><td><a href='../athletes/ben_cavanaugh.html'>Cavanaugh, Ben</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:12.50</td><td>18:21.80</td><td>6:30</td></tr><tr><td>37</td><td><a href='../athletes/anthony_puopolo.html'>Puopolo, Anthony</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:17.30</td><td>17:35.80</td><td>6:32</td></tr></tbody></table></div></div>
       </section>
-      <div class="footer">Generated at <code>2026-08-04 07:52:35</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+      <div class="footer">Generated at <code>2026-08-04 09:10:39</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     </div>
     <script>
       const coachStoragePrefix = "coach-pre-race-5";
@@ -525,22 +532,25 @@
       const activeRacerButtons = Array.from(
         document.querySelectorAll(".coach-active-racer")
       );
+      const activeRacerList = document.querySelector(".coach-active-racer-list");
       const activeRacerSearch = document.getElementById("coach-racer-search");
       const coachRosterStatus = document.getElementById("coach-roster-status");
       const coachRosterScope = document.getElementById("coach-roster-scope");
       const coachNameFormat = document.getElementById("coach-name-format");
+      const coachSortOrder = document.getElementById("coach-sort-order");
       const activeRacerOptions = document.getElementById("active-racer-options");
       const coachNameFormatStorageKey = "coach-pre-race:name-format";
-      const coachRosterScopeStorageKey = "coach-pre-race:roster-scope";
+      const coachSortOrderStorageKey = "coach-pre-race:sort-order";
       let selectedActiveRacer = "";
-      let selectedRosterScope =
-        localStorage.getItem(coachRosterScopeStorageKey) === "completed-race"
-          ? "completed-race"
-          : "all";
+      let selectedRosterScope = "all";
       let selectedNameFormat =
         localStorage.getItem(coachNameFormatStorageKey) === "last-first"
           ? "last-first"
           : "first-last";
+      let selectedSortOrder =
+        localStorage.getItem(coachSortOrderStorageKey) === "name"
+          ? "name"
+          : "time";
 
       function lastFirstName(name) {
         const trimmed = String(name || "").trim();
@@ -560,10 +570,18 @@
       }
 
       const canonicalActiveRacers = new Map();
+      const activeRacerTimeRank = new Map();
       activeRacers.forEach(name => {
         canonicalActiveRacers.set(name.toLowerCase(), name);
         canonicalActiveRacers.set(lastFirstName(name).toLowerCase(), name);
+        activeRacerTimeRank.set(name.toLowerCase(), activeRacerTimeRank.size);
       });
+      const activeRacerButtonByName = new Map(
+        activeRacerButtons.map(button => [
+          (button.dataset.racer || "").toLowerCase(),
+          button
+        ])
+      );
 
       function canonicalRacerName(name) {
         const trimmed = String(name || "").trim();
@@ -584,9 +602,29 @@
           : activeRacers;
       }
 
+      function sortedRacersForSelectedScope() {
+        const racers = [...racersForSelectedScope()];
+        if (selectedSortOrder === "name") {
+          racers.sort((left, right) =>
+            displayRacerName(left).localeCompare(
+              displayRacerName(right),
+              undefined,
+              { sensitivity: "base" }
+            )
+          );
+        } else {
+          racers.sort((left, right) =>
+            (activeRacerTimeRank.get(left.toLowerCase()) ?? Number.MAX_SAFE_INTEGER) -
+            (activeRacerTimeRank.get(right.toLowerCase()) ?? Number.MAX_SAFE_INTEGER)
+          );
+        }
+        return racers;
+      }
+
       function refreshActiveRacerList() {
+        const sortedRacers = sortedRacersForSelectedScope();
         const availableNames = new Set(
-          racersForSelectedScope().map(name => name.toLowerCase())
+          sortedRacers.map(name => name.toLowerCase())
         );
         const searchText = activeRacerSearch.value.trim().toLowerCase();
         activeRacerButtons.forEach(button => {
@@ -596,7 +634,11 @@
           button.hidden = !availableNames.has(racerName.toLowerCase()) ||
             (Boolean(searchText) && !searchableName.includes(searchText));
         });
-        activeRacerOptions.innerHTML = racersForSelectedScope()
+        sortedRacers.forEach(name => {
+          const button = activeRacerButtonByName.get(name.toLowerCase());
+          if (button) activeRacerList.appendChild(button);
+        });
+        activeRacerOptions.innerHTML = sortedRacers
           .map(name => `<option value="${escapeCoachValue(displayRacerName(name))}"></option>`)
           .join("");
       }
@@ -614,6 +656,11 @@
         coachRosterScope.value = selectedRosterScope;
         refreshActiveRacerList();
         updateActiveRosterStatus();
+      }
+
+      function renderSortOrder() {
+        coachSortOrder.value = selectedSortOrder;
+        refreshActiveRacerList();
       }
 
       function coachStorageKey(field) {
@@ -972,7 +1019,6 @@
           ? "completed-race"
           : "all";
         selectedActiveRacer = "";
-        localStorage.setItem(coachRosterScopeStorageKey, selectedRosterScope);
         renderRosterScope();
       });
 
@@ -983,6 +1029,14 @@
         localStorage.setItem(coachNameFormatStorageKey, selectedNameFormat);
         renderNameFormat();
         renderRaceGroups();
+      });
+
+      coachSortOrder.addEventListener("change", () => {
+        selectedSortOrder = coachSortOrder.value === "name"
+          ? "name"
+          : "time";
+        localStorage.setItem(coachSortOrderStorageKey, selectedSortOrder);
+        renderSortOrder();
       });
 
       raceGroupsContainer.addEventListener("dragover", event => {
@@ -1067,7 +1121,38 @@
         return field ? field.value.trim() : "";
       }
 
+      function historicalReferenceForGoogleDocs() {
+        const history = document.querySelector(".coach-history");
+        if (!history) return { html: "", text: "" };
+        const copy = history.cloneNode(true);
+        copy.querySelectorAll("script, button, input, select, canvas, .filterbar")
+          .forEach(element => element.remove());
+        copy.querySelectorAll("table").forEach(table => {
+          table.style.borderCollapse = "collapse";
+          table.style.width = "100%";
+          table.style.marginBottom = "12px";
+        });
+        copy.querySelectorAll("th, td").forEach(cell => {
+          cell.style.border = "1px solid #777";
+          cell.style.padding = "5px";
+        });
+        copy.querySelectorAll("th").forEach(cell => {
+          cell.style.background = "#eee";
+          cell.style.fontWeight = "bold";
+        });
+        return {
+          html: `
+            <div style="page-break-before:always;margin-top:24px">
+              <hr>
+              <h1>Historical Reference</h1>
+              ${copy.innerHTML}
+            </div>`,
+          text: history.innerText.trim()
+        };
+      }
+
       function googleDocsHtml() {
+        const historicalReference = historicalReferenceForGoogleDocs();
         const detailRows = [
           ["Date", coachFieldValue("upcoming-date")],
           ["Location", coachFieldValue("upcoming-location")],
@@ -1126,10 +1211,12 @@
             ${details}
             ${groups}
             ${notes ? `<h2>Alternates / Scratches / Coach Notes</h2><p>${escapeCoachValue(notes).replaceAll("\n", "<br>")}</p>` : ""}
+            ${historicalReference.html}
           </div>`;
       }
 
       function googleDocsPlainText() {
+        const historicalReference = historicalReferenceForGoogleDocs();
         const lines = [
           "Pre-Race Sheet Creator",
           "Capital View Classic",
@@ -1156,6 +1243,9 @@
         });
         const notes = coachFieldValue("coach-notes");
         if (notes) lines.push("", "Alternates / Scratches / Coach Notes", notes);
+        if (historicalReference.text) {
+          lines.push("", "HISTORICAL REFERENCE", historicalReference.text);
+        }
         return lines.join("\n");
       }
 
@@ -1199,6 +1289,7 @@
 
       renderNameFormat();
       renderRosterScope();
+      renderSortOrder();
       renderRaceGroups();
     </script>
     
