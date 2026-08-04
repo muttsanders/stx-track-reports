@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Feedback</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .athlete-profile-links { margin: 4px 0 8px 0; font-size: 14px; font-weight: 700; }
+      .athlete-profile-links a { margin-right: 15px; }
+      .meet-links { margin: 4px 0 10px 0; font-size: 14px; font-weight: 700; }
+      .meet-links a { margin-right: 15px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link,
+      .nav a.comparison-link, .nav span.comparison-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav a.feedback-link, .nav span.feedback-link {
+        display:inline-block;
+        margin-left:14px;
+        border:2px solid #d39b00;
+        border-radius:999px;
+        padding:6px 12px;
+        background:#f4c542;
+        color:#172554;
+        font-size:14px;
+        font-weight:900;
+        line-height:1;
+        box-shadow:0 2px 7px rgba(15, 23, 42, 0.13);
+      }
+      .nav a.feedback-link:hover {
+        background:#ffd963;
+        text-decoration:none;
+        transform:translateY(-1px);
+      }
+      .nav span { color: #333; }
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
+      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn { border:1px solid #ddd; background:#fff; border-radius: 999px; padding:6px 10px; font-size: 13px; cursor:pointer; }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
+      .athlete-index-table { width:100%; }
+      .athlete-index-table th { cursor:pointer; user-select:none; }
+      .athlete-index-table th:hover { background:#e9eef6; }
+      .athlete-index-table th .sort-indicator { margin-left:5px; color:#64748b; font-size:11px; }
+      .athlete-index-table td:nth-child(1),
+      .athlete-index-table td:nth-child(3) { text-align:right; }
+      .athlete-index-table .no-pr { color:#999; }
+      .athlete-table-heading { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin:0 0 8px 0; }
+      .athlete-table-heading h3 { margin:0; }
+      .athlete-table-count { color:#64748b; font-size:12px; font-weight:700; }
+      .home-grid {
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:16px;
+        align-items:start;
+      }
+      .home-column { min-width:0; }
+      .home-column > .card { margin-top:0; }
+      .home-column-heading {
+        display:flex; align-items:baseline; justify-content:space-between;
+        gap:10px; margin:0 0 10px 0;
+      }
+      .home-column-heading h2, .home-column-heading h3 { margin:0; }
+      .home-column-heading-meta {
+        display:flex; align-items:center; justify-content:flex-end;
+        gap:8px; flex-wrap:wrap;
+      }
+      .athlete-name-format-toggle {
+        border:1px solid #93a4ba; border-radius:999px; background:#f8fafc;
+        color:#334155; padding:5px 9px; cursor:pointer;
+        font:700 11px Arial, sans-serif;
+      }
+      .athlete-name-format-toggle:hover { background:#eaf2ff; border-color:#6f91c3; }
+      .athlete-card-search {
+        box-sizing:border-box; width:100%; margin:0;
+        border:1px solid #cbd5e1; border-radius:8px; padding:9px 10px;
+        background:#fff; font:14px Arial, sans-serif;
+      }
+      .athlete-card-controls {
+        display:grid; grid-template-columns:minmax(0, 1fr) auto;
+        gap:8px; align-items:center; margin:0 0 10px 0;
+      }
+      .athlete-sort-control {
+        display:flex; align-items:center; gap:6px;
+        color:#475569; font-size:12px; font-weight:800;
+      }
+      .athlete-sort-control select {
+        border:1px solid #cbd5e1; border-radius:8px; background:#fff;
+        padding:8px 7px; font:13px Arial, sans-serif;
+      }
+      .athlete-index-cards {
+        display:flex; flex-direction:column; gap:7px;
+      }
+      .athlete-index-card {
+        display:flex; align-items:center; gap:10px; min-width:0;
+        border:1px solid #dbe3ee; border-radius:9px; padding:8px 10px;
+        background:#fff; color:#172554;
+        box-shadow:0 2px 7px rgba(15, 23, 42, 0.06);
+      }
+      .athlete-index-card:hover {
+        border-color:#93b4e8; background:#f8fbff; text-decoration:none;
+        transform:translateY(-1px);
+      }
+      .athlete-index-card[hidden] { display:none !important; }
+      .athlete-year-bubble {
+        display:inline-flex; align-items:center; justify-content:center;
+        flex:0 0 50px; min-height:28px; border-radius:999px;
+        color:#fff; font-size:12px; font-weight:900; letter-spacing:.02em;
+      }
+      .athlete-year-tone-0 { background:#1d4ed8; }
+      .athlete-year-tone-1 { background:#0f766e; }
+      .athlete-year-tone-2 { background:#7e22ce; }
+      .athlete-year-tone-3 { background:#b45309; }
+      .athlete-year-tone-4 { background:#be123c; }
+      .athlete-year-tone-5 { background:#334155; }
+      .athlete-grade-senior { background:#15803d; }
+      .athlete-grade-junior { background:#f4c542; color:#172554; }
+      .athlete-grade-sophomore { background:#2563eb; }
+      .athlete-grade-freshman { background:#dc2626; }
+      .athlete-year-missing { background:#78716c; }
+      .athlete-index-card-copy {
+        display:flex; flex-direction:column; gap:2px; min-width:0;
+      }
+      .athlete-index-card-copy strong {
+        overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+        color:#0b5fff; font-size:14px;
+      }
+      .athlete-index-card-copy small { color:#64748b; font-size:11px; }
+      .athlete-index-card-copy small.no-pr { color:#9ca3af; }
+      .athlete-missing-block {
+        border-top:1px solid #e5e7eb; margin-top:18px; padding-top:14px;
+      }
+      @media (max-width:900px) {
+        .home-grid { grid-template-columns:1fr; }
+      }
+      .rankcell { font-weight: 800; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
+      .hide-graphs .chart-container { display: none; }
+      /* Meet page filter: hide non-StX rows when toggled */
+      body.stx-only .non-stx-row { display: none; }
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
+      .non-stx-row { opacity: 0.80; }
+      /* PR section header rows (Track / XC) */
+      .sporthdr { background: #efefef; font-weight: 900; }
+      .dimmed-pr { color: #999; font-weight: normal; }
+      .pr-parade { border: 2px solid #f0a45d; background: #fff8f0; padding: 9px 12px; }
+      .pr-parade h2 { display:inline; margin:0 8px 0 0; color:#8a431d; font-size:18px; }
+      .pr-parade-list { display:inline; line-height:1.8; }
+      .pr-parade-entry { white-space:nowrap; }
+      .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
+      .xc-team-score-heading h3 { margin:0; }
+      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
+      .xc-team-extra-row { display:none; }
+      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
+    </style>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+
+    <style>
+      .feedback-page { max-width:760px; margin:0 auto; }
+      .feedback-card {
+        border:2px solid #d39b00; border-radius:14px;
+        padding:24px; margin-top:24px; background:#fffdf2;
+        box-shadow:0 6px 18px rgba(15, 23, 42, 0.10);
+      }
+      .feedback-card h1 { margin:0 0 12px 0; color:#172554; }
+      .feedback-card p { margin:0 0 16px 0; font-size:17px; line-height:1.55; }
+      .feedback-card p:last-child { margin-bottom:0; }
+    </style>
+    <div class="feedback-page">
+      <div class="topbar">
+        <div class="titlewrap">
+          <div class="meetname">Feedback</div>
+        </div>
+        <div class="nav">
+          <a class="home-link" href="index.html">Home</a>
+          <span class="feedback-link">Feedback</span>
+        </div>
+      </div>
+      <div class="feedback-card">
+        <h1>Feedback</h1>
+        <p>
+          This website was created to preserve and celebrate the history of
+          St. Xavier Cross Country and distance track. It was started in 2025
+          by the parent of a now-graduated StX athlete, with the hope that it
+          will continue to grow and live on for future athletes, families,
+          and coaches.
+        </p>
+        <p>
+          This is a volunteer project built without formal web-development
+          experience, so some features and capabilities may be limited. The
+          site is still evolving, and your feedback is greatly appreciated.
+        </p>
+        <p>
+          Every effort has been made to gather as much historical information
+          as possible, but some results may be incomplete or missing.
+        </p>
+        <p>
+          If you notice missing information, find an error, or have an idea
+          for improving the site, please email Bob Sanders at
+          <a href="mailto:sanderisnky@gmail.com">sanderisnky@gmail.com</a>.
+        </p>
+        <p>
+          If you are an StX parent, alumnus, coach, or supporter interested in
+          helping maintain—or eventually taking over—this website, please
+          reach out. The goal is for this resource to remain useful and
+          continue long after its original creator is no longer actively
+          involved.
+        </p>
+      </div>
+      <div class="footer">Generated at <code>2026-08-04 10:03:31</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    </div>
+    
+</body>
+</html>
