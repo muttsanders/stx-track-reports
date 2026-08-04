@@ -1,0 +1,1215 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pre-Race Sheet Creator | New Balance Nationals Indoor</title>
+  
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      a { color: #0b5fff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .muted { color: #666; }
+      .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom: 8px; }
+      .titlewrap { min-width: 240px; }
+      .date { font-size: 18px; font-weight: 700; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .meetname { font-size: 28px; font-weight: 800; line-height: 1.1; margin: 0 0 6px 0; white-space: normal; }
+      .subline { margin: 0; }
+      .athlete-profile-links { margin: 4px 0 8px 0; font-size: 14px; font-weight: 700; }
+      .athlete-profile-links a { margin-right: 15px; }
+      .meet-links { margin: 4px 0 10px 0; font-size: 14px; font-weight: 700; }
+      .meet-links a { margin-right: 15px; }
+      .nav { text-align: right; white-space: nowrap; font-size: 14px; }
+      .nav a.home-link, .nav span.home-link { font-size: 18px; font-weight: 800; }
+      .nav a.records-link, .nav span.records-link,
+      .nav a.depth-link, .nav span.depth-link,
+      .nav a.pre-race-link, .nav span.pre-race-link,
+      .nav a.comparison-link, .nav span.comparison-link {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+      .nav span { color: #333; }
+      .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
+      .twocol { display:flex; gap:16px; align-items:flex-start; }
+      .col { flex: 1 1 0; min-width: 320px; }
+      @media (max-width: 900px) { .twocol { flex-direction: column; } }
+      .table-wrap { overflow-x: auto; max-width: 100%; }
+      table { border-collapse: collapse; width: auto; table-layout: auto; margin-top: 8px; }
+      th, td { border: 1px solid #ddd; padding: 6px 8px; font-size: 14px; white-space: nowrap; }
+      th { background: #f4f4f4; position: sticky; top: 0; text-align: left; }
+      tr:nth-child(even) { background: #fafafa; }
+      .fastest { background-color: #D4EDDA; color: #155724; font-weight: 600; }
+      .slowest { background-color: #F8D7DA; color: #721C24; font-weight: 600; }
+      .pr { background-color: #FFDAB9; color: #A0522D; font-weight: 700; }
+      .bestpr { background-color: #D4EDDA; color: #155724; font-weight: 700; }
+      .stx-team-highlight { background-color: #fcf8e3; }
+      .warning-big { margin: 6px 0 10px 0; font-size: 28px; font-weight: 900; color: #b00020; letter-spacing: 0.5px; }
+      .footer { margin-top: 24px; color: #777; font-size: 12px; }
+      code { background:#f6f6f6; padding:2px 6px; border-radius:6px; }
+      .filterbar { display:flex; align-items:center; gap:14px; margin: 10px 0 0 0; flex-wrap: wrap; }
+      .filterbar label { cursor:pointer; }
+      .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+      .splits-col { display: none; }
+      .show-splits .splits-col { display: table-cell; }
+      .tabs { display:flex; gap:8px; margin: 8px 0 10px 0; flex-wrap: wrap; }
+      .tabbtn { border:1px solid #ddd; background:#fff; border-radius: 999px; padding:6px 10px; font-size: 13px; cursor:pointer; }
+      .tabbtn.active { background:#f2f2f2; font-weight: 700; }
+      .tabpane { display:none; }
+      .tabpane.active { display:block; }
+      .section-title { margin: 24px 0 0 0; font-size: 18px; font-weight: 800; border-top: 1px solid #eee; padding-top: 16px; }
+      .xc-history-heading { margin-top: 42px; border-top: 4px solid #222; padding-top: 24px; }
+      .xc-history-heading h1 { margin: 0 0 8px 0; font-size: 28px; }
+      .athletes-grid { display:flex; gap: 16px; align-items:flex-start; flex-wrap: wrap; }
+      .athletes-grid .ath-col { flex: 1 1 0; min-width: 280px; }
+      .athlete-class-group {
+        border:1px solid #dbe3ee;
+        border-radius:10px;
+        overflow:hidden;
+        margin:0 0 14px 0;
+        background:#fff;
+        box-shadow:0 3px 10px rgba(15, 23, 42, 0.07);
+      }
+      .athlete-class-header {
+        display:flex;
+        align-items:baseline;
+        gap:7px;
+        margin:0;
+        padding:9px 13px;
+        color:#fff;
+        background:linear-gradient(100deg, #172554, #1d4ed8);
+        border-left:7px solid #f4c542;
+        font-size:15px;
+        letter-spacing:0.02em;
+      }
+      .athlete-class-header strong { font-size:21px; }
+      .athlete-class-header.alumni {
+        background:linear-gradient(100deg, #334155, #64748b);
+      }
+      .athlete-class-header.missing {
+        background:linear-gradient(100deg, #6b4f1d, #a16207);
+      }
+      .athlete-class-group ul {
+        margin:0;
+        padding:12px 18px 13px 38px;
+        line-height:1.45;
+      }
+      .athlete-index-table { width:100%; }
+      .athlete-index-table th { cursor:pointer; user-select:none; }
+      .athlete-index-table th:hover { background:#e9eef6; }
+      .athlete-index-table th .sort-indicator { margin-left:5px; color:#64748b; font-size:11px; }
+      .athlete-index-table td:nth-child(1),
+      .athlete-index-table td:nth-child(3) { text-align:right; }
+      .athlete-index-table .no-pr { color:#999; }
+      .athlete-table-heading { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin:0 0 8px 0; }
+      .athlete-table-heading h3 { margin:0; }
+      .athlete-table-count { color:#64748b; font-size:12px; font-weight:700; }
+      .rankcell { font-weight: 800; }
+      .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
+      .hide-graphs .chart-container { display: none; }
+      /* Meet page filter: hide non-StX rows when toggled */
+      body.stx-only .non-stx-row { display: none; }
+      /* On athlete pages, we still show non-StX history for allow-listed athletes */
+      .non-stx-row { opacity: 0.80; }
+      /* PR section header rows (Track / XC) */
+      .sporthdr { background: #efefef; font-weight: 900; }
+      .dimmed-pr { color: #999; font-weight: normal; }
+      .pr-parade { border: 2px solid #f0a45d; background: #fff8f0; padding: 9px 12px; }
+      .pr-parade h2 { display:inline; margin:0 8px 0 0; color:#8a431d; font-size:18px; }
+      .pr-parade-list { display:inline; line-height:1.8; }
+      .pr-parade-entry { white-space:nowrap; }
+      .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
+      .xc-team-score-heading h3 { margin:0; }
+      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
+      .xc-team-extra-row { display:none; }
+      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      .xc-results-table th { text-align:center; }
+      .xc-result-date {
+        display:block;
+        margin-top:2px;
+        color:#666;
+        font-size:11px;
+        font-weight:normal;
+      }
+      .xc-results-table th.xc-result-year-0 { background:#dce9ff; }
+      .xc-results-table td.xc-result-year-0 { background:#f2f7ff; }
+      .xc-results-table th.xc-result-year-1 { background:#f8e7b2; }
+      .xc-results-table td.xc-result-year-1 { background:#fff9e8; }
+      .xc-results-table th.xc-result-year-2 { background:#d6f0e5; }
+      .xc-results-table td.xc-result-year-2 { background:#f0faf6; }
+      .xc-results-table th.xc-result-year-3 { background:#eadcf7; }
+      .xc-results-table td.xc-result-year-3 { background:#f8f2fc; }
+      .xc-results-table td.xc-result-cell.pr {
+        background:#FFDAB9;
+        color:#A0522D;
+        font-weight:700;
+      }
+      .xc-results-table td.xc-result-cell.bestpr {
+        background:#D4EDDA;
+        color:#155724;
+        font-weight:700;
+      }
+      .meet-list { list-style:none; padding:0; margin:12px 0 0 0; }
+      .meet-year-group {
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:10px;
+        padding:0;
+        margin:0 0 16px 0;
+      }
+      .meet-year-bar {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        min-height:76px;
+        border-radius:10px;
+        color:#fff;
+        font-size:13px;
+        font-weight:900;
+        letter-spacing:0.12em;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.12);
+      }
+      .meet-year-bar span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-year-tone-0 { background:#172554; }
+      .meet-year-tone-1 { background:#9a6700; }
+      .meet-year-tone-2 { background:#0f766e; }
+      .meet-year-tone-3 { background:#6b21a8; }
+      .meet-year-items { list-style:none; padding:0; margin:0; }
+      .meet-list .meet-item {
+        display:grid;
+        grid-template-columns:34px minmax(0, 1fr);
+        min-height:76px;
+        padding:0;
+        margin:0 0 8px 0;
+        border:1px solid #dbe2ea;
+        border-radius:10px;
+        overflow:hidden;
+        background:#fff;
+        box-shadow:0 2px 8px rgba(15, 23, 42, 0.07);
+      }
+      .meet-rail {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#fff;
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+      }
+      .meet-rail span {
+        writing-mode:vertical-rl;
+        transform:rotate(180deg);
+      }
+      .meet-sport-track { background:#1d4ed8; }
+      .meet-sport-xc { background:#15803d; }
+      .meet-main {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:3px;
+        min-width:0;
+        padding:11px 14px;
+      }
+      .meet-main:hover { background:#f8fafc; text-decoration:none; }
+      .meet-date { color:#64748b; font-size:12px; font-weight:800; }
+      .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
+      .meet-location { color:#475569; font-size:12px; }
+    </style>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+
+    <style>
+      .coach-sheet { max-width:1100px; margin:0 auto; }
+      .coach-sheet-nav { margin-bottom:12px; }
+      .coach-sheet-header {
+        display:flex; justify-content:space-between; align-items:flex-start;
+        gap:16px; margin-bottom:14px;
+      }
+      .coach-sheet-header h1 { margin:0 0 4px 0; }
+      .coach-actions { display:flex; gap:8px; flex-wrap:wrap; }
+      .coach-actions button {
+        border:1px solid #bbb; border-radius:7px; background:#fff;
+        padding:7px 12px; cursor:pointer; font-weight:700;
+      }
+      .coach-actions .print-button { background:#0b5fff; color:#fff; border-color:#0b5fff; }
+      .coach-form {
+        border:2px solid #1f2937; border-radius:10px; padding:16px;
+        margin-bottom:22px;
+      }
+      .coach-form h2 { margin:0 0 12px 0; }
+      .coach-fields {
+        display:grid; grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:12px 18px; margin-bottom:16px;
+      }
+      .coach-field label, .coach-notes label {
+        display:block; font-size:12px; font-weight:800; text-transform:uppercase;
+        letter-spacing:.04em; margin-bottom:4px;
+      }
+      .coach-field input {
+        box-sizing:border-box; width:100%; border:0; border-bottom:1px solid #555;
+        padding:6px 4px; font:inherit; background:transparent;
+      }
+      .coach-race-toolbar {
+        display:flex; justify-content:space-between; align-items:center;
+        gap:12px; margin:18px 0 10px 0;
+      }
+      .coach-roster-workspace {
+        display:grid; grid-template-columns:230px minmax(0, 1fr);
+        gap:16px; align-items:start;
+      }
+      .coach-active-roster {
+        position:sticky; top:10px; border:1px solid #9ca3af;
+        border-radius:8px; background:#f8fafc; padding:11px;
+        max-height:78vh; overflow:auto;
+      }
+      .coach-active-roster h3 { margin:0 0 4px 0; }
+      .coach-active-roster p { margin:0 0 8px 0; font-size:12px; }
+      .coach-racer-search {
+        box-sizing:border-box; width:100%; border:1px solid #aaa;
+        border-radius:6px; padding:7px 8px; margin-bottom:8px; font:inherit;
+      }
+      .coach-roster-setting {
+        display:flex; align-items:center; justify-content:space-between;
+        gap:8px; margin:0 0 8px 0; font-size:12px; font-weight:700;
+      }
+      .coach-roster-setting select {
+        border:1px solid #aaa; border-radius:6px; background:#fff;
+        padding:5px 7px; font:inherit;
+      }
+      .coach-active-racer-list {
+        display:flex; flex-direction:column; gap:5px;
+      }
+      .coach-active-racer {
+        display:flex; align-items:center; justify-content:space-between; gap:7px;
+        border:1px solid #cbd5e1; border-radius:6px; background:#fff;
+        padding:6px 8px; color:#0b5fff; text-align:left; cursor:grab;
+        font:13px Arial, sans-serif;
+      }
+      .coach-active-racer[hidden] { display:none !important; }
+      .coach-active-racer-name {
+        min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+      }
+      .coach-active-racer-pr {
+        color:#475569; font-size:11px; font-weight:800; white-space:nowrap;
+      }
+      .coach-active-racer:hover { border-color:#0b5fff; background:#eff6ff; }
+      .coach-active-racer.is-selected {
+        border-color:#0b5fff; background:#dbeafe; font-weight:800;
+      }
+      .coach-active-racer.is-assigned {
+        border-color:#9ca3af; background:#e5e7eb; color:#6b7280;
+      }
+      .coach-active-racer.is-assigned .coach-active-racer-pr {
+        color:#6b7280;
+      }
+      .coach-active-racer.is-assigned::after {
+        content:" ✓"; color:#15803d; font-weight:900;
+      }
+      .coach-roster-status {
+        min-height:16px; margin:8px 0 0 0; color:#475569;
+        font-size:11px; font-weight:700;
+      }
+      .coach-race-group.coach-drop-target {
+        outline:3px solid #60a5fa; outline-offset:2px;
+        background:#eff6ff;
+      }
+      .coach-roster-grid input.coach-drop-target { background:#dbeafe; }
+      .coach-race-toolbar h3 { margin:0; }
+      .coach-control-button {
+        border:1px solid #aaa; border-radius:6px; background:#fff;
+        padding:5px 9px; cursor:pointer; font-size:12px; font-weight:700;
+      }
+      .coach-race-group {
+        border:1px solid #9ca3af; border-radius:8px; padding:12px;
+        margin:0 0 14px 0; background:#fafafa;
+      }
+      .coach-race-group-header {
+        display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+        margin-bottom:9px;
+      }
+      .coach-group-name {
+        flex:1 1 220px; min-width:180px; border:0;
+        border-bottom:2px solid #1f2937; background:transparent;
+        padding:4px; font-size:20px; font-weight:800;
+      }
+      .coach-racer-count {
+        border-radius:999px; background:#e5e7eb; padding:5px 10px;
+        font-size:12px; font-weight:800; white-space:nowrap;
+      }
+      .coach-group-controls {
+        display:flex; gap:5px; flex-wrap:wrap;
+      }
+      .coach-group-schedule {
+        display:grid; grid-template-columns:repeat(4, minmax(100px, 1fr));
+        gap:9px; margin-bottom:10px;
+      }
+      .coach-group-schedule label {
+        display:block; font-size:11px; font-weight:800;
+        text-transform:uppercase; margin-bottom:2px;
+      }
+      .coach-group-schedule input {
+        box-sizing:border-box; width:100%; border:0;
+        border-bottom:1px solid #777; background:transparent;
+        padding:4px; font:inherit;
+      }
+      .coach-roster-grid { width:100%; margin:0; table-layout:fixed; }
+      .coach-roster-grid td {
+        position:relative; padding:0; background:#fff;
+      }
+      .coach-roster-grid input {
+        box-sizing:border-box; width:100%; border:0; background:transparent;
+        padding:6px 7px; font:14px Arial, sans-serif;
+      }
+      .coach-roster-grid td.has-athlete input { padding-left:34px; }
+      .coach-slot-number {
+        display:none; position:absolute; z-index:1; left:6px; top:50%;
+        transform:translateY(-50%); width:21px; height:21px;
+        border-radius:999px; align-items:center; justify-content:center;
+        background:#e5e7eb; color:#374151; font-size:11px; font-weight:900;
+        pointer-events:none;
+      }
+      .coach-roster-grid td.has-athlete .coach-slot-number { display:flex; }
+      .coach-notes { margin-top:14px; }
+      .coach-notes textarea {
+        box-sizing:border-box; width:100%; min-height:75px; resize:vertical;
+        border:1px solid #888; border-radius:6px; padding:9px;
+        font:14px/1.45 Arial, sans-serif;
+      }
+      .coach-history-note { margin:0 0 8px 0; }
+      .coach-history .non-stx-row { display:none; }
+      @media (max-width:760px) {
+        .coach-fields { grid-template-columns:1fr; }
+        .coach-group-schedule { grid-template-columns:repeat(2, minmax(100px, 1fr)); }
+        .coach-sheet-header { flex-direction:column; }
+        .coach-roster-workspace { grid-template-columns:1fr; }
+        .coach-active-roster { position:static; max-height:none; }
+        .coach-active-racer-list {
+          display:grid; grid-template-columns:repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media print {
+        body { margin:0.35in; }
+        .coach-actions, .coach-race-toolbar, .coach-group-controls,
+        .coach-active-roster, .nav, .footer,
+        .xc-team-score-heading label { display:none !important; }
+        .coach-sheet { max-width:none; }
+        .coach-roster-workspace { display:block; }
+        .coach-sheet-header { margin-bottom:8px; }
+        .coach-form { margin-bottom:14px; padding:12px; }
+        .coach-race-group { break-inside:auto; background:#fff; }
+        .coach-roster-grid input { padding:4px 6px; }
+        .coach-notes textarea { min-height:55px; resize:none; }
+        .coach-history-heading { break-before:page; margin-top:0; }
+        .card { break-inside:avoid; }
+      }
+    </style>
+    <div class="coach-sheet">
+      <div class="nav coach-sheet-nav">
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <span class='coach-link'>Pre-Race Sheet Creator</span>
+      </div>
+      <div class="coach-sheet-header">
+        <div>
+          <h1>Pre-Race Sheet Creator</h1>
+          <div class="meetname">New Balance Nationals Indoor</div>
+          
+          <p class="muted subline">Type the upcoming-race information below. Changes save automatically on this browser.</p>
+        </div>
+        <div class="coach-actions">
+          <a href="index.html">Choose Another Event</a>
+          <a href="../meets/221_all.html">Latest historical meet</a>
+          <button type="button" id="copy-google-docs-button" onclick="copyCoachSheetForGoogleDocs()">Copy for Google Docs</button>
+          <button type="button" class="print-button" onclick="window.print()">Print / Save PDF</button>
+          <button type="button" onclick="clearCoachSheet()">Clear Form</button>
+          
+        </div>
+      </div>
+
+      <section class="coach-form">
+        <h2>Upcoming Race</h2>
+        <div class="coach-fields">
+          <div class="coach-field">
+            <label for="upcoming-date">Date</label>
+            <input id="upcoming-date" type="date" data-coach-save
+              value="">
+          </div>
+          <div class="coach-field">
+            <label for="upcoming-location">Location</label>
+            <input id="upcoming-location" type="text" data-coach-save
+              value="">
+          </div>
+          <div class="coach-field">
+            <label for="upcoming-weather">Weather</label>
+            <input id="upcoming-weather" type="text" data-coach-save>
+          </div>
+          <div class="coach-field">
+            <label for="upcoming-meet-notes">Meet Notes</label>
+            <input id="upcoming-meet-notes" type="text" data-coach-save
+              value="">
+          </div>
+        </div>
+
+        <div class="coach-race-toolbar">
+          <h3>Race Groups</h3>
+          <button type="button" class="coach-control-button" onclick="addRaceGroup()">
+            + Add Race Group
+          </button>
+        </div>
+        <div class="coach-roster-workspace">
+          <aside class="coach-active-roster">
+            <h3>Active Racers</h3>
+            <p class="muted">
+              All Athletes includes kept StX classes 2027–2030.
+              Completed a Race requires at least one recorded finish. Fastest
+              3200 PR first.
+            </p>
+            <label class="coach-roster-setting" for="coach-roster-scope">
+              <span>Athletes</span>
+              <select id="coach-roster-scope">
+                <option value="all">All StX Athletes</option>
+                <option value="completed-race">Completed a Race</option>
+              </select>
+            </label>
+            <label class="coach-roster-setting" for="coach-name-format">
+              <span>Name format</span>
+              <select id="coach-name-format">
+                <option value="first-last">First Last</option>
+                <option value="last-first">Last, First</option>
+              </select>
+            </label>
+            <input
+              id="coach-racer-search"
+              class="coach-racer-search"
+              type="search"
+              placeholder="Find a racer..."
+              aria-label="Find an active racer"
+            >
+            <div class="coach-active-racer-list">
+              <button type="button" class="coach-active-racer" draggable="true" data-racer="Nolan Crider"><span class="coach-active-racer-name">Nolan Crider</span><span class="coach-active-racer-pr">3200 9:27.10</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Matthew Frick"><span class="coach-active-racer-name">Matthew Frick</span><span class="coach-active-racer-pr">3200 9:27.99</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Everett Derrick"><span class="coach-active-racer-name">Everett Derrick</span><span class="coach-active-racer-pr">3200 9:49.60</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Baron Staab"><span class="coach-active-racer-name">Baron Staab</span><span class="coach-active-racer-pr">3200 10:05.00</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Ian O'Bryan"><span class="coach-active-racer-name">Ian O'Bryan</span><span class="coach-active-racer-pr">3200 10:12.15</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Tyler Hogan"><span class="coach-active-racer-name">Tyler Hogan</span><span class="coach-active-racer-pr">3200 10:15.22</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Owen Mayes"><span class="coach-active-racer-name">Owen Mayes</span><span class="coach-active-racer-pr">3200 10:20.30</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Xavier Mudd"><span class="coach-active-racer-name">Xavier Mudd</span><span class="coach-active-racer-pr">3200 10:22.90</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Parker Lesshafft"><span class="coach-active-racer-name">Parker Lesshafft</span><span class="coach-active-racer-pr">3200 10:26.50</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jack Clifford"><span class="coach-active-racer-name">Jack Clifford</span><span class="coach-active-racer-pr">3200 10:26.80</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Zach Reed"><span class="coach-active-racer-name">Zach Reed</span><span class="coach-active-racer-pr">3200 10:27.25</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jimmy Greer"><span class="coach-active-racer-name">Jimmy Greer</span><span class="coach-active-racer-pr">3200 10:36.20</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Vincent Yochum"><span class="coach-active-racer-name">Vincent Yochum</span><span class="coach-active-racer-pr">3200 10:40.90</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Cooper Hogan"><span class="coach-active-racer-name">Cooper Hogan</span><span class="coach-active-racer-pr">3200 10:42.70</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Matthew Meirose"><span class="coach-active-racer-name">Matthew Meirose</span><span class="coach-active-racer-pr">3200 10:44.90</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Thomas Norton"><span class="coach-active-racer-name">Thomas Norton</span><span class="coach-active-racer-pr">3200 10:49.38</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="James Bush"><span class="coach-active-racer-name">James Bush</span><span class="coach-active-racer-pr">3200 10:50.91</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Ray Laracy"><span class="coach-active-racer-name">Ray Laracy</span><span class="coach-active-racer-pr">3200 10:51.10</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Nathan Worley"><span class="coach-active-racer-name">Nathan Worley</span><span class="coach-active-racer-pr">3200 11:00.60</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Levi Roach"><span class="coach-active-racer-name">Levi Roach</span><span class="coach-active-racer-pr">3200 11:01.30</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Leo Falk"><span class="coach-active-racer-name">Leo Falk</span><span class="coach-active-racer-pr">3200 11:03.90</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Colin Bozich"><span class="coach-active-racer-name">Colin Bozich</span><span class="coach-active-racer-pr">3200 11:04.32</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Bobby Poston"><span class="coach-active-racer-name">Bobby Poston</span><span class="coach-active-racer-pr">3200 11:17.70</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Owen Derrick"><span class="coach-active-racer-name">Owen Derrick</span><span class="coach-active-racer-pr">3200 11:27.10</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Nick Wolff"><span class="coach-active-racer-name">Nick Wolff</span><span class="coach-active-racer-pr">3200 11:45.80</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Ben Lewis"><span class="coach-active-racer-name">Ben Lewis</span><span class="coach-active-racer-pr">3200 11:52.24</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Quenton Horton"><span class="coach-active-racer-name">Quenton Horton</span><span class="coach-active-racer-pr">3200 11:55.00</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Evan Pfeffer"><span class="coach-active-racer-name">Evan Pfeffer</span><span class="coach-active-racer-pr">3200 11:58.20</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Levi Thornton"><span class="coach-active-racer-name">Levi Thornton</span><span class="coach-active-racer-pr">3200 12:03.90</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Sam Church"><span class="coach-active-racer-name">Sam Church</span><span class="coach-active-racer-pr">3200 12:05.10</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Ian Vickerstaff"><span class="coach-active-racer-name">Ian Vickerstaff</span><span class="coach-active-racer-pr">3200 12:08.60</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Noah Whitmore"><span class="coach-active-racer-name">Noah Whitmore</span><span class="coach-active-racer-pr">3200 12:14.98</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Thomas Dusza"><span class="coach-active-racer-name">Thomas Dusza</span><span class="coach-active-racer-pr">3200 12:22.00</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Henry Metzger"><span class="coach-active-racer-name">Henry Metzger</span><span class="coach-active-racer-pr">3200 12:24.74</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Sawyer Gates"><span class="coach-active-racer-name">Sawyer Gates</span><span class="coach-active-racer-pr">3200 12:26.36</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Garrett Pate"><span class="coach-active-racer-name">Garrett Pate</span><span class="coach-active-racer-pr">3200 12:26.46</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Owen Mattingly"><span class="coach-active-racer-name">Owen Mattingly</span><span class="coach-active-racer-pr">3200 12:27.60</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Alex Jemley"><span class="coach-active-racer-name">Alex Jemley</span><span class="coach-active-racer-pr">3200 13:10.90</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Andrew Reed"><span class="coach-active-racer-name">Andrew Reed</span><span class="coach-active-racer-pr">3200 13:15.50</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Garrett Kiper"><span class="coach-active-racer-name">Garrett Kiper</span><span class="coach-active-racer-pr">3200 13:16.40</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Trevor O'Nan"><span class="coach-active-racer-name">Trevor O'Nan</span><span class="coach-active-racer-pr">3200 13:30.70</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Nils Carlson"><span class="coach-active-racer-name">Nils Carlson</span><span class="coach-active-racer-pr">3200 16:24.94</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Aidan Daugherty"><span class="coach-active-racer-name">Aidan Daugherty</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Ajay Patel"><span class="coach-active-racer-name">Ajay Patel</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Alex Hartings"><span class="coach-active-racer-name">Alex Hartings</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Alex Moss"><span class="coach-active-racer-name">Alex Moss</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Andrew Greulich"><span class="coach-active-racer-name">Andrew Greulich</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Andrew Hastings"><span class="coach-active-racer-name">Andrew Hastings</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Anthony Durbin"><span class="coach-active-racer-name">Anthony Durbin</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Arthur Cavallazzi"><span class="coach-active-racer-name">Arthur Cavallazzi</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="August Cruz"><span class="coach-active-racer-name">August Cruz</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Avery Wilson"><span class="coach-active-racer-name">Avery Wilson</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Ben Roach"><span class="coach-active-racer-name">Ben Roach</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Benton Walker"><span class="coach-active-racer-name">Benton Walker</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Bodhi Peter"><span class="coach-active-racer-name">Bodhi Peter</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Brody Bolton"><span class="coach-active-racer-name">Brody Bolton</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Bruin Hedgespeth"><span class="coach-active-racer-name">Bruin Hedgespeth</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Bryce Lopez"><span class="coach-active-racer-name">Bryce Lopez</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Caleb Quirino"><span class="coach-active-racer-name">Caleb Quirino</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Campbell Corrigan"><span class="coach-active-racer-name">Campbell Corrigan</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Cash McCluskey"><span class="coach-active-racer-name">Cash McCluskey</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Charles Hackman"><span class="coach-active-racer-name">Charles Hackman</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Charlie Hummel"><span class="coach-active-racer-name">Charlie Hummel</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Cincere Rader"><span class="coach-active-racer-name">Cincere Rader</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Claude Spillman"><span class="coach-active-racer-name">Claude Spillman</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Cole Pandolfo"><span class="coach-active-racer-name">Cole Pandolfo</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Cooper Cox"><span class="coach-active-racer-name">Cooper Cox</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Crew Woodward"><span class="coach-active-racer-name">Crew Woodward</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Dalen Scott"><span class="coach-active-racer-name">Dalen Scott</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Dalton Beckham"><span class="coach-active-racer-name">Dalton Beckham</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Daniel Cottrell"><span class="coach-active-racer-name">Daniel Cottrell</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Daniel Smith"><span class="coach-active-racer-name">Daniel Smith</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Darius Williams"><span class="coach-active-racer-name">Darius Williams</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Deuce Byrne"><span class="coach-active-racer-name">Deuce Byrne</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Donovan Washer"><span class="coach-active-racer-name">Donovan Washer</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Dre Hunter"><span class="coach-active-racer-name">Dre Hunter</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Drew Davis"><span class="coach-active-racer-name">Drew Davis</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Elijah Buckner"><span class="coach-active-racer-name">Elijah Buckner</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Elliott Horton"><span class="coach-active-racer-name">Elliott Horton</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Ethan Pratt"><span class="coach-active-racer-name">Ethan Pratt</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Gabe Spohn"><span class="coach-active-racer-name">Gabe Spohn</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Gavin Brown"><span class="coach-active-racer-name">Gavin Brown</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Gavin Carwile"><span class="coach-active-racer-name">Gavin Carwile</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="George Hale"><span class="coach-active-racer-name">George Hale</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="George Watson"><span class="coach-active-racer-name">George Watson</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Giovanni Warren"><span class="coach-active-racer-name">Giovanni Warren</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Graham Brown (2030)"><span class="coach-active-racer-name">Graham Brown (2030)</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Grant Coons"><span class="coach-active-racer-name">Grant Coons</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Grayson Bird"><span class="coach-active-racer-name">Grayson Bird</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Grayson Brown"><span class="coach-active-racer-name">Grayson Brown</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Grayson Davis"><span class="coach-active-racer-name">Grayson Davis</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Grayson Staab"><span class="coach-active-racer-name">Grayson Staab</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Henry Gettelfinger"><span class="coach-active-racer-name">Henry Gettelfinger</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Hudson Koetter"><span class="coach-active-racer-name">Hudson Koetter</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Izaiah Gregory"><span class="coach-active-racer-name">Izaiah Gregory</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jack Eifler"><span class="coach-active-racer-name">Jack Eifler</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jack Legel"><span class="coach-active-racer-name">Jack Legel</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jack O'Bryan"><span class="coach-active-racer-name">Jack O'Bryan</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jack Schneider"><span class="coach-active-racer-name">Jack Schneider</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jacob Hettinger"><span class="coach-active-racer-name">Jacob Hettinger</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jamari Carroll"><span class="coach-active-racer-name">Jamari Carroll</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="James Greer"><span class="coach-active-racer-name">James Greer</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="James Pham"><span class="coach-active-racer-name">James Pham</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jameson Fox"><span class="coach-active-racer-name">Jameson Fox</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jayden London"><span class="coach-active-racer-name">Jayden London</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jayden Nguyen"><span class="coach-active-racer-name">Jayden Nguyen</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jayden Raglin"><span class="coach-active-racer-name">Jayden Raglin</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="John Hagedorn"><span class="coach-active-racer-name">John Hagedorn</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="John Lucian Brown"><span class="coach-active-racer-name">John Lucian Brown</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jonah Roach"><span class="coach-active-racer-name">Jonah Roach</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jordan Nguyen"><span class="coach-active-racer-name">Jordan Nguyen</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Joseph Nalley"><span class="coach-active-racer-name">Joseph Nalley</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Josh Lindsay"><span class="coach-active-racer-name">Josh Lindsay</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Josiah Crim"><span class="coach-active-racer-name">Josiah Crim</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jude Hamm"><span class="coach-active-racer-name">Jude Hamm</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Jude Zinner"><span class="coach-active-racer-name">Jude Zinner</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Juelz Adino"><span class="coach-active-racer-name">Juelz Adino</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Kayden Jones"><span class="coach-active-racer-name">Kayden Jones</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Korey Tutt Jr."><span class="coach-active-racer-name">Korey Tutt Jr.</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Kyron Dickerson"><span class="coach-active-racer-name">Kyron Dickerson</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Langdon Crump"><span class="coach-active-racer-name">Langdon Crump</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Liam Fischer"><span class="coach-active-racer-name">Liam Fischer</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Liam Norris"><span class="coach-active-racer-name">Liam Norris</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Luke Paynter"><span class="coach-active-racer-name">Luke Paynter</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Mack Lavelle"><span class="coach-active-racer-name">Mack Lavelle</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Marcus Spurgeon"><span class="coach-active-racer-name">Marcus Spurgeon</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Masen Morris"><span class="coach-active-racer-name">Masen Morris</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Mason Horlander"><span class="coach-active-racer-name">Mason Horlander</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Mason Sauerbeck"><span class="coach-active-racer-name">Mason Sauerbeck</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Matt Zoglman"><span class="coach-active-racer-name">Matt Zoglman</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Matthew Hernandez"><span class="coach-active-racer-name">Matthew Hernandez</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Max Wintergerst"><span class="coach-active-racer-name">Max Wintergerst</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Miar McLoughlin"><span class="coach-active-racer-name">Miar McLoughlin</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Michael Greulich"><span class="coach-active-racer-name">Michael Greulich</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Miles Connor"><span class="coach-active-racer-name">Miles Connor</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Noah Cavanaugh"><span class="coach-active-racer-name">Noah Cavanaugh</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Noah Spalding"><span class="coach-active-racer-name">Noah Spalding</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Oliver Schroeder"><span class="coach-active-racer-name">Oliver Schroeder</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Rajaii Walsh"><span class="coach-active-racer-name">Rajaii Walsh</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Rajii Walsh"><span class="coach-active-racer-name">Rajii Walsh</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Rhys Buschemeyer"><span class="coach-active-racer-name">Rhys Buschemeyer</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Robert Livermore"><span class="coach-active-racer-name">Robert Livermore</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Sam Silva"><span class="coach-active-racer-name">Sam Silva</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Sebastian Giudice"><span class="coach-active-racer-name">Sebastian Giudice</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Sebastian Guidice"><span class="coach-active-racer-name">Sebastian Guidice</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Steven Weinstein"><span class="coach-active-racer-name">Steven Weinstein</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Taylor Curran"><span class="coach-active-racer-name">Taylor Curran</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Tey Campbell"><span class="coach-active-racer-name">Tey Campbell</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Thomas Allgeier"><span class="coach-active-racer-name">Thomas Allgeier</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Timothy Baxter-Diniz"><span class="coach-active-racer-name">Timothy Baxter-Diniz</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Trey Macklin"><span class="coach-active-racer-name">Trey Macklin</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Tripp Kinnaird"><span class="coach-active-racer-name">Tripp Kinnaird</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Tristan Bohannon"><span class="coach-active-racer-name">Tristan Bohannon</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Tristen Scott"><span class="coach-active-racer-name">Tristen Scott</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Tyree Watts"><span class="coach-active-racer-name">Tyree Watts</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Vallen O'Kuma"><span class="coach-active-racer-name">Vallen O'Kuma</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Will Breunig"><span class="coach-active-racer-name">Will Breunig</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Will Mersch"><span class="coach-active-racer-name">Will Mersch</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Will Rogers"><span class="coach-active-racer-name">Will Rogers</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Will Tyler"><span class="coach-active-racer-name">Will Tyler</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Wilson Masick"><span class="coach-active-racer-name">Wilson Masick</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Xavier Jordan"><span class="coach-active-racer-name">Xavier Jordan</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Xavier McKinney"><span class="coach-active-racer-name">Xavier McKinney</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Zach Pfeffer"><span class="coach-active-racer-name">Zach Pfeffer</span><span class="coach-active-racer-pr">3200 —</span></button><button type="button" class="coach-active-racer" draggable="true" data-racer="Zeke Lorenz"><span class="coach-active-racer-name">Zeke Lorenz</span><span class="coach-active-racer-pr">3200 —</span></button>
+            </div>
+            <div id="coach-roster-status" class="coach-roster-status"></div>
+          </aside>
+
+          <div class="coach-race-planning">
+            <div id="coach-race-groups"></div>
+
+            <div class="coach-notes">
+              <label for="coach-notes">Alternates / Scratches / Coach Notes</label>
+              <textarea id="coach-notes" data-coach-save></textarea>
+            </div>
+          </div>
+        </div>
+        <datalist id="active-racer-options"></datalist>
+      </section>
+
+      <section class="coach-history">
+        <p class="coach-history-note muted">
+          Automatically populated from the most recent New Balance Nationals Indoor edition in the database.
+        </p>
+        
+        <div class="card">
+          <h2>Historical Reference: New Balance Nationals Indoor 2018</h2>
+          <p>
+            <a href="../meets/221_all.html">
+              Open the latest historical Track meet results
+            </a>
+          </p>
+        </div>
+        
+      </section>
+      <div class="footer">Generated at <code>2026-08-04 07:58:45</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    </div>
+    <script>
+      const coachStoragePrefix = "coach-pre-race-71";
+      const activeRacers = ["Nolan Crider", "Matthew Frick", "Everett Derrick", "Baron Staab", "Ian O'Bryan", "Tyler Hogan", "Owen Mayes", "Xavier Mudd", "Parker Lesshafft", "Jack Clifford", "Zach Reed", "Jimmy Greer", "Vincent Yochum", "Cooper Hogan", "Matthew Meirose", "Thomas Norton", "James Bush", "Ray Laracy", "Nathan Worley", "Levi Roach", "Leo Falk", "Colin Bozich", "Bobby Poston", "Owen Derrick", "Nick Wolff", "Ben Lewis", "Quenton Horton", "Evan Pfeffer", "Levi Thornton", "Sam Church", "Ian Vickerstaff", "Noah Whitmore", "Thomas Dusza", "Henry Metzger", "Sawyer Gates", "Garrett Pate", "Owen Mattingly", "Alex Jemley", "Andrew Reed", "Garrett Kiper", "Trevor O'Nan", "Nils Carlson", "Aidan Daugherty", "Ajay Patel", "Alex Hartings", "Alex Moss", "Andrew Greulich", "Andrew Hastings", "Anthony Durbin", "Arthur Cavallazzi", "August Cruz", "Avery Wilson", "Ben Roach", "Benton Walker", "Bodhi Peter", "Brody Bolton", "Bruin Hedgespeth", "Bryce Lopez", "Caleb Quirino", "Campbell Corrigan", "Cash McCluskey", "Charles Hackman", "Charlie Hummel", "Cincere Rader", "Claude Spillman", "Cole Pandolfo", "Cooper Cox", "Crew Woodward", "Dalen Scott", "Dalton Beckham", "Daniel Cottrell", "Daniel Smith", "Darius Williams", "Deuce Byrne", "Donovan Washer", "Dre Hunter", "Drew Davis", "Elijah Buckner", "Elliott Horton", "Ethan Pratt", "Gabe Spohn", "Gavin Brown", "Gavin Carwile", "George Hale", "George Watson", "Giovanni Warren", "Graham Brown (2030)", "Grant Coons", "Grayson Bird", "Grayson Brown", "Grayson Davis", "Grayson Staab", "Henry Gettelfinger", "Hudson Koetter", "Izaiah Gregory", "Jack Eifler", "Jack Legel", "Jack O'Bryan", "Jack Schneider", "Jacob Hettinger", "Jamari Carroll", "James Greer", "James Pham", "Jameson Fox", "Jayden London", "Jayden Nguyen", "Jayden Raglin", "John Hagedorn", "John Lucian Brown", "Jonah Roach", "Jordan Nguyen", "Joseph Nalley", "Josh Lindsay", "Josiah Crim", "Jude Hamm", "Jude Zinner", "Juelz Adino", "Kayden Jones", "Korey Tutt Jr.", "Kyron Dickerson", "Langdon Crump", "Liam Fischer", "Liam Norris", "Luke Paynter", "Mack Lavelle", "Marcus Spurgeon", "Masen Morris", "Mason Horlander", "Mason Sauerbeck", "Matt Zoglman", "Matthew Hernandez", "Max Wintergerst", "Miar McLoughlin", "Michael Greulich", "Miles Connor", "Noah Cavanaugh", "Noah Spalding", "Oliver Schroeder", "Rajaii Walsh", "Rajii Walsh", "Rhys Buschemeyer", "Robert Livermore", "Sam Silva", "Sebastian Giudice", "Sebastian Guidice", "Steven Weinstein", "Taylor Curran", "Tey Campbell", "Thomas Allgeier", "Timothy Baxter-Diniz", "Trey Macklin", "Tripp Kinnaird", "Tristan Bohannon", "Tristen Scott", "Tyree Watts", "Vallen O'Kuma", "Will Breunig", "Will Mersch", "Will Rogers", "Will Tyler", "Wilson Masick", "Xavier Jordan", "Xavier McKinney", "Zach Pfeffer", "Zeke Lorenz"];
+      const completedRaceRacers = ["Alex Hartings", "Alex Jemley", "Andrew Reed", "August Cruz", "Baron Staab", "Ben Lewis", "Ben Roach", "Bobby Poston", "Bodhi Peter", "Charles Hackman", "Claude Spillman", "Colin Bozich", "Cooper Hogan", "Crew Woodward", "Donovan Washer", "Drew Davis", "Ethan Pratt", "Evan Pfeffer", "Everett Derrick", "Garrett Kiper", "Garrett Pate", "Graham Brown (2030)", "Grant Coons", "Grayson Bird", "Grayson Staab", "Henry Gettelfinger", "Henry Metzger", "Hudson Koetter", "Ian O'Bryan", "Ian Vickerstaff", "Jack Clifford", "Jack Eifler", "Jack Schneider", "Jacob Hettinger", "James Bush", "James Greer", "James Pham", "Jameson Fox", "Jayden Nguyen", "Jayden Raglin", "Jimmy Greer", "John Hagedorn", "John Lucian Brown", "Jonah Roach", "Jordan Nguyen", "Joseph Nalley", "Leo Falk", "Levi Roach", "Levi Thornton", "Liam Norris", "Mack Lavelle", "Mason Horlander", "Matt Zoglman", "Matthew Frick", "Matthew Hernandez", "Matthew Meirose", "Miar McLoughlin", "Nathan Worley", "Nick Wolff", "Nils Carlson", "Noah Spalding", "Noah Whitmore", "Nolan Crider", "Oliver Schroeder", "Owen Derrick", "Owen Mattingly", "Owen Mayes", "Parker Lesshafft", "Quenton Horton", "Rajii Walsh", "Ray Laracy", "Sam Church", "Sawyer Gates", "Sebastian Giudice", "Taylor Curran", "Thomas Allgeier", "Thomas Dusza", "Thomas Norton", "Trevor O'Nan", "Tripp Kinnaird", "Tristan Bohannon", "Tyler Hogan", "Tyree Watts", "Vincent Yochum", "Xavier Mudd", "Zach Reed"];
+      const coachFields = Array.from(document.querySelectorAll("[data-coach-save]"));
+      const raceGroupsContainer = document.getElementById("coach-race-groups");
+      const activeRacerButtons = Array.from(
+        document.querySelectorAll(".coach-active-racer")
+      );
+      const activeRacerSearch = document.getElementById("coach-racer-search");
+      const coachRosterStatus = document.getElementById("coach-roster-status");
+      const coachRosterScope = document.getElementById("coach-roster-scope");
+      const coachNameFormat = document.getElementById("coach-name-format");
+      const activeRacerOptions = document.getElementById("active-racer-options");
+      const coachNameFormatStorageKey = "coach-pre-race:name-format";
+      const coachRosterScopeStorageKey = "coach-pre-race:roster-scope";
+      let selectedActiveRacer = "";
+      let selectedRosterScope =
+        localStorage.getItem(coachRosterScopeStorageKey) === "completed-race"
+          ? "completed-race"
+          : "all";
+      let selectedNameFormat =
+        localStorage.getItem(coachNameFormatStorageKey) === "last-first"
+          ? "last-first"
+          : "first-last";
+
+      function lastFirstName(name) {
+        const trimmed = String(name || "").trim();
+        if (!trimmed || trimmed.includes(",")) return trimmed;
+        const parts = trimmed.split(/\s+/);
+        if (parts.length < 2) return trimmed;
+        const last = parts.pop();
+        return `${last}, ${parts.join(" ")}`;
+      }
+
+      function firstLastName(name) {
+        const trimmed = String(name || "").trim();
+        if (!trimmed.includes(",")) return trimmed;
+        const [last, ...firstParts] = trimmed.split(",");
+        const first = firstParts.join(",").trim();
+        return `${first} ${last.trim()}`.trim();
+      }
+
+      const canonicalActiveRacers = new Map();
+      activeRacers.forEach(name => {
+        canonicalActiveRacers.set(name.toLowerCase(), name);
+        canonicalActiveRacers.set(lastFirstName(name).toLowerCase(), name);
+      });
+
+      function canonicalRacerName(name) {
+        const trimmed = String(name || "").trim();
+        return canonicalActiveRacers.get(trimmed.toLowerCase()) ||
+          firstLastName(trimmed);
+      }
+
+      function displayRacerName(name) {
+        const canonical = canonicalRacerName(name);
+        return selectedNameFormat === "last-first"
+          ? lastFirstName(canonical)
+          : canonical;
+      }
+
+      function racersForSelectedScope() {
+        return selectedRosterScope === "completed-race"
+          ? completedRaceRacers
+          : activeRacers;
+      }
+
+      function refreshActiveRacerList() {
+        const availableNames = new Set(
+          racersForSelectedScope().map(name => name.toLowerCase())
+        );
+        const searchText = activeRacerSearch.value.trim().toLowerCase();
+        activeRacerButtons.forEach(button => {
+          const racerName = button.dataset.racer || "";
+          const searchableName = `${racerName} ${displayRacerName(racerName)}`
+            .toLowerCase();
+          button.hidden = !availableNames.has(racerName.toLowerCase()) ||
+            (Boolean(searchText) && !searchableName.includes(searchText));
+        });
+        activeRacerOptions.innerHTML = racersForSelectedScope()
+          .map(name => `<option value="${escapeCoachValue(displayRacerName(name))}"></option>`)
+          .join("");
+      }
+
+      function renderNameFormat() {
+        coachNameFormat.value = selectedNameFormat;
+        activeRacerButtons.forEach(button => {
+          const label = button.querySelector(".coach-active-racer-name");
+          if (label) label.textContent = displayRacerName(button.dataset.racer || "");
+        });
+        refreshActiveRacerList();
+      }
+
+      function renderRosterScope() {
+        coachRosterScope.value = selectedRosterScope;
+        refreshActiveRacerList();
+        updateActiveRosterStatus();
+      }
+
+      function coachStorageKey(field) {
+        return `${coachStoragePrefix}:${field.id}`;
+      }
+
+      function blankAthletes(columns, rows) {
+        return Array(columns * rows).fill("");
+      }
+
+      function initialRaceGroups() {
+        return [
+          {
+            name: "Varsity",
+            arrival: "",
+            warmup: "",
+            race: "",
+            departure: "",
+            columns: 3,
+            rows: 5,
+            athletes: blankAthletes(3, 5)
+          },
+          {
+            name: "JV",
+            arrival: "",
+            warmup: "",
+            race: "",
+            departure: "",
+            columns: 5,
+            rows: 12,
+            athletes: blankAthletes(5, 12)
+          }
+        ];
+      }
+
+      function varsityThenJv(groups) {
+        const priority = group => {
+          const name = String(group.name || "").trim().toLowerCase();
+          if (name === "varsity") return 0;
+          if (name === "jv") return 1;
+          return 2;
+        };
+        return groups
+          .map((group, originalIndex) => ({ group, originalIndex }))
+          .sort((left, right) =>
+            priority(left.group) - priority(right.group) ||
+            left.originalIndex - right.originalIndex
+          )
+          .map(item => item.group);
+      }
+
+      function loadRaceGroups() {
+        try {
+          const saved = localStorage.getItem(`${coachStoragePrefix}:race-groups`);
+          if (!saved) return initialRaceGroups();
+          const parsed = JSON.parse(saved);
+          if (!Array.isArray(parsed) || !parsed.length) return initialRaceGroups();
+          return varsityThenJv(parsed.map(group => {
+            const columns = Math.max(1, Number(group.columns) || 1);
+            const rows = Math.max(1, Number(group.rows) || 1);
+            const athletes = Array.isArray(group.athletes)
+              ? group.athletes.slice(0, columns * rows)
+              : [];
+            while (athletes.length < columns * rows) athletes.push("");
+            return {
+              name: String(group.name || ""),
+              arrival: String(group.arrival || ""),
+              warmup: String(group.warmup || ""),
+              race: String(group.race || ""),
+              departure: String(group.departure || ""),
+              columns,
+              rows,
+              athletes
+            };
+          }));
+        } catch (_error) {
+          return initialRaceGroups();
+        }
+      }
+
+      let raceGroups = loadRaceGroups();
+
+      function escapeCoachValue(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;");
+      }
+
+      function racerCount(group) {
+        return group.athletes.filter(name => String(name).trim()).length;
+      }
+
+      function racerCountLabel(group) {
+        const count = racerCount(group);
+        return `${count} racer${count === 1 ? "" : "s"}`;
+      }
+
+      function saveRaceGroups() {
+        localStorage.setItem(
+          `${coachStoragePrefix}:race-groups`,
+          JSON.stringify(raceGroups)
+        );
+      }
+
+      function renderRaceGroups() {
+        raceGroupsContainer.innerHTML = raceGroups.map((group, groupIndex) => {
+          let populatedAthleteNumber = 0;
+          const rosterRows = Array.from({ length: group.rows }, (_unused, rowIndex) => {
+            const cells = Array.from({ length: group.columns }, (_unusedCell, columnIndex) => {
+              const athleteIndex = rowIndex * group.columns + columnIndex;
+              const athleteName = displayRacerName(group.athletes[athleteIndex]);
+              const athleteNumber = athleteName ? ++populatedAthleteNumber : "";
+              return `
+                <td class="coach-roster-slot${athleteName ? " has-athlete" : ""}">
+                  <span class="coach-slot-number" aria-hidden="true">${athleteNumber}</span>
+                  <input
+                    type="text"
+                    list="active-racer-options"
+                    aria-label="Racer ${athleteIndex + 1}"
+                    data-group="${groupIndex}"
+                    data-athlete="${athleteIndex}"
+                    value="${escapeCoachValue(athleteName)}"
+                  >
+                </td>`;
+            }).join("");
+            return `<tr>${cells}</tr>`;
+          }).join("");
+
+          return `
+            <section class="coach-race-group" data-group-section="${groupIndex}">
+              <div class="coach-race-group-header">
+                <input
+                  class="coach-group-name"
+                  type="text"
+                  aria-label="Race group name"
+                  data-group="${groupIndex}"
+                  data-field="name"
+                  value="${escapeCoachValue(group.name)}"
+                >
+                <span class="coach-racer-count" id="coach-racer-count-${groupIndex}">
+                  ${racerCountLabel(group)}
+                </span>
+                <div class="coach-group-controls">
+                  <button type="button" class="coach-control-button" onclick="addRosterRow(${groupIndex})">+ Row</button>
+                  <button type="button" class="coach-control-button" onclick="removeRosterRow(${groupIndex})">− Last Row</button>
+                  <button type="button" class="coach-control-button" onclick="addRosterColumn(${groupIndex})">+ Column</button>
+                  <button type="button" class="coach-control-button" onclick="removeRosterColumn(${groupIndex})">− Last Column</button>
+                  <button type="button" class="coach-control-button" onclick="removeRaceGroup(${groupIndex})">Remove Group</button>
+                </div>
+              </div>
+              <div class="coach-group-schedule">
+                ${["arrival", "warmup", "race", "departure"].map(field => `
+                  <div>
+                    <label>${field}</label>
+                    <input
+                      type="text"
+                      data-group="${groupIndex}"
+                      data-field="${field}"
+                      value="${escapeCoachValue(group[field])}"
+                    >
+                  </div>
+                `).join("")}
+              </div>
+              <div class="table-wrap">
+                <table class="coach-roster-grid"><tbody>${rosterRows}</tbody></table>
+              </div>
+            </section>`;
+        }).join("");
+        updateActiveRosterStatus();
+      }
+
+      function addRaceGroup() {
+        raceGroups.push({
+          name: "New Race Group",
+          arrival: "",
+          warmup: "",
+          race: "",
+          departure: "",
+          columns: 3,
+          rows: 6,
+          athletes: blankAthletes(3, 6)
+        });
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function addRosterRow(groupIndex) {
+        const group = raceGroups[groupIndex];
+        group.rows += 1;
+        group.athletes.push(...blankAthletes(group.columns, 1));
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function addRosterColumn(groupIndex) {
+        const group = raceGroups[groupIndex];
+        const expanded = [];
+        for (let rowIndex = 0; rowIndex < group.rows; rowIndex += 1) {
+          const start = rowIndex * group.columns;
+          expanded.push(...group.athletes.slice(start, start + group.columns), "");
+        }
+        group.columns += 1;
+        group.athletes = expanded;
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function removeRosterRow(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!group || group.rows <= 1) {
+          window.alert("A race group must keep at least one row.");
+          return;
+        }
+        const removed = group.athletes.slice(
+          (group.rows - 1) * group.columns
+        );
+        if (
+          removed.some(name => String(name || "").trim()) &&
+          !window.confirm("Delete the last row and its assigned athletes?")
+        ) return;
+        group.rows -= 1;
+        group.athletes = group.athletes.slice(0, group.rows * group.columns);
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function removeRosterColumn(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!group || group.columns <= 1) {
+          window.alert("A race group must keep at least one column.");
+          return;
+        }
+        const removed = Array.from(
+          { length: group.rows },
+          (_unused, rowIndex) =>
+            group.athletes[rowIndex * group.columns + group.columns - 1]
+        );
+        if (
+          removed.some(name => String(name || "").trim()) &&
+          !window.confirm("Delete the last column and its assigned athletes?")
+        ) return;
+        const reduced = [];
+        for (let rowIndex = 0; rowIndex < group.rows; rowIndex += 1) {
+          const start = rowIndex * group.columns;
+          reduced.push(
+            ...group.athletes.slice(start, start + group.columns - 1)
+          );
+        }
+        group.columns -= 1;
+        group.athletes = reduced;
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function removeRaceGroup(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!window.confirm(`Remove the ${group.name || "unnamed"} race group?`)) return;
+        raceGroups.splice(groupIndex, 1);
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function assignRacerToInput(input, racerName) {
+        const groupIndex = Number(input.dataset.group);
+        const athleteIndex = Number(input.dataset.athlete);
+        if (!raceGroups[groupIndex] || !Number.isInteger(athleteIndex)) return;
+        raceGroups[groupIndex].athletes[athleteIndex] = racerName;
+        input.value = racerName;
+        selectedActiveRacer = "";
+        saveRaceGroups();
+        updateRosterCounts(groupIndex);
+        updateActiveRosterStatus();
+      }
+
+      function updateRosterCounts(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!group) return;
+        const count = document.getElementById(`coach-racer-count-${groupIndex}`);
+        if (count) count.textContent = racerCountLabel(group);
+        let populatedAthleteNumber = 0;
+        raceGroupsContainer
+          .querySelectorAll(`input[data-group="${groupIndex}"][data-athlete]`)
+          .forEach(input => {
+            const populated = Boolean(input.value.trim());
+            const cell = input.closest(".coach-roster-slot");
+            const number = cell ? cell.querySelector(".coach-slot-number") : null;
+            if (cell) cell.classList.toggle("has-athlete", populated);
+            if (number) {
+              number.textContent = populated ? String(++populatedAthleteNumber) : "";
+            }
+          });
+      }
+
+      function firstEmptyInput(groupIndex) {
+        const group = raceGroups[groupIndex];
+        if (!group) return null;
+        let athleteIndex = group.athletes.findIndex(name => !String(name).trim());
+        if (athleteIndex < 0) {
+          group.rows += 1;
+          group.athletes.push(...blankAthletes(group.columns, 1));
+          renderRaceGroups();
+          athleteIndex = group.athletes.length - group.columns;
+        }
+        return raceGroupsContainer.querySelector(
+          `input[data-group="${groupIndex}"][data-athlete="${athleteIndex}"]`
+        );
+      }
+
+      function updateActiveRosterStatus() {
+        const assignedNames = new Set(
+          raceGroups
+            .flatMap(group => group.athletes)
+            .map(name => canonicalRacerName(name).toLowerCase())
+            .filter(Boolean)
+        );
+        activeRacerButtons.forEach(button => {
+          const racerName = button.dataset.racer || "";
+          button.classList.toggle("is-selected", racerName === selectedActiveRacer);
+          button.classList.toggle(
+            "is-assigned",
+            assignedNames.has(racerName.toLowerCase())
+          );
+        });
+        if (selectedActiveRacer) {
+          coachRosterStatus.textContent =
+            `${displayRacerName(selectedActiveRacer)} selected — click a racer space.`;
+        } else {
+          const availableCount = racersForSelectedScope().length;
+          coachRosterStatus.textContent =
+            `${assignedNames.size} assigned · ${availableCount} available`;
+        }
+      }
+
+      activeRacerButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const racerName = button.dataset.racer || "";
+          selectedActiveRacer =
+            selectedActiveRacer === racerName ? "" : racerName;
+          updateActiveRosterStatus();
+        });
+        button.addEventListener("dragstart", event => {
+          const racerName = button.dataset.racer || "";
+          event.dataTransfer.setData("text/plain", racerName);
+          event.dataTransfer.effectAllowed = "copy";
+        });
+      });
+
+      activeRacerSearch.addEventListener("input", () => {
+        refreshActiveRacerList();
+      });
+
+      coachRosterScope.addEventListener("change", () => {
+        selectedRosterScope = coachRosterScope.value === "completed-race"
+          ? "completed-race"
+          : "all";
+        selectedActiveRacer = "";
+        localStorage.setItem(coachRosterScopeStorageKey, selectedRosterScope);
+        renderRosterScope();
+      });
+
+      coachNameFormat.addEventListener("change", () => {
+        selectedNameFormat = coachNameFormat.value === "last-first"
+          ? "last-first"
+          : "first-last";
+        localStorage.setItem(coachNameFormatStorageKey, selectedNameFormat);
+        renderNameFormat();
+        renderRaceGroups();
+      });
+
+      raceGroupsContainer.addEventListener("dragover", event => {
+        const input = event.target.closest("input[data-athlete]");
+        const groupSection = event.target.closest(".coach-race-group");
+        if (!input && !groupSection) return;
+        event.preventDefault();
+        raceGroupsContainer
+          .querySelectorAll(".coach-drop-target")
+          .forEach(element => element.classList.remove("coach-drop-target"));
+        (input || groupSection).classList.add("coach-drop-target");
+      });
+
+      raceGroupsContainer.addEventListener("dragleave", event => {
+        if (!raceGroupsContainer.contains(event.relatedTarget)) {
+          raceGroupsContainer
+            .querySelectorAll(".coach-drop-target")
+            .forEach(element => element.classList.remove("coach-drop-target"));
+        }
+      });
+
+      raceGroupsContainer.addEventListener("drop", event => {
+        event.preventDefault();
+        let input = event.target.closest("input[data-athlete]");
+        if (!input) {
+          const groupSection = event.target.closest(".coach-race-group");
+          if (groupSection) {
+            input = firstEmptyInput(Number(groupSection.dataset.groupSection));
+          }
+        }
+        const racerName = event.dataTransfer.getData("text/plain").trim();
+        raceGroupsContainer
+          .querySelectorAll(".coach-drop-target")
+          .forEach(element => element.classList.remove("coach-drop-target"));
+        if (input && racerName) assignRacerToInput(input, racerName);
+      });
+
+      raceGroupsContainer.addEventListener("click", event => {
+        if (!selectedActiveRacer) return;
+        const input = event.target.closest("input[data-athlete]");
+        if (input) assignRacerToInput(input, selectedActiveRacer);
+      });
+
+      raceGroupsContainer.addEventListener("input", event => {
+        const target = event.target;
+        const groupIndex = Number(target.dataset.group);
+        if (!Number.isInteger(groupIndex) || !raceGroups[groupIndex]) return;
+        if (target.dataset.field) {
+          raceGroups[groupIndex][target.dataset.field] = target.value;
+        } else if (target.dataset.athlete !== undefined) {
+          const athleteIndex = Number(target.dataset.athlete);
+          raceGroups[groupIndex].athletes[athleteIndex] = target.value;
+          updateRosterCounts(groupIndex);
+          updateActiveRosterStatus();
+        }
+        saveRaceGroups();
+      });
+
+      coachFields.forEach(field => {
+        const saved = localStorage.getItem(coachStorageKey(field));
+        if (saved !== null) field.value = saved;
+        field.addEventListener("input", () => {
+          localStorage.setItem(coachStorageKey(field), field.value);
+        });
+      });
+
+      function clearCoachSheet() {
+        if (!window.confirm("Clear all information entered on this coach sheet?")) return;
+        Object.keys(localStorage)
+          .filter(key => key.startsWith(`${coachStoragePrefix}:`))
+          .forEach(key => localStorage.removeItem(key));
+        coachFields.forEach(field => {
+          field.value = "";
+        });
+        raceGroups = initialRaceGroups();
+        saveRaceGroups();
+        renderRaceGroups();
+      }
+
+      function coachFieldValue(id) {
+        const field = document.getElementById(id);
+        return field ? field.value.trim() : "";
+      }
+
+      function googleDocsHtml() {
+        const detailRows = [
+          ["Date", coachFieldValue("upcoming-date")],
+          ["Location", coachFieldValue("upcoming-location")],
+          ["Weather", coachFieldValue("upcoming-weather")],
+          ["Meet Notes", coachFieldValue("upcoming-meet-notes")]
+        ].filter(row => row[1]);
+
+        const details = detailRows.length
+          ? `<table style="border-collapse:collapse;width:100%;margin-bottom:14px">
+              ${detailRows.map(row => `
+                <tr>
+                  <td style="border:1px solid #777;padding:6px;font-weight:bold;width:120px">${escapeCoachValue(row[0])}</td>
+                  <td style="border:1px solid #777;padding:6px">${escapeCoachValue(row[1])}</td>
+                </tr>`).join("")}
+            </table>`
+          : "";
+
+        const groups = raceGroups.map(group => {
+          const schedule = [
+            ["Arrival", group.arrival],
+            ["Warmup", group.warmup],
+            ["Race", group.race],
+            ["Departure", group.departure]
+          ];
+          const athletes = group.athletes
+            .map(name => displayRacerName(name))
+            .filter(Boolean);
+          const columns = Math.max(1, Math.min(group.columns, 5));
+          const rosterRows = [];
+          for (let index = 0; index < athletes.length; index += columns) {
+            const row = athletes.slice(index, index + columns);
+            while (row.length < columns) row.push("");
+            rosterRows.push(
+              `<tr>${row.map(name => `<td style="border:1px solid #777;padding:6px">${escapeCoachValue(name)}</td>`).join("")}</tr>`
+            );
+          }
+          if (!rosterRows.length) {
+            rosterRows.push(
+              `<tr>${Array.from({ length: columns }, () => '<td style="border:1px solid #777;padding:12px">&nbsp;</td>').join("")}</tr>`
+            );
+          }
+          return `
+            <h2 style="margin:18px 0 6px">${escapeCoachValue(group.name || "Race Group")} (${athletes.length} racers)</h2>
+            <table style="border-collapse:collapse;width:100%;margin-bottom:8px">
+              <tr>${schedule.map(item => `<th style="border:1px solid #777;padding:5px;background:#eee">${item[0]}</th>`).join("")}</tr>
+              <tr>${schedule.map(item => `<td style="border:1px solid #777;padding:6px;text-align:center">${escapeCoachValue(item[1]) || "&nbsp;"}</td>`).join("")}</tr>
+            </table>
+            <table style="border-collapse:collapse;width:100%;margin-bottom:12px">${rosterRows.join("")}</table>`;
+        }).join("");
+
+        const notes = coachFieldValue("coach-notes");
+        return `
+          <div>
+            <h1 style="margin-bottom:2px">Pre-Race Sheet Creator</h1>
+            <h2 style="margin-top:0">New Balance Nationals Indoor</h2>
+            ${details}
+            ${groups}
+            ${notes ? `<h2>Alternates / Scratches / Coach Notes</h2><p>${escapeCoachValue(notes).replaceAll("\n", "<br>")}</p>` : ""}
+          </div>`;
+      }
+
+      function googleDocsPlainText() {
+        const lines = [
+          "Pre-Race Sheet Creator",
+          "New Balance Nationals Indoor",
+          ""
+        ];
+        [
+          ["Date", coachFieldValue("upcoming-date")],
+          ["Location", coachFieldValue("upcoming-location")],
+          ["Weather", coachFieldValue("upcoming-weather")],
+          ["Meet Notes", coachFieldValue("upcoming-meet-notes")]
+        ].forEach(item => {
+          if (item[1]) lines.push(`${item[0]}: ${item[1]}`);
+        });
+        raceGroups.forEach(group => {
+          const athletes = group.athletes
+            .map(name => displayRacerName(name))
+            .filter(Boolean);
+          lines.push("", `${group.name || "Race Group"} (${athletes.length} racers)`);
+          lines.push(
+            `Arrival: ${group.arrival || ""} | Warmup: ${group.warmup || ""} | ` +
+            `Race: ${group.race || ""} | Departure: ${group.departure || ""}`
+          );
+          athletes.forEach(name => lines.push(name));
+        });
+        const notes = coachFieldValue("coach-notes");
+        if (notes) lines.push("", "Alternates / Scratches / Coach Notes", notes);
+        return lines.join("\n");
+      }
+
+      async function copyCoachSheetForGoogleDocs() {
+        const button = document.getElementById("copy-google-docs-button");
+        const originalText = button.textContent;
+        const richHtml = googleDocsHtml();
+        const plainText = googleDocsPlainText();
+        try {
+          if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+            const item = new ClipboardItem({
+              "text/html": new Blob([richHtml], { type: "text/html" }),
+              "text/plain": new Blob([plainText], { type: "text/plain" })
+            });
+            await navigator.clipboard.write([item]);
+          } else {
+            const copyArea = document.createElement("div");
+            copyArea.contentEditable = "true";
+            copyArea.style.position = "fixed";
+            copyArea.style.left = "-9999px";
+            copyArea.innerHTML = richHtml;
+            document.body.appendChild(copyArea);
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(copyArea);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            if (!document.execCommand("copy")) throw new Error("Copy command failed");
+            selection.removeAllRanges();
+            copyArea.remove();
+          }
+          button.textContent = "Copied — Paste into Google Docs";
+        } catch (_error) {
+          window.prompt("Copy this text, then paste it into Google Docs:", plainText);
+          button.textContent = "Copy Manually";
+        }
+        window.setTimeout(() => {
+          button.textContent = originalText;
+        }, 3500);
+      }
+
+      renderNameFormat();
+      renderRosterScope();
+      renderRaceGroups();
+    </script>
+    
+</body>
+</html>
