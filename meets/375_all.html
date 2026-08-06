@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2003-02-21 | Mason-Dixon Games</title>
   
     <style>
@@ -27,6 +28,24 @@
         font-size: 16px;
         font-weight: 700;
         margin-left: 12px;
+      }
+      .nav a.feedback-link, .nav span.feedback-link {
+        display:inline-block;
+        margin-left:14px;
+        border:2px solid #d39b00;
+        border-radius:999px;
+        padding:6px 12px;
+        background:#f4c542;
+        color:#172554;
+        font-size:14px;
+        font-weight:900;
+        line-height:1;
+        box-shadow:0 2px 7px rgba(15, 23, 42, 0.13);
+      }
+      .nav a.feedback-link:hover {
+        background:#ffd963;
+        text-decoration:none;
+        transform:translateY(-1px);
       }
       .nav span { color: #333; }
       .card { border:1px solid #e6e6e6; border-radius:10px; padding:16px; margin:14px 0; }
@@ -92,6 +111,101 @@
         margin:0;
         padding:12px 18px 13px 38px;
         line-height:1.45;
+      }
+      .athlete-index-table { width:100%; }
+      .athlete-index-table th { cursor:pointer; user-select:none; }
+      .athlete-index-table th:hover { background:#e9eef6; }
+      .athlete-index-table th .sort-indicator { margin-left:5px; color:#64748b; font-size:11px; }
+      .athlete-index-table td:nth-child(1),
+      .athlete-index-table td:nth-child(3) { text-align:right; }
+      .athlete-index-table .no-pr { color:#999; }
+      .athlete-table-heading { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin:0 0 8px 0; }
+      .athlete-table-heading h3 { margin:0; }
+      .athlete-table-count { color:#64748b; font-size:12px; font-weight:700; }
+      .home-grid {
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:16px;
+        align-items:start;
+      }
+      .home-column { min-width:0; }
+      .home-column > .card { margin-top:0; }
+      .home-column-heading {
+        display:flex; align-items:baseline; justify-content:space-between;
+        gap:10px; margin:0 0 10px 0;
+      }
+      .home-column-heading h2, .home-column-heading h3 { margin:0; }
+      .home-column-heading-meta {
+        display:flex; align-items:center; justify-content:flex-end;
+        gap:8px; flex-wrap:wrap;
+      }
+      .athlete-name-format-toggle {
+        border:1px solid #93a4ba; border-radius:999px; background:#f8fafc;
+        color:#334155; padding:5px 9px; cursor:pointer;
+        font:700 11px Arial, sans-serif;
+      }
+      .athlete-name-format-toggle:hover { background:#eaf2ff; border-color:#6f91c3; }
+      .athlete-card-search {
+        box-sizing:border-box; width:100%; margin:0;
+        border:1px solid #cbd5e1; border-radius:8px; padding:9px 10px;
+        background:#fff; font:14px Arial, sans-serif;
+      }
+      .athlete-card-controls {
+        display:grid; grid-template-columns:minmax(0, 1fr) auto;
+        gap:8px; align-items:center; margin:0 0 10px 0;
+      }
+      .athlete-sort-control {
+        display:flex; align-items:center; gap:6px;
+        color:#475569; font-size:12px; font-weight:800;
+      }
+      .athlete-sort-control select {
+        border:1px solid #cbd5e1; border-radius:8px; background:#fff;
+        padding:8px 7px; font:13px Arial, sans-serif;
+      }
+      .athlete-index-cards {
+        display:flex; flex-direction:column; gap:7px;
+      }
+      .athlete-index-card {
+        display:flex; align-items:center; gap:10px; min-width:0;
+        border:1px solid #dbe3ee; border-radius:9px; padding:8px 10px;
+        background:#fff; color:#172554;
+        box-shadow:0 2px 7px rgba(15, 23, 42, 0.06);
+      }
+      .athlete-index-card:hover {
+        border-color:#93b4e8; background:#f8fbff; text-decoration:none;
+        transform:translateY(-1px);
+      }
+      .athlete-index-card[hidden] { display:none !important; }
+      .athlete-year-bubble {
+        display:inline-flex; align-items:center; justify-content:center;
+        flex:0 0 50px; min-height:28px; border-radius:999px;
+        color:#fff; font-size:12px; font-weight:900; letter-spacing:.02em;
+      }
+      .athlete-year-tone-0 { background:#1d4ed8; }
+      .athlete-year-tone-1 { background:#0f766e; }
+      .athlete-year-tone-2 { background:#7e22ce; }
+      .athlete-year-tone-3 { background:#b45309; }
+      .athlete-year-tone-4 { background:#be123c; }
+      .athlete-year-tone-5 { background:#334155; }
+      .athlete-grade-senior { background:#15803d; }
+      .athlete-grade-junior { background:#f4c542; color:#172554; }
+      .athlete-grade-sophomore { background:#2563eb; }
+      .athlete-grade-freshman { background:#dc2626; }
+      .athlete-year-missing { background:#78716c; }
+      .athlete-index-card-copy {
+        display:flex; flex-direction:column; gap:2px; min-width:0;
+      }
+      .athlete-index-card-copy strong {
+        overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+        color:#0b5fff; font-size:14px;
+      }
+      .athlete-index-card-copy small { color:#64748b; font-size:11px; }
+      .athlete-index-card-copy small.no-pr { color:#9ca3af; }
+      .athlete-missing-block {
+        border-top:1px solid #e5e7eb; margin-top:18px; padding-top:14px;
+      }
+      @media (max-width:900px) {
+        .home-grid { grid-template-columns:1fr; }
       }
       .rankcell { font-weight: 800; }
       .chart-container { position: relative; height: 320px; width: 100%; max-width: 900px; margin: 20px 0 0 0; }
@@ -210,14 +324,7 @@
       .meet-location { color:#475569; font-size:12px; }
     </style>
     
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-<style>
-  .nav a.feedback-link { display:inline-block; margin-left:14px; border:2px solid #d39b00; border-radius:999px; padding:6px 12px; background:#f4c542; color:#172554; font-size:14px; font-weight:900; line-height:1; box-shadow:0 2px 7px rgba(15,23,42,.13); }
-  .nav a.feedback-link:hover { background:#ffd963; text-decoration:none; transform:translateY(-1px); }
-</style>
-
-<!-- STX_HEADER_CSS_START -->
+  <!-- STX_HEADER_CSS_START -->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap');
 
@@ -438,6 +545,8 @@
       }
     </style>
     <!-- STX_HEADER_CSS_END -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
 <!-- STX_HEADER_HTML_START -->
@@ -475,7 +584,6 @@
     </aside>
     <!-- STX_HEADER_HTML_END -->
 
-
     <div class="topbar">
       <div class="titlewrap">
         <div class="date">2003-02-21</div>
@@ -484,8 +592,8 @@
         <p class="subline muted">Indoor</p>
       </div>
       <div class="nav">
-        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Pre-Race Sheet Creator</a>
-       <a class='feedback-link' href='../feedback.html'>Feedback</a></div>
+        <a class='home-link' href='../index.html'>Home</a> <a class='records-link' href='../records.html'>StX Records</a> <a class='depth-link' href='../depth_chart.html'>Depth Chart</a> <a class='comparison-link' href='../athlete_comparison.html'>Athlete Comparison</a> <a class='coach-link' href='../coach_sheets/index.html'>Pre-Race Sheet Creator</a> <a class='feedback-link' href='../feedback.html'>Feedback</a>
+      </div>
     </div>
     
     <div class="filterbar" style="margin: 4px 0 10px 0;">
@@ -514,8 +622,7 @@
       <h2>🎉 PR Parade:</h2>
       <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/thomas_davis.html'>Thomas Davis</a>, <span class='pr-time'>4:34.41</span></span>; <span class='pr-parade-entry'><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a>, <span class='pr-time'>8:38.30</span></span></div>
     </div>
-    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Ondrej Puskar</td><td>South Oldham</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td>2:08.40</td></tr><tr class="non-stx-row"><td>Ian Sisson</td><td>Greenwood</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>2:10.85</td></tr><tr class="non-stx-row"><td>Kyle Newman</td><td>Henry Clay</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>2:11.31</td></tr><tr class="non-stx-row"><td>Chris Hall</td><td>Meade County</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>2:12.18</td></tr><tr><td><a href='../athletes/justin_gooch.html'>Justin Gooch</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>5</td><td>2:09.81</td><td class="dimmed-pr">2:07.06</td><td>2:12.38</td></tr><tr class="non-stx-row"><td>Daniel Rothschild</td><td>Dupont Manual</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>2:13.20</td></tr><tr class="non-stx-row"><td>Rex Pleasant</td><td>Male</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>2:13.45</td></tr><tr class="non-stx-row"><td>Andrew Fritz</td><td>Henderson County</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td>2:13.93</td></tr><tr class="non-stx-row"><td>Adam Holt</td><td>Marshall County</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>2:14.19</td></tr><tr class="non-stx-row"><td>Tyler Short</td><td>Trinity High School</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>2:14.95</td></tr><tr class="non-stx-row"><td>Michael Hunter</td><td>Daviess County</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>2:16.11</td></tr><tr class="non-stx-row"><td>Trey Greene</td><td>Conner</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>2:17.07</td></tr><tr class="non-stx-row"><td>Wes Gift</td><td>Grayson County</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>2:18.20</td></tr><tr class="non-stx-row"><td>Justin Hull</td><td>Pulaski County</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>2:18.47</td></tr><tr class="non-stx-row"><td>Miguel Gonzalez</td><td>Ballard</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>2:18.63</td></tr><tr class="non-stx-row"><td>James Dunn</td><td>Butler High School</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>2:20.66</td></tr><tr class="non-stx-row"><td>Josh Cochran</td><td>John Hardin</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>2:20.77</td></tr><tr class="non-stx-row"><td>Kevin Austin</td><td>Apollo</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>2:20.92</td></tr><tr class="non-stx-row"><td>Josh Metzger</td><td>Covington Catholic</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>2:21.91</td></tr><tr class="non-stx-row"><td>Dustin Thompson</td><td>North Hardin</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>2:23.74</td></tr><tr class="non-stx-row"><td>Nathan Eamos</td><td>Eastern High School</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>2:24.27</td></tr><tr class="non-stx-row"><td>John Kalz</td><td>PSW</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>2:25.00</td></tr><tr class="non-stx-row"><td>Eric Slaymaker</td><td>Tates Creek</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>2:27.48</td></tr><tr class="non-stx-row"><td>Brent Kipler</td><td>Bowling Green</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>2:29.60</td></tr><tr class="non-stx-row"><td>Patrick Hardy</td><td>Jeffersontown</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>2:29.87</td></tr><tr class="non-stx-row"><td>Matt Qurgley</td><td>Paul L.Dunbar</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>2:30.71</td></tr><tr class="non-stx-row"><td>Ben Hobbs</td><td>Owensboro</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>2:32.01</td></tr><tr class="non-stx-row"><td>Rafael Lezcano</td><td>Boone County</td><td>1</td><td>28</td><td></td><td class="dimmed-pr"></td><td>2:32.69</td></tr><tr class="non-stx-row"><td>Jonatha Frazier</td><td>Doss</td><td>1</td><td>29</td><td></td><td class="dimmed-pr"></td><td>2:38.17</td></tr><tr class="non-stx-row"><td>Kevin Moore</td><td>Iroquois</td><td>1</td><td>30</td><td></td><td class="dimmed-pr"></td><td>2:38.77</td></tr><tr class="non-stx-row"><td>Jonathan Buck</td><td>Barren County</td><td>1</td><td>31</td><td></td><td class="dimmed-pr"></td><td>2:39.31</td></tr><tr class="non-stx-row"><td>Chase Haertel</td><td>Woodford County</td><td>1</td><td>32</td><td></td><td class="dimmed-pr"></td><td>2:39.70</td></tr><tr class="non-stx-row"><td>Andrew Buchanan</td><td>Pleasure Ridge Park</td><td>1</td><td>33</td><td></td><td class="dimmed-pr"></td><td>2:43.20</td></tr><tr class="non-stx-row"><td>Matt Tyler</td><td>Oldham County Hi</td><td>1</td><td>34</td><td></td><td class="dimmed-pr"></td><td>2:50.30</td></tr><tr class="non-stx-row"><td>Bruce White</td><td>Central</td><td>1</td><td>35</td><td></td><td class="dimmed-pr"></td><td>3:09.47</td></tr></tbody></table></div></div><div class='card'><h2>1500 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Zach Wilder</td><td>Woodford County</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td>4:12.36</td></tr><tr class="non-stx-row"><td>Jose\' Solis</td><td>Conner</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>4:23.00</td></tr><tr class="non-stx-row"><td>Zach Tuttle</td><td>Butler High School</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>4:25.54</td></tr><tr class="non-stx-row"><td>Brandon Berry</td><td>Daviess County</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>4:29.63</td></tr><tr class="non-stx-row"><td>Andrew McCann</td><td>Paul L.Dunbar</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td>4:30.62</td></tr><tr class="non-stx-row"><td>Brian Dugan</td><td>South Oldham</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>4:31.49</td></tr><tr class="non-stx-row"><td>Caleb LaFond</td><td>Seneca</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>4:32.28</td></tr><tr><td><a href='../athletes/thomas_davis.html'>Thomas Davis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td class="pr">4:34.41</td></tr><tr class="non-stx-row"><td>Patrick Hammonds</td><td>Tates Creek</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>4:36.63</td></tr><tr class="non-stx-row"><td>Michael Raidt</td><td>Trinity High School</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>4:37.32</td></tr><tr class="non-stx-row"><td>Jason Osborne</td><td>Greenwood</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>4:37.84</td></tr><tr class="non-stx-row"><td>Sam Conly</td><td>Covington Catholic</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>4:43.16</td></tr><tr class="non-stx-row"><td>Kevin Austin</td><td>Apollo</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>4:46.46</td></tr><tr class="non-stx-row"><td>Brandon Lewis</td><td>North Hardin</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>4:47.07</td></tr><tr class="non-stx-row"><td>George Canter</td><td>Grayson County</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>4:48.85</td></tr><tr class="non-stx-row"><td>Charles Griffin</td><td>Male</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>4:54.43</td></tr><tr class="non-stx-row"><td>Eric Granacher</td><td>Boone County</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>5:00.10</td></tr><tr class="non-stx-row"><td>Russell Thomas</td><td>PSW</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>5:01.96</td></tr><tr class="non-stx-row"><td>Wes Smith</td><td>Marshall County</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>5:05.41</td></tr><tr class="non-stx-row"><td>Tony Moorman</td><td>Meade County</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>5:07.23</td></tr><tr class="non-stx-row"><td>Sean Brophy</td><td>Barren County</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>5:07.94</td></tr><tr class="non-stx-row"><td>Aaron Lindsey</td><td>Owensboro</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>5:10.03</td></tr><tr class="non-stx-row"><td>Brandon Freeman</td><td>John Hardin</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>5:15.34</td></tr><tr class="non-stx-row"><td>Daniel Cunningham</td><td>Doss</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>5:25.48</td></tr><tr class="non-stx-row"><td>Tyler Lankerd</td><td>Eastern High School</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>5:29.85</td></tr><tr class="non-stx-row"><td>Carl Hohman</td><td>Henderson County</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>5:33.89</td></tr><tr class="non-stx-row"><td>Jason Gannon</td><td>Iroquois</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>5:50.39</td></tr><tr class="non-stx-row"><td>Bobby Kimberlin</td><td>Ballard</td><td>1</td><td>28</td><td></td><td class="dimmed-pr"></td><td>6:29.25</td></tr><tr class="non-stx-row"><td>Frank Cannon</td><td>Jeffersontown</td><td>1</td><td>29</td><td></td><td class="dimmed-pr"></td><td>6:47.24</td></tr></tbody></table></div></div><div class='card'><h2>3000 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td class="pr">8:38.30</td></tr><tr class="non-stx-row"><td>Zach Wilder</td><td>Woodford County</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>9:07.27</td></tr><tr class="non-stx-row"><td>Jacob Buckman</td><td>Butler High School</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>9:09.53</td></tr><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>9:22.81</td></tr><tr class="non-stx-row"><td>Jose\' Solis</td><td>Conner</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td>9:44.16</td></tr><tr class="non-stx-row"><td>Caleb LaFond</td><td>Seneca</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>9:44.80</td></tr><tr class="non-stx-row"><td>Kal Clark</td><td>South Oldham</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>9:49.46</td></tr><tr class="non-stx-row"><td>Jon Richard</td><td>Daviess County</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td>9:58.60</td></tr><tr class="non-stx-row"><td>Patrick Hammonds</td><td>Tates Creek</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>10:01.48</td></tr><tr class="non-stx-row"><td>Lewis Samuels</td><td>Eastern High School</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>10:04.78</td></tr><tr class="non-stx-row"><td>Aaron Bush</td><td>Barren County</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>10:23.89</td></tr><tr class="non-stx-row"><td>Jason Ashley</td><td>Covington Catholic</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>10:24.43</td></tr><tr class="non-stx-row"><td>Mark Warthen</td><td>Apollo</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>10:30.96</td></tr><tr class="non-stx-row"><td>Ryan Reed</td><td>Trinity High School</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>10:31.43</td></tr><tr class="non-stx-row"><td>Randon Prather</td><td>Marshall County</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>10:35.60</td></tr><tr class="non-stx-row"><td>Kent Fort</td><td>PSW</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>10:41.97</td></tr><tr class="non-stx-row"><td>Thad Schroeder</td><td>Paul L.Dunbar</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>10:49.46</td></tr><tr class="non-stx-row"><td>Daniel Cunningham</td><td>Doss</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>11:11.03</td></tr><tr class="non-stx-row"><td>Anthony Powell</td><td>Grayson County</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>11:31.02</td></tr><tr class="non-stx-row"><td>Caleb Sears</td><td>Dupont Manual</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>11:35.82</td></tr><tr class="non-stx-row"><td>Robert Buchberger</td><td>Boone County</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>11:36.16</td></tr><tr class="non-stx-row"><td>Brandon Freeman</td><td>John Hardin</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>11:55.10</td></tr><tr class="non-stx-row"><td>Patrick Micka</td><td>North Hardin</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>12:02.71</td></tr><tr class="non-stx-row"><td>Josh Givans</td><td>Meade County</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>12:06.21</td></tr><tr class="non-stx-row"><td>Andrew McMonigal</td><td>Iroquois</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>12:58.71</td></tr><tr class="non-stx-row"><td>Bryan Reeves</td><td>Pleasure Ridge Park</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>14:10.67</td></tr><tr class="non-stx-row"><td>Jeff Good</td><td>Pulaski County</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>14:37.18</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-28 21:05:33</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
-
+    <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Ondrej Puskar</td><td>South Oldham</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td>2:08.40</td></tr><tr class="non-stx-row"><td>Ian Sisson</td><td>Greenwood</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>2:10.85</td></tr><tr class="non-stx-row"><td>Kyle Newman</td><td>Henry Clay</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>2:11.31</td></tr><tr class="non-stx-row"><td>Chris Hall</td><td>Meade County</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>2:12.18</td></tr><tr><td><a href='../athletes/justin_gooch.html'>Justin Gooch</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>5</td><td>2:09.81</td><td class="dimmed-pr">2:07.06</td><td>2:12.38</td></tr><tr class="non-stx-row"><td>Daniel Rothschild</td><td>Dupont Manual</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>2:13.20</td></tr><tr class="non-stx-row"><td>Rex Pleasant</td><td>Male</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>2:13.45</td></tr><tr class="non-stx-row"><td>Andrew Fritz</td><td>Henderson County</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td>2:13.93</td></tr><tr class="non-stx-row"><td>Adam Holt</td><td>Marshall County</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>2:14.19</td></tr><tr class="non-stx-row"><td>Tyler Short</td><td>Trinity High School</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>2:14.95</td></tr><tr class="non-stx-row"><td>Michael Hunter</td><td>Daviess County</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>2:16.11</td></tr><tr class="non-stx-row"><td>Trey Greene</td><td>Conner</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>2:17.07</td></tr><tr class="non-stx-row"><td>Wes Gift</td><td>Grayson County</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>2:18.20</td></tr><tr class="non-stx-row"><td>Justin Hull</td><td>Pulaski County</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>2:18.47</td></tr><tr class="non-stx-row"><td>Miguel Gonzalez</td><td>Ballard</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>2:18.63</td></tr><tr class="non-stx-row"><td>James Dunn</td><td>Butler High School</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>2:20.66</td></tr><tr class="non-stx-row"><td>Josh Cochran</td><td>John Hardin</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>2:20.77</td></tr><tr class="non-stx-row"><td>Kevin Austin</td><td>Apollo</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>2:20.92</td></tr><tr class="non-stx-row"><td>Josh Metzger</td><td>Covington Catholic</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>2:21.91</td></tr><tr class="non-stx-row"><td>Dustin Thompson</td><td>North Hardin</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>2:23.74</td></tr><tr class="non-stx-row"><td>Nathan Eamos</td><td>Eastern High School</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>2:24.27</td></tr><tr class="non-stx-row"><td>John Kalz</td><td>PSW</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>2:25.00</td></tr><tr class="non-stx-row"><td>Eric Slaymaker</td><td>Tates Creek</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>2:27.48</td></tr><tr class="non-stx-row"><td>Brent Kipler</td><td>Bowling Green</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>2:29.60</td></tr><tr class="non-stx-row"><td>Patrick Hardy</td><td>Jeffersontown</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>2:29.87</td></tr><tr class="non-stx-row"><td>Matt Qurgley</td><td>Paul L.Dunbar</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>2:30.71</td></tr><tr class="non-stx-row"><td>Ben Hobbs</td><td>Owensboro</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>2:32.01</td></tr><tr class="non-stx-row"><td>Rafael Lezcano</td><td>Boone County</td><td>1</td><td>28</td><td></td><td class="dimmed-pr"></td><td>2:32.69</td></tr><tr class="non-stx-row"><td>Jonatha Frazier</td><td>Doss</td><td>1</td><td>29</td><td></td><td class="dimmed-pr"></td><td>2:38.17</td></tr><tr class="non-stx-row"><td>Kevin Moore</td><td>Iroquois</td><td>1</td><td>30</td><td></td><td class="dimmed-pr"></td><td>2:38.77</td></tr><tr class="non-stx-row"><td>Jonathan Buck</td><td>Barren County</td><td>1</td><td>31</td><td></td><td class="dimmed-pr"></td><td>2:39.31</td></tr><tr class="non-stx-row"><td>Chase Haertel</td><td>Woodford County</td><td>1</td><td>32</td><td></td><td class="dimmed-pr"></td><td>2:39.70</td></tr><tr class="non-stx-row"><td>Andrew Buchanan</td><td>Pleasure Ridge Park</td><td>1</td><td>33</td><td></td><td class="dimmed-pr"></td><td>2:43.20</td></tr><tr class="non-stx-row"><td>Matt Tyler</td><td>Oldham County Hi</td><td>1</td><td>34</td><td></td><td class="dimmed-pr"></td><td>2:50.30</td></tr><tr class="non-stx-row"><td>Bruce White</td><td>Central</td><td>1</td><td>35</td><td></td><td class="dimmed-pr"></td><td>3:09.47</td></tr></tbody></table></div></div><div class='card'><h2>1500 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Zach Wilder</td><td>Woodford County</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td>4:12.36</td></tr><tr class="non-stx-row"><td>Jose\' Solis</td><td>Conner</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>4:23.00</td></tr><tr class="non-stx-row"><td>Zach Tuttle</td><td>Butler High School</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>4:25.54</td></tr><tr class="non-stx-row"><td>Brandon Berry</td><td>Daviess County</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>4:29.63</td></tr><tr class="non-stx-row"><td>Andrew McCann</td><td>Paul L.Dunbar</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td>4:30.62</td></tr><tr class="non-stx-row"><td>Brian Dugan</td><td>South Oldham</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>4:31.49</td></tr><tr class="non-stx-row"><td>Caleb LaFond</td><td>Seneca</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>4:32.28</td></tr><tr><td><a href='../athletes/thomas_davis.html'>Thomas Davis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td class="pr">4:34.41</td></tr><tr class="non-stx-row"><td>Patrick Hammonds</td><td>Tates Creek</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>4:36.63</td></tr><tr class="non-stx-row"><td>Michael Raidt</td><td>Trinity High School</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>4:37.32</td></tr><tr class="non-stx-row"><td>Jason Osborne</td><td>Greenwood</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>4:37.84</td></tr><tr class="non-stx-row"><td>Sam Conly</td><td>Covington Catholic</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>4:43.16</td></tr><tr class="non-stx-row"><td>Kevin Austin</td><td>Apollo</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>4:46.46</td></tr><tr class="non-stx-row"><td>Brandon Lewis</td><td>North Hardin</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>4:47.07</td></tr><tr class="non-stx-row"><td>George Canter</td><td>Grayson County</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>4:48.85</td></tr><tr class="non-stx-row"><td>Charles Griffin</td><td>Male</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>4:54.43</td></tr><tr class="non-stx-row"><td>Eric Granacher</td><td>Boone County</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>5:00.10</td></tr><tr class="non-stx-row"><td>Russell Thomas</td><td>PSW</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>5:01.96</td></tr><tr class="non-stx-row"><td>Wes Smith</td><td>Marshall County</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>5:05.41</td></tr><tr class="non-stx-row"><td>Tony Moorman</td><td>Meade County</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>5:07.23</td></tr><tr class="non-stx-row"><td>Sean Brophy</td><td>Barren County</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>5:07.94</td></tr><tr class="non-stx-row"><td>Aaron Lindsey</td><td>Owensboro</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>5:10.03</td></tr><tr class="non-stx-row"><td>Brandon Freeman</td><td>John Hardin</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>5:15.34</td></tr><tr class="non-stx-row"><td>Daniel Cunningham</td><td>Doss</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>5:25.48</td></tr><tr class="non-stx-row"><td>Tyler Lankerd</td><td>Eastern High School</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>5:29.85</td></tr><tr class="non-stx-row"><td>Carl Hohman</td><td>Henderson County</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>5:33.89</td></tr><tr class="non-stx-row"><td>Jason Gannon</td><td>Iroquois</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>5:50.39</td></tr><tr class="non-stx-row"><td>Bobby Kimberlin</td><td>Ballard</td><td>1</td><td>28</td><td></td><td class="dimmed-pr"></td><td>6:29.25</td></tr><tr class="non-stx-row"><td>Frank Cannon</td><td>Jeffersontown</td><td>1</td><td>29</td><td></td><td class="dimmed-pr"></td><td>6:47.24</td></tr></tbody></table></div></div><div class='card'><h2>3000 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/bobby_curtis.html'>Bobby Curtis</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td class="pr">8:38.30</td></tr><tr class="non-stx-row"><td>Zach Wilder</td><td>Woodford County</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>9:07.27</td></tr><tr class="non-stx-row"><td>Jacob Buckman</td><td>Butler High School</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>9:09.53</td></tr><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>9:22.81</td></tr><tr class="non-stx-row"><td>Jose\' Solis</td><td>Conner</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td>9:44.16</td></tr><tr class="non-stx-row"><td>Caleb LaFond</td><td>Seneca</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>9:44.80</td></tr><tr class="non-stx-row"><td>Kal Clark</td><td>South Oldham</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>9:49.46</td></tr><tr class="non-stx-row"><td>Jon Richard</td><td>Daviess County</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td>9:58.60</td></tr><tr class="non-stx-row"><td>Patrick Hammonds</td><td>Tates Creek</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>10:01.48</td></tr><tr class="non-stx-row"><td>Lewis Samuels</td><td>Eastern High School</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>10:04.78</td></tr><tr class="non-stx-row"><td>Aaron Bush</td><td>Barren County</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>10:23.89</td></tr><tr class="non-stx-row"><td>Jason Ashley</td><td>Covington Catholic</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>10:24.43</td></tr><tr class="non-stx-row"><td>Mark Warthen</td><td>Apollo</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>10:30.96</td></tr><tr class="non-stx-row"><td>Ryan Reed</td><td>Trinity High School</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>10:31.43</td></tr><tr class="non-stx-row"><td>Randon Prather</td><td>Marshall County</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>10:35.60</td></tr><tr class="non-stx-row"><td>Kent Fort</td><td>PSW</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>10:41.97</td></tr><tr class="non-stx-row"><td>Thad Schroeder</td><td>Paul L.Dunbar</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>10:49.46</td></tr><tr class="non-stx-row"><td>Daniel Cunningham</td><td>Doss</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>11:11.03</td></tr><tr class="non-stx-row"><td>Anthony Powell</td><td>Grayson County</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>11:31.02</td></tr><tr class="non-stx-row"><td>Caleb Sears</td><td>Dupont Manual</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>11:35.82</td></tr><tr class="non-stx-row"><td>Robert Buchberger</td><td>Boone County</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>11:36.16</td></tr><tr class="non-stx-row"><td>Brandon Freeman</td><td>John Hardin</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>11:55.10</td></tr><tr class="non-stx-row"><td>Patrick Micka</td><td>North Hardin</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>12:02.71</td></tr><tr class="non-stx-row"><td>Josh Givans</td><td>Meade County</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>12:06.21</td></tr><tr class="non-stx-row"><td>Andrew McMonigal</td><td>Iroquois</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>12:58.71</td></tr><tr class="non-stx-row"><td>Bryan Reeves</td><td>Pleasure Ridge Park</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>14:10.67</td></tr><tr class="non-stx-row"><td>Jeff Good</td><td>Pulaski County</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>14:37.18</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-08-06 11:40:31</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 <!-- STX_HEADER_SCRIPT_START -->
     <script>
       (() => {
