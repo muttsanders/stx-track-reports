@@ -325,6 +325,11 @@
     </style>
     
   
+    
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<!-- STX_HEADER_CSS_START -->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap');
 
@@ -341,6 +346,8 @@
       .stx-site-header {
         position: relative;
         z-index: 9000;
+        width: 100vw;
+        max-width: 100vw;
         margin: -24px -24px 30px;
         background: var(--stx-dark-green);
         color: #fff;
@@ -360,32 +367,7 @@
         color: #fff !important;
         text-decoration: none !important;
       }
-      .stx-monogram {
-        display: grid;
-        place-items: center;
-        width: 47px;
-        height: 59px;
-        border: 2px solid rgba(255,255,255,.9);
-        color: #fff;
-        font-family: Georgia, 'Times New Roman', serif;
-        font-size: 38px;
-        font-weight: 700;
-        line-height: 1;
-        transform: skew(-4deg);
-      }
-      .stx-wordmark { display: flex; flex-direction: column; line-height: 1; }
-      .stx-wordmark strong {
-        font-family: 'Libre Caslon Text', Georgia, serif;
-        font-size: clamp(18px, 2vw, 25px);
-        font-weight: 400;
-        letter-spacing: .025em;
-      }
-      .stx-wordmark small {
-        margin-top: 6px;
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: .27em;
-      }
+      .stx-logo-image { display: block; width: clamp(190px, 22vw, 250px); height: auto; }
       .stx-brand-divider { width: 1px; height: 42px; background: rgba(255,255,255,.38); }
       .stx-section-name {
         max-width: 90px;
@@ -524,7 +506,7 @@
         font: 700 10px/1 'DM Sans', Arial, sans-serif;
         letter-spacing: .1em;
       }
-      .stx-menu-nav a::after { content: '92'; margin-left: auto; color: var(--stx-gold); font-family: Arial, sans-serif; }
+      .stx-menu-nav a::after { content: '\2192'; margin-left: auto; color: var(--stx-gold); font-family: Arial, sans-serif; }
       .stx-menu-nav a:hover, .stx-menu-nav a:focus-visible { color: #8c6300; padding-left: 14px; }
       .stx-menu-nav .stx-current-page { color: #8c6300; font-style: italic; }
       .stx-menu-utility { margin-top: 34px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -547,9 +529,7 @@
       @media (max-width: 780px) {
         .stx-site-header { margin-bottom: 22px; }
         .stx-header-inner { min-height: 68px; padding: 9px 16px; }
-        .stx-monogram { width: 34px; height: 43px; font-size: 28px; }
-        .stx-wordmark strong { font-size: 16px; }
-        .stx-wordmark small { margin-top: 4px; font-size: 7px; letter-spacing: .2em; }
+        .stx-logo-image { width: 190px; }
         .stx-brand-divider { height: 32px; }
         .stx-section-name { font-size: 9px; }
         .stx-menu-open { width: 42px; height: 42px; }
@@ -565,22 +545,22 @@
       @media (max-width: 460px) {
         .stx-brand { gap: 10px; }
         .stx-brand-divider, .stx-section-name { display: none; }
+        .stx-logo-image { width: 175px; }
       }
       @media (prefers-reduced-motion: reduce) {
         .stx-site-menu, .stx-menu-open, .stx-menu-nav a { transition: none; }
       }
     </style>
-    
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <!-- STX_HEADER_CSS_END -->
 </head>
 <body>
-
+<!-- STX_HEADER_HTML_START -->
     <header class="stx-site-header">
       <div class="stx-header-inner">
         <a class="stx-brand" href="../index.html" aria-label="St. Xavier Running home">
-          <span class="stx-monogram" aria-hidden="true">X</span>
-          <span class="stx-wordmark"><strong>SAINT XAVIER</strong><small>HIGH SCHOOL</small></span>
+          <img class="stx-logo-image"
+            src="../assets/stx_logo.svg"
+            alt="Saint Xavier High School">
           <span class="stx-brand-divider" aria-hidden="true"></span>
           <span class="stx-section-name">Running</span>
         </a>
@@ -607,6 +587,9 @@
         </div>
       </div>
     </aside>
+    <!-- STX_HEADER_HTML_END -->
+
+    
     
 
     <div class="topbar">
@@ -649,6 +632,9 @@
     </div>
     <div class='card'><h2>1 Mile</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th><th>Lap 1</th><th>Lap 2</th><th>Lap 3</th><th>Lap 4</th></tr></thead><tbody><tr class="non-stx-row"><td>Will Sheets</td><td>Covington Catholic</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td></td><td>4:07.23</td><td>62.38</td><td class="slowest">65.11</td><td>60.44</td><td class="fastest">59.29</td></tr><tr class="non-stx-row"><td>Roman Sierpina</td><td>Louisville Collegiate</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>4:08.81</td><td>61.72</td><td class="slowest">65.33</td><td>62.11</td><td class="fastest">59.65</td></tr><tr class="non-stx-row"><td>Riku Sugie</td><td>Thomas Nelson</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td></td><td>4:09.05</td><td>61.56</td><td class="slowest">65.34</td><td>62.55</td><td class="fastest">59.60</td></tr><tr class="non-stx-row"><td>Paul Van Laningham</td><td>Cooper</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>4:10.31</td><td>62.08</td><td class="slowest">65.67</td><td class="fastest">61.10</td><td>61.46</td></tr><tr class="non-stx-row"><td>Lincoln Herald</td><td>Grant County</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td></td><td>4:12.14</td><td class="fastest">60.87</td><td class="slowest">65.92</td><td>63.20</td><td>62.17</td></tr><tr class="non-stx-row"><td>Eli Oetken</td><td>Trinity Louisville</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>4:13.55</td><td class="fastest">61.57</td><td class="slowest">65.47</td><td>63.36</td><td>63.16</td></tr><tr class="non-stx-row"><td>Xavier Richardson</td><td>Lafayette</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>4:14.30</td><td class="fastest">61.27</td><td class="slowest">65.97</td><td>63.29</td><td>63.77</td></tr><tr><td><a href='../athletes/nick_sanders.html'>Nick Sanders</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>8</td><td class="dimmed-pr">4:16.82</td><td>4:16.78</td><td class="pr">4:15.63</td><td class="fastest">61.83</td><td class="slowest">65.52</td><td>63.63</td><td>64.64</td></tr><tr class="non-stx-row"><td>Sean Crady</td><td>Oldham County</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>4:16.61</td><td class="fastest">61.96</td><td class="slowest">65.62</td><td>64.41</td><td>64.62</td></tr><tr class="non-stx-row"><td>Joe Mayer</td><td>Covington Catholic</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>4:17.12</td><td class="fastest">63.14</td><td class="slowest">65.93</td><td>64.01</td><td>64.04</td></tr><tr class="non-stx-row"><td>Van Weimer</td><td>Lafayette</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td>4:17.67</td><td class="fastest">61.48</td><td>65.86</td><td>64.14</td><td class="slowest">66.19</td></tr><tr class="non-stx-row"><td>Josh Arnett</td><td>Paul Dunbar</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>4:18.28</td><td class="fastest">61.82</td><td class="slowest">65.82</td><td>64.82</td><td>65.82</td></tr><tr class="non-stx-row"><td>Isaac Riggs</td><td>Bethlehem</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>4:20.04</td><td class="fastest">62.73</td><td>66.48</td><td class="slowest">67.24</td><td>63.59</td></tr><tr class="non-stx-row"><td>Canaan Thomas</td><td>Henry Clay Senior</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td></td><td>4:20.10</td><td class="fastest">62.22</td><td class="slowest">67.17</td><td>65.70</td><td>65.01</td></tr><tr class="non-stx-row"><td>Kyle Crady</td><td>Oldham County</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>4:20.59</td><td class="fastest">62.14</td><td>66.08</td><td class="slowest">67.49</td><td>64.88</td></tr><tr class="non-stx-row"><td>Charley Townsend</td><td>North Oldham</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>4:23.47</td><td class="fastest">62.42</td><td>66.24</td><td>65.74</td><td class="slowest">69.07</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-08-04 14:16:08</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 
+    
+    
+<!-- STX_HEADER_SCRIPT_START -->
     <script>
       (() => {
         const menu = document.getElementById('stx-site-menu');
@@ -677,6 +663,6 @@
         });
       })();
     </script>
-    
+    <!-- STX_HEADER_SCRIPT_END -->
 </body>
 </html>

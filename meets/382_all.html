@@ -216,8 +216,265 @@
   .nav a.feedback-link { display:inline-block; margin-left:14px; border:2px solid #d39b00; border-radius:999px; padding:6px 12px; background:#f4c542; color:#172554; font-size:14px; font-weight:900; line-height:1; box-shadow:0 2px 7px rgba(15,23,42,.13); }
   .nav a.feedback-link:hover { background:#ffd963; text-decoration:none; transform:translateY(-1px); }
 </style>
+<!-- STX_HEADER_CSS_START -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap');
+
+      :root {
+        --stx-green: #12543f;
+        --stx-dark-green: #062d20;
+        --stx-gold: #f3ba29;
+        --stx-cream: #f6f9f5;
+        --stx-ink: #17352b;
+      }
+      html.stx-menu-is-open, html.stx-menu-is-open body { overflow: hidden; }
+      .stx-site-header, .stx-site-menu { box-sizing: border-box; font-family: 'DM Sans', Arial, sans-serif; }
+      .stx-site-header *, .stx-site-menu * { box-sizing: border-box; }
+      .stx-site-header {
+        position: relative;
+        z-index: 9000;
+        width: 100vw;
+        max-width: 100vw;
+        margin: -24px -24px 30px;
+        background: var(--stx-dark-green);
+        color: #fff;
+      }
+      .stx-header-inner {
+        min-height: 94px;
+        padding: 14px clamp(22px, 5vw, 82px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .stx-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 17px;
+        color: #fff !important;
+        text-decoration: none !important;
+      }
+      .stx-logo-image { display: block; width: clamp(190px, 22vw, 250px); height: auto; }
+      .stx-brand-divider { width: 1px; height: 42px; background: rgba(255,255,255,.38); }
+      .stx-section-name {
+        max-width: 90px;
+        color: var(--stx-gold);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .14em;
+        line-height: 1.25;
+        text-transform: uppercase;
+      }
+      .stx-menu-open, .stx-menu-close {
+        border: 0;
+        cursor: pointer;
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 auto;
+      }
+      .stx-menu-open {
+        width: 55px;
+        height: 55px;
+        padding: 0;
+        border-radius: 50%;
+        background: var(--stx-gold);
+        color: var(--stx-dark-green);
+        transition: background .25s ease, transform .25s ease;
+      }
+      .stx-menu-open:hover, .stx-menu-open:focus-visible { background: #fff; transform: scale(1.04); }
+      .stx-menu-open-lines, .stx-menu-open-lines::before, .stx-menu-open-lines::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 4px;
+      }
+      .stx-menu-open-lines { position: relative; }
+      .stx-menu-open-lines::before, .stx-menu-open-lines::after { content: ''; position: absolute; left: 0; }
+      .stx-menu-open-lines::before { top: -6px; }
+      .stx-menu-open-lines::after { top: 6px; }
+      .stx-visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+      .stx-site-menu {
+        position: fixed;
+        z-index: 10000;
+        inset: 0;
+        display: grid;
+        grid-template-columns: minmax(320px, 42%) 1fr;
+        background: var(--stx-cream);
+        color: var(--stx-ink);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
+        transition: transform .38s ease, opacity .3s ease, visibility 0s linear .38s;
+      }
+      .stx-site-menu.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        transition: transform .38s ease, opacity .3s ease;
+      }
+      .stx-menu-brand-panel {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(40px, 6vw, 88px);
+        background: var(--stx-green);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .stx-menu-brand-panel::before {
+        content: 'X';
+        position: absolute;
+        top: -120px;
+        left: -40px;
+        color: rgba(255,255,255,.055);
+        font: 700 540px/1 Georgia, serif;
+        transform: skew(-5deg);
+      }
+      .stx-menu-kicker { position: relative; margin: 0 0 18px; color: var(--stx-gold); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+      .stx-menu-title { position: relative; max-width: 520px; margin: 0; font: 400 clamp(39px, 5vw, 72px)/1.02 'Libre Caslon Text', Georgia, serif; }
+      .stx-menu-title em { display: block; color: var(--stx-gold); font-weight: 400; }
+      .stx-menu-content {
+        position: relative;
+        min-width: 0;
+        padding: clamp(88px, 11vh, 130px) clamp(36px, 8vw, 120px) 54px;
+        overflow-y: auto;
+      }
+      .stx-menu-close {
+        position: absolute;
+        top: 36px;
+        right: 42px;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        background: transparent;
+        color: var(--stx-dark-green);
+      }
+      .stx-menu-close::before, .stx-menu-close::after {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: currentColor;
+      }
+      .stx-menu-close::before { transform: rotate(45deg); }
+      .stx-menu-close::after { transform: rotate(-45deg); }
+      .stx-menu-close:hover, .stx-menu-close:focus-visible { color: #8c6300; }
+      .stx-menu-label { margin: 0 0 24px; color: #64756f; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+      .stx-menu-nav { margin: 0; padding: 0; list-style: none; counter-reset: stx-nav; }
+      .stx-menu-nav li { counter-increment: stx-nav; border-top: 1px solid #ccd6d1; }
+      .stx-menu-nav li:last-child { border-bottom: 1px solid #ccd6d1; }
+      .stx-menu-nav a, .stx-menu-nav .stx-current-page {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding: 17px 6px;
+        color: var(--stx-dark-green);
+        font: 400 clamp(22px, 2.3vw, 34px)/1.15 'Libre Caslon Text', Georgia, serif;
+        text-decoration: none;
+        transition: color .2s ease, padding-left .2s ease;
+      }
+      .stx-menu-nav a::before, .stx-menu-nav .stx-current-page::before {
+        content: '0' counter(stx-nav);
+        width: 25px;
+        color: #7c9189;
+        font: 700 10px/1 'DM Sans', Arial, sans-serif;
+        letter-spacing: .1em;
+      }
+      .stx-menu-nav a::after { content: '\2192'; margin-left: auto; color: var(--stx-gold); font-family: Arial, sans-serif; }
+      .stx-menu-nav a:hover, .stx-menu-nav a:focus-visible { color: #8c6300; padding-left: 14px; }
+      .stx-menu-nav .stx-current-page { color: #8c6300; font-style: italic; }
+      .stx-menu-utility { margin-top: 34px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+      .stx-menu-feedback {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 10px 22px;
+        border: 1px solid var(--stx-gold);
+        border-radius: 4px;
+        background: var(--stx-gold);
+        color: var(--stx-dark-green) !important;
+        font-weight: 700;
+        text-decoration: none !important;
+      }
+      .stx-menu-feedback:hover, .stx-menu-feedback:focus-visible { background: transparent; }
+      .stx-school-link { color: var(--stx-dark-green) !important; font-size: 13px; font-weight: 700; }
+      .topbar > .nav, .header > .nav { display: none !important; }
+
+      @media (max-width: 780px) {
+        .stx-site-header { margin-bottom: 22px; }
+        .stx-header-inner { min-height: 68px; padding: 9px 16px; }
+        .stx-logo-image { width: 190px; }
+        .stx-brand-divider { height: 32px; }
+        .stx-section-name { font-size: 9px; }
+        .stx-menu-open { width: 42px; height: 42px; }
+        .stx-site-menu { display: block; overflow-y: auto; background: var(--stx-green); }
+        .stx-menu-brand-panel { min-height: 210px; padding: 78px 24px 28px; justify-content: flex-end; }
+        .stx-menu-brand-panel::before { top: -80px; font-size: 330px; }
+        .stx-menu-kicker { margin-bottom: 8px; font-size: 10px; }
+        .stx-menu-title { font-size: 36px; }
+        .stx-menu-content { padding: 26px 20px 42px; background: var(--stx-cream); }
+        .stx-menu-close { position: fixed; top: 15px; right: 14px; color: #fff; }
+        .stx-menu-nav a, .stx-menu-nav .stx-current-page { padding: 15px 2px; font-size: 21px; }
+      }
+      @media (max-width: 460px) {
+        .stx-brand { gap: 10px; }
+        .stx-brand-divider, .stx-section-name { display: none; }
+        .stx-logo-image { width: 175px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .stx-site-menu, .stx-menu-open, .stx-menu-nav a { transition: none; }
+      }
+    </style>
+    <!-- STX_HEADER_CSS_END -->
 </head>
 <body>
+<!-- STX_HEADER_HTML_START -->
+    <header class="stx-site-header">
+      <div class="stx-header-inner">
+        <a class="stx-brand" href="../index.html" aria-label="St. Xavier Running home">
+          <img class="stx-logo-image"
+            src="../assets/stx_logo.svg"
+            alt="Saint Xavier High School">
+          <span class="stx-brand-divider" aria-hidden="true"></span>
+          <span class="stx-section-name">Running</span>
+        </a>
+        <button class="stx-menu-open" type="button" aria-controls="stx-site-menu" aria-expanded="false">
+          <span class="stx-menu-open-lines" aria-hidden="true"></span>
+          <span class="stx-visually-hidden">Open site menu</span>
+        </button>
+      </div>
+    </header>
+    <aside class="stx-site-menu" id="stx-site-menu" aria-hidden="true">
+      <div class="stx-menu-brand-panel">
+        <p class="stx-menu-kicker">St. Xavier Running</p>
+        <p class="stx-menu-title">Built on tradition.<em>Driven by the team.</em></p>
+      </div>
+      <div class="stx-menu-content">
+        <button class="stx-menu-close" type="button">
+          <span class="stx-visually-hidden">Close site menu</span>
+        </button>
+        <p class="stx-menu-label">Explore the site</p>
+        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
+        <div class="stx-menu-utility">
+          <a class="stx-menu-feedback" href="../feedback.html">Share Feedback</a>
+          <a class="stx-school-link" href="https://www.saintx.com/">Visit saintx.com&nbsp; ↗</a>
+        </div>
+      </div>
+    </aside>
+    <!-- STX_HEADER_HTML_END -->
 
     <div class="topbar">
       <div class="titlewrap">
@@ -258,5 +515,35 @@
       <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/brian_long.html'>Brian Long</a>, <span class='pr-time'>4:16.31</span></span>; <span class='pr-parade-entry'><a href='../athletes/david_stewart.html'>David Stewart</a>, <span class='pr-time'>2:10.86</span></span></div>
     </div>
     <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Kenny Minogue</td><td>Trinity</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td>1:59.98</td></tr><tr class="non-stx-row"><td>Jon Erickson</td><td>Manual</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>2:05.24</td></tr><tr class="non-stx-row"><td>Shane Powell</td><td>Daviess County</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>2:05.33</td></tr><tr class="non-stx-row"><td>Trent Halasek</td><td>Scott County</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>2:05.64</td></tr><tr class="non-stx-row"><td>Luke Garnett</td><td>Harrison County</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td>2:07.33</td></tr><tr class="non-stx-row"><td>Bobby Baldridge</td><td>Boone County</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>2:07.35</td></tr><tr class="non-stx-row"><td>Jimmy Huffman</td><td>South Laurel</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>2:07.65</td></tr><tr class="non-stx-row"><td>Brad Greenman</td><td>Tates Creek</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td>2:07.79</td></tr><tr class="non-stx-row"><td>Ryan Satek</td><td>Cov Catholic</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>2:09.07</td></tr><tr class="non-stx-row"><td>Drake Midgett</td><td>Greenwood</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>2:09.46</td></tr><tr class="non-stx-row"><td>Aundreas Lopez</td><td>John Hardin</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>2:10.36</td></tr><tr><td><a href='../athletes/david_stewart.html'>David Stewart</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>12</td><td></td><td class="dimmed-pr">2:08.00</td><td class="pr">2:10.86</td></tr><tr class="non-stx-row"><td>Jordan Wells</td><td>Owensboro</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>2:10.96</td></tr><tr class="non-stx-row"><td>Kyle Marston</td><td>Shelby County</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>2:11.08</td></tr><tr class="non-stx-row"><td>Ethan Hannah</td><td>Paul Dunbar</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>2:11.36</td></tr><tr class="non-stx-row"><td>Jon Feist</td><td>Conner</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>2:12.33</td></tr><tr class="non-stx-row"><td>Matt Simpson</td><td>Bowling Green</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>2:12.57</td></tr><tr class="non-stx-row"><td>Emmanual Webb</td><td>Bryan Station</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>2:12.97</td></tr><tr class="non-stx-row"><td>Blake Clemons</td><td>Grayson County</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>2:13.36</td></tr><tr class="non-stx-row"><td>Chris Becker</td><td>Butler</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>2:13.37</td></tr><tr class="non-stx-row"><td>Manuel Valentine</td><td>Central</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>2:13.45</td></tr><tr class="non-stx-row"><td>Donald Rowe</td><td>Marshall County</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>2:13.75</td></tr><tr class="non-stx-row"><td>Andrew Druien</td><td>Meade County</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>2:14.70</td></tr><tr class="non-stx-row"><td>Alex Sweat</td><td>Henderson Co</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>2:15.07</td></tr><tr class="non-stx-row"><td>Forrest Price</td><td>Male</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>2:15.25</td></tr><tr class="non-stx-row"><td>Chris Stodghill</td><td>Apollo</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>2:15.28</td></tr><tr class="non-stx-row"><td>Andrew Allen</td><td>Madisonville</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>2:15.39</td></tr><tr class="non-stx-row"><td>Andrew Smithson</td><td>Eastern</td><td>1</td><td>28</td><td></td><td class="dimmed-pr"></td><td>2:15.58</td></tr><tr class="non-stx-row"><td>Andrew Baker</td><td>Woodford County</td><td>1</td><td>29</td><td></td><td class="dimmed-pr"></td><td>2:17.91</td></tr><tr class="non-stx-row"><td>Tim Estes</td><td>North Hardin</td><td>1</td><td>30</td><td></td><td class="dimmed-pr"></td><td>2:18.46</td></tr><tr class="non-stx-row"><td>Adrian Armstead</td><td>Holmes</td><td>1</td><td>31</td><td></td><td class="dimmed-pr"></td><td>2:18.84</td></tr><tr class="non-stx-row"><td>Matt Caron</td><td>Pulaski Co</td><td>1</td><td>32</td><td></td><td class="dimmed-pr"></td><td>2:21.75</td></tr><tr class="non-stx-row"><td>Devin Smith</td><td>Grant Co</td><td>1</td><td>33</td><td></td><td class="dimmed-pr"></td><td>2:21.85</td></tr><tr class="non-stx-row"><td>Robby Sharold</td><td>Campbell County</td><td>1</td><td>34</td><td></td><td class="dimmed-pr"></td><td>2:22.08</td></tr><tr class="non-stx-row"><td>Stuart Barnard</td><td>Oldham County</td><td>1</td><td>35</td><td></td><td class="dimmed-pr"></td><td>2:22.52</td></tr><tr class="non-stx-row"><td>Johnny Kvietkus</td><td>Hopkinsville</td><td>1</td><td>36</td><td></td><td class="dimmed-pr"></td><td>2:26.19</td></tr><tr class="non-stx-row"><td>Justin Gray</td><td>Graves County</td><td>1</td><td>37</td><td></td><td class="dimmed-pr"></td><td>2:28.31</td></tr><tr class="non-stx-row"><td>Nick Metzger</td><td>Scott</td><td>1</td><td>38</td><td></td><td class="dimmed-pr"></td><td>2:28.38</td></tr><tr class="non-stx-row"><td>Christian Rasquain</td><td>Ashand Blazer</td><td>1</td><td>39</td><td></td><td class="dimmed-pr"></td><td>2:29.12</td></tr><tr class="non-stx-row"><td>Matt Palsha</td><td>South Oldham</td><td>1</td><td>40</td><td></td><td class="dimmed-pr"></td><td>2:29.65</td></tr><tr class="non-stx-row"><td>John Walsh</td><td>Dixie Heights</td><td>1</td><td>41</td><td></td><td class="dimmed-pr"></td><td>2:31.76</td></tr><tr class="non-stx-row"><td>Luke Roeder</td><td>P.R.P.</td><td>1</td><td>42</td><td></td><td class="dimmed-pr"></td><td>2:32.66</td></tr><tr class="non-stx-row"><td>Robert Cobb</td><td>Warren Central</td><td>1</td><td>43</td><td></td><td class="dimmed-pr"></td><td>2:41.77</td></tr><tr class="non-stx-row"><td>Brett Randolph</td><td>Southwest</td><td>1</td><td>44</td><td></td><td class="dimmed-pr"></td><td>2:43.50</td></tr></tbody></table></div></div><div class='card'><h2>1500 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td>4:00.37</td></tr><tr><td><a href='../athletes/brian_long.html'>Brian Long</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td class="pr">4:16.31</td></tr><tr class="non-stx-row"><td>Jason Parks</td><td>Manual</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>4:19.13</td></tr><tr class="non-stx-row"><td>Cullen Kuntz</td><td>Woodford County</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>4:23.26</td></tr><tr class="non-stx-row"><td>Chris Belcher</td><td>Grayson County</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td>4:23.95</td></tr><tr class="non-stx-row"><td>Jordan Clark</td><td>Daviess County</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>4:26.31</td></tr><tr class="non-stx-row"><td>Sean Darrow</td><td>Trinity</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>4:27.82</td></tr><tr class="non-stx-row"><td>Joe Goodin</td><td>Tates Creek</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td>4:28.39</td></tr><tr class="non-stx-row"><td>Justin Smith</td><td>Paul Dunbar</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>4:28.77</td></tr><tr class="non-stx-row"><td>Todd Dickinson</td><td>Apollo</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>4:28.92</td></tr><tr class="non-stx-row"><td>Cody Hybarger</td><td>Henderson Co</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>4:30.89</td></tr><tr class="non-stx-row"><td>Bobby Windham</td><td>North Hardin</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>4:30.97</td></tr><tr class="non-stx-row"><td>Nick Lare</td><td>Male</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>4:31.41</td></tr><tr class="non-stx-row"><td>Alec Zaremba</td><td>Shelby County</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>4:31.83</td></tr><tr class="non-stx-row"><td>Guy Vandermosten</td><td>Conner</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>4:32.57</td></tr><tr class="non-stx-row"><td>Daniel Eldridge</td><td>Grant Co</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>4:33.94</td></tr><tr class="non-stx-row"><td>Joey Elder</td><td>Bowling Green</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>4:34.40</td></tr><tr class="non-stx-row"><td>Zach Ruppert</td><td>Ballard</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>4:34.95</td></tr><tr class="non-stx-row"><td>David Wittmer</td><td>Eastern</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>4:35.83</td></tr><tr class="non-stx-row"><td>Tom Haley</td><td>Marshall County</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>4:39.85</td></tr><tr class="non-stx-row"><td>Daniel Bauder</td><td>P.R.P.</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>4:40.81</td></tr><tr class="non-stx-row"><td>Zach Eisner</td><td>Scott</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>4:41.51</td></tr><tr class="non-stx-row"><td>Sahid Abduli</td><td>Warren Central</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>4:43.44</td></tr><tr class="non-stx-row"><td>Trey Marshall</td><td>Cov Catholic</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>4:45.69</td></tr><tr class="non-stx-row"><td>Aaron Taylor</td><td>Madisonville</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>4:49.37</td></tr><tr class="non-stx-row"><td>Addison Price</td><td>Butler</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>4:49.97</td></tr><tr class="non-stx-row"><td>John Thomas</td><td>Central</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>4:56.16</td></tr><tr class="non-stx-row"><td>Jesse Rawe</td><td>Campbell County</td><td>1</td><td>28</td><td></td><td class="dimmed-pr"></td><td>5:01.21</td></tr><tr class="non-stx-row"><td>Steven Hamlet</td><td>Meade County</td><td>1</td><td>29</td><td></td><td class="dimmed-pr"></td><td>5:01.50</td></tr><tr class="non-stx-row"><td>Brian Schimpler</td><td>Harrison County</td><td>1</td><td>30</td><td></td><td class="dimmed-pr"></td><td>5:04.54</td></tr><tr class="non-stx-row"><td>Kelsey Rowland</td><td>Graves County</td><td>1</td><td>31</td><td></td><td class="dimmed-pr"></td><td>5:05.84</td></tr><tr class="non-stx-row"><td>Tim Kelleman</td><td>Ashand Blazer</td><td>1</td><td>32</td><td></td><td class="dimmed-pr"></td><td>5:07.39</td></tr><tr class="non-stx-row"><td>Ian Beister</td><td>Scott County</td><td>1</td><td>33</td><td></td><td class="dimmed-pr"></td><td>5:07.68</td></tr><tr class="non-stx-row"><td>John Walsh</td><td>Dixie Heights</td><td>1</td><td>34</td><td></td><td class="dimmed-pr"></td><td>5:09.80</td></tr><tr class="non-stx-row"><td>Joshua Brainard</td><td>Southwest</td><td>1</td><td>35</td><td></td><td class="dimmed-pr"></td><td>5:13.24</td></tr><tr class="non-stx-row"><td>Craig McQueen</td><td>Pulaski Co</td><td>1</td><td>36</td><td></td><td class="dimmed-pr"></td><td>5:22.87</td></tr><tr class="non-stx-row"><td>Stanley Flickenstien</td><td>Bryan Station</td><td>1</td><td>37</td><td></td><td class="dimmed-pr"></td><td>5:33.11</td></tr><tr class="non-stx-row"><td>Will Chadwick</td><td>John Hardin</td><td>1</td><td>38</td><td></td><td class="dimmed-pr"></td><td>6:07.93</td></tr><tr class="non-stx-row"><td>Jacob Jones</td><td>Atherton</td><td>1</td><td>39</td><td></td><td class="dimmed-pr"></td><td>6:26.29</td></tr><tr class="non-stx-row"><td>Lou Cordero</td><td>Iroquois</td><td>1</td><td>40</td><td></td><td class="dimmed-pr"></td><td>6:26.65</td></tr></tbody></table></div></div><div class='card'><h2>3000 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th>Indoor PR</th><th class="dimmed-pr">Outdoor PR</th><th>Result</th></tr></thead><tbody><tr class="non-stx-row"><td>Michael Eaton</td><td>Greenwood</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td>8:37.87</td></tr><tr class="non-stx-row"><td>Patrick Jenkins</td><td>Pulaski Co</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td>9:28.01</td></tr><tr class="non-stx-row"><td>Thomas Noel</td><td>Trinity</td><td>1</td><td>3</td><td></td><td class="dimmed-pr"></td><td>9:33.28</td></tr><tr class="non-stx-row"><td>Blake Askin</td><td>Scott</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td>9:33.30</td></tr><tr class="non-stx-row"><td>Chris Belcher</td><td>Grayson County</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td>9:33.94</td></tr><tr class="non-stx-row"><td>Greg Goetz</td><td>Cov Catholic</td><td>1</td><td>6</td><td></td><td class="dimmed-pr"></td><td>9:41.43</td></tr><tr class="non-stx-row"><td>Matthew Walters</td><td>Conner</td><td>1</td><td>7</td><td></td><td class="dimmed-pr"></td><td>9:42.37</td></tr><tr class="non-stx-row"><td>Tyler Dickindon</td><td>Apollo</td><td>1</td><td>8</td><td></td><td class="dimmed-pr"></td><td>9:43.03</td></tr><tr class="non-stx-row"><td>Shane Quinlan</td><td>Ballard</td><td>1</td><td>9</td><td></td><td class="dimmed-pr"></td><td>9:43.04</td></tr><tr class="non-stx-row"><td>Drew Harris</td><td>Campbell County</td><td>1</td><td>10</td><td></td><td class="dimmed-pr"></td><td>9:44.31</td></tr><tr class="non-stx-row"><td>Michael Johnson</td><td>North Hardin</td><td>1</td><td>11</td><td></td><td class="dimmed-pr"></td><td>9:44.33</td></tr><tr class="non-stx-row"><td>Chris Rice</td><td>Woodford County</td><td>1</td><td>12</td><td></td><td class="dimmed-pr"></td><td>9:52.75</td></tr><tr class="non-stx-row"><td>Daniel Eldridge</td><td>Grant Co</td><td>1</td><td>13</td><td></td><td class="dimmed-pr"></td><td>9:56.18</td></tr><tr class="non-stx-row"><td>David Hamm</td><td>Manual</td><td>1</td><td>14</td><td></td><td class="dimmed-pr"></td><td>9:59.75</td></tr><tr class="non-stx-row"><td>Stacey Eden</td><td>Shelby County</td><td>1</td><td>15</td><td></td><td class="dimmed-pr"></td><td>10:00.11</td></tr><tr class="non-stx-row"><td>James Bowens</td><td>Marshall County</td><td>1</td><td>16</td><td></td><td class="dimmed-pr"></td><td>10:00.57</td></tr><tr class="non-stx-row"><td>Brad Doering</td><td>Male</td><td>1</td><td>17</td><td></td><td class="dimmed-pr"></td><td>10:11.31</td></tr><tr class="non-stx-row"><td>Henry Kolkhorst</td><td>Graves County</td><td>1</td><td>18</td><td></td><td class="dimmed-pr"></td><td>10:26.11</td></tr><tr class="non-stx-row"><td>Jordan Sears</td><td>Meade County</td><td>1</td><td>19</td><td></td><td class="dimmed-pr"></td><td>10:26.93</td></tr><tr class="non-stx-row"><td>Dalton Hubble</td><td>John Hardin</td><td>1</td><td>20</td><td></td><td class="dimmed-pr"></td><td>10:27.41</td></tr><tr class="non-stx-row"><td>Tyler Flynt</td><td>Scott County</td><td>1</td><td>21</td><td></td><td class="dimmed-pr"></td><td>10:33.59</td></tr><tr class="non-stx-row"><td>Tyler Cherry</td><td>Warren Central</td><td>1</td><td>22</td><td></td><td class="dimmed-pr"></td><td>10:35.47</td></tr><tr class="non-stx-row"><td>Braxton Adkins</td><td>Tates Creek</td><td>1</td><td>23</td><td></td><td class="dimmed-pr"></td><td>10:35.71</td></tr><tr class="non-stx-row"><td>Lucas Somers</td><td>Bowling Green</td><td>1</td><td>24</td><td></td><td class="dimmed-pr"></td><td>10:36.05</td></tr><tr class="non-stx-row"><td>Ryan Cravens</td><td>Daviess County</td><td>1</td><td>25</td><td></td><td class="dimmed-pr"></td><td>10:38.88</td></tr><tr class="non-stx-row"><td>Patrick Duggan</td><td>Ashand Blazer</td><td>1</td><td>26</td><td></td><td class="dimmed-pr"></td><td>10:46.32</td></tr><tr class="non-stx-row"><td>Colin Lauderdale</td><td>South Laurel</td><td>1</td><td>27</td><td></td><td class="dimmed-pr"></td><td>12:01.80</td></tr><tr class="non-stx-row"><td>Jarrod Stockwell</td><td>Henderson Co</td><td>1</td><td>28</td><td></td><td class="dimmed-pr"></td><td>12:26.12</td></tr><tr class="non-stx-row"><td>Travis Turner</td><td>Clark County</td><td>1</td><td>29</td><td></td><td class="dimmed-pr"></td><td>13:51.33</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-28 20:48:09</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+<!-- STX_HEADER_SCRIPT_START -->
+    <script>
+      (() => {
+        const menu = document.getElementById('stx-site-menu');
+        const openButton = document.querySelector('.stx-menu-open');
+        const closeButton = document.querySelector('.stx-menu-close');
+        if (!menu || !openButton || !closeButton) return;
+        let lastFocused = null;
+
+        function setMenu(open) {
+          menu.classList.toggle('is-open', open);
+          menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+          openButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+          document.documentElement.classList.toggle('stx-menu-is-open', open);
+          if (open) {
+            lastFocused = document.activeElement;
+            closeButton.focus();
+          } else if (lastFocused) {
+            lastFocused.focus();
+          }
+        }
+
+        openButton.addEventListener('click', () => setMenu(true));
+        closeButton.addEventListener('click', () => setMenu(false));
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape' && menu.classList.contains('is-open')) setMenu(false);
+        });
+      })();
+    </script>
+    <!-- STX_HEADER_SCRIPT_END -->
 </body>
 </html>

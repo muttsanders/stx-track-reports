@@ -216,8 +216,265 @@
   .nav a.feedback-link { display:inline-block; margin-left:14px; border:2px solid #d39b00; border-radius:999px; padding:6px 12px; background:#f4c542; color:#172554; font-size:14px; font-weight:900; line-height:1; box-shadow:0 2px 7px rgba(15,23,42,.13); }
   .nav a.feedback-link:hover { background:#ffd963; text-decoration:none; transform:translateY(-1px); }
 </style>
+<!-- STX_HEADER_CSS_START -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&display=swap');
+
+      :root {
+        --stx-green: #12543f;
+        --stx-dark-green: #062d20;
+        --stx-gold: #f3ba29;
+        --stx-cream: #f6f9f5;
+        --stx-ink: #17352b;
+      }
+      html.stx-menu-is-open, html.stx-menu-is-open body { overflow: hidden; }
+      .stx-site-header, .stx-site-menu { box-sizing: border-box; font-family: 'DM Sans', Arial, sans-serif; }
+      .stx-site-header *, .stx-site-menu * { box-sizing: border-box; }
+      .stx-site-header {
+        position: relative;
+        z-index: 9000;
+        width: 100vw;
+        max-width: 100vw;
+        margin: -24px -24px 30px;
+        background: var(--stx-dark-green);
+        color: #fff;
+      }
+      .stx-header-inner {
+        min-height: 94px;
+        padding: 14px clamp(22px, 5vw, 82px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .stx-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 17px;
+        color: #fff !important;
+        text-decoration: none !important;
+      }
+      .stx-logo-image { display: block; width: clamp(190px, 22vw, 250px); height: auto; }
+      .stx-brand-divider { width: 1px; height: 42px; background: rgba(255,255,255,.38); }
+      .stx-section-name {
+        max-width: 90px;
+        color: var(--stx-gold);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .14em;
+        line-height: 1.25;
+        text-transform: uppercase;
+      }
+      .stx-menu-open, .stx-menu-close {
+        border: 0;
+        cursor: pointer;
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 auto;
+      }
+      .stx-menu-open {
+        width: 55px;
+        height: 55px;
+        padding: 0;
+        border-radius: 50%;
+        background: var(--stx-gold);
+        color: var(--stx-dark-green);
+        transition: background .25s ease, transform .25s ease;
+      }
+      .stx-menu-open:hover, .stx-menu-open:focus-visible { background: #fff; transform: scale(1.04); }
+      .stx-menu-open-lines, .stx-menu-open-lines::before, .stx-menu-open-lines::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 4px;
+      }
+      .stx-menu-open-lines { position: relative; }
+      .stx-menu-open-lines::before, .stx-menu-open-lines::after { content: ''; position: absolute; left: 0; }
+      .stx-menu-open-lines::before { top: -6px; }
+      .stx-menu-open-lines::after { top: 6px; }
+      .stx-visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+      .stx-site-menu {
+        position: fixed;
+        z-index: 10000;
+        inset: 0;
+        display: grid;
+        grid-template-columns: minmax(320px, 42%) 1fr;
+        background: var(--stx-cream);
+        color: var(--stx-ink);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
+        transition: transform .38s ease, opacity .3s ease, visibility 0s linear .38s;
+      }
+      .stx-site-menu.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        transition: transform .38s ease, opacity .3s ease;
+      }
+      .stx-menu-brand-panel {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(40px, 6vw, 88px);
+        background: var(--stx-green);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .stx-menu-brand-panel::before {
+        content: 'X';
+        position: absolute;
+        top: -120px;
+        left: -40px;
+        color: rgba(255,255,255,.055);
+        font: 700 540px/1 Georgia, serif;
+        transform: skew(-5deg);
+      }
+      .stx-menu-kicker { position: relative; margin: 0 0 18px; color: var(--stx-gold); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+      .stx-menu-title { position: relative; max-width: 520px; margin: 0; font: 400 clamp(39px, 5vw, 72px)/1.02 'Libre Caslon Text', Georgia, serif; }
+      .stx-menu-title em { display: block; color: var(--stx-gold); font-weight: 400; }
+      .stx-menu-content {
+        position: relative;
+        min-width: 0;
+        padding: clamp(88px, 11vh, 130px) clamp(36px, 8vw, 120px) 54px;
+        overflow-y: auto;
+      }
+      .stx-menu-close {
+        position: absolute;
+        top: 36px;
+        right: 42px;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        background: transparent;
+        color: var(--stx-dark-green);
+      }
+      .stx-menu-close::before, .stx-menu-close::after {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background: currentColor;
+      }
+      .stx-menu-close::before { transform: rotate(45deg); }
+      .stx-menu-close::after { transform: rotate(-45deg); }
+      .stx-menu-close:hover, .stx-menu-close:focus-visible { color: #8c6300; }
+      .stx-menu-label { margin: 0 0 24px; color: #64756f; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+      .stx-menu-nav { margin: 0; padding: 0; list-style: none; counter-reset: stx-nav; }
+      .stx-menu-nav li { counter-increment: stx-nav; border-top: 1px solid #ccd6d1; }
+      .stx-menu-nav li:last-child { border-bottom: 1px solid #ccd6d1; }
+      .stx-menu-nav a, .stx-menu-nav .stx-current-page {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding: 17px 6px;
+        color: var(--stx-dark-green);
+        font: 400 clamp(22px, 2.3vw, 34px)/1.15 'Libre Caslon Text', Georgia, serif;
+        text-decoration: none;
+        transition: color .2s ease, padding-left .2s ease;
+      }
+      .stx-menu-nav a::before, .stx-menu-nav .stx-current-page::before {
+        content: '0' counter(stx-nav);
+        width: 25px;
+        color: #7c9189;
+        font: 700 10px/1 'DM Sans', Arial, sans-serif;
+        letter-spacing: .1em;
+      }
+      .stx-menu-nav a::after { content: '\2192'; margin-left: auto; color: var(--stx-gold); font-family: Arial, sans-serif; }
+      .stx-menu-nav a:hover, .stx-menu-nav a:focus-visible { color: #8c6300; padding-left: 14px; }
+      .stx-menu-nav .stx-current-page { color: #8c6300; font-style: italic; }
+      .stx-menu-utility { margin-top: 34px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+      .stx-menu-feedback {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 10px 22px;
+        border: 1px solid var(--stx-gold);
+        border-radius: 4px;
+        background: var(--stx-gold);
+        color: var(--stx-dark-green) !important;
+        font-weight: 700;
+        text-decoration: none !important;
+      }
+      .stx-menu-feedback:hover, .stx-menu-feedback:focus-visible { background: transparent; }
+      .stx-school-link { color: var(--stx-dark-green) !important; font-size: 13px; font-weight: 700; }
+      .topbar > .nav, .header > .nav { display: none !important; }
+
+      @media (max-width: 780px) {
+        .stx-site-header { margin-bottom: 22px; }
+        .stx-header-inner { min-height: 68px; padding: 9px 16px; }
+        .stx-logo-image { width: 190px; }
+        .stx-brand-divider { height: 32px; }
+        .stx-section-name { font-size: 9px; }
+        .stx-menu-open { width: 42px; height: 42px; }
+        .stx-site-menu { display: block; overflow-y: auto; background: var(--stx-green); }
+        .stx-menu-brand-panel { min-height: 210px; padding: 78px 24px 28px; justify-content: flex-end; }
+        .stx-menu-brand-panel::before { top: -80px; font-size: 330px; }
+        .stx-menu-kicker { margin-bottom: 8px; font-size: 10px; }
+        .stx-menu-title { font-size: 36px; }
+        .stx-menu-content { padding: 26px 20px 42px; background: var(--stx-cream); }
+        .stx-menu-close { position: fixed; top: 15px; right: 14px; color: #fff; }
+        .stx-menu-nav a, .stx-menu-nav .stx-current-page { padding: 15px 2px; font-size: 21px; }
+      }
+      @media (max-width: 460px) {
+        .stx-brand { gap: 10px; }
+        .stx-brand-divider, .stx-section-name { display: none; }
+        .stx-logo-image { width: 175px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .stx-site-menu, .stx-menu-open, .stx-menu-nav a { transition: none; }
+      }
+    </style>
+    <!-- STX_HEADER_CSS_END -->
 </head>
 <body>
+<!-- STX_HEADER_HTML_START -->
+    <header class="stx-site-header">
+      <div class="stx-header-inner">
+        <a class="stx-brand" href="../index.html" aria-label="St. Xavier Running home">
+          <img class="stx-logo-image"
+            src="../assets/stx_logo.svg"
+            alt="Saint Xavier High School">
+          <span class="stx-brand-divider" aria-hidden="true"></span>
+          <span class="stx-section-name">Running</span>
+        </a>
+        <button class="stx-menu-open" type="button" aria-controls="stx-site-menu" aria-expanded="false">
+          <span class="stx-menu-open-lines" aria-hidden="true"></span>
+          <span class="stx-visually-hidden">Open site menu</span>
+        </button>
+      </div>
+    </header>
+    <aside class="stx-site-menu" id="stx-site-menu" aria-hidden="true">
+      <div class="stx-menu-brand-panel">
+        <p class="stx-menu-kicker">St. Xavier Running</p>
+        <p class="stx-menu-title">Built on tradition.<em>Driven by the team.</em></p>
+      </div>
+      <div class="stx-menu-content">
+        <button class="stx-menu-close" type="button">
+          <span class="stx-visually-hidden">Close site menu</span>
+        </button>
+        <p class="stx-menu-label">Explore the site</p>
+        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
+        <div class="stx-menu-utility">
+          <a class="stx-menu-feedback" href="../feedback.html">Share Feedback</a>
+          <a class="stx-school-link" href="https://www.saintx.com/">Visit saintx.com&nbsp; ↗</a>
+        </div>
+      </div>
+    </aside>
+    <!-- STX_HEADER_HTML_END -->
 
     <div class="topbar">
       <div class="titlewrap">
@@ -258,5 +515,35 @@
       <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/sami_hattab.html'>Sami Hattab</a>, <span class='pr-time'>4:29.06</span></span>; <span class='pr-parade-entry'><a href='../athletes/ryan_burchett.html'>Ryan Burchett</a>, <span class='pr-time'>4:33.76</span></span>; <span class='pr-parade-entry'><a href='../athletes/roman_schrader.html'>Roman Schrader</a>, <span class='pr-time'>4:35.76</span></span>; <span class='pr-parade-entry'><a href='../athletes/christian_smith.html'>Christian Smith</a>, <span class='pr-time'>4:44.34</span></span>; <span class='pr-parade-entry'><a href='../athletes/tristan_hindorff.html'>Tristan Hindorff</a>, <span class='pr-time'>4:56.63</span></span>; <span class='pr-parade-entry'><a href='../athletes/connor_kessinger.html'>Connor Kessinger</a>, <span class='pr-time'>4:58.23</span></span>; <span class='pr-parade-entry'><a href='../athletes/nolan_westerfield.html'>Nolan Westerfield</a>, <span class='pr-time'>5:00.32</span></span>; <span class='pr-parade-entry'><a href='../athletes/spencer_disselkamp.html'>Spencer Disselkamp</a>, <span class='pr-time'>5:37.31</span></span>; <span class='pr-parade-entry'><a href='../athletes/william_frye.html'>William Frye</a>, <span class='pr-time'>6:00.91</span></span>; <span class='pr-parade-entry'><a href='../athletes/luke_napier.html'>Luke Napier</a>, <span class='pr-time'>10:38.55</span></span>; <span class='pr-parade-entry'><a href='../athletes/dominic_garcia.html'>Dominic Garcia</a>, <span class='pr-time'>11:22.94</span></span>; <span class='pr-parade-entry'><a href='../athletes/nick_zoglman.html'>Nick Zoglman</a>, <span class='pr-time'>12:03.04</span></span>; <span class='pr-parade-entry'><a href='../athletes/roman_duke.html'>Roman Duke</a>, <span class='pr-time'>12:30.67</span></span>; <span class='pr-parade-entry'><a href='../athletes/jeremy_lopez.html'>Jeremy Lopez</a>, <span class='pr-time'>12:31.97</span></span>; <span class='pr-parade-entry'><a href='../athletes/nolan_hester.html'>Nolan Hester</a>, <span class='pr-time'>2:03.39</span></span>; <span class='pr-parade-entry'><a href='../athletes/matthew_wantland.html'>Matthew Wantland</a>, <span class='pr-time'>2:15.93</span></span>; <span class='pr-parade-entry'><a href='../athletes/callahan_schadt.html'>Callahan Schadt</a>, <span class='pr-time'>2:18.99</span></span>; <span class='pr-parade-entry'><a href='../athletes/tristan_hindorff.html'>Tristan Hindorff</a>, <span class='pr-time'>2:20.34</span></span>; <span class='pr-parade-entry'><a href='../athletes/graham_ice.html'>Graham Ice</a>, <span class='pr-time'>2:20.78</span></span>; <span class='pr-parade-entry'><a href='../athletes/gabe_harney.html'>Gabe Harney</a>, <span class='pr-time'>2:22.35</span></span>; <span class='pr-parade-entry'><a href='../athletes/zach_blincoe.html'>Zach Blincoe</a>, <span class='pr-time'>2:23.98</span></span>; <span class='pr-parade-entry'><a href='../athletes/dubem_ozor.html'>Dubem Ozor</a>, <span class='pr-time'>2:40.41</span></span>; <span class='pr-parade-entry'><a href='../athletes/ben_obryan.html'>Ben O'Bryan</a>, <span class='pr-time'>2:49.69</span></span></div>
     </div>
     <div class='card'><h2>800 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/nolan_hester.html'>Nolan Hester</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td>2:08.62</td><td class="pr">2:03.39</td></tr><tr><td><a href='../athletes/sami_hattab.html'>Sami Hattab</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>2</td><td class="dimmed-pr">2:05.26</td><td>2:02.02</td><td>2:03.85</td></tr><tr class="non-stx-row"><td>Austin Montgomery</td><td>Trinity (Louisville)</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td></td><td>2:05.65</td></tr><tr class="non-stx-row"><td>Chris Puryear</td><td>Trinity (Louisville)</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td>2:06.20</td></tr><tr class="non-stx-row"><td>Teklu Hemme</td><td>Trinity (Louisville)</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td></td><td>2:06.40</td></tr><tr class="non-stx-row"><td>Cameron Greenwell</td><td>Trinity (Louisville)</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td>2:09.22</td></tr><tr><td><a href='../athletes/ryan_burchett.html'>Ryan Burchett</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td>2:06.66</td><td>2:09.73</td></tr><tr class="non-stx-row"><td>Noah LeBoeuf</td><td>Trinity (Louisville)</td><td>1</td><td>8</td><td class="dimmed-pr"></td><td></td><td>2:09.95</td></tr><tr><td><a href='../athletes/liam_rice.html'>Liam Rice</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td>2:07.42</td><td>2:12.51</td></tr><tr class="non-stx-row"><td>Nate Rogers</td><td>Male</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td></td><td>2:13.24</td></tr><tr><td><a href='../athletes/matthew_wantland.html'>Matthew Wantland</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td></td><td class="pr">2:15.93</td></tr><tr class="non-stx-row"><td>Isaiah Horton</td><td>Male</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>2:15.96</td></tr><tr class="non-stx-row"><td>Rj Anthony Jr</td><td>Male</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>2:16.36</td></tr><tr><td><a href='../athletes/christian_smith.html'>Christian Smith</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td>2:18.13</td><td>2:18.64</td></tr><tr><td><a href='../athletes/callahan_schadt.html'>Callahan Schadt</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>15</td><td class="dimmed-pr">2:26.94</td><td></td><td class="pr">2:18.99</td></tr><tr class="non-stx-row"><td>Matthew Federico</td><td>Trinity (Louisville)</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>2:19.42</td></tr><tr><td><a href='../athletes/tristan_hindorff.html'>Tristan Hindorff</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>17</td><td class="dimmed-pr"></td><td></td><td class="pr">2:20.34</td></tr><tr><td><a href='../athletes/roman_schrader.html'>Roman Schrader</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>18</td><td class="dimmed-pr"></td><td>2:07.42</td><td>2:20.51</td></tr><tr><td><a href='../athletes/graham_ice.html'>Graham Ice</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>19</td><td class="dimmed-pr"></td><td></td><td class="pr">2:20.78</td></tr><tr class="non-stx-row"><td>Joshua Smith</td><td>Fern Creek</td><td>1</td><td>20</td><td class="dimmed-pr"></td><td></td><td>2:21.46</td></tr><tr><td><a href='../athletes/connor_kessinger.html'>Connor Kessinger</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>21</td><td class="dimmed-pr">2:21.32</td><td>2:18.09</td><td>2:21.49</td></tr><tr class="non-stx-row"><td>Jack Ballard</td><td>DuPont Manual</td><td>1</td><td>22</td><td class="dimmed-pr"></td><td></td><td>2:21.71</td></tr><tr class="non-stx-row"><td>John Kelley</td><td>Trinity (Louisville)</td><td>1</td><td>23</td><td class="dimmed-pr"></td><td></td><td>2:22.10</td></tr><tr><td><a href='../athletes/gabe_harney.html'>Gabe Harney</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>24</td><td class="dimmed-pr"></td><td>2:22.39</td><td class="pr">2:22.35</td></tr><tr class="non-stx-row"><td>Karlyle Sullivan</td><td>Male</td><td>1</td><td>25</td><td class="dimmed-pr"></td><td></td><td>2:23.96</td></tr><tr><td><a href='../athletes/zach_blincoe.html'>Zach Blincoe</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>26</td><td class="dimmed-pr"></td><td>2:25.44</td><td class="pr">2:23.98</td></tr><tr class="non-stx-row"><td>Elliott Crumbo</td><td>Trinity (Louisville)</td><td>1</td><td>27</td><td class="dimmed-pr"></td><td></td><td>2:24.02</td></tr><tr class="non-stx-row"><td>Henry Schreck</td><td>Trinity (Louisville)</td><td>1</td><td>28</td><td class="dimmed-pr"></td><td></td><td>2:24.40</td></tr><tr class="non-stx-row"><td>Matthew Holdener</td><td>DuPont Manual</td><td>1</td><td>29</td><td class="dimmed-pr"></td><td></td><td>2:24.89</td></tr><tr class="non-stx-row"><td>Kaleb Cunningham</td><td>Male</td><td>1</td><td>30</td><td class="dimmed-pr"></td><td></td><td>2:24.98</td></tr><tr class="non-stx-row"><td>Dain Elmore</td><td>Fern Creek</td><td>1</td><td>31</td><td class="dimmed-pr"></td><td></td><td>2:25.65</td></tr><tr class="non-stx-row"><td>Garrett Hensler</td><td>Male</td><td>1</td><td>32</td><td class="dimmed-pr"></td><td></td><td>2:28.30</td></tr><tr class="non-stx-row"><td>Gray Meyer</td><td>Fern Creek</td><td>1</td><td>33</td><td class="dimmed-pr"></td><td></td><td>2:29.25</td></tr><tr class="non-stx-row"><td>Jared Sponel</td><td>Male</td><td>1</td><td>34</td><td class="dimmed-pr"></td><td></td><td>2:31.72</td></tr><tr class="non-stx-row"><td>Kevin Wright</td><td>Fern Creek</td><td>1</td><td>35</td><td class="dimmed-pr"></td><td></td><td>2:31.83</td></tr><tr class="non-stx-row"><td>Gavin Martinez</td><td>Fern Creek</td><td>1</td><td>36</td><td class="dimmed-pr"></td><td></td><td>2:33.40</td></tr><tr><td><a href='../athletes/joey_maier.html'>Joey Maier</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>37</td><td class="dimmed-pr"></td><td>2:30.29</td><td>2:33.85</td></tr><tr class="non-stx-row"><td>William Mullarkey</td><td>Male</td><td>1</td><td>38</td><td class="dimmed-pr"></td><td></td><td>2:33.97</td></tr><tr class="non-stx-row"><td>Gabriel Storey</td><td>Trinity (Louisville)</td><td>1</td><td>39</td><td class="dimmed-pr"></td><td></td><td>2:35.96</td></tr><tr class="non-stx-row"><td>Ty Hensgen</td><td>Trinity (Louisville)</td><td>1</td><td>40</td><td class="dimmed-pr"></td><td></td><td>2:37.22</td></tr><tr><td><a href='../athletes/dubem_ozor.html'>Dubem Ozor</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>41</td><td class="dimmed-pr">2:44.47</td><td>2:45.89</td><td class="pr">2:40.41</td></tr><tr class="non-stx-row"><td>Simon Hildenbrand</td><td>Trinity (Louisville)</td><td>1</td><td>42</td><td class="dimmed-pr"></td><td></td><td>2:41.13</td></tr><tr class="non-stx-row"><td>Peyton Tindall</td><td>Trinity (Louisville)</td><td>1</td><td>43</td><td class="dimmed-pr"></td><td></td><td>2:41.76</td></tr><tr><td><a href='../athletes/ben_obryan.html'>Ben O'Bryan</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>44</td><td class="dimmed-pr"></td><td></td><td class="pr">2:49.69</td></tr><tr class="non-stx-row"><td>Daniel Christerson</td><td>Male</td><td>1</td><td>45</td><td class="dimmed-pr"></td><td></td><td>2:55.21</td></tr><tr class="non-stx-row"><td>Caleb Sells</td><td>Male</td><td>1</td><td>46</td><td class="dimmed-pr"></td><td></td><td>3:02.42</td></tr><tr class="non-stx-row"><td>Alex Wright</td><td>Trinity (Louisville)</td><td>1</td><td>47</td><td class="dimmed-pr"></td><td></td><td>3:10.69</td></tr><tr class="non-stx-row"><td>Zach Brown</td><td>Trinity (Louisville)</td><td>1</td><td>48</td><td class="dimmed-pr"></td><td></td><td>3:15.90</td></tr></tbody></table></div></div><div class='card'><h2>1600 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/sami_hattab.html'>Sami Hattab</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td>4:30.28</td><td class="pr">4:29.06</td></tr><tr><td><a href='../athletes/nicholas_brooks.html'>Nicholas Brooks</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td>4:28.84</td><td>4:30.06</td></tr><tr><td><a href='../athletes/ryan_burchett.html'>Ryan Burchett</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>3</td><td class="dimmed-pr">5:18.10</td><td>4:36.23</td><td class="pr">4:33.76</td></tr><tr><td><a href='../athletes/roman_schrader.html'>Roman Schrader</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td>4:41.78</td><td class="pr">4:35.76</td></tr><tr><td><a href='../athletes/matthew_wantland.html'>Matthew Wantland</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td>4:38.38</td><td>4:42.94</td></tr><tr><td><a href='../athletes/christian_smith.html'>Christian Smith</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td>4:44.99</td><td class="pr">4:44.34</td></tr><tr class="non-stx-row"><td>Colin Murphy</td><td>Trinity (Louisville)</td><td>1</td><td>7</td><td class="dimmed-pr"></td><td></td><td>4:55.36</td></tr><tr><td><a href='../athletes/tristan_hindorff.html'>Tristan Hindorff</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>8</td><td class="dimmed-pr"></td><td></td><td class="pr">4:56.63</td></tr><tr class="non-stx-row"><td>Owen McGreevy</td><td>Trinity (Louisville)</td><td>1</td><td>9</td><td class="dimmed-pr"></td><td></td><td>4:57.95</td></tr><tr><td><a href='../athletes/connor_kessinger.html'>Connor Kessinger</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>10</td><td class="dimmed-pr"></td><td>5:10.16</td><td class="pr">4:58.23</td></tr><tr><td><a href='../athletes/brodie_terkhorn.html'>Brodie Terkhorn</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>11</td><td class="dimmed-pr"></td><td>4:56.30</td><td>4:58.35</td></tr><tr class="non-stx-row"><td>Elliott Crumbo</td><td>Trinity (Louisville)</td><td>1</td><td>12</td><td class="dimmed-pr"></td><td></td><td>4:59.45</td></tr><tr class="non-stx-row"><td>Max Kelley</td><td>Trinity (Louisville)</td><td>1</td><td>13</td><td class="dimmed-pr"></td><td></td><td>4:59.92</td></tr><tr><td><a href='../athletes/nolan_westerfield.html'>Nolan Westerfield</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>14</td><td class="dimmed-pr"></td><td>5:03.61</td><td class="pr">5:00.32</td></tr><tr class="non-stx-row"><td>Finn Thomas</td><td>Trinity (Louisville)</td><td>1</td><td>15</td><td class="dimmed-pr"></td><td></td><td>5:02.54</td></tr><tr class="non-stx-row"><td>Justin Michels</td><td>Trinity (Louisville)</td><td>1</td><td>16</td><td class="dimmed-pr"></td><td></td><td>5:06.41</td></tr><tr class="non-stx-row"><td>Caden Cull</td><td>Male</td><td>1</td><td>17</td><td class="dimmed-pr"></td><td></td><td>5:07.16</td></tr><tr class="non-stx-row"><td>Rollins Hardy</td><td>Trinity (Louisville)</td><td>1</td><td>18</td><td class="dimmed-pr"></td><td></td><td>5:12.83</td></tr><tr class="non-stx-row"><td>Jack Ballard</td><td>DuPont Manual</td><td>1</td><td>19</td><td class="dimmed-pr"></td><td></td><td>5:14.40</td></tr><tr class="non-stx-row"><td>Henry Robinson</td><td>Trinity (Louisville)</td><td>1</td><td>20</td><td class="dimmed-pr"></td><td></td><td>5:14.87</td></tr><tr class="non-stx-row"><td>Jacob Hardin</td><td>Male</td><td>1</td><td>21</td><td class="dimmed-pr"></td><td></td><td>5:18.77</td></tr><tr class="non-stx-row"><td>Ian Kennedy</td><td>Trinity (Louisville)</td><td>1</td><td>22</td><td class="dimmed-pr"></td><td></td><td>5:20.30</td></tr><tr class="non-stx-row"><td>Matthew Holdener</td><td>DuPont Manual</td><td>1</td><td>23</td><td class="dimmed-pr"></td><td></td><td>5:22.99</td></tr><tr class="non-stx-row"><td>Mikeal Blevins</td><td>Pleasure Ridge Park</td><td>1</td><td>24</td><td class="dimmed-pr"></td><td></td><td>5:29.48</td></tr><tr class="non-stx-row"><td>Edward Jost</td><td>DuPont Manual</td><td>1</td><td>25</td><td class="dimmed-pr"></td><td></td><td>5:30.70</td></tr><tr><td><a href='../athletes/ty_sautel.html'>Ty Sautel</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>26</td><td class="dimmed-pr"></td><td>5:30.27</td><td>5:33.92</td></tr><tr><td><a href='../athletes/preston_prewitt.html'>Preston Prewitt</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>27</td><td class="dimmed-pr"></td><td>5:30.93</td><td>5:35.52</td></tr><tr><td><a href='../athletes/spencer_disselkamp.html'>Spencer Disselkamp</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>28</td><td class="dimmed-pr"></td><td>5:40.29</td><td class="pr">5:37.31</td></tr><tr class="non-stx-row"><td>Jacob McFall</td><td>Pleasure Ridge Park</td><td>1</td><td>29</td><td class="dimmed-pr"></td><td></td><td>5:38.34</td></tr><tr class="non-stx-row"><td>Gavin Martinez</td><td>Fern Creek</td><td>1</td><td>30</td><td class="dimmed-pr"></td><td></td><td>5:38.88</td></tr><tr class="non-stx-row"><td>Zach Ewald</td><td>Trinity (Louisville)</td><td>1</td><td>31</td><td class="dimmed-pr"></td><td></td><td>5:42.28</td></tr><tr class="non-stx-row"><td>Adam Russell</td><td>Trinity (Louisville)</td><td>1</td><td>32</td><td class="dimmed-pr"></td><td></td><td>5:45.65</td></tr><tr><td><a href='../athletes/joey_maier.html'>Joey Maier</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>33</td><td class="dimmed-pr"></td><td>5:46.42</td><td>5:48.50</td></tr><tr><td><a href='../athletes/cole_cornett.html'>Cole Cornett</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>34</td><td class="dimmed-pr"></td><td>5:47.45</td><td>5:52.96</td></tr><tr class="non-stx-row"><td>Ben Ryan</td><td>Trinity (Louisville)</td><td>1</td><td>35</td><td class="dimmed-pr"></td><td></td><td>5:54.84</td></tr><tr class="non-stx-row"><td>Gavin Storm</td><td>Trinity (Louisville)</td><td>1</td><td>36</td><td class="dimmed-pr"></td><td></td><td>5:58.24</td></tr><tr><td><a href='../athletes/william_frye.html'>William Frye</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>37</td><td class="dimmed-pr"></td><td></td><td class="pr">6:00.91</td></tr><tr class="non-stx-row"><td>Benton Mammorella</td><td>DuPont Manual</td><td>1</td><td>38</td><td class="dimmed-pr"></td><td></td><td>6:05.22</td></tr><tr class="non-stx-row"><td>Max Meredith</td><td>Trinity (Louisville)</td><td>1</td><td>39</td><td class="dimmed-pr"></td><td></td><td>6:12.47</td></tr><tr class="non-stx-row"><td>Andres Aguirre Baldubin</td><td>DuPont Manual</td><td>1</td><td>40</td><td class="dimmed-pr"></td><td></td><td>6:30.46</td></tr></tbody></table></div></div><div class='card'><h2>3200 Meters</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>Group</th><th>Place</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th></tr></thead><tbody><tr><td><a href='../athletes/luke_napier.html'>Luke Napier</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>1</td><td class="dimmed-pr"></td><td>10:54.96</td><td class="pr">10:38.55</td></tr><tr class="non-stx-row"><td>Samuel Lucas</td><td>Male</td><td>1</td><td>2</td><td class="dimmed-pr"></td><td></td><td>10:54.80</td></tr><tr><td><a href='../athletes/dominic_garcia.html'>Dominic Garcia</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>3</td><td class="dimmed-pr"></td><td>11:23.93</td><td class="pr">11:22.94</td></tr><tr><td><a href='../athletes/nick_zoglman.html'>Nick Zoglman</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>4</td><td class="dimmed-pr"></td><td></td><td class="pr">12:03.04</td></tr><tr><td><a href='../athletes/roman_duke.html'>Roman Duke</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>5</td><td class="dimmed-pr"></td><td>13:04.04</td><td class="pr">12:30.67</td></tr><tr><td><a href='../athletes/jeremy_lopez.html'>Jeremy Lopez</a></td><td class="stx-team-highlight">St Xavier (KY)</td><td>1</td><td>6</td><td class="dimmed-pr"></td><td></td><td class="pr">12:31.97</td></tr></tbody></table></div></div><div class='card'><h2>4x800 Relay</h2><div class="table-wrap"><table><thead><tr><th>Athlete</th><th>Team</th><th>team_raw</th><th>Group</th><th>Place</th><th>Leg</th><th class="dimmed-pr">Indoor PR</th><th>Outdoor PR</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>1</td><td></td><td class="dimmed-pr"></td><td></td><td class="pr">8:39.72</td><td></td></tr><tr><td></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>2</td><td></td><td class="dimmed-pr"></td><td></td><td class="pr">9:00.13</td><td></td></tr><tr class="non-stx-row"><td>LeiLeon Melvin</td><td>Pleasure Ridge Park</td><td>Pleasure Ridge Park</td><td>1</td><td>3</td><td>1</td><td class="dimmed-pr"></td><td></td><td>9:46.52</td><td></td></tr><tr class="non-stx-row"><td>Eric Richardson</td><td>Pleasure Ridge Park</td><td>Pleasure Ridge Park</td><td>1</td><td>3</td><td>2</td><td class="dimmed-pr"></td><td></td><td>9:46.52</td><td></td></tr><tr class="non-stx-row"><td>D'Anico Trowell</td><td>Pleasure Ridge Park</td><td>Pleasure Ridge Park</td><td>1</td><td>3</td><td>3</td><td class="dimmed-pr"></td><td></td><td>9:46.52</td><td></td></tr><tr class="non-stx-row"><td>Mikeal Blevins</td><td>Pleasure Ridge Park</td><td>Pleasure Ridge Park</td><td>1</td><td>3</td><td>4</td><td class="dimmed-pr"></td><td></td><td>9:46.52</td><td></td></tr><tr><td></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>4</td><td></td><td class="dimmed-pr"></td><td></td><td class="pr">9:59.13</td><td></td></tr><tr><td></td><td class="stx-team-highlight">St Xavier (KY)</td><td>St Xavier (KY)</td><td>1</td><td>5</td><td></td><td class="dimmed-pr"></td><td></td><td class="pr">10:24.24</td><td></td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-07-28 19:51:34</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+<!-- STX_HEADER_SCRIPT_START -->
+    <script>
+      (() => {
+        const menu = document.getElementById('stx-site-menu');
+        const openButton = document.querySelector('.stx-menu-open');
+        const closeButton = document.querySelector('.stx-menu-close');
+        if (!menu || !openButton || !closeButton) return;
+        let lastFocused = null;
+
+        function setMenu(open) {
+          menu.classList.toggle('is-open', open);
+          menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+          openButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+          document.documentElement.classList.toggle('stx-menu-is-open', open);
+          if (open) {
+            lastFocused = document.activeElement;
+            closeButton.focus();
+          } else if (lastFocused) {
+            lastFocused.focus();
+          }
+        }
+
+        openButton.addEventListener('click', () => setMenu(true));
+        closeButton.addEventListener('click', () => setMenu(false));
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape' && menu.classList.contains('is-open')) setMenu(false);
+        });
+      })();
+    </script>
+    <!-- STX_HEADER_SCRIPT_END -->
 </body>
 </html>
