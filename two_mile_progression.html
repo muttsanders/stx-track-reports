@@ -232,6 +232,7 @@
     main { max-width:1600px; margin:auto; }
     .intro, .selector, .report-card { background:white; border:1px solid #dce6df; border-radius:16px; box-shadow:0 4px 18px #17352b12; }
     .intro { padding:24px 28px; margin-bottom:16px; border-left:7px solid var(--gold); }
+    .intro-heading { display:flex; justify-content:space-between; align-items:center; gap:16px; }
     h1 { margin:0 0 8px; font:700 clamp(30px,5vw,48px)/1.08 Georgia,serif; color:var(--dark); }
     .intro p { margin:5px 0; color:#50665d; line-height:1.5; }
     .report-layout { display:grid; grid-template-columns:minmax(310px,370px) minmax(0,1fr); gap:16px; align-items:start; }
@@ -273,6 +274,29 @@
     .empty { padding:22px; color:#677b73; text-align:center; }
     .definitions { padding:14px 20px; color:#566b62; font-size:13px; border-top:1px solid #dce6df; }
     @media (max-width:850px) { body { padding:12px; } .stx-site-header { margin:-12px -12px 20px; } .report-layout { grid-template-columns:1fr; } .selector { position:static; max-height:none; } }
+    @page { size:landscape; margin:0.25in; }
+    @media print {
+      html, body { width:100%; margin:0; padding:0; background:white; color:black; }
+      body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .stx-site-header, .selector, .print-button, .intro p, .definitions, .empty { display:none !important; }
+      main { width:100%; max-width:none; margin:0; }
+      .intro { margin:0 0 8px; padding:0 0 5px; border:0; border-bottom:2px solid var(--gold); border-radius:0; box-shadow:none; }
+      .intro-heading { display:block; }
+      h1 { margin:0; font-size:18pt; }
+      .report-layout { display:block; }
+      .report-card, .table-wrap { width:100%; max-width:none; max-height:none; overflow:visible; border:0; border-radius:0; box-shadow:none; }
+      table { width:100% !important; table-layout:fixed; }
+      thead { display:table-header-group; }
+      tr { break-inside:avoid; page-break-inside:avoid; }
+      tr[hidden], table[hidden] { display:none !important; }
+      th, td { padding:3px 2px; white-space:normal; overflow-wrap:anywhere; font-size:6pt; }
+      th { position:static; }
+      th small { font-size:5pt; }
+      th:first-child, td:first-child { position:static; width:14%; }
+      th:nth-child(2), td:nth-child(2) { width:7%; }
+      .time-diff { font-size:5pt; }
+      td a { color:black; text-decoration:none; }
+    }
   </style>
 </head>
 <body>
@@ -302,7 +326,7 @@
           <span class="stx-visually-hidden">Close site menu</span>
         </button>
         <p class="stx-menu-label">Explore the site</p>
-        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="index.html">Home</a></li><li><a href="records.html">StX Records</a></li><li><a href="depth_chart.html">Depth Chart</a></li><li><a href="athlete_comparison.html">Athlete Comparison</a></li><li><a href="freshman.html">Freshman</a></li><li><span class="stx-current-page" aria-current="page">Two Mile Progression</span></li><li><a href="coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
+        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="index.html">Home</a></li><li><a href="records.html">StX Records</a></li><li><a href="depth_chart.html">Depth Chart</a></li><li><a href="athlete_comparison.html">Athlete Comparison</a></li><li><a href="freshman.html">Freshman</a></li><li><span class="stx-current-page" aria-current="page">Two Mile Progression</span></li><li><a href="data_downloads.html">Data Downloads</a></li><li><a href="coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
         <div class="stx-menu-utility">
           <a class="stx-menu-feedback" href="feedback.html">Share Feedback</a>
           <a class="stx-school-link" href="https://www.saintx.com/">Visit saintx.com&nbsp; ↗</a>
@@ -312,7 +336,10 @@
     <!-- STX_HEADER_HTML_END -->
   <main>
     <section class="intro">
-      <h1>Two Mile Progression</h1>
+      <div class="intro-heading">
+        <h1>Two Mile Progression</h1>
+        <button type="button" class="print-button" onclick="window.print()">Print</button>
+      </div>
       <p>XC two-mile time-trial development across seasons. Select athletes or an entire class to compare results.</p>
     </section>
     <div class="report-layout">
