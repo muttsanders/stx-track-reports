@@ -655,7 +655,7 @@
       <div id="athlete-results-wrap"><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2013</td><td>2013-04-30</td><td><a href='../meets/600_all.html'>St. X/Trinity JV Dual</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>13</td><td>5:37.70</td></tr><tr><td>2013</td><td>2013-04-09</td><td><a href='../meets/592_all.html'>St. X JV Series Meet 1</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>14</td><td>5:53.10</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div></div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-08-24 15:03:50</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-08-24 16:05:44</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -736,15 +736,33 @@
       function applyAthleteGraphSpacing(chart, data, spacingMode) {
         chart.data.datasets[0].data = athleteChartPoints(data, spacingMode);
         if (spacingMode === 'sequential') {
-          chart.options.scales.x.type = 'linear';
-          chart.options.scales.x.title.text = 'Race Sequence';
-          chart.options.scales.x.ticks.callback = function(value) {
-            return Number.isInteger(value) && value >= 1 ? `Race ${value}` : '';
+          chart.options.scales.x = {
+            type: 'linear',
+            min: 1,
+            title: { display: true, text: 'Race Sequence' },
+            ticks: {
+              precision: 0,
+              callback: function(value) {
+                return Number.isInteger(value) && value >= 1
+                  ? `Race ${value}`
+                  : '';
+              }
+            }
           };
         } else {
-          chart.options.scales.x.type = 'time';
-          chart.options.scales.x.title.text = 'Date';
-          chart.options.scales.x.ticks.callback = undefined;
+          chart.options.scales.x = {
+            type: 'time',
+            time: {
+              unit: 'year',
+              tooltipFormat: 'MMM d, yyyy'
+            },
+            title: { display: true, text: 'Date' },
+            ticks: {
+              callback: function(value) {
+                return `${new Date(value).getFullYear()}`;
+              }
+            }
+          };
         }
       }
 

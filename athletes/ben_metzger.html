@@ -655,7 +655,7 @@
       <div id="athlete-results-wrap"><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2014</td><td>2014-05-02</td><td><a href='../meets/353_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>10</td><td>4:27.58</td></tr><tr><td>2014</td><td>2014-04-25</td><td><a href='../meets/170_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>35</td><td>4:35.30</td></tr><tr><td>2014</td><td>2014-02-08</td><td><a href='../meets/230_all.html'>Indiana Track Club High School Open</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>4</td><td>4:33.07</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2014</td><td>2014-04-25</td><td><a href='../meets/170_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>30</td><td>9:31.45</td></tr><tr><td>2014</td><td>2014-02-22</td><td><a href='../meets/373_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>3</td><td>9:57.30</td></tr><tr><td>2013</td><td>2013-04-27</td><td><a href='../meets/175_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>55</td><td>9:55.23</td></tr><tr><td>2013</td><td>2013-04-13</td><td><a href='../meets/173_all.html'>Male Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>5</td><td>10:26.91</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2014</td><td>2014-05-23</td><td><a href='../meets/172_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>3</td><td>8:02.11</td><td></td></tr><tr><td>2014</td><td>2014-05-15</td><td><a href='../meets/171_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>1</td><td>8:06.34</td><td></td></tr><tr><td>2013</td><td>2013-04-13</td><td><a href='../meets/173_all.html'>Male Invitational</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>6</td><td>9:26.08</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div></div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-08-24 15:03:51</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-08-24 16:05:46</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -780,15 +780,33 @@
       function applyAthleteGraphSpacing(chart, data, spacingMode) {
         chart.data.datasets[0].data = athleteChartPoints(data, spacingMode);
         if (spacingMode === 'sequential') {
-          chart.options.scales.x.type = 'linear';
-          chart.options.scales.x.title.text = 'Race Sequence';
-          chart.options.scales.x.ticks.callback = function(value) {
-            return Number.isInteger(value) && value >= 1 ? `Race ${value}` : '';
+          chart.options.scales.x = {
+            type: 'linear',
+            min: 1,
+            title: { display: true, text: 'Race Sequence' },
+            ticks: {
+              precision: 0,
+              callback: function(value) {
+                return Number.isInteger(value) && value >= 1
+                  ? `Race ${value}`
+                  : '';
+              }
+            }
           };
         } else {
-          chart.options.scales.x.type = 'time';
-          chart.options.scales.x.title.text = 'Date';
-          chart.options.scales.x.ticks.callback = undefined;
+          chart.options.scales.x = {
+            type: 'time',
+            time: {
+              unit: 'year',
+              tooltipFormat: 'MMM d, yyyy'
+            },
+            title: { display: true, text: 'Date' },
+            ticks: {
+              callback: function(value) {
+                return `${new Date(value).getFullYear()}`;
+              }
+            }
+          };
         }
       }
 
