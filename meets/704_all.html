@@ -222,11 +222,12 @@
       .pr-parade-list { display:inline; line-height:1.8; }
       .pr-parade-entry { white-space:nowrap; }
       .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .pr-parade-first { border-color:#d5a928; background:#fffbea; }
+      .pr-parade-first h2 { color:#765b00; }
       .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
       .xc-team-score-heading h3 { margin:0; }
-      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
-      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      body.show-all-xc-teams .xc-team-extra-row { display:table-row; }
       .xc-results-table th { text-align:center; }
       .xc-result-date {
         display:block;
@@ -322,6 +323,29 @@
       .meet-date { color:#64748b; font-size:12px; font-weight:800; }
       .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
       .meet-location { color:#475569; font-size:12px; }
+      .pdf-export-button {
+        border:1px solid #12543f; border-radius:8px; padding:7px 11px;
+        background:#12543f; color:#fff; cursor:pointer;
+        font:700 13px Arial, sans-serif;
+      }
+      .pdf-export-button:hover { background:#0a3b2b; }
+      @page { size: Letter landscape; margin: 0.35in; }
+      @media print {
+        body { margin:0; color:#000; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+        .stx-site-header, .stx-site-menu, .nav, .filterbar,
+        .meet-links, .footer { display:none !important; }
+        .topbar { margin-bottom:8px; }
+        .meetname { font-size:24px; }
+        .card { break-inside:avoid; border-color:#aaa; margin:8px 0; padding:10px; }
+        .pr-parade { break-inside:auto; }
+        .xc-history-heading { break-before:page; margin-top:0; padding-top:0; border-top:0; }
+        .table-wrap { overflow:visible; }
+        table { width:100%; }
+        th, td { padding:4px 5px; font-size:10px; }
+        th { position:static; }
+        .xc-alumni-section { display:none !important; }
+        a { color:inherit; text-decoration:none; }
+      }
     </style>
     
   <!-- STX_HEADER_CSS_START -->
@@ -575,7 +599,7 @@
           <span class="stx-visually-hidden">Close site menu</span>
         </button>
         <p class="stx-menu-label">Explore the site</p>
-        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
+        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../freshman.html">Freshman</a></li><li><a href="../two_mile_progression.html">Two Mile Progression</a></li><li><a href="../data_downloads.html">Data Downloads</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
         <div class="stx-menu-utility">
           <a class="stx-menu-feedback" href="../feedback.html">Share Feedback</a>
           <a class="stx-school-link" href="https://www.saintx.com/">Visit saintx.com&nbsp; ↗</a>
@@ -601,6 +625,13 @@
             <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
             StX Athletes Only
           </label>
+          <label>
+            <input type="checkbox" id="showAllTeamsToggle" onchange="toggleAllTeams(this)">
+            Show all teams
+          </label>
+          <button type="button" class="pdf-export-button" onclick="window.print()">
+            Print / Save PDF
+          </button>
         </div>
         <script>
           function toggleStxOnly(checkbox) {
@@ -610,14 +641,21 @@
               document.body.classList.remove('stx-only');
             }
           }
+          function toggleAllTeams(checkbox) {
+            document.body.classList.toggle('show-all-xc-teams', checkbox.checked);
+          }
           document.addEventListener('DOMContentLoaded', () => {
             const checkbox = document.getElementById('stxOnlyToggle');
             if (checkbox) {
               toggleStxOnly(checkbox);
             }
+            const showAllTeams = document.getElementById('showAllTeamsToggle');
+            if (showAllTeams) {
+              toggleAllTeams(showAllTeams);
+            }
           });
         </script>
-        <p class='subline muted'>September 29, 2009<br>McNeely Lake Park, Louisville, KY</p><div class='card'><h2>5K</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2009<span class='xc-result-date'>9/29</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>4</td><td><a href='../athletes/chris_bartlett.html'>Bartlett, Chris</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>17:41.60</td><td>17:17.00</td><td>5:42</td></tr><tr><td>8</td><td><a href='../athletes/adam_goodin.html'>Goodin, Adam</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:07.80</td><td>17:21.00</td><td>5:50</td></tr><tr><td>9</td><td><a href='../athletes/michael_blum.html'>Blum, Michael</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:15.90</td><td>17:26.80</td><td>5:53</td></tr><tr><td>10</td><td><a href='../athletes/ted_graves.html'>Graves, Ted</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>18:17.90</td><td>17:26.60</td><td>5:53</td></tr><tr><td>11</td><td><a href='../athletes/peter_mcdermott.html'>Mcdermott, Peter</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:25.10</td><td>17:20.20</td><td>5:56</td></tr><tr><td>12</td><td><a href='../athletes/tyler_skaggs.html'>Skaggs, Tyler</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:34.70</td><td>16:41.30</td><td>5:59</td></tr><tr><td>14</td><td><a href='../athletes/adam_dant.html'>Dant, Adam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:45.30</td><td>18:31.30</td><td>6:02</td></tr><tr><td>17</td><td><a href='../athletes/joey_brosky.html'>Brosky, Joey</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:50.80</td><td>18:19.50</td><td>6:04</td></tr><tr><td>18</td><td><a href='../athletes/aaron_flannery.html'>Flannery, Aaron</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>19:05.10</td><td>17:35.80</td><td>6:09</td></tr><tr><td>19</td><td><a href='../athletes/jimmy_paul.html'>Paul, Jimmy</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:16.30</td><td>18:01.40</td><td>6:12</td></tr><tr><td>20</td><td><a href='../athletes/clay_wright.html'>Wright, Clay</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:18.60</td><td>18:10.20</td><td>6:13</td></tr><tr><td>22</td><td><a href='../athletes/ben_wainwright.html'>Wainwright, Ben</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:22.50</td><td>19:06.80</td><td>6:14</td></tr><tr><td>24</td><td><a href='../athletes/thomas_pusty.html'>Pusty, Thomas</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:24.00</td><td>18:02.60</td><td>6:15</td></tr><tr><td>25</td><td><a href='../athletes/eric_beyerle.html'>Beyerle, Eric</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:26.50</td><td>18:32.20</td><td>6:15</td></tr><tr><td>27</td><td><a href='../athletes/chip_raque.html'>Raque, Chip</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:40.60</td><td>19:23.40</td><td>6:20</td></tr><tr><td>30</td><td><a href='../athletes/willie_thompson.html'>Thompson, Willie</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:51.20</td><td>19:08.50</td><td>6:23</td></tr><tr><td>36</td><td><a href='../athletes/devin_schroeder.html'>Schroeder, Devin</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:14.40</td><td>19:42.30</td><td>6:31</td></tr><tr><td>38</td><td><a href='../athletes/david_kraus.html'>Kraus, David</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:23.90</td><td>18:56.30</td><td>6:34</td></tr><tr><td>44</td><td><a href='../athletes/adam_kleine_kracht.html'>Kleine-Kracht, Adam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:35.00</td><td>19:57.20</td><td>6:38</td></tr><tr><td>46</td><td><a href='../athletes/ryan_resiert.html'>Resiert, Ryan</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:40.90</td><td>19:17.80</td><td>6:39</td></tr><tr><td>49</td><td><a href='../athletes/ben_koch.html'>Koch, Ben</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:48.70</td><td>19:49.90</td><td>6:42</td></tr><tr><td>50</td><td><a href='../athletes/louis_kosse.html'>Kosse, Louis</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:58.30</td><td>20:42.70</td><td>6:45</td></tr><tr><td>54</td><td><a href='../athletes/taylor_crismon.html'>Crismon, Taylor</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>21:11.40</td><td>19:59.70</td><td>6:49</td></tr><tr><td>65</td><td><a href='../athletes/william_damrau.html'>Damrau, William</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>22:11.80</td><td>21:22.30</td><td>7:09</td></tr><tr><td>105</td><td><a href='../athletes/david_bossmeyer.html'>Bossmeyer, David</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>25:51.90</td><td>24:50.90</td><td>8:20</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-08-06 11:28:19</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+        <section class='xc-print-current'><p class='subline muted'>September 29, 2009<br>McNeely Lake Park, Louisville, KY</p><div class='card'><h2>5K</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2009<span class='xc-result-date'>9/29</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>4</td><td><a href='../athletes/chris_bartlett.html'>Bartlett, Chris</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>17:41.60</td><td>17:17.00</td><td>5:42</td></tr><tr><td>8</td><td><a href='../athletes/adam_goodin.html'>Goodin, Adam</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:07.80</td><td>17:21.00</td><td>5:50</td></tr><tr><td>9</td><td><a href='../athletes/michael_blum.html'>Blum, Michael</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:15.90</td><td>17:26.80</td><td>5:53</td></tr><tr><td>10</td><td><a href='../athletes/ted_graves.html'>Graves, Ted</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>18:17.90</td><td>17:26.60</td><td>5:53</td></tr><tr><td>11</td><td><a href='../athletes/peter_mcdermott.html'>Mcdermott, Peter</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:25.10</td><td>17:20.20</td><td>5:56</td></tr><tr><td>12</td><td><a href='../athletes/tyler_skaggs.html'>Skaggs, Tyler</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:34.70</td><td>16:41.30</td><td>5:59</td></tr><tr><td>14</td><td><a href='../athletes/adam_dant.html'>Dant, Adam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:45.30</td><td>18:31.30</td><td>6:02</td></tr><tr><td>17</td><td><a href='../athletes/joey_brosky.html'>Brosky, Joey</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:50.80</td><td>18:19.50</td><td>6:04</td></tr><tr><td>18</td><td><a href='../athletes/aaron_flannery.html'>Flannery, Aaron</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>19:05.10</td><td>17:35.80</td><td>6:09</td></tr><tr><td>19</td><td><a href='../athletes/jimmy_paul.html'>Paul, Jimmy</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:16.30</td><td>18:01.40</td><td>6:12</td></tr><tr><td>20</td><td><a href='../athletes/clay_wright.html'>Wright, Clay</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:18.60</td><td>18:10.20</td><td>6:13</td></tr><tr><td>22</td><td><a href='../athletes/ben_wainwright.html'>Wainwright, Ben</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:22.50</td><td>19:06.80</td><td>6:14</td></tr><tr><td>24</td><td><a href='../athletes/thomas_pusty.html'>Pusty, Thomas</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:24.00</td><td>18:02.60</td><td>6:15</td></tr><tr><td>25</td><td><a href='../athletes/eric_beyerle.html'>Beyerle, Eric</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:26.50</td><td>18:32.20</td><td>6:15</td></tr><tr><td>27</td><td><a href='../athletes/chip_raque.html'>Raque, Chip</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>19:40.60</td><td>19:23.40</td><td>6:20</td></tr><tr><td>30</td><td><a href='../athletes/willie_thompson.html'>Thompson, Willie</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>19:51.20</td><td>19:08.50</td><td>6:23</td></tr><tr><td>36</td><td><a href='../athletes/devin_schroeder.html'>Schroeder, Devin</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:14.40</td><td>19:42.30</td><td>6:31</td></tr><tr><td>38</td><td><a href='../athletes/david_kraus.html'>Kraus, David</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:23.90</td><td>18:56.30</td><td>6:34</td></tr><tr><td>44</td><td><a href='../athletes/adam_kleine_kracht.html'>Kleine-Kracht, Adam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:35.00</td><td>19:57.20</td><td>6:38</td></tr><tr><td>46</td><td><a href='../athletes/ryan_resiert.html'>Resiert, Ryan</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>20:40.90</td><td>19:17.80</td><td>6:39</td></tr><tr><td>49</td><td><a href='../athletes/ben_koch.html'>Koch, Ben</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:48.70</td><td>19:49.90</td><td>6:42</td></tr><tr><td>50</td><td><a href='../athletes/louis_kosse.html'>Kosse, Louis</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>20:58.30</td><td>20:42.70</td><td>6:45</td></tr><tr><td>54</td><td><a href='../athletes/taylor_crismon.html'>Crismon, Taylor</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>21:11.40</td><td>19:59.70</td><td>6:49</td></tr><tr><td>65</td><td><a href='../athletes/william_damrau.html'>Damrau, William</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>22:11.80</td><td>21:22.30</td><td>7:09</td></tr><tr><td>105</td><td><a href='../athletes/david_bossmeyer.html'>Bossmeyer, David</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>25:51.90</td><td>24:50.90</td><td>8:20</td></tr></tbody></table></div></div></section><div class="footer">Generated at <code>2026-08-24 12:06:31</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 <!-- STX_HEADER_SCRIPT_START -->
     <script>
       (() => {

@@ -222,11 +222,12 @@
       .pr-parade-list { display:inline; line-height:1.8; }
       .pr-parade-entry { white-space:nowrap; }
       .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .pr-parade-first { border-color:#d5a928; background:#fffbea; }
+      .pr-parade-first h2 { color:#765b00; }
       .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
       .xc-team-score-heading h3 { margin:0; }
-      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
-      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      body.show-all-xc-teams .xc-team-extra-row { display:table-row; }
       .xc-results-table th { text-align:center; }
       .xc-result-date {
         display:block;
@@ -322,6 +323,29 @@
       .meet-date { color:#64748b; font-size:12px; font-weight:800; }
       .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
       .meet-location { color:#475569; font-size:12px; }
+      .pdf-export-button {
+        border:1px solid #12543f; border-radius:8px; padding:7px 11px;
+        background:#12543f; color:#fff; cursor:pointer;
+        font:700 13px Arial, sans-serif;
+      }
+      .pdf-export-button:hover { background:#0a3b2b; }
+      @page { size: Letter landscape; margin: 0.35in; }
+      @media print {
+        body { margin:0; color:#000; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+        .stx-site-header, .stx-site-menu, .nav, .filterbar,
+        .meet-links, .footer { display:none !important; }
+        .topbar { margin-bottom:8px; }
+        .meetname { font-size:24px; }
+        .card { break-inside:avoid; border-color:#aaa; margin:8px 0; padding:10px; }
+        .pr-parade { break-inside:auto; }
+        .xc-history-heading { break-before:page; margin-top:0; padding-top:0; border-top:0; }
+        .table-wrap { overflow:visible; }
+        table { width:100%; }
+        th, td { padding:4px 5px; font-size:10px; }
+        th { position:static; }
+        .xc-alumni-section { display:none !important; }
+        a { color:inherit; text-decoration:none; }
+      }
     </style>
     
   <!-- STX_HEADER_CSS_START -->
@@ -575,7 +599,7 @@
           <span class="stx-visually-hidden">Close site menu</span>
         </button>
         <p class="stx-menu-label">Explore the site</p>
-        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
+        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../freshman.html">Freshman</a></li><li><a href="../two_mile_progression.html">Two Mile Progression</a></li><li><a href="../data_downloads.html">Data Downloads</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
         <div class="stx-menu-utility">
           <a class="stx-menu-feedback" href="../feedback.html">Share Feedback</a>
           <a class="stx-school-link" href="https://www.saintx.com/">Visit saintx.com&nbsp; ↗</a>
@@ -601,6 +625,13 @@
             <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
             StX Athletes Only
           </label>
+          <label>
+            <input type="checkbox" id="showAllTeamsToggle" onchange="toggleAllTeams(this)">
+            Show all teams
+          </label>
+          <button type="button" class="pdf-export-button" onclick="window.print()">
+            Print / Save PDF
+          </button>
         </div>
         <script>
           function toggleStxOnly(checkbox) {
@@ -610,19 +641,26 @@
               document.body.classList.remove('stx-only');
             }
           }
+          function toggleAllTeams(checkbox) {
+            document.body.classList.toggle('show-all-xc-teams', checkbox.checked);
+          }
           document.addEventListener('DOMContentLoaded', () => {
             const checkbox = document.getElementById('stxOnlyToggle');
             if (checkbox) {
               toggleStxOnly(checkbox);
             }
+            const showAllTeams = document.getElementById('showAllTeamsToggle');
+            if (showAllTeams) {
+              toggleAllTeams(showAllTeams);
+            }
           });
         </script>
         
-    <div class='card pr-parade'>
-      <h2>🎉 PR Parade:</h2>
-      <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/matt_hillenbrand.html'>Hillenbrand, Matt</a>, <span class='pr-time'>17:25.90</span></span></div>
-    </div>
-    <p class='subline muted'>September 29, 2007<br>Victor Ashe Park, Knoxville, TN</p><div class='card'><h2>5K</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2007<span class='xc-result-date'>9/29</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>1</td><td><a href='../athletes/kevin_fleig.html'>Fleig, Kevin</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:56.20</td><td>17:11.00</td><td>5:46</td></tr><tr><td>2</td><td><a href='../athletes/ian_mccaslin.html'>McCaslin, Ian</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>17:56.70</td><td>17:16.90</td><td>5:47</td></tr><tr><td>2</td><td><a href='../athletes/jackson_carnes.html'>Carnes, Jackson</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>16:44.30</td><td>16:04.90</td><td>5:23</td></tr><tr><td>3</td><td><a href='../athletes/anthony_puopolo.html'>Puopolo, Anthony</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:16.90</td><td>17:35.80</td><td>5:53</td></tr><tr><td>4</td><td><a href='../athletes/thomas_mann.html'>Mann, Thomas</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>16:51.60</td><td>16:22.70</td><td>5:26</td></tr><tr><td>5</td><td><a href='../athletes/sam_beavin.html'>Beavin, Sam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:31.80</td><td>17:26.80</td><td>5:58</td></tr><tr><td>6</td><td><a href='../athletes/nick_amlung.html'>Amlung, Nick</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:35.60</td><td>18:09.70</td><td>5:59</td></tr><tr><td>7</td><td><a href='../athletes/john_schieman.html'>Schieman, John</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:45.70</td><td>17:57.30</td><td>6:02</td></tr><tr><td>8</td><td><a href='../athletes/justin_brezosky.html'>Brezosky, Justin</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:58.20</td><td>17:47.80</td><td>6:06</td></tr><tr><td>12</td><td><a href='../athletes/austin_miller.html'>Miller, Austin</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:22.30</td><td>16:32.30</td><td>5:35</td></tr><tr><td>15</td><td><a href='../athletes/matt_hillenbrand.html'>Hillenbrand, Matt</a></td><td>10</td><td class='xc-result-cell xc-result-year-0 pr' title='Personal record'>17:25.90</td><td>17:26.20</td><td>5:37</td></tr><tr><td>21</td><td><a href='../athletes/matt_saldana.html'>Saldana, Matt</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:38.80</td><td>17:20.20</td><td>5:41</td></tr><tr><td>30</td><td><a href='../athletes/sean_van_hoose.html'>Hoose, Sean Van</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:58.30</td><td>16:37.20</td><td>5:47</td></tr><tr><td>32</td><td><a href='../athletes/austin_wilson.html'>Wilson, Austin</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:59.70</td><td>17:07.00</td><td>5:48</td></tr><tr><td>39</td><td><a href='../athletes/austin_carter.html'>Carter, Austin</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>18:12.40</td><td>17:53.80</td><td>5:52</td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-08-06 11:33:20</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+        <div class='card pr-parade '>
+          <h2>🎉 PR Parade:</h2>
+          <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/matt_hillenbrand.html'>Hillenbrand, Matt</a>, <span class='pr-time'>17:25.90</span></span></div>
+        </div>
+        <section class='xc-print-current'><p class='subline muted'>September 29, 2007<br>Victor Ashe Park, Knoxville, TN</p><div class='card'><h2>5K</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2007<span class='xc-result-date'>9/29</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>1</td><td><a href='../athletes/kevin_fleig.html'>Fleig, Kevin</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:56.20</td><td>17:11.00</td><td>5:46</td></tr><tr><td>2</td><td><a href='../athletes/ian_mccaslin.html'>McCaslin, Ian</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>17:56.70</td><td>17:16.90</td><td>5:47</td></tr><tr><td>2</td><td><a href='../athletes/jackson_carnes.html'>Carnes, Jackson</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>16:44.30</td><td>16:04.90</td><td>5:23</td></tr><tr><td>3</td><td><a href='../athletes/anthony_puopolo.html'>Puopolo, Anthony</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:16.90</td><td>17:35.80</td><td>5:53</td></tr><tr><td>4</td><td><a href='../athletes/thomas_mann.html'>Mann, Thomas</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>16:51.60</td><td>16:22.70</td><td>5:26</td></tr><tr><td>5</td><td><a href='../athletes/sam_beavin.html'>Beavin, Sam</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:31.80</td><td>17:26.80</td><td>5:58</td></tr><tr><td>6</td><td><a href='../athletes/nick_amlung.html'>Amlung, Nick</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:35.60</td><td>18:09.70</td><td>5:59</td></tr><tr><td>7</td><td><a href='../athletes/john_schieman.html'>Schieman, John</a></td><td>10</td><td class='xc-result-cell xc-result-year-0'>18:45.70</td><td>17:57.30</td><td>6:02</td></tr><tr><td>8</td><td><a href='../athletes/justin_brezosky.html'>Brezosky, Justin</a></td><td>11</td><td class='xc-result-cell xc-result-year-0'>18:58.20</td><td>17:47.80</td><td>6:06</td></tr><tr><td>12</td><td><a href='../athletes/austin_miller.html'>Miller, Austin</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:22.30</td><td>16:32.30</td><td>5:35</td></tr><tr><td>15</td><td><a href='../athletes/matt_hillenbrand.html'>Hillenbrand, Matt</a></td><td>10</td><td class='xc-result-cell xc-result-year-0 pr' title='Personal record'>17:25.90</td><td>17:26.20</td><td>5:37</td></tr><tr><td>21</td><td><a href='../athletes/matt_saldana.html'>Saldana, Matt</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:38.80</td><td>17:20.20</td><td>5:41</td></tr><tr><td>30</td><td><a href='../athletes/sean_van_hoose.html'>Hoose, Sean Van</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:58.30</td><td>16:37.20</td><td>5:47</td></tr><tr><td>32</td><td><a href='../athletes/austin_wilson.html'>Wilson, Austin</a></td><td>12</td><td class='xc-result-cell xc-result-year-0'>17:59.70</td><td>17:07.00</td><td>5:48</td></tr><tr><td>39</td><td><a href='../athletes/austin_carter.html'>Carter, Austin</a></td><td>9</td><td class='xc-result-cell xc-result-year-0'>18:12.40</td><td>17:53.80</td><td>5:52</td></tr></tbody></table></div></div></section><div class="footer">Generated at <code>2026-08-24 12:11:33</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 <!-- STX_HEADER_SCRIPT_START -->
     <script>
       (() => {

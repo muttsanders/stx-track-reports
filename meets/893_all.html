@@ -222,11 +222,12 @@
       .pr-parade-list { display:inline; line-height:1.8; }
       .pr-parade-entry { white-space:nowrap; }
       .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .pr-parade-first { border-color:#d5a928; background:#fffbea; }
+      .pr-parade-first h2 { color:#765b00; }
       .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
       .xc-team-score-heading h3 { margin:0; }
-      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
-      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      body.show-all-xc-teams .xc-team-extra-row { display:table-row; }
       .xc-results-table th { text-align:center; }
       .xc-result-date {
         display:block;
@@ -322,6 +323,29 @@
       .meet-date { color:#64748b; font-size:12px; font-weight:800; }
       .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
       .meet-location { color:#475569; font-size:12px; }
+      .pdf-export-button {
+        border:1px solid #12543f; border-radius:8px; padding:7px 11px;
+        background:#12543f; color:#fff; cursor:pointer;
+        font:700 13px Arial, sans-serif;
+      }
+      .pdf-export-button:hover { background:#0a3b2b; }
+      @page { size: Letter landscape; margin: 0.35in; }
+      @media print {
+        body { margin:0; color:#000; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+        .stx-site-header, .stx-site-menu, .nav, .filterbar,
+        .meet-links, .footer { display:none !important; }
+        .topbar { margin-bottom:8px; }
+        .meetname { font-size:24px; }
+        .card { break-inside:avoid; border-color:#aaa; margin:8px 0; padding:10px; }
+        .pr-parade { break-inside:auto; }
+        .xc-history-heading { break-before:page; margin-top:0; padding-top:0; border-top:0; }
+        .table-wrap { overflow:visible; }
+        table { width:100%; }
+        th, td { padding:4px 5px; font-size:10px; }
+        th { position:static; }
+        .xc-alumni-section { display:none !important; }
+        a { color:inherit; text-decoration:none; }
+      }
     </style>
     
   <!-- STX_HEADER_CSS_START -->
@@ -575,7 +599,7 @@
           <span class="stx-visually-hidden">Close site menu</span>
         </button>
         <p class="stx-menu-label">Explore the site</p>
-        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
+        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../freshman.html">Freshman</a></li><li><a href="../two_mile_progression.html">Two Mile Progression</a></li><li><a href="../data_downloads.html">Data Downloads</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
         <div class="stx-menu-utility">
           <a class="stx-menu-feedback" href="../feedback.html">Share Feedback</a>
           <a class="stx-school-link" href="https://www.saintx.com/">Visit saintx.com&nbsp; ↗</a>
@@ -601,6 +625,13 @@
             <input type="checkbox" id="stxOnlyToggle" onchange="toggleStxOnly(this)" checked>
             StX Athletes Only
           </label>
+          <label>
+            <input type="checkbox" id="showAllTeamsToggle" onchange="toggleAllTeams(this)">
+            Show all teams
+          </label>
+          <button type="button" class="pdf-export-button" onclick="window.print()">
+            Print / Save PDF
+          </button>
         </div>
         <script>
           function toggleStxOnly(checkbox) {
@@ -610,19 +641,26 @@
               document.body.classList.remove('stx-only');
             }
           }
+          function toggleAllTeams(checkbox) {
+            document.body.classList.toggle('show-all-xc-teams', checkbox.checked);
+          }
           document.addEventListener('DOMContentLoaded', () => {
             const checkbox = document.getElementById('stxOnlyToggle');
             if (checkbox) {
               toggleStxOnly(checkbox);
             }
+            const showAllTeams = document.getElementById('showAllTeamsToggle');
+            if (showAllTeams) {
+              toggleAllTeams(showAllTeams);
+            }
           });
         </script>
         
-    <div class='card pr-parade'>
-      <h2>🎉 PR Parade:</h2>
-      <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/leo_falk.html'>Falk, Leo</a>, <span class='pr-time'>16:22.20</span></span></div>
-    </div>
-    <p class='subline muted'>November 9, 2024<br>Tom Sawyer State Park, Louisville, KY</p><div class='card'><h2>4000 Meter Run</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2024<span class='xc-result-date'>11/9</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>237</td><td><a href='../athletes/leo_falk.html'>Falk, Leo</a></td><td>8</td><td class='xc-result-cell xc-result-year-0 pr' title='Personal record'>16:22.20</td><td>16:45.50</td><td></td></tr></tbody></table></div></div><div class="footer">Generated at <code>2026-08-06 10:43:37</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+        <div class='card pr-parade '>
+          <h2>🎉 PR Parade:</h2>
+          <div class='pr-parade-list'><span class='pr-parade-entry'><a href='../athletes/leo_falk.html'>Falk, Leo</a>, <span class='pr-time'>16:22.20</span></span></div>
+        </div>
+        <section class='xc-print-current'><p class='subline muted'>November 9, 2024<br>Tom Sawyer State Park, Louisville, KY</p><div class='card'><h2>4000 Meter Run</h2><div class='xc-team-score-heading'><h3>Team Scores</h3></div><p class='muted'>No team scores loaded for this race.</p><h3 style='margin-top:24px'>Individual Results</h3><div class='table-wrap'><table class='xc-results-table'><thead><tr><th>Place</th><th>Athlete</th><th>Grade</th><th class='xc-result-year-0'>2024<span class='xc-result-date'>11/9</span></th><th>PR</th><th>Pace</th></tr></thead><tbody><tr><td>237</td><td><a href='../athletes/leo_falk.html'>Falk, Leo</a></td><td>8</td><td class='xc-result-cell xc-result-year-0 pr' title='Personal record'>16:22.20</td><td>16:45.50</td><td></td></tr></tbody></table></div></div></section><div class="footer">Generated at <code>2026-08-24 11:20:01</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
 <!-- STX_HEADER_SCRIPT_START -->
     <script>
       (() => {

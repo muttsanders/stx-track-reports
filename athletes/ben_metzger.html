@@ -222,11 +222,12 @@
       .pr-parade-list { display:inline; line-height:1.8; }
       .pr-parade-entry { white-space:nowrap; }
       .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .pr-parade-first { border-color:#d5a928; background:#fffbea; }
+      .pr-parade-first h2 { color:#765b00; }
       .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
       .xc-team-score-heading h3 { margin:0; }
-      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
-      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      body.show-all-xc-teams .xc-team-extra-row { display:table-row; }
       .xc-results-table th { text-align:center; }
       .xc-result-date {
         display:block;
@@ -322,6 +323,29 @@
       .meet-date { color:#64748b; font-size:12px; font-weight:800; }
       .meet-title { color:#0b5fff; font-size:15px; font-weight:800; line-height:1.25; }
       .meet-location { color:#475569; font-size:12px; }
+      .pdf-export-button {
+        border:1px solid #12543f; border-radius:8px; padding:7px 11px;
+        background:#12543f; color:#fff; cursor:pointer;
+        font:700 13px Arial, sans-serif;
+      }
+      .pdf-export-button:hover { background:#0a3b2b; }
+      @page { size: Letter landscape; margin: 0.35in; }
+      @media print {
+        body { margin:0; color:#000; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+        .stx-site-header, .stx-site-menu, .nav, .filterbar,
+        .meet-links, .footer { display:none !important; }
+        .topbar { margin-bottom:8px; }
+        .meetname { font-size:24px; }
+        .card { break-inside:avoid; border-color:#aaa; margin:8px 0; padding:10px; }
+        .pr-parade { break-inside:auto; }
+        .xc-history-heading { break-before:page; margin-top:0; padding-top:0; border-top:0; }
+        .table-wrap { overflow:visible; }
+        table { width:100%; }
+        th, td { padding:4px 5px; font-size:10px; }
+        th { position:static; }
+        .xc-alumni-section { display:none !important; }
+        a { color:inherit; text-decoration:none; }
+      }
     </style>
     
   <!-- STX_HEADER_CSS_START -->
@@ -575,7 +599,7 @@
           <span class="stx-visually-hidden">Close site menu</span>
         </button>
         <p class="stx-menu-label">Explore the site</p>
-        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
+        <nav aria-label="Primary"><ol class="stx-menu-nav"><li><a href="../index.html">Home</a></li><li><a href="../records.html">StX Records</a></li><li><a href="../depth_chart.html">Depth Chart</a></li><li><a href="../athlete_comparison.html">Athlete Comparison</a></li><li><a href="../freshman.html">Freshman</a></li><li><a href="../two_mile_progression.html">Two Mile Progression</a></li><li><a href="../data_downloads.html">Data Downloads</a></li><li><a href="../coach_sheets/index.html">Pre-Race Sheet Creator</a></li></ol></nav>
         <div class="stx-menu-utility">
           <a class="stx-menu-feedback" href="../feedback.html">Share Feedback</a>
           <a class="stx-school-link" href="https://www.saintx.com/">Visit saintx.com&nbsp; ↗</a>
@@ -622,7 +646,7 @@
       <div id="athlete-results-wrap"><h3 class='section-title'>1600 Meters / 1 Mile</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2014</td><td>2014-05-02</td><td><a href='../meets/353_all.html'>Kentucky Dream Mile</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>10</td><td>4:27.58</td></tr><tr><td>2014</td><td>2014-04-25</td><td><a href='../meets/170_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>35</td><td>4:35.30</td></tr><tr><td>2014</td><td>2014-02-08</td><td><a href='../meets/230_all.html'>Indiana Track Club High School Open</a></td><td>Indoor</td><td>1600 Meters / 1 Mile</td><td>1</td><td>4</td><td>4:33.07</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-1600_meters_1_mile"></canvas></div><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2014</td><td>2014-04-25</td><td><a href='../meets/170_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>30</td><td>9:31.45</td></tr><tr><td>2014</td><td>2014-02-22</td><td><a href='../meets/373_all.html'>UK High School Invitational</a></td><td>Indoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>3</td><td>9:57.30</td></tr><tr><td>2013</td><td>2013-04-27</td><td><a href='../meets/175_all.html'>Eastern Relays</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>55</td><td>9:55.23</td></tr><tr><td>2013</td><td>2013-04-13</td><td><a href='../meets/173_all.html'>Male Invitational</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>5</td><td>10:26.91</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>4x800 Relay</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>team_raw</th><th>Leg</th><th>Place</th><th>Result</th><th>Total_Laps</th></tr></thead><tbody><tr><td>2014</td><td>2014-05-23</td><td><a href='../meets/172_all.html'>Kentucky State Outdoor Track Meet</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>3</td><td>8:02.11</td><td></td></tr><tr><td>2014</td><td>2014-05-15</td><td><a href='../meets/171_all.html'>KHSAA Regionals Outdoor</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>3</td><td>1</td><td>8:06.34</td><td></td></tr><tr><td>2013</td><td>2013-04-13</td><td><a href='../meets/173_all.html'>Male Invitational</a></td><td>Outdoor</td><td>4x800 Relay</td><td>1</td><td>St Xavier (KY)</td><td>4</td><td>6</td><td>9:26.08</td><td></td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-4x800_relay"></canvas></div></div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-08-06 11:47:01</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-08-24 12:26:37</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {

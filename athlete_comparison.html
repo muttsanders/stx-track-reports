@@ -5752,6 +5752,12 @@
             <label><input type="radio" name="time_period" value="current_season" onchange="updateChart()"> Current Season</label>
         </div>
 
+        <div class="filter-group" id="spacing-filter-group">
+            <span class="label">Graph Spacing:</span>
+            <label><input type="radio" name="spacing_mode" value="true_time" onchange="updateChart()" checked> True Time Series</label>
+            <label><input type="radio" name="spacing_mode" value="sequential" onchange="updateChart()"> Sequential</label>
+        </div>
+
         <div class="filter-group" id="x-filter-group">
             <span class="label">X-Axis:</span>
             <label><input type="radio" name="x_mode" value="school" onchange="updateChart()" checked> Year in School</label>
@@ -120843,6 +120849,10 @@
       function getXMode() {
         return document.querySelector('input[name="x_mode"]:checked').value; // 'school' or 'actual'
       }
+      function getSpacingMode() {
+        const selected = document.querySelector('input[name="spacing_mode"]:checked');
+        return selected ? selected.value : 'true_time';
+      }
       function getViewMode() {
         return document.querySelector('input[name="view_mode"]:checked').value; // 'all_data' or 'pr_only'
       }
@@ -120858,16 +120868,30 @@
       function setChartControlsEnabled(enabled) {
         const timeInputs = Array.from(document.querySelectorAll('input[name="time_period"]'));
         const xInputs = Array.from(document.querySelectorAll('input[name="x_mode"]'));
-        timeInputs.concat(xInputs).forEach(input => input.disabled = !enabled);
+        const spacingInputs = Array.from(document.querySelectorAll('input[name="spacing_mode"]'));
+        const sequential = getSpacingMode() === 'sequential';
+        timeInputs.concat(spacingInputs).forEach(input => input.disabled = !enabled);
+        xInputs.forEach(input => input.disabled = !enabled || sequential);
 
         const timeGroup = document.getElementById('time-filter-group');
         const xGroup = document.getElementById('x-filter-group');
+        const spacingGroup = document.getElementById('spacing-filter-group');
         if (timeGroup) timeGroup.classList.toggle('disabled', !enabled);
-        if (xGroup) xGroup.classList.toggle('disabled', !enabled);
+        if (xGroup) xGroup.classList.toggle('disabled', !enabled || sequential);
+        if (spacingGroup) spacingGroup.classList.toggle('disabled', !enabled);
       }
 
-      function applyXAxisMode(chart, mode) {
+      function applyXAxisMode(chart, mode, spacingMode) {
         if (!chart) return;
+        if (spacingMode === 'sequential') {
+          chart.options.scales.x.type = 'linear';
+          chart.options.scales.x.title.text = 'Race Sequence';
+          chart.options.scales.x.ticks.callback = function(value) {
+            return Number.isInteger(value) && value >= 1 ? `Race ${value}` : '';
+          };
+          return;
+        }
+        chart.options.scales.x.type = 'time';
         if (mode === 'actual') {
           chart.options.scales.x.title.text = 'Actual Year';
           chart.options.scales.x.time.unit = 'year';
@@ -121021,8 +121045,10 @@
         const timePeriod = getTimePeriod();
         const xMode = getXMode();
         const xKey = (xMode === 'actual') ? 'x_actual' : 'x_school';
+        const spacingMode = getSpacingMode();
 
-        applyXAxisMode(chart, xMode);
+        applyXAxisMode(chart, xMode, spacingMode);
+        setChartControlsEnabled(true);
 
         chart.data.datasets = [];
         selectedAthletes.forEach((athleteName, index) => {
@@ -121032,11 +121058,12 @@
           const pts = athleteDataContainer[timePeriod];
           if (!pts || pts.length === 0) return;
 
-          const mapped = pts.map(p => {
+          const mapped = pts.map((p, pointIndex) => {
             return {
-              x: p[xKey],
+              x: spacingMode === 'sequential' ? pointIndex + 1 : p[xKey],
               y: p.y,
-              meet: p.meet
+              meet: p.meet,
+              raceDate: p.x_actual
             };
           });
 
