@@ -640,13 +640,22 @@
           <input type="checkbox" id="graphToggle" onchange="toggleGraphs(this)" checked>
           Show Graph
         </label>
-        <span class="muted">(default on)</span>
+        <span style="margin-left: 15px; font-weight:700;">Graph Spacing:</span>
+        <label>
+          <input type="radio" name="athlete_graph_spacing" value="true_time" onchange="updateAthleteGraphSpacing()" checked>
+          True Time Series
+        </label>
+        <label>
+          <input type="radio" name="athlete_graph_spacing" value="sequential" onchange="updateAthleteGraphSpacing()">
+          Sequential
+        </label>
+        <span class="muted">(true time series is the default)</span>
       </div>
       <p class='muted'>No split data available for this athlete (in the selected years).</p>
       <div id="athlete-results-wrap"><h3 class='section-title'>3200 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2023</td><td>2023-02-24</td><td><a href='../meets/63_all.html'>Saint Xavier Time Trial</a></td><td>Outdoor</td><td>3200 Meters / 2 Miles</td><td>1</td><td>30</td><td>14:59.52</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3200_meters_2_miles"></canvas></div><h3 class='section-title'>3219 Meters / 2 Miles</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2022</td><td>2022-08-12</td><td><a href='../meets/1106_all.html'>Two Mile Time Trial #2 - Manual</a></td><td>Outdoor</td><td>3219 Meters / 2 Miles</td><td>xc</td><td>57</td><td>16:28.54</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-3219_meters_2_miles"></canvas></div><h3 class='section-title'>5000 Meters</h3><div class="table-wrap"><table><thead><tr><th>Year</th><th>Date</th><th>Meet</th><th>Loc</th><th>Event</th><th>Group</th><th>Place</th><th>Result</th></tr></thead><tbody><tr><td>2022</td><td>2022-10-20</td><td><a href='../meets/879_all.html'>Louisville Metro JV XC Championship</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>180</td><td>23:02.60</td></tr><tr><td>2022</td><td>2022-10-14</td><td><a href='../meets/803_all.html'>KTCCCA Meet of Champions</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>208</td><td>24:29.07</td></tr><tr><td>2022</td><td>2022-10-08</td><td><a href='../meets/768_all.html'>Haunted Woods Classic</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>91</td><td>23:15.39</td></tr><tr><td>2022</td><td>2022-09-16</td><td><a href='../meets/1041_all.html'>Trinity/Valkyrie Invitational</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>172</td><td>22:57.82</td></tr><tr><td>2022</td><td>2022-09-09</td><td><a href='../meets/959_all.html'>Rumble Through the Jungle</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>186</td><td>25:45.02</td></tr><tr><td>2022</td><td>2022-08-27</td><td><a href='../meets/1033_all.html'>St. Xavier Tiger Run</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>200</td><td>25:22.07</td></tr><tr><td>2022</td><td>2022-08-20</td><td><a href='../meets/694_all.html'>Central Kentucky Run for the Gold</a></td><td>Outdoor</td><td>5000 Meters</td><td>xc</td><td>169</td><td>25:29.42</td></tr></tbody></table></div><div class="chart-container"><canvas id="chart-5000_meters"></canvas></div></div>
       <p class="muted">When splits are shown: fastest lap is green, slowest lap is red.</p>
     </div>
-    <div class="footer">Generated at <code>2026-08-24 12:27:02</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+    <div class="footer">Generated at <code>2026-08-24 15:04:03</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     
     <script>
       function activateTab(tabId) {
@@ -739,6 +748,7 @@
     }
   ]
 };
+      const athleteCharts = {};
 
       function formatChartTime(seconds) {
         if (seconds === null || seconds === undefined) return '';
@@ -747,16 +757,54 @@
         return `${mins}:${secs.padStart(5, '0')}`;
       }
 
+      function getAthleteGraphSpacing() {
+        const selected = document.querySelector(
+          'input[name="athlete_graph_spacing"]:checked'
+        );
+        return selected ? selected.value : 'true_time';
+      }
+
+      function athleteChartPoints(data, spacingMode) {
+        return data.map((point, index) => ({
+          ...point,
+          date: point.x,
+          x: spacingMode === 'sequential' ? index + 1 : point.x
+        }));
+      }
+
+      function applyAthleteGraphSpacing(chart, data, spacingMode) {
+        chart.data.datasets[0].data = athleteChartPoints(data, spacingMode);
+        if (spacingMode === 'sequential') {
+          chart.options.scales.x.type = 'linear';
+          chart.options.scales.x.title.text = 'Race Sequence';
+          chart.options.scales.x.ticks.callback = function(value) {
+            return Number.isInteger(value) && value >= 1 ? `Race ${value}` : '';
+          };
+        } else {
+          chart.options.scales.x.type = 'time';
+          chart.options.scales.x.title.text = 'Date';
+          chart.options.scales.x.ticks.callback = undefined;
+        }
+      }
+
+      function updateAthleteGraphSpacing() {
+        const spacingMode = getAthleteGraphSpacing();
+        Object.values(athleteCharts).forEach(entry => {
+          applyAthleteGraphSpacing(entry.chart, entry.data, spacingMode);
+          entry.chart.update();
+        });
+      }
+
       function createChart(canvasId, data) {
         const canvas = document.getElementById(canvasId);
         if (!canvas || !data || data.length === 0) return;
 
-        new Chart(canvas, {
+        const chart = new Chart(canvas, {
           type: 'line',
           data: {
             datasets: [{
               label: 'Performance',
-              data: data,
+              data: athleteChartPoints(data, getAthleteGraphSpacing()),
               borderColor: '#0b5fff',
               backgroundColor: 'rgba(11, 95, 255, 0.1)',
               fill: false,
@@ -789,7 +837,7 @@
                     return meetName;
                   },
                   label: function(context) {
-                    const date = new Date(context.parsed.x);
+                    const date = new Date(context.raw.date);
                     const dateStr = date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
                     return `Date: ${dateStr}\nTime: ${formatChartTime(context.parsed.y)}`;
                   }
@@ -798,6 +846,9 @@
             }
           }
         });
+        athleteCharts[canvasId] = { chart: chart, data: data };
+        applyAthleteGraphSpacing(chart, data, getAthleteGraphSpacing());
+        chart.update();
       }
 
       document.addEventListener('DOMContentLoaded', () => {
