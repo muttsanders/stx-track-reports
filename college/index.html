@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nick Sanders &amp; USAFA Reports</title>
+  <style>
+    :root { --blue:#003087; --gold:#ffd166; --ink:#172033; --muted:#5e6878; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#f4f7fb; font:16px/1.5 Arial,sans-serif; }
+    header { padding:42px clamp(20px,6vw,80px); color:white;
+      background:linear-gradient(120deg,#00205b,#0073cf); }
+    .eyebrow { font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    h1 { margin:5px 0 8px; font-size:clamp(32px,5vw,54px); }
+    header p { max-width:760px; margin:0; font-size:18px; }
+    main { max-width:1100px; margin:auto; padding:32px 24px; }
+    .report-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .report-card { display:flex; flex-direction:column; min-height:245px; padding:24px;
+      color:inherit; background:white; border:1px solid #d8dee8; border-radius:15px;
+      box-shadow:0 4px 16px rgba(20,45,80,.08); text-decoration:none; }
+    .report-card:hover, .report-card:focus-visible { border-color:#0073cf;
+      box-shadow:0 7px 22px rgba(0,48,135,.18); transform:translateY(-2px); }
+    .report-card h2 { margin:8px 0; color:var(--blue); font-size:24px; }
+    .report-card p { margin:0 0 20px; color:var(--muted); }
+    .report-card .open { margin-top:auto; color:var(--blue); font-weight:800; }
+    .tag { align-self:flex-start; padding:4px 9px; color:#5d4300; background:var(--gold);
+      border-radius:999px; font-size:12px; font-weight:800; text-transform:uppercase; }
+    @media (max-width:780px) { .report-grid { grid-template-columns:1fr; }
+      .report-card { min-height:0; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">College Comparison Lab</div>
+    <h1>Nick Sanders &amp; USAFA</h1>
+    <p>Choose a report below. Every report includes a Home button that returns to this page.</p>
+  </header>
+  <main>
+    <div class="report-grid">
+      <a class="report-card" href="nick_vs_air_force_xc.html">
+        <span class="tag">Cross-Country</span>
+        <h2>Nick vs. Air Force XC</h2>
+        <p>Compare Nick's StX progression with USAFA roster and performance data.</p>
+        <span class="open">Open XC comparison &rarr;</span>
+      </a>
+      <a class="report-card" href="usafa_four_year_races.html">
+        <span class="tag">USAFA Team</span>
+        <h2>Four-Year Race Breakdown</h2>
+        <p>View every stored USAFA race by season and class, including postseason participants.</p>
+        <span class="open">Open race breakdown &rarr;</span>
+      </a>
+      <a class="report-card" href="nick_vs_air_force_track.html">
+        <span class="tag">Track</span>
+        <h2>Nick vs. Air Force Track</h2>
+        <p>Compare 800-meter through two-mile progression and roster outlooks.</p>
+        <span class="open">Open Track comparison &rarr;</span>
+      </a>
+      <a class="report-card" href="usafa_four_year_track.html">
+        <span class="tag">USAFA Track</span>
+        <h2>Four-Year Track Breakdown</h2>
+        <p>View 800-meter-and-longer performances and relays by season, meet, event, and class.</p>
+        <span class="open">Open Track breakdown &rarr;</span>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
