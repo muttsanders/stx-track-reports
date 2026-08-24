@@ -222,11 +222,12 @@
       .pr-parade-list { display:inline; line-height:1.8; }
       .pr-parade-entry { white-space:nowrap; }
       .pr-parade .pr-time { color:#A0522D; font-weight:800; }
+      .pr-parade-first { border-color:#d5a928; background:#fffbea; }
+      .pr-parade-first h2 { color:#765b00; }
       .xc-team-score-heading { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:24px; }
       .xc-team-score-heading h3 { margin:0; }
-      .xc-team-score-heading label { cursor:pointer; font-size:14px; font-weight:normal; }
       .xc-team-extra-row { display:none; }
-      .xc-team-table.show-all-teams .xc-team-extra-row { display:table-row; }
+      body.show-all-xc-teams .xc-team-extra-row { display:table-row; }
       .xc-results-table th { text-align:center; }
       .xc-result-date {
         display:block;
@@ -332,8 +333,7 @@
       @media print {
         body { margin:0; color:#000; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
         .stx-site-header, .stx-site-menu, .nav, .filterbar,
-        .meet-links, .footer, .xc-team-score-heading label,
-        .xc-print-hidden-history { display:none !important; }
+        .meet-links, .footer { display:none !important; }
         .topbar { margin-bottom:8px; }
         .meetname { font-size:24px; }
         .card { break-inside:avoid; border-color:#aaa; margin:8px 0; padding:10px; }
@@ -343,13 +343,6 @@
         table { width:100%; }
         th, td { padding:4px 5px; font-size:10px; }
         th { position:static; }
-        .non-stx-row { display:none !important; }
-        .xc-team-extra-row { display:table-row !important; }
-        .xc-print-current .xc-result-year-2,
-        .xc-print-current .xc-result-year-3,
-        .xc-print-prior .xc-result-year-1,
-        .xc-print-prior .xc-result-year-2,
-        .xc-print-prior .xc-result-year-3,
         .xc-alumni-section { display:none !important; }
         a { color:inherit; text-decoration:none; }
       }
@@ -959,7 +952,7 @@
         </div>
         
       </section>
-      <div class="footer">Generated at <code>2026-08-22 18:52:48</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
+      <div class="footer">Generated at <code>2026-08-24 10:45:05</code> from <code>C:\Users\Bob\OneDrive\StX_XC_Track_V2\data\stx_track.db</code></div>
     </div>
     <script>
       const coachStoragePrefix = "coach-pre-race-82";
